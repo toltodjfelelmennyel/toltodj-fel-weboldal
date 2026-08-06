@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Töltődj fel élménnyel</title>
+
   <meta
     name="description"
     content="Elektromos motorbérlés, pályahasználat, túralehetőségek és élményajándék."
-  />
+  >
 
   <style>
     :root {
       --bg: #030303;
-      --bg-2: #0b0b0b;
-      --panel: rgba(255,255,255,0.03);
       --text: #ffffff;
       --muted: #d8d8d8;
       --orange: #ff7a00;
       --orange-2: #ff9a2f;
       --orange-border: rgba(255, 122, 0, 0.55);
-      --blue: #0a6bff;
       --max: 1180px;
-      --radius: 22px;
     }
 
     * {
@@ -41,6 +39,10 @@
       line-height: 1.45;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     img {
       display: block;
       max-width: 100%;
@@ -51,19 +53,23 @@
       text-decoration: none;
     }
 
+    button {
+      font: inherit;
+    }
+
     .container {
       width: min(calc(100% - 40px), var(--max));
       margin: 0 auto;
     }
 
-    /* ---------- felső sáv ---------- */
+    /* ---------- FELSŐ SÁV ---------- */
 
     .topbar {
       position: sticky;
       top: 0;
       z-index: 50;
       background: rgba(0, 0, 0, 0.9);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(8px);
     }
 
@@ -93,18 +99,26 @@
     .topbar-right {
       display: flex;
       align-items: center;
-      gap: 26px;
-      flex-wrap: wrap;
       justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 26px;
     }
 
     .contact-item {
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      padding: 0;
+      border: 0;
+      background: transparent;
       color: #f1f1f1;
       font-size: 1rem;
       white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .contact-item:hover {
+      color: var(--orange-2);
     }
 
     .contact-icon {
@@ -116,19 +130,27 @@
     .divider {
       width: 1px;
       height: 24px;
-      background: rgba(255,255,255,0.18);
+      background: rgba(255, 255, 255, 0.18);
     }
 
-    /* ---------- hero ---------- */
+    /* ---------- NYITÓRÉSZ ---------- */
 
     .hero {
       position: relative;
       overflow: hidden;
       padding: 30px 0 34px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       background:
-        radial-gradient(circle at 75% 20%, rgba(0, 98, 255, 0.18), transparent 25%),
-        radial-gradient(circle at 86% 34%, rgba(255, 122, 0, 0.14), transparent 24%),
+        radial-gradient(
+          circle at 75% 20%,
+          rgba(0, 98, 255, 0.18),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 86% 34%,
+          rgba(255, 122, 0, 0.14),
+          transparent 24%
+        ),
         #000;
     }
 
@@ -140,7 +162,7 @@
     }
 
     .hero-copy {
-      padding: 10px 0 10px;
+      padding: 10px 0;
     }
 
     .hero-title {
@@ -150,7 +172,7 @@
       font-weight: 900;
       letter-spacing: -0.05em;
       font-style: italic;
-      text-shadow: 0 4px 18px rgba(0,0,0,0.85);
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
       transform: skewX(-8deg);
     }
 
@@ -167,15 +189,15 @@
     .hero-title .line-2 {
       color: var(--orange);
       text-shadow:
-        0 0 14px rgba(255,122,0,0.45),
-        0 0 36px rgba(255,122,0,0.22);
+        0 0 14px rgba(255, 122, 0, 0.45),
+        0 0 36px rgba(255, 122, 0, 0.22);
     }
 
     .hero-text {
       max-width: 620px;
+      margin-bottom: 26px;
       color: #eeeeee;
       font-size: clamp(1.05rem, 1.55vw, 1.35rem);
-      margin-bottom: 26px;
     }
 
     .feature-badges {
@@ -187,44 +209,47 @@
 
     .badge {
       min-height: 62px;
-      padding: 12px 18px;
-      border: 1px solid var(--orange-border);
-      border-radius: 14px;
-      background: rgba(0,0,0,0.45);
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      padding: 12px 18px;
+      border: 1px solid var(--orange-border);
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.45);
       color: #fff;
-      font-weight: 700;
       font-size: 1rem;
+      font-weight: 700;
     }
 
     .badge-icon {
+      flex: 0 0 auto;
       color: var(--orange);
       font-size: 1.45rem;
       line-height: 1;
-      flex: 0 0 auto;
     }
 
     .cta-button {
+      min-height: 66px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 66px;
       padding: 16px 34px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 14px;
       background: linear-gradient(180deg, #ff8d22, #ff6a00);
+      box-shadow: 0 10px 28px rgba(255, 122, 0, 0.28);
       color: white;
       font-size: 1.1rem;
       font-weight: 700;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 28px rgba(255,122,0,0.28);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .cta-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 32px rgba(255,122,0,0.35);
+      box-shadow: 0 14px 32px rgba(255, 122, 0, 0.35);
     }
 
     .hero-visual {
@@ -236,8 +261,8 @@
     .hero-image {
       width: 100%;
       max-width: 560px;
-      border-radius: 18px;
       overflow: hidden;
+      border-radius: 18px;
     }
 
     .hero-image img {
@@ -246,12 +271,11 @@
       object-fit: cover;
     }
 
-    /* ---------- tartalmi blokkok ---------- */
+    /* ---------- TARTALMI BLOKKOK ---------- */
 
     .sections {
       padding: 34px 0 26px;
-      background:
-        linear-gradient(180deg, #020202 0%, #050505 100%);
+      background: linear-gradient(180deg, #020202 0%, #050505 100%);
     }
 
     .content-row {
@@ -275,11 +299,11 @@
     }
 
     .content-image {
-      border-radius: 20px;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
       background: #111;
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.28);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
     }
 
     .content-image img {
@@ -294,58 +318,188 @@
     }
 
     .content-text h2 {
-      font-size: clamp(2rem, 3.8vw, 3.55rem);
-      line-height: 1.05;
       margin-bottom: 18px;
+      font-size: clamp(2rem, 3.8vw, 3.55rem);
       font-weight: 800;
+      line-height: 1.05;
       letter-spacing: -0.04em;
     }
 
     .content-text p {
+      max-width: 430px;
       color: var(--muted);
       font-size: 1.05rem;
-      max-width: 430px;
     }
 
-    /* ---------- alsó CTA ---------- */
+    /* ---------- ALSÓ KAPCSOLATI BLOKK ---------- */
 
     .bottom-cta {
       position: relative;
       overflow: hidden;
       padding: 54px 0 58px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       background:
-        radial-gradient(circle at 3% 100%, rgba(0, 98, 255, 0.30), transparent 20%),
-        radial-gradient(circle at 100% 100%, rgba(255, 122, 0, 0.30), transparent 20%),
+        radial-gradient(
+          circle at 3% 100%,
+          rgba(0, 98, 255, 0.3),
+          transparent 20%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(255, 122, 0, 0.3),
+          transparent 20%
+        ),
         #050505;
       text-align: center;
     }
 
     .bottom-cta h2 {
-      font-size: clamp(2.1rem, 4vw, 4rem);
-      line-height: 1.08;
       margin-bottom: 8px;
+      font-size: clamp(2.1rem, 4vw, 4rem);
       font-weight: 800;
+      line-height: 1.08;
       letter-spacing: -0.04em;
     }
 
     .bottom-cta p {
+      margin-bottom: 24px;
       color: #ececec;
       font-size: clamp(1.05rem, 1.8vw, 1.45rem);
-      margin-bottom: 24px;
     }
 
-    /* ---------- reszponzív ---------- */
+    /* ---------- KAPCSOLATFELVÉTELI ABLAK ---------- */
+
+    .contact-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(8px);
+    }
+
+    .contact-modal.is-open {
+      display: flex;
+    }
+
+    .contact-modal-dialog {
+      position: relative;
+      width: min(100%, 430px);
+      padding: 34px;
+      border: 1px solid rgba(255, 122, 0, 0.5);
+      border-radius: 20px;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(255, 122, 0, 0.14),
+          transparent 36%
+        ),
+        #0b0b0d;
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(255, 122, 0, 0.12);
+      text-align: center;
+    }
+
+    .contact-modal-dialog h2 {
+      margin-bottom: 8px;
+      font-size: 1.8rem;
+      line-height: 1.15;
+    }
+
+    .contact-modal-dialog > p {
+      margin-bottom: 25px;
+      color: #cfcfcf;
+    }
+
+    .contact-modal-options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-option {
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 18px;
+      border: 1px solid rgba(255, 122, 0, 0.45);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.035);
+      color: #fff;
+      text-align: left;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .contact-option:hover {
+      transform: translateY(-2px);
+      border-color: var(--orange);
+      background: rgba(255, 122, 0, 0.12);
+    }
+
+    .contact-option[hidden] {
+      display: none;
+    }
+
+    .contact-option-icon {
+      width: 38px;
+      flex: 0 0 38px;
+      color: var(--orange);
+      font-size: 1.55rem;
+      text-align: center;
+    }
+
+    .contact-option-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-option-title {
+      font-weight: 700;
+    }
+
+    .contact-option-detail {
+      color: #aaa;
+      font-size: 0.84rem;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .contact-modal-close:hover {
+      background: rgba(255, 122, 0, 0.22);
+    }
+
+    /* ---------- TABLET ---------- */
 
     @media (max-width: 980px) {
       .topbar-inner {
         min-height: auto;
-        padding: 14px 0;
         align-items: flex-start;
         flex-direction: column;
+        padding: 14px 0;
       }
 
       .topbar-right {
+        justify-content: flex-start;
         gap: 14px;
       }
 
@@ -385,6 +539,8 @@
       }
     }
 
+    /* ---------- MOBIL ---------- */
+
     @media (max-width: 680px) {
       .container {
         width: min(calc(100% - 24px), var(--max));
@@ -394,8 +550,18 @@
         font-size: 0.95rem;
       }
 
+      .topbar-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .contact-item {
+        max-width: 100%;
         font-size: 0.92rem;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: left;
       }
 
       .hero {
@@ -435,40 +601,70 @@
       .bottom-cta p {
         font-size: 1rem;
       }
+
+      .contact-modal-dialog {
+        padding: 30px 18px 22px;
+      }
+
+      .contact-modal-dialog h2 {
+        padding-inline: 25px;
+        font-size: 1.55rem;
+      }
     }
   </style>
 </head>
+
 <body>
+
+  <!-- FELSŐ KAPCSOLATI SÁV -->
 
   <header class="topbar">
     <div class="container topbar-inner">
+
       <a href="#kezdolap" class="brand">
         <span class="brand-icon">⚡</span>
         <span>Töltődj fel élménnyel</span>
       </a>
 
       <div class="topbar-right">
-        <a class="contact-item" href="mailto:toltodjfelelmennyel@gmail.com">
+
+        <!-- Az e-mail-cím közvetlenül megnyitja a levelezőt -->
+
+        <a
+          class="contact-item"
+          href="mailto:toltodjfelelmennyel@gmail.com"
+        >
           <span class="contact-icon">✉</span>
           <span>toltodjfelelmennyel@gmail.com</span>
         </a>
 
-        <span class="divider"></span>
+        <span class="divider" aria-hidden="true"></span>
 
-        <a class="contact-item" href="tel:+36307009338">
+        <!-- A telefonszám hívás/SMS választót nyit -->
+
+        <button
+          type="button"
+          class="contact-item"
+          data-contact-modal="phone"
+          aria-label="Kapcsolatfelvétel telefonon"
+        >
           <span class="contact-icon">📞</span>
-          <span>+36307009338</span>
-        </a>
+          <span>+36 30 700 9338</span>
+        </button>
+
       </div>
     </div>
   </header>
 
   <main>
 
+    <!-- NYITÓRÉSZ -->
+
     <section class="hero" id="kezdolap">
       <div class="container hero-grid">
 
         <div class="hero-copy">
+
           <h1 class="hero-title">
             <span class="line-1">Töltődj fel</span>
             <span class="line-2">élménnyel</span>
@@ -481,6 +677,7 @@
           </p>
 
           <div class="feature-badges">
+
             <div class="badge">
               <span class="badge-icon">🏍</span>
               <span>Több méret</span>
@@ -495,80 +692,292 @@
               <span class="badge-icon">★</span>
               <span>100% élmény</span>
             </div>
+
           </div>
 
-          <a href="#kapcsolat" class="cta-button">Kapcsolatfelvétel</a>
+          <button
+            type="button"
+            class="cta-button"
+            data-contact-modal="all"
+          >
+            Kapcsolatfelvétel
+          </button>
+
         </div>
 
         <div class="hero-visual">
           <div class="hero-image">
-            <img src="images/hero.jpg" alt="Villámos motoros nyitókép" />
+            <img
+              src="images/hero.jpg"
+              alt="Elektromos terepmotor és motoros villámos háttérben"
+            >
           </div>
         </div>
 
       </div>
     </section>
 
+    <!-- SZOLGÁLTATÁSOK -->
+
     <section class="sections">
       <div class="container">
 
         <article class="content-row">
+
           <div class="content-image">
-            <img src="images/palya.jpg" alt="Pályahasználat elektromos motorral" />
+            <img
+              src="images/palya.jpg"
+              alt="Elektromos motor használata tereppályán"
+            >
           </div>
+
           <div class="content-text">
-            <h2>Pályahasználatra<br>is bérelhető</h2>
+            <h2>
+              Pályahasználatra<br>
+              is bérelhető
+            </h2>
+
             <p>
-              Elektromos motorjaink tökéletesek pályahasználatra, gyakorláshoz
-              és adrenalindús élményekhez. Akár kezdő vagy, akár tapasztalt
-              motoros, nálunk biztosan megtalálod a számodra ideális lehetőséget.
+              Elektromos motorjaink tökéletesek pályahasználatra,
+              gyakorláshoz és adrenalindús élményekhez. Akár kezdő vagy,
+              akár tapasztalt motoros, nálunk biztosan megtalálod a
+              számodra ideális lehetőséget.
             </p>
           </div>
+
         </article>
 
         <article class="content-row reverse">
+
           <div class="content-image">
-            <img src="images/tura.jpg" alt="Túrákhoz és csapatépítő programokhoz" />
+            <img
+              src="images/tura.jpg"
+              alt="Elektromos motoros túra és csapatépítő program"
+            >
           </div>
+
           <div class="content-text">
-            <h2>Túrákhoz és<br>csapatépítő programokhoz</h2>
+            <h2>
+              Túrákhoz és<br>
+              csapatépítő programokhoz
+            </h2>
+
             <p>
               Fedezd fel a természetet, éld át a közös kalandok erejét!
               Túráink, vezetett programjaink és csapatépítő eseményeink
-              felejthetetlen élményt nyújtanak baráti társaságoknak,
-              és cégeknek egyaránt – elektromos erővel, a szabadban.
+              felejthetetlen élményt nyújtanak baráti társaságoknak és
+              cégeknek egyaránt – elektromos erővel, a szabadban.
             </p>
           </div>
+
         </article>
 
         <article class="content-row">
+
           <div class="content-image">
-            <img src="images/ajandek.jpg" alt="Ajándéknak is tökéletes élmény" />
+            <img
+              src="images/ajandek.jpg"
+              alt="Elektromos motoros élmény ajándékba"
+            >
           </div>
+
           <div class="content-text">
-            <h2>Ajándéknak<br>is tökéletes</h2>
+            <h2>
+              Ajándéknak<br>
+              is tökéletes
+            </h2>
+
             <p>
               Lepd meg szeretteidet egy igazán különleges élménnyel!
               Születésnapra, névnapra vagy csak úgy – tökéletes ajándék
               mindazoknak, akik szeretik a kalandot és a motorok világát.
             </p>
           </div>
+
         </article>
 
       </div>
     </section>
 
+    <!-- ALSÓ KAPCSOLATFELVÉTEL -->
+
     <section class="bottom-cta" id="kapcsolat">
       <div class="container">
+
         <h2>Készen állsz egy új élményre?</h2>
-        <p>Vedd fel velünk a kapcsolatot, és indulhat a kaland!</p>
-        <a href="mailto:toltodjfelelmennyel@gmail.com" class="cta-button">
+
+        <p>
+          Vedd fel velünk a kapcsolatot, és indulhat a kaland!
+        </p>
+
+        <button
+          type="button"
+          class="cta-button"
+          data-contact-modal="all"
+        >
           Kapcsolatfelvétel
-        </a>
+        </button>
+
       </div>
     </section>
 
   </main>
+
+  <!-- KAPCSOLATFELVÉTELI VÁLASZTÓABLAK -->
+
+  <div
+    class="contact-modal"
+    id="contactModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="contactModalTitle"
+    aria-hidden="true"
+  >
+    <div class="contact-modal-dialog">
+
+      <button
+        type="button"
+        class="contact-modal-close"
+        id="contactModalClose"
+        aria-label="A kapcsolatfelvételi ablak bezárása"
+      >
+        ×
+      </button>
+
+      <h2 id="contactModalTitle">
+        Hogyan lépnél kapcsolatba velünk?
+      </h2>
+
+      <p>
+        Válaszd ki a számodra megfelelő lehetőséget.
+      </p>
+
+      <div class="contact-modal-options">
+
+        <a
+          href="tel:+36307009338"
+          class="contact-option"
+          id="callOption"
+        >
+          <span class="contact-option-icon">📞</span>
+
+          <span class="contact-option-text">
+            <span class="contact-option-title">
+              Telefonhívás
+            </span>
+
+            <span class="contact-option-detail">
+              +36 30 700 9338
+            </span>
+          </span>
+        </a>
+
+        <a
+          href="sms:+36307009338"
+          class="contact-option"
+          id="messageOption"
+        >
+          <span class="contact-option-icon">💬</span>
+
+          <span class="contact-option-text">
+            <span class="contact-option-title">
+              Üzenet írása
+            </span>
+
+            <span class="contact-option-detail">
+              SMS küldése
+            </span>
+          </span>
+        </a>
+
+        <a
+          href="mailto:toltodjfelelmennyel@gmail.com"
+          class="contact-option"
+          id="emailOption"
+        >
+          <span class="contact-option-icon">✉</span>
+
+          <span class="contact-option-text">
+            <span class="contact-option-title">
+              E-mail írása
+            </span>
+
+            <span class="contact-option-detail">
+              toltodjfelelmennyel@gmail.com
+            </span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- KAPCSOLATI ABLAK MŰKÖDÉSE -->
+
+  <script>
+    const contactModal = document.getElementById("contactModal");
+    const contactModalClose = document.getElementById("contactModalClose");
+    const emailOption = document.getElementById("emailOption");
+    const modalButtons = document.querySelectorAll("[data-contact-modal]");
+
+    let lastFocusedElement = null;
+
+    function openContactModal(mode, triggeringElement) {
+      lastFocusedElement = triggeringElement;
+
+      /*
+        A telefonszámra kattintva csak a hívás és az SMS látható.
+        A Kapcsolatfelvétel gomboknál mindhárom lehetőség látható.
+      */
+
+      emailOption.hidden = mode === "phone";
+
+      contactModal.classList.add("is-open");
+      contactModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+
+      contactModalClose.focus();
+    }
+
+    function closeContactModal() {
+      contactModal.classList.remove("is-open");
+      contactModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    modalButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        openContactModal(
+          button.dataset.contactModal,
+          button
+        );
+      });
+    });
+
+    contactModalClose.addEventListener(
+      "click",
+      closeContactModal
+    );
+
+    contactModal.addEventListener("click", (event) => {
+      if (event.target === contactModal) {
+        closeContactModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        contactModal.classList.contains("is-open")
+      ) {
+        closeContactModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
