@@ -13,13 +13,12 @@
 
   <style>
     :root {
-      --bg: #030303;
       --text: #ffffff;
       --muted: #d8d8d8;
       --orange: #ff7a00;
-      --orange-2: #ff9a2f;
+      --orange-light: #ff9a2f;
       --orange-border: rgba(255, 122, 0, 0.55);
-      --max: 1180px;
+      --max-width: 1180px;
     }
 
     * {
@@ -33,9 +32,10 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      min-width: 320px;
       background: #000;
       color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.45;
     }
 
@@ -58,19 +58,21 @@
     }
 
     .container {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
     }
 
-    /* ---------- FELSŐ SÁV ---------- */
+    /* ========================================
+       FELSŐ KAPCSOLATI SÁV
+       ======================================== */
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(0, 0, 0, 0.9);
+      z-index: 100;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
     }
 
     .topbar-inner {
@@ -78,13 +80,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 12px;
+      flex-shrink: 0;
+      color: #fff;
       font-size: 1.05rem;
       font-weight: 700;
       white-space: nowrap;
@@ -100,7 +104,6 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      flex-wrap: wrap;
       gap: 26px;
     }
 
@@ -115,10 +118,11 @@
       font-size: 1rem;
       white-space: nowrap;
       cursor: pointer;
+      transition: color 0.2s ease;
     }
 
     .contact-item:hover {
-      color: var(--orange-2);
+      color: var(--orange-light);
     }
 
     .contact-icon {
@@ -129,57 +133,71 @@
 
     .divider {
       width: 1px;
-      height: 24px;
+      height: 25px;
       background: rgba(255, 255, 255, 0.18);
     }
 
-    /* ---------- NYITÓRÉSZ ---------- */
+    /* ========================================
+       NYITÓRÉSZ
+       ======================================== */
 
     .hero {
       position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
       overflow: hidden;
-      padding: 30px 0 34px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      background:
-        radial-gradient(
-          circle at 75% 20%,
-          rgba(0, 98, 255, 0.18),
-          transparent 25%
+
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.98) 0%,
+          rgba(0, 0, 0, 0.91) 30%,
+          rgba(0, 0, 0, 0.66) 50%,
+          rgba(0, 0, 0, 0.24) 72%,
+          rgba(0, 0, 0, 0.08) 100%
         ),
-        radial-gradient(
-          circle at 86% 34%,
-          rgba(255, 122, 0, 0.14),
-          transparent 24%
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.04) 65%,
+          rgba(0, 0, 0, 0.6) 88%,
+          #000 100%
         ),
-        #000;
+        url("images/hero.jpg");
+
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.03fr 0.97fr;
-      gap: 22px;
-      align-items: center;
+    .hero-inner {
+      width: 100%;
+      padding-block: 70px;
     }
 
     .hero-copy {
-      padding: 10px 0;
+      position: relative;
+      z-index: 2;
+      width: min(650px, 58%);
     }
 
     .hero-title {
-      margin-bottom: 18px;
-      line-height: 0.9;
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: -0.05em;
+      margin-bottom: 25px;
       font-style: italic;
-      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
-      transform: skewX(-8deg);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+      text-shadow: 0 5px 22px rgba(0, 0, 0, 0.9);
+      transform: skewX(-7deg);
+      transform-origin: left center;
     }
 
     .hero-title .line-1,
     .hero-title .line-2 {
       display: block;
-      font-size: clamp(3rem, 7.5vw, 6.5rem);
+      font-size: clamp(3.2rem, 7.2vw, 6.5rem);
     }
 
     .hero-title .line-1 {
@@ -189,15 +207,16 @@
     .hero-title .line-2 {
       color: var(--orange);
       text-shadow:
-        0 0 14px rgba(255, 122, 0, 0.45),
-        0 0 36px rgba(255, 122, 0, 0.22);
+        0 0 14px rgba(255, 122, 0, 0.55),
+        0 0 36px rgba(255, 122, 0, 0.24);
     }
 
     .hero-text {
-      max-width: 620px;
-      margin-bottom: 26px;
-      color: #eeeeee;
+      max-width: 610px;
+      margin-bottom: 27px;
+      color: #f0f0f0;
       font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
     }
 
     .feature-badges {
@@ -215,10 +234,12 @@
       padding: 12px 18px;
       border: 1px solid var(--orange-border);
       border-radius: 14px;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.67);
       color: #fff;
       font-size: 1rem;
       font-weight: 700;
+      text-align: left;
+      backdrop-filter: blur(5px);
     }
 
     .badge-icon {
@@ -228,17 +249,21 @@
       line-height: 1;
     }
 
+    /* ========================================
+       NARANCSSÁRGA GOMBOK
+       ======================================== */
+
     .cta-button {
-      min-height: 66px;
+      min-height: 64px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 16px 34px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 15px 34px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
       border-radius: 14px;
-      background: linear-gradient(180deg, #ff8d22, #ff6a00);
+      background: linear-gradient(180deg, #ff922d, #ff6800);
       box-shadow: 0 10px 28px rgba(255, 122, 0, 0.28);
-      color: white;
+      color: #fff;
       font-size: 1.1rem;
       font-weight: 700;
       cursor: pointer;
@@ -249,41 +274,38 @@
 
     .cta-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 32px rgba(255, 122, 0, 0.35);
+      box-shadow: 0 14px 34px rgba(255, 122, 0, 0.38);
     }
 
-    .hero-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .cta-button:focus-visible,
+    .contact-item:focus-visible,
+    .contact-option:focus-visible,
+    .contact-modal-close:focus-visible {
+      outline: 3px solid rgba(255, 154, 47, 0.7);
+      outline-offset: 3px;
     }
 
-    .hero-image {
-      width: 100%;
-      max-width: 560px;
-      overflow: hidden;
-      border-radius: 18px;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    /* ---------- TARTALMI BLOKKOK ---------- */
+    /* ========================================
+       SZOLGÁLTATÁSI BLOKKOK
+       ======================================== */
 
     .sections {
-      padding: 34px 0 26px;
-      background: linear-gradient(180deg, #020202 0%, #050505 100%);
+      padding: 45px 0 28px;
+      background:
+        radial-gradient(
+          circle at 95% 28%,
+          rgba(255, 122, 0, 0.04),
+          transparent 22%
+        ),
+        linear-gradient(180deg, #000 0%, #050505 100%);
     }
 
     .content-row {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 34px;
+      gap: 42px;
       align-items: center;
-      margin-bottom: 44px;
+      margin-bottom: 54px;
     }
 
     .content-row.reverse {
@@ -300,25 +322,31 @@
 
     .content-image {
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
       background: #111;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34);
     }
 
     .content-image img {
       width: 100%;
       height: 100%;
-      min-height: 260px;
+      min-height: 310px;
       object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .content-image:hover img {
+      transform: scale(1.025);
     }
 
     .content-text {
-      padding: 8px 8px 8px 2px;
+      padding: 10px 8px 10px 2px;
     }
 
     .content-text h2 {
-      margin-bottom: 18px;
+      margin-bottom: 19px;
+      color: #fff;
       font-size: clamp(2rem, 3.8vw, 3.55rem);
       font-weight: 800;
       line-height: 1.05;
@@ -326,28 +354,30 @@
     }
 
     .content-text p {
-      max-width: 430px;
+      max-width: 440px;
       color: var(--muted);
       font-size: 1.05rem;
     }
 
-    /* ---------- ALSÓ KAPCSOLATI BLOKK ---------- */
+    /* ========================================
+       ALSÓ KAPCSOLATI RÉSZ
+       ======================================== */
 
     .bottom-cta {
       position: relative;
       overflow: hidden;
-      padding: 54px 0 58px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 55px 0 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
       background:
         radial-gradient(
-          circle at 3% 100%,
-          rgba(0, 98, 255, 0.3),
-          transparent 20%
+          circle at 0% 100%,
+          rgba(0, 98, 255, 0.32),
+          transparent 23%
         ),
         radial-gradient(
           circle at 100% 100%,
-          rgba(255, 122, 0, 0.3),
-          transparent 20%
+          rgba(255, 122, 0, 0.34),
+          transparent 23%
         ),
         #050505;
       text-align: center;
@@ -355,6 +385,7 @@
 
     .bottom-cta h2 {
       margin-bottom: 8px;
+      color: #fff;
       font-size: clamp(2.1rem, 4vw, 4rem);
       font-weight: 800;
       line-height: 1.08;
@@ -362,12 +393,14 @@
     }
 
     .bottom-cta p {
-      margin-bottom: 24px;
+      margin-bottom: 25px;
       color: #ececec;
       font-size: clamp(1.05rem, 1.8vw, 1.45rem);
     }
 
-    /* ---------- KAPCSOLATFELVÉTELI ABLAK ---------- */
+    /* ========================================
+       KAPCSOLATFELVÉTELI FELUGRÓ ABLAK
+       ======================================== */
 
     .contact-modal {
       position: fixed;
@@ -377,8 +410,8 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.82);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.84);
+      backdrop-filter: blur(9px);
     }
 
     .contact-modal.is-open {
@@ -387,27 +420,29 @@
 
     .contact-modal-dialog {
       position: relative;
-      width: min(100%, 430px);
-      padding: 34px;
-      border: 1px solid rgba(255, 122, 0, 0.5);
-      border-radius: 20px;
+      width: min(100%, 440px);
+      padding: 36px;
+      border: 1px solid rgba(255, 122, 0, 0.52);
+      border-radius: 21px;
       background:
         radial-gradient(
           circle at top right,
-          rgba(255, 122, 0, 0.14),
-          transparent 36%
+          rgba(255, 122, 0, 0.16),
+          transparent 38%
         ),
         #0b0b0d;
       box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.7),
-        0 0 35px rgba(255, 122, 0, 0.12);
+        0 25px 80px rgba(0, 0, 0, 0.72),
+        0 0 38px rgba(255, 122, 0, 0.13);
       text-align: center;
     }
 
     .contact-modal-dialog h2 {
-      margin-bottom: 8px;
+      margin-bottom: 9px;
+      padding-inline: 20px;
+      color: #fff;
       font-size: 1.8rem;
-      line-height: 1.15;
+      line-height: 1.16;
     }
 
     .contact-modal-dialog > p {
@@ -421,13 +456,13 @@
     }
 
     .contact-option {
-      min-height: 62px;
+      min-height: 64px;
       display: flex;
       align-items: center;
       gap: 14px;
       padding: 13px 18px;
       border: 1px solid rgba(255, 122, 0, 0.45);
-      border-radius: 12px;
+      border-radius: 13px;
       background: rgba(255, 255, 255, 0.035);
       color: #fff;
       text-align: left;
@@ -456,6 +491,7 @@
     }
 
     .contact-option-text {
+      min-width: 0;
       display: flex;
       flex-direction: column;
     }
@@ -474,59 +510,80 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      width: 38px;
-      height: 38px;
+      width: 39px;
+      height: 39px;
       border: 0;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.08);
       color: #fff;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
+      line-height: 1;
       cursor: pointer;
+      transition: background 0.2s ease;
     }
 
     .contact-modal-close:hover {
-      background: rgba(255, 122, 0, 0.22);
+      background: rgba(255, 122, 0, 0.23);
     }
 
-    /* ---------- TABLET ---------- */
+    /* ========================================
+       TABLET NÉZET
+       ======================================== */
 
     @media (max-width: 980px) {
       .topbar-inner {
         min-height: auto;
         align-items: flex-start;
         flex-direction: column;
-        padding: 14px 0;
+        padding-block: 14px;
       }
 
       .topbar-right {
         justify-content: flex-start;
-        gap: 14px;
+        flex-wrap: wrap;
+        gap: 14px 20px;
       }
 
       .divider {
         display: none;
       }
 
-      .hero-grid {
-        grid-template-columns: 1fr;
+      .hero {
+        min-height: 750px;
+        align-items: flex-end;
+
+        background-image:
+          linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.03) 0%,
+            rgba(0, 0, 0, 0.08) 25%,
+            rgba(0, 0, 0, 0.42) 48%,
+            rgba(0, 0, 0, 0.9) 73%,
+            #000 100%
+          ),
+          linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.08)
+          ),
+          url("images/hero.jpg");
+
+        background-position: 66% center;
+      }
+
+      .hero-inner {
+        padding-block: 290px 55px;
       }
 
       .hero-copy {
-        order: 2;
-      }
-
-      .hero-visual {
-        order: 1;
-      }
-
-      .hero-image {
-        max-width: 720px;
+        width: 100%;
+        max-width: 690px;
       }
 
       .content-row,
       .content-row.reverse {
         grid-template-columns: 1fr;
-        gap: 22px;
+        gap: 24px;
       }
 
       .content-row.reverse .content-image,
@@ -539,50 +596,65 @@
       }
     }
 
-    /* ---------- MOBIL ---------- */
+    /* ========================================
+       MOBILNÉZET
+       ======================================== */
 
     @media (max-width: 680px) {
       .container {
-        width: min(calc(100% - 24px), var(--max));
+        width: min(calc(100% - 24px), var(--max-width));
       }
 
       .brand {
-        font-size: 0.95rem;
+        font-size: 0.96rem;
       }
 
       .topbar-right {
         width: 100%;
         flex-direction: column;
         align-items: flex-start;
+        gap: 11px;
       }
 
       .contact-item {
         max-width: 100%;
-        font-size: 0.92rem;
+        font-size: 0.9rem;
         white-space: normal;
         overflow-wrap: anywhere;
         text-align: left;
       }
 
       .hero {
-        padding-top: 18px;
+        min-height: 760px;
+        background-position: 65% top;
+      }
+
+      .hero-inner {
+        padding-block: 330px 44px;
+      }
+
+      .hero-title {
+        margin-bottom: 20px;
       }
 
       .hero-title .line-1,
       .hero-title .line-2 {
-        font-size: clamp(2.6rem, 13vw, 4.3rem);
+        font-size: clamp(2.8rem, 14vw, 4.5rem);
       }
 
       .hero-text {
+        margin-bottom: 22px;
         font-size: 1rem;
       }
 
       .feature-badges {
         flex-direction: column;
+        gap: 10px;
       }
 
       .badge {
         width: 100%;
+        min-height: 56px;
         justify-content: flex-start;
       }
 
@@ -590,12 +662,24 @@
         width: 100%;
       }
 
+      .sections {
+        padding-top: 30px;
+      }
+
+      .content-row {
+        margin-bottom: 44px;
+      }
+
+      .content-image img {
+        min-height: 245px;
+      }
+
       .content-text h2 {
-        font-size: clamp(1.8rem, 8vw, 2.8rem);
+        font-size: clamp(1.85rem, 8.5vw, 2.8rem);
       }
 
       .bottom-cta h2 {
-        font-size: clamp(1.9rem, 9vw, 3rem);
+        font-size: clamp(1.95rem, 9vw, 3rem);
       }
 
       .bottom-cta p {
@@ -603,12 +687,27 @@
       }
 
       .contact-modal-dialog {
-        padding: 30px 18px 22px;
+        padding: 32px 18px 22px;
       }
 
       .contact-modal-dialog h2 {
-        padding-inline: 25px;
-        font-size: 1.55rem;
+        padding-inline: 24px;
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero {
+        min-height: 720px;
+      }
+
+      .hero-inner {
+        padding-top: 300px;
+      }
+
+      .hero-title .line-1,
+      .hero-title .line-2 {
+        font-size: clamp(2.55rem, 13vw, 3.7rem);
       }
     }
   </style>
@@ -622,33 +721,34 @@
     <div class="container topbar-inner">
 
       <a href="#kezdolap" class="brand">
-        <span class="brand-icon">⚡</span>
+        <span class="brand-icon" aria-hidden="true">⚡</span>
         <span>Töltődj fel élménnyel</span>
       </a>
 
       <div class="topbar-right">
 
-        <!-- Az e-mail-cím közvetlenül megnyitja a levelezőt -->
+        <!-- Az e-mail-cím közvetlenül megnyitja a levelezőprogramot. -->
 
         <a
           class="contact-item"
           href="mailto:toltodjfelelmennyel@gmail.com"
+          aria-label="E-mail írása a Töltődj fel élménnyel részére"
         >
-          <span class="contact-icon">✉</span>
+          <span class="contact-icon" aria-hidden="true">✉</span>
           <span>toltodjfelelmennyel@gmail.com</span>
         </a>
 
         <span class="divider" aria-hidden="true"></span>
 
-        <!-- A telefonszám hívás/SMS választót nyit -->
+        <!-- A telefonszám hívás vagy SMS választót nyit. -->
 
         <button
           type="button"
           class="contact-item"
           data-contact-modal="phone"
-          aria-label="Kapcsolatfelvétel telefonon"
+          aria-label="Telefonos kapcsolatfelvételi lehetőségek megnyitása"
         >
-          <span class="contact-icon">📞</span>
+          <span class="contact-icon" aria-hidden="true">📞</span>
           <span>+36 30 700 9338</span>
         </button>
 
@@ -658,10 +758,10 @@
 
   <main>
 
-    <!-- NYITÓRÉSZ -->
+    <!-- NYITÓRÉSZ: A HERO.JPG A TELJES HÁTTÉR -->
 
     <section class="hero" id="kezdolap">
-      <div class="container hero-grid">
+      <div class="container hero-inner">
 
         <div class="hero-copy">
 
@@ -679,17 +779,17 @@
           <div class="feature-badges">
 
             <div class="badge">
-              <span class="badge-icon">🏍</span>
+              <span class="badge-icon" aria-hidden="true">🏍</span>
               <span>Több méret</span>
             </div>
 
             <div class="badge">
-              <span class="badge-icon">⚡</span>
+              <span class="badge-icon" aria-hidden="true">⚡</span>
               <span>Szabályozható teljesítmény</span>
             </div>
 
             <div class="badge">
-              <span class="badge-icon">★</span>
+              <span class="badge-icon" aria-hidden="true">★</span>
               <span>100% élmény</span>
             </div>
 
@@ -704,16 +804,6 @@
           </button>
 
         </div>
-
-        <div class="hero-visual">
-          <div class="hero-image">
-            <img
-              src="images/hero.jpg"
-              alt="Elektromos terepmotor és motoros villámos háttérben"
-            >
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -728,6 +818,7 @@
             <img
               src="images/palya.jpg"
               alt="Elektromos motor használata tereppályán"
+              loading="lazy"
             >
           </div>
 
@@ -753,6 +844,7 @@
             <img
               src="images/tura.jpg"
               alt="Elektromos motoros túra és csapatépítő program"
+              loading="lazy"
             >
           </div>
 
@@ -778,6 +870,7 @@
             <img
               src="images/ajandek.jpg"
               alt="Elektromos motoros élmény ajándékba"
+              loading="lazy"
             >
           </div>
 
@@ -859,7 +952,7 @@
           class="contact-option"
           id="callOption"
         >
-          <span class="contact-option-icon">📞</span>
+          <span class="contact-option-icon" aria-hidden="true">📞</span>
 
           <span class="contact-option-text">
             <span class="contact-option-title">
@@ -877,7 +970,7 @@
           class="contact-option"
           id="messageOption"
         >
-          <span class="contact-option-icon">💬</span>
+          <span class="contact-option-icon" aria-hidden="true">💬</span>
 
           <span class="contact-option-text">
             <span class="contact-option-title">
@@ -895,7 +988,7 @@
           class="contact-option"
           id="emailOption"
         >
-          <span class="contact-option-icon">✉</span>
+          <span class="contact-option-icon" aria-hidden="true">✉</span>
 
           <span class="contact-option-text">
             <span class="contact-option-title">
@@ -926,8 +1019,8 @@
       lastFocusedElement = triggeringElement;
 
       /*
-        A telefonszámra kattintva csak a hívás és az SMS látható.
-        A Kapcsolatfelvétel gomboknál mindhárom lehetőség látható.
+        A felső telefonszámnál csak a telefonhívás és az SMS jelenik meg.
+        A két Kapcsolatfelvétel gombnál mindhárom lehetőség megjelenik.
       */
 
       emailOption.hidden = mode === "phone";
