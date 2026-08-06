@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Töltődj fel élménnyel – Elektromos motorbérlés</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Töltődj fel élménnyel</title>
   <meta
     name="description"
-    content="Elektromos motorbérlés, pályahasználat, vezetett túrák és felejthetetlen motoros élmények."
-  >
+    content="Elektromos motorbérlés, pályahasználat, túralehetőségek és élményajándék."
+  />
 
   <style>
     :root {
-      --orange: #ff6a00;
-      --orange-light: #ff8a24;
-      --black: #050505;
-      --dark: #0b0b0d;
-      --dark-light: #151518;
-      --white: #ffffff;
-      --grey: #c7c7c7;
-      --border: rgba(255, 106, 0, 0.55);
-      --max-width: 1180px;
+      --bg: #030303;
+      --bg-2: #0b0b0b;
+      --panel: rgba(255,255,255,0.03);
+      --text: #ffffff;
+      --muted: #d8d8d8;
+      --orange: #ff7a00;
+      --orange-2: #ff9a2f;
+      --orange-border: rgba(255, 122, 0, 0.55);
+      --blue: #0a6bff;
+      --max: 1180px;
+      --radius: 22px;
     }
 
     * {
@@ -35,13 +35,10 @@
     }
 
     body {
-      background:
-        radial-gradient(circle at 80% 15%, rgba(0, 91, 255, 0.12), transparent 28%),
-        radial-gradient(circle at 20% 30%, rgba(255, 106, 0, 0.10), transparent 25%),
-        var(--black);
-      color: var(--white);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      background: #000;
+      color: var(--text);
+      line-height: 1.45;
     }
 
     img {
@@ -55,536 +52,523 @@
     }
 
     .container {
-      width: min(calc(100% - 40px), var(--max-width));
-      margin-inline: auto;
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
     }
 
-    /* FEJLÉC */
+    /* ---------- felső sáv ---------- */
 
-    .header {
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.88);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
+      z-index: 50;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
     }
 
-    .header-inner {
+    .topbar-inner {
       min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .brand-icon {
       color: var(--orange);
-      font-size: 2rem;
+      font-size: 1.9rem;
       line-height: 1;
     }
 
-    /* GOMBOK */
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-    .button {
+    .contact-item {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 12px 28px;
-      border: 1px solid var(--orange);
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--orange), var(--orange-light));
-      color: var(--white);
+      gap: 10px;
+      color: #f1f1f1;
       font-size: 1rem;
-      font-weight: 700;
-      text-align: center;
-      cursor: pointer;
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+      white-space: nowrap;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(255, 106, 0, 0.3);
+    .contact-icon {
+      color: var(--orange);
+      font-size: 1.45rem;
+      line-height: 1;
     }
 
-    .button-outline {
-      background: transparent;
-      color: var(--orange-light);
+    .divider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255,255,255,0.18);
     }
 
-    /* NYITÓRÉSZ */
+    /* ---------- hero ---------- */
 
     .hero {
       position: relative;
       overflow: hidden;
-      min-height: 690px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 30px 0 34px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       background:
-        linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.96) 0%,
-          rgba(0, 0, 0, 0.82) 46%,
-          rgba(0, 0, 0, 0.25) 100%
-        ),
-        url("images/hero.jpg") center / cover no-repeat;
+        radial-gradient(circle at 75% 20%, rgba(0, 98, 255, 0.18), transparent 25%),
+        radial-gradient(circle at 86% 34%, rgba(255, 122, 0, 0.14), transparent 24%),
+        #000;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 180px;
-      background: linear-gradient(transparent, var(--black));
-      pointer-events: none;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: 22px;
+      align-items: center;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: min(690px, 100%);
-      padding-block: 90px;
-    }
-
-    .eyebrow {
-      margin-bottom: 12px;
-      color: var(--orange-light);
-      font-size: 0.9rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+    .hero-copy {
+      padding: 10px 0 10px;
     }
 
     .hero-title {
-      margin-bottom: 24px;
-      font-size: clamp(3rem, 8vw, 6.7rem);
-      font-weight: 950;
-      font-style: italic;
-      line-height: 0.88;
-      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+      line-height: 0.9;
       text-transform: uppercase;
-      text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      font-style: italic;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.85);
+      transform: skewX(-8deg);
     }
 
-    .hero-title span {
+    .hero-title .line-1,
+    .hero-title .line-2 {
       display: block;
+      font-size: clamp(3rem, 7.5vw, 6.5rem);
+    }
+
+    .hero-title .line-1 {
+      color: #f6f8ff;
+    }
+
+    .hero-title .line-2 {
       color: var(--orange);
       text-shadow:
-        0 0 12px rgba(255, 106, 0, 0.55),
-        0 0 36px rgba(255, 106, 0, 0.22);
+        0 0 14px rgba(255,122,0,0.45),
+        0 0 36px rgba(255,122,0,0.22);
     }
 
-    .hero-description {
-      max-width: 650px;
-      margin-bottom: 28px;
+    .hero-text {
+      max-width: 620px;
       color: #eeeeee;
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+      margin-bottom: 26px;
     }
 
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .feature-badges {
+      display: flex;
+      flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
-    .benefit {
-      min-height: 76px;
+    .badge {
+      min-height: 62px;
+      padding: 12px 18px;
+      border: 1px solid var(--orange-border);
+      border-radius: 14px;
+      background: rgba(0,0,0,0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .badge-icon {
+      color: var(--orange);
+      font-size: 1.45rem;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 66px;
+      padding: 16px 34px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #ff8d22, #ff6a00);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 28px rgba(255,122,0,0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(255,122,0,0.35);
+    }
+
+    .hero-visual {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.68);
-      text-align: center;
-      font-weight: 700;
     }
 
-    .benefit-icon {
-      color: var(--orange);
-      font-size: 1.55rem;
+    .hero-image {
+      width: 100%;
+      max-width: 560px;
+      border-radius: 18px;
+      overflow: hidden;
     }
 
-    /* TARTALMI RÉSZEK */
-
-    .services {
-      padding-block: 90px;
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
 
-    .service {
+    /* ---------- tartalmi blokkok ---------- */
+
+    .sections {
+      padding: 34px 0 26px;
+      background:
+        linear-gradient(180deg, #020202 0%, #050505 100%);
+    }
+
+    .content-row {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 55px;
+      gap: 34px;
       align-items: center;
-      margin-bottom: 85px;
+      margin-bottom: 44px;
     }
 
-    .service:last-child {
-      margin-bottom: 0;
-    }
-
-    .service.reverse {
+    .content-row.reverse {
       grid-template-columns: 0.85fr 1.15fr;
     }
 
-    .service.reverse .service-image {
+    .content-row.reverse .content-image {
       order: 2;
     }
 
-    .service.reverse .service-content {
+    .content-row.reverse .content-text {
       order: 1;
     }
 
-    .service-image {
+    .content-image {
+      border-radius: 20px;
       overflow: hidden;
-      min-height: 390px;
-      border: 1px solid rgba(255, 106, 0, 0.22);
-      border-radius: 24px;
-      background: var(--dark-light);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.28);
     }
 
-    .service-image img {
+    .content-image img {
       width: 100%;
       height: 100%;
-      min-height: 390px;
+      min-height: 260px;
       object-fit: cover;
-      transition: transform 0.5s ease;
     }
 
-    .service-image:hover img {
-      transform: scale(1.035);
+    .content-text {
+      padding: 8px 8px 8px 2px;
     }
 
-    .service-content h2 {
+    .content-text h2 {
+      font-size: clamp(2rem, 3.8vw, 3.55rem);
+      line-height: 1.05;
       margin-bottom: 18px;
-      font-size: clamp(2rem, 4vw, 3.15rem);
-      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.04em;
     }
 
-    .service-content p {
-      margin-bottom: 24px;
-      color: var(--grey);
-      font-size: 1.08rem;
+    .content-text p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 430px;
     }
 
-    /* ZÁRÓ BLOKK */
+    /* ---------- alsó CTA ---------- */
 
-    .cta {
+    .bottom-cta {
       position: relative;
       overflow: hidden;
-      padding-block: 75px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 54px 0 58px;
+      border-top: 1px solid rgba(255,255,255,0.06);
       background:
-        radial-gradient(circle at left, rgba(0, 88, 255, 0.2), transparent 30%),
-        radial-gradient(circle at right, rgba(255, 106, 0, 0.22), transparent 30%),
-        #070708;
+        radial-gradient(circle at 3% 100%, rgba(0, 98, 255, 0.30), transparent 20%),
+        radial-gradient(circle at 100% 100%, rgba(255, 122, 0, 0.30), transparent 20%),
+        #050505;
       text-align: center;
     }
 
-    .cta h2 {
+    .bottom-cta h2 {
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 1.08;
       margin-bottom: 8px;
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
     }
 
-    .cta p {
-      margin-bottom: 26px;
-      color: var(--grey);
-      font-size: 1.2rem;
+    .bottom-cta p {
+      color: #ececec;
+      font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+      margin-bottom: 24px;
     }
 
-    /* LÁBLÉC */
+    /* ---------- reszponzív ---------- */
 
-    .footer {
-      padding-block: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      color: #8e8e8e;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    /* MOBILNÉZET */
-
-    @media (max-width: 850px) {
-      .header-inner {
-        min-height: 68px;
+    @media (max-width: 980px) {
+      .topbar-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
       }
 
-      .header .button {
-        min-height: 44px;
-        padding: 10px 16px;
-        font-size: 0.9rem;
+      .topbar-right {
+        gap: 14px;
+      }
+
+      .divider {
+        display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        order: 2;
+      }
+
+      .hero-visual {
+        order: 1;
+      }
+
+      .hero-image {
+        max-width: 720px;
+      }
+
+      .content-row,
+      .content-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .content-row.reverse .content-image,
+      .content-row.reverse .content-text {
+        order: initial;
+      }
+
+      .content-text p {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 24px), var(--max));
       }
 
       .brand {
         font-size: 0.95rem;
       }
 
+      .contact-item {
+        font-size: 0.92rem;
+      }
+
       .hero {
-        min-height: auto;
-        background:
-          linear-gradient(
-            rgba(0, 0, 0, 0.48),
-            rgba(0, 0, 0, 0.92)
-          ),
-          url("images/hero.jpg") 66% center / cover no-repeat;
+        padding-top: 18px;
       }
 
-      .hero-content {
-        padding-block: 110px 75px;
+      .hero-title .line-1,
+      .hero-title .line-2 {
+        font-size: clamp(2.6rem, 13vw, 4.3rem);
       }
 
-      .benefits {
-        grid-template-columns: 1fr;
-      }
-
-      .service,
-      .service.reverse {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        margin-bottom: 65px;
-      }
-
-      .service.reverse .service-image,
-      .service.reverse .service-content {
-        order: initial;
-      }
-
-      .service-image,
-      .service-image img {
-        min-height: 280px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .container {
-        width: min(calc(100% - 28px), var(--max-width));
-      }
-
-      .brand span:last-child {
-        display: none;
-      }
-
-      .hero-title {
-        font-size: clamp(3rem, 17vw, 4.6rem);
-      }
-
-      .hero-description {
+      .hero-text {
         font-size: 1rem;
       }
 
-      .button {
+      .feature-badges {
+        flex-direction: column;
+      }
+
+      .badge {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .cta-button {
         width: 100%;
       }
 
-      .services {
-        padding-block: 65px;
+      .content-text h2 {
+        font-size: clamp(1.8rem, 8vw, 2.8rem);
+      }
+
+      .bottom-cta h2 {
+        font-size: clamp(1.9rem, 9vw, 3rem);
+      }
+
+      .bottom-cta p {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- FEJLÉC -->
-
-  <header class="header">
-    <div class="container header-inner">
-
+  <header class="topbar">
+    <div class="container topbar-inner">
       <a href="#kezdolap" class="brand">
         <span class="brand-icon">⚡</span>
         <span>Töltődj fel élménnyel</span>
       </a>
 
-      <a href="#kapcsolat" class="button">
-        Kapcsolatfelvétel
-      </a>
+      <div class="topbar-right">
+        <a class="contact-item" href="mailto:toltodjfelelmennyel@gmail.com">
+          <span class="contact-icon">✉</span>
+          <span>toltodjfelelmennyel@gmail.com</span>
+        </a>
 
+        <span class="divider"></span>
+
+        <a class="contact-item" href="tel:+36307009338">
+          <span class="contact-icon">📞</span>
+          <span>+36307009338</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
 
-    <!-- NYITÓRÉSZ -->
-
     <section class="hero" id="kezdolap">
-      <div class="container">
+      <div class="container hero-grid">
 
-        <div class="hero-content">
-
-          <p class="eyebrow">Elektromos motorbérlés</p>
-
+        <div class="hero-copy">
           <h1 class="hero-title">
-            Töltődj fel
-            <span>élménnyel</span>
+            <span class="line-1">Töltődj fel</span>
+            <span class="line-2">élménnyel</span>
           </h1>
 
-          <p class="hero-description">
+          <p class="hero-text">
             Hagyd magad mögött a hétköznapok fáradalmait,
             emeld maximumra az adrenalinszinted, és töltődj fel
             felejthetetlen élményekkel!
           </p>
 
-          <div class="benefits">
-
-            <div class="benefit">
-              <span class="benefit-icon">🏍</span>
+          <div class="feature-badges">
+            <div class="badge">
+              <span class="badge-icon">🏍</span>
               <span>Több méret</span>
             </div>
 
-            <div class="benefit">
-              <span class="benefit-icon">⚡</span>
+            <div class="badge">
+              <span class="badge-icon">⚡</span>
               <span>Szabályozható teljesítmény</span>
             </div>
 
-            <div class="benefit">
-              <span class="benefit-icon">★</span>
+            <div class="badge">
+              <span class="badge-icon">★</span>
               <span>100% élmény</span>
             </div>
-
           </div>
 
-          <a href="#kapcsolat" class="button">
-            Kapcsolatfelvétel
-          </a>
-
+          <a href="#kapcsolat" class="cta-button">Kapcsolatfelvétel</a>
         </div>
+
+        <div class="hero-visual">
+          <div class="hero-image">
+            <img src="images/hero.jpg" alt="Villámos motoros nyitókép" />
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- SZOLGÁLTATÁSOK -->
-
-    <section class="services">
+    <section class="sections">
       <div class="container">
 
-        <article class="service">
-
-          <div class="service-image">
-            <img
-              src="images/palya.jpg"
-              alt="Elektromos motor pályahasználat közben"
-            >
+        <article class="content-row">
+          <div class="content-image">
+            <img src="images/palya.jpg" alt="Pályahasználat elektromos motorral" />
           </div>
-
-          <div class="service-content">
-            <p class="eyebrow">Pályahasználat</p>
-
-            <h2>Pályahasználatra is bérelhető</h2>
-
+          <div class="content-text">
+            <h2>Pályahasználatra<br>is bérelhető</h2>
             <p>
-              Elektromos motorjaink tökéletesek pályahasználatra,
-              gyakorláshoz és adrenalindús élményekhez. Akár kezdő vagy,
-              akár tapasztalt motoros, nálunk megtalálhatod a számodra
-              megfelelő lehetőséget.
+              Elektromos motorjaink tökéletesek pályahasználatra, gyakorláshoz
+              és adrenalindús élményekhez. Akár kezdő vagy, akár tapasztalt
+              motoros, nálunk biztosan megtalálod a számodra ideális lehetőséget.
             </p>
-
-            <a href="#kapcsolat" class="button button-outline">
-              Pályabérlés
-            </a>
           </div>
-
         </article>
 
-        <article class="service reverse">
-
-          <div class="service-image">
-            <img
-              src="images/tura.jpg"
-              alt="Elektromos motoros túra"
-            >
+        <article class="content-row reverse">
+          <div class="content-image">
+            <img src="images/tura.jpg" alt="Túrákhoz és csapatépítő programokhoz" />
           </div>
-
-          <div class="service-content">
-            <p class="eyebrow">Közös program</p>
-
-            <h2>Túrákhoz és csapatépítő programokhoz</h2>
-
+          <div class="content-text">
+            <h2>Túrákhoz és<br>csapatépítő programokhoz</h2>
             <p>
-              Fedezd fel a természetet, és éld át a közös kalandok
-              erejét! Túráink, vezetett programjaink és csapatépítő
-              eseményeink felejthetetlen élményt nyújtanak baráti
-              társaságoknak, családoknak és cégeknek.
+              Fedezd fel a természetet, éld át a közös kalandok erejét!
+              Túráink, vezetett programjaink és csapatépítő eseményeink
+              felejthetetlen élményt nyújtanak baráti társaságoknak,
+              és cégeknek egyaránt – elektromos erővel, a szabadban.
             </p>
-
-            <a href="#kapcsolat" class="button button-outline">
-              Túrázási lehetőségek
-            </a>
           </div>
-
         </article>
 
-        <article class="service">
-
-          <div class="service-image">
-            <img
-              src="images/ajandek.jpg"
-              alt="Elektromos motoros élmény ajándékba"
-            >
+        <article class="content-row">
+          <div class="content-image">
+            <img src="images/ajandek.jpg" alt="Ajándéknak is tökéletes élmény" />
           </div>
-
-          <div class="service-content">
-            <p class="eyebrow">Élményajándék</p>
-
-            <h2>Ajándéknak is tökéletes</h2>
-
+          <div class="content-text">
+            <h2>Ajándéknak<br>is tökéletes</h2>
             <p>
-              Lepd meg szerettedet egy igazán különleges élménnyel!
+              Lepd meg szeretteidet egy igazán különleges élménnyel!
               Születésnapra, névnapra vagy csak úgy – tökéletes ajándék
               mindazoknak, akik szeretik a kalandot és a motorok világát.
             </p>
-
-            <a href="#kapcsolat" class="button button-outline">
-              Ajándékötlet
-            </a>
           </div>
-
         </article>
 
       </div>
     </section>
 
-    <!-- KAPCSOLAT -->
-
-    <section class="cta" id="kapcsolat">
+    <section class="bottom-cta" id="kapcsolat">
       <div class="container">
-
         <h2>Készen állsz egy új élményre?</h2>
-
-        <p>
-          Vedd fel velünk a kapcsolatot, és indulhat a kaland!
-        </p>
-
-        <a
-          href="mailto:IDE-IRD-AZ-EMAIL-CIMED"
-          class="button"
-        >
+        <p>Vedd fel velünk a kapcsolatot, és indulhat a kaland!</p>
+        <a href="mailto:toltodjfelelmennyel@gmail.com" class="cta-button">
           Kapcsolatfelvétel
         </a>
-
       </div>
     </section>
 
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      © 2026 Töltődj fel élménnyel – Minden jog fenntartva.
-    </div>
-  </footer>
 
 </body>
 </html>
