@@ -8,17 +8,21 @@
 
   <meta
     name="description"
-    content="Elektromos motorbérlés, pályahasználat, túralehetőségek és élményajándék."
+    content="Elektromos motorbérlés, pályahasználat, túrák, csapatépítő programok és élményajándék."
   >
 
   <style>
     :root {
+      --background: #000000;
+      --panel: #080808;
       --text: #ffffff;
-      --muted: #d8d8d8;
-      --orange: #ff7a00;
-      --orange-light: #ff9a2f;
-      --orange-border: rgba(255, 122, 0, 0.55);
+      --muted: #d1d1d1;
+      --orange: #ff7900;
+      --orange-light: #ff982f;
+      --orange-border: rgba(255, 121, 0, 0.65);
+      --border: rgba(255, 255, 255, 0.15);
       --max-width: 1180px;
+      --radius: 22px;
     }
 
     * {
@@ -33,10 +37,10 @@
 
     body {
       min-width: 320px;
-      background: #000;
+      background: var(--background);
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     body.modal-open {
@@ -57,350 +61,431 @@
       font: inherit;
     }
 
-    .container {
+    .site-shell {
       width: min(calc(100% - 40px), var(--max-width));
       margin-inline: auto;
     }
 
-    /* ========================================
-       FELSŐ KAPCSOLATI SÁV
-       ======================================== */
+    .icon {
+      width: 25px;
+      height: 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 25px;
+      color: var(--orange);
+    }
+
+    .icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* =========================================
+       FEJLÉC
+       ========================================= */
 
     .topbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(0, 0, 0, 0.9);
+      padding: 18px 0;
+      background: rgba(0, 0, 0, 0.92);
       backdrop-filter: blur(10px);
     }
 
-    .topbar-inner {
-      min-height: 76px;
+    .header-panel {
+      min-height: 105px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px 24px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: rgba(5, 5, 5, 0.92);
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-      color: #fff;
-      font-size: 1.05rem;
+      justify-content: center;
+      gap: 10px;
+      color: #ffffff;
+      font-size: 1.16rem;
       font-weight: 700;
-      white-space: nowrap;
+      text-align: center;
     }
 
-    .brand-icon {
-      color: var(--orange);
-      font-size: 1.9rem;
-      line-height: 1;
+    .brand .icon {
+      width: 28px;
+      height: 28px;
+      flex-basis: 28px;
     }
 
-    .topbar-right {
+    .header-contacts {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      gap: 26px;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
     }
 
-    .contact-item {
+    .header-contact {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       padding: 0;
       border: 0;
       background: transparent;
-      color: #f1f1f1;
-      font-size: 1rem;
-      white-space: nowrap;
+      color: #eeeeee;
+      font-size: 0.98rem;
       cursor: pointer;
       transition: color 0.2s ease;
     }
 
-    .contact-item:hover {
+    .header-contact:hover {
       color: var(--orange-light);
     }
 
-    .contact-icon {
-      color: var(--orange);
-      font-size: 1.45rem;
-      line-height: 1;
+    .header-contact .icon {
+      width: 21px;
+      height: 21px;
+      flex-basis: 21px;
     }
 
-    .divider {
+    .header-divider {
       width: 1px;
       height: 25px;
       background: rgba(255, 255, 255, 0.18);
     }
 
-    /* ========================================
-       NYITÓRÉSZ
-       ======================================== */
+    /* =========================================
+       HERO
+       ========================================= */
 
     .hero {
+      padding-bottom: 24px;
+    }
+
+    .hero-card {
       position: relative;
-      min-height: 720px;
+      min-height: 650px;
       display: flex;
       align-items: center;
       overflow: hidden;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-
+      padding: 52px 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       background-image:
         linear-gradient(
           90deg,
-          rgba(0, 0, 0, 0.98) 0%,
-          rgba(0, 0, 0, 0.91) 30%,
-          rgba(0, 0, 0, 0.66) 50%,
-          rgba(0, 0, 0, 0.24) 72%,
-          rgba(0, 0, 0, 0.08) 100%
+          rgba(0, 0, 0, 0.97) 0%,
+          rgba(0, 0, 0, 0.91) 33%,
+          rgba(0, 0, 0, 0.64) 52%,
+          rgba(0, 0, 0, 0.13) 78%,
+          rgba(0, 0, 0, 0.04) 100%
         ),
         linear-gradient(
           180deg,
-          rgba(0, 0, 0, 0.04) 65%,
-          rgba(0, 0, 0, 0.6) 88%,
-          #000 100%
+          rgba(0, 0, 0, 0.03) 65%,
+          rgba(0, 0, 0, 0.62) 92%,
+          #000000 100%
         ),
         url("images/hero.jpg");
-
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
     }
 
-    .hero-inner {
-      width: 100%;
-      padding-block: 70px;
-    }
-
     .hero-copy {
       position: relative;
       z-index: 2;
-      width: min(650px, 58%);
+      width: min(720px, 62%);
     }
 
     .hero-title {
-      margin-bottom: 25px;
+      margin-bottom: 28px;
+      color: #ffffff;
+      font-size: clamp(3.3rem, 6.8vw, 6.4rem);
       font-style: italic;
       font-weight: 900;
-      line-height: 0.88;
+      line-height: 0.9;
       letter-spacing: -0.055em;
       text-transform: uppercase;
-      text-shadow: 0 5px 22px rgba(0, 0, 0, 0.9);
-      transform: skewX(-7deg);
-      transform-origin: left center;
+      text-shadow: 0 5px 24px rgba(0, 0, 0, 0.9);
     }
 
-    .hero-title .line-1,
-    .hero-title .line-2 {
+    .hero-title span {
       display: block;
-      font-size: clamp(3.2rem, 7.2vw, 6.5rem);
     }
 
-    .hero-title .line-1 {
-      color: #f6f8ff;
-    }
-
-    .hero-title .line-2 {
+    .hero-title .orange {
       color: var(--orange);
       text-shadow:
-        0 0 14px rgba(255, 122, 0, 0.55),
-        0 0 36px rgba(255, 122, 0, 0.24);
+        0 0 15px rgba(255, 121, 0, 0.48),
+        0 0 40px rgba(255, 121, 0, 0.2);
     }
 
-    .hero-text {
-      max-width: 610px;
-      margin-bottom: 27px;
+    .hero-description {
+      max-width: 550px;
+      margin-bottom: 28px;
       color: #f0f0f0;
-      font-size: clamp(1.05rem, 1.55vw, 1.35rem);
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+      font-size: clamp(1rem, 1.5vw, 1.23rem);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
     }
 
-    .feature-badges {
+    .feature-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 28px;
+      gap: 15px;
+      margin-bottom: 32px;
     }
 
-    .badge {
-      min-height: 62px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border: 1px solid var(--orange-border);
-      border-radius: 14px;
-      background: rgba(0, 0, 0, 0.67);
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 700;
-      text-align: left;
-      backdrop-filter: blur(5px);
-    }
-
-    .badge-icon {
-      flex: 0 0 auto;
-      color: var(--orange);
-      font-size: 1.45rem;
-      line-height: 1;
-    }
-
-    /* ========================================
-       NARANCSSÁRGA GOMBOK
-       ======================================== */
-
-    .cta-button {
+    .feature-item {
       min-height: 64px;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 15px 34px;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 14px;
-      background: linear-gradient(180deg, #ff922d, #ff6800);
-      box-shadow: 0 10px 28px rgba(255, 122, 0, 0.28);
-      color: #fff;
-      font-size: 1.1rem;
+      gap: 11px;
+      padding: 12px 17px;
+      border: 1px solid var(--orange-border);
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.66);
+      color: #ffffff;
+      font-size: 0.98rem;
       font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+
+    .feature-item .icon {
+      width: 24px;
+      height: 24px;
+      flex-basis: 24px;
+    }
+
+    .hero-buttons {
+      width: min(720px, 100%);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-button {
+      min-height: 62px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border: 1px solid var(--orange);
+      border-radius: 11px;
+      background: rgba(0, 0, 0, 0.68);
+      color: var(--orange-light);
+      font-size: 1.02rem;
+      font-weight: 700;
+      text-align: center;
       cursor: pointer;
       transition:
         transform 0.2s ease,
+        background 0.2s ease,
         box-shadow 0.2s ease;
     }
 
-    .cta-button:hover {
+    .hero-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 34px rgba(255, 122, 0, 0.38);
+      background: rgba(255, 121, 0, 0.11);
     }
 
-    .cta-button:focus-visible,
-    .contact-item:focus-visible,
-    .contact-option:focus-visible,
-    .contact-modal-close:focus-visible {
-      outline: 3px solid rgba(255, 154, 47, 0.7);
-      outline-offset: 3px;
+    .hero-button.primary {
+      border-color: rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, #ff8e29, #ff6500);
+      color: #ffffff;
+      box-shadow: 0 10px 28px rgba(255, 121, 0, 0.3);
     }
 
-    /* ========================================
-       SZOLGÁLTATÁSI BLOKKOK
-       ======================================== */
-
-    .sections {
-      padding: 45px 0 28px;
-      background:
-        radial-gradient(
-          circle at 95% 28%,
-          rgba(255, 122, 0, 0.04),
-          transparent 22%
-        ),
-        linear-gradient(180deg, #000 0%, #050505 100%);
+    .hero-button.primary:hover {
+      background: linear-gradient(180deg, #ff9a3a, #ff720c);
+      box-shadow: 0 14px 34px rgba(255, 121, 0, 0.42);
     }
 
-    .content-row {
+    /* =========================================
+       LEHETŐSÉGEK
+       ========================================= */
+
+    .experiences {
+      padding: 18px 0 34px;
+    }
+
+    .experience-row {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 42px;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 48px;
       align-items: center;
-      margin-bottom: 54px;
+      margin-bottom: 52px;
     }
 
-    .content-row.reverse {
-      grid-template-columns: 0.85fr 1.15fr;
+    .experience-row.reverse {
+      grid-template-columns: 0.88fr 1.12fr;
     }
 
-    .content-row.reverse .content-image {
+    .experience-row.reverse .experience-image {
       order: 2;
     }
 
-    .content-row.reverse .content-text {
+    .experience-row.reverse .experience-content {
       order: 1;
     }
 
-    .content-image {
+    .experience-image {
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 22px;
-      background: #111;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      background: #111111;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4);
     }
 
-    .content-image img {
+    .experience-image img {
       width: 100%;
       height: 100%;
-      min-height: 310px;
+      min-height: 320px;
       object-fit: cover;
       transition: transform 0.45s ease;
     }
 
-    .content-image:hover img {
+    .experience-image:hover img {
       transform: scale(1.025);
     }
 
-    .content-text {
-      padding: 10px 8px 10px 2px;
+    .experience-content {
+      padding: 8px 4px;
     }
 
-    .content-text h2 {
-      margin-bottom: 19px;
-      color: #fff;
-      font-size: clamp(2rem, 3.8vw, 3.55rem);
+    .section-lightning {
+      width: 24px;
+      height: 30px;
+      margin-bottom: 8px;
+      color: var(--orange);
+    }
+
+    .section-lightning svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .experience-content h2 {
+      margin-bottom: 12px;
+      color: #ffffff;
+      font-size: clamp(2rem, 3.7vw, 3.25rem);
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.07;
       letter-spacing: -0.04em;
     }
 
-    .content-text p {
-      max-width: 440px;
+    .title-line {
+      width: 58px;
+      height: 3px;
+      margin-bottom: 17px;
+      border-radius: 999px;
+      background: var(--orange);
+    }
+
+    .experience-content p {
+      max-width: 470px;
       color: var(--muted);
       font-size: 1.05rem;
     }
 
-    /* ========================================
-       ALSÓ KAPCSOLATI RÉSZ
-       ======================================== */
+    /* =========================================
+       BIZALMI BLOKK
+       ========================================= */
 
-    .bottom-cta {
-      position: relative;
-      overflow: hidden;
-      padding: 55px 0 60px;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    .trust-section {
+      padding: 0 0 22px;
+    }
+
+    .trust-panel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 16px;
       background:
-        radial-gradient(
-          circle at 0% 100%,
-          rgba(0, 98, 255, 0.32),
-          transparent 23%
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.025),
+          rgba(255, 255, 255, 0.01)
         ),
-        radial-gradient(
-          circle at 100% 100%,
-          rgba(255, 122, 0, 0.34),
-          transparent 23%
-        ),
-        #050505;
+        #070707;
+    }
+
+    .trust-item {
+      min-height: 128px;
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      padding: 25px 28px;
+    }
+
+    .trust-item + .trust-item {
+      border-left: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .trust-icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 52px;
+      color: var(--orange);
+    }
+
+    .trust-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .trust-text h3 {
+      margin-bottom: 5px;
+      color: #ffffff;
+      font-size: 1.08rem;
+      line-height: 1.2;
+    }
+
+    .trust-text p {
+      color: #bdbdbd;
+      font-size: 0.83rem;
+      line-height: 1.45;
+    }
+
+    /* =========================================
+       LÁBLÉC
+       ========================================= */
+
+    .footer {
+      padding: 4px 20px 26px;
+      color: #777777;
+      font-size: 0.87rem;
       text-align: center;
     }
 
-    .bottom-cta h2 {
-      margin-bottom: 8px;
-      color: #fff;
-      font-size: clamp(2.1rem, 4vw, 4rem);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-    }
-
-    .bottom-cta p {
-      margin-bottom: 25px;
-      color: #ececec;
-      font-size: clamp(1.05rem, 1.8vw, 1.45rem);
-    }
-
-    /* ========================================
-       KAPCSOLATFELVÉTELI FELUGRÓ ABLAK
-       ======================================== */
+    /* =========================================
+       FELUGRÓ KAPCSOLATI ABLAK
+       ========================================= */
 
     .contact-modal {
       position: fixed;
@@ -410,61 +495,79 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.84);
+      background: rgba(0, 0, 0, 0.86);
       backdrop-filter: blur(9px);
     }
 
-    .contact-modal.is-open {
+    .contact-modal.open {
       display: flex;
     }
 
-    .contact-modal-dialog {
+    .modal-panel {
       position: relative;
-      width: min(100%, 440px);
+      width: min(100%, 450px);
       padding: 36px;
-      border: 1px solid rgba(255, 122, 0, 0.52);
-      border-radius: 21px;
+      border: 1px solid rgba(255, 121, 0, 0.55);
+      border-radius: 20px;
       background:
         radial-gradient(
           circle at top right,
-          rgba(255, 122, 0, 0.16),
+          rgba(255, 121, 0, 0.15),
           transparent 38%
         ),
         #0b0b0d;
       box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.72),
-        0 0 38px rgba(255, 122, 0, 0.13);
+        0 25px 80px rgba(0, 0, 0, 0.74),
+        0 0 38px rgba(255, 121, 0, 0.13);
       text-align: center;
     }
 
-    .contact-modal-dialog h2 {
+    .modal-panel h2 {
       margin-bottom: 9px;
-      padding-inline: 20px;
-      color: #fff;
-      font-size: 1.8rem;
-      line-height: 1.16;
+      padding-inline: 22px;
+      font-size: 1.75rem;
+      line-height: 1.18;
     }
 
-    .contact-modal-dialog > p {
+    .modal-panel > p {
       margin-bottom: 25px;
-      color: #cfcfcf;
+      color: #c6c6c6;
     }
 
-    .contact-modal-options {
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      font-size: 1.45rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 121, 0, 0.22);
+    }
+
+    .modal-options {
       display: grid;
       gap: 12px;
     }
 
-    .contact-option {
+    .modal-option {
       min-height: 64px;
       display: flex;
       align-items: center;
       gap: 14px;
       padding: 13px 18px;
-      border: 1px solid rgba(255, 122, 0, 0.45);
+      border: 1px solid rgba(255, 121, 0, 0.48);
       border-radius: 13px;
       background: rgba(255, 255, 255, 0.035);
-      color: #fff;
+      color: #ffffff;
       text-align: left;
       transition:
         transform 0.2s ease,
@@ -472,242 +575,224 @@
         background 0.2s ease;
     }
 
-    .contact-option:hover {
+    .modal-option:hover {
       transform: translateY(-2px);
       border-color: var(--orange);
-      background: rgba(255, 122, 0, 0.12);
+      background: rgba(255, 121, 0, 0.12);
     }
 
-    .contact-option[hidden] {
+    .modal-option[hidden] {
       display: none;
     }
 
-    .contact-option-icon {
-      width: 38px;
-      flex: 0 0 38px;
-      color: var(--orange);
-      font-size: 1.55rem;
-      text-align: center;
+    .modal-option .icon {
+      width: 32px;
+      height: 32px;
+      flex-basis: 32px;
     }
 
-    .contact-option-text {
+    .modal-option-text {
       min-width: 0;
       display: flex;
       flex-direction: column;
     }
 
-    .contact-option-title {
+    .modal-option-title {
       font-weight: 700;
     }
 
-    .contact-option-detail {
-      color: #aaa;
+    .modal-option-detail {
+      color: #aaaaaa;
       font-size: 0.84rem;
       overflow-wrap: anywhere;
     }
 
-    .contact-modal-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 39px;
-      height: 39px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      font-size: 1.4rem;
-      line-height: 1;
-      cursor: pointer;
-      transition: background 0.2s ease;
+    :focus-visible {
+      outline: 3px solid rgba(255, 152, 47, 0.75);
+      outline-offset: 3px;
     }
 
-    .contact-modal-close:hover {
-      background: rgba(255, 122, 0, 0.23);
-    }
-
-    /* ========================================
-       TABLET NÉZET
-       ======================================== */
+    /* =========================================
+       TABLET
+       ========================================= */
 
     @media (max-width: 980px) {
-      .topbar-inner {
-        min-height: auto;
-        align-items: flex-start;
-        flex-direction: column;
-        padding-block: 14px;
-      }
-
-      .topbar-right {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 14px 20px;
-      }
-
-      .divider {
-        display: none;
-      }
-
-      .hero {
-        min-height: 750px;
+      .hero-card {
+        min-height: 760px;
         align-items: flex-end;
+        padding: 50px 34px;
 
         background-image:
           linear-gradient(
             180deg,
             rgba(0, 0, 0, 0.03) 0%,
-            rgba(0, 0, 0, 0.08) 25%,
-            rgba(0, 0, 0, 0.42) 48%,
-            rgba(0, 0, 0, 0.9) 73%,
-            #000 100%
-          ),
-          linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.25),
-            rgba(0, 0, 0, 0.08)
+            rgba(0, 0, 0, 0.1) 27%,
+            rgba(0, 0, 0, 0.47) 50%,
+            rgba(0, 0, 0, 0.92) 75%,
+            #000000 100%
           ),
           url("images/hero.jpg");
 
-        background-position: 66% center;
-      }
-
-      .hero-inner {
-        padding-block: 290px 55px;
+        background-position: 65% center;
       }
 
       .hero-copy {
         width: 100%;
-        max-width: 690px;
+        max-width: 720px;
       }
 
-      .content-row,
-      .content-row.reverse {
+      .experience-row,
+      .experience-row.reverse {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 25px;
       }
 
-      .content-row.reverse .content-image,
-      .content-row.reverse .content-text {
+      .experience-row.reverse .experience-image,
+      .experience-row.reverse .experience-content {
         order: initial;
       }
 
-      .content-text p {
+      .experience-content p {
         max-width: none;
+      }
+
+      .trust-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item + .trust-item {
+        border-top: 1px solid rgba(255, 255, 255, 0.13);
+        border-left: 0;
       }
     }
 
-    /* ========================================
-       MOBILNÉZET
-       ======================================== */
+    /* =========================================
+       MOBIL
+       ========================================= */
 
     @media (max-width: 680px) {
-      .container {
+      .site-shell {
         width: min(calc(100% - 24px), var(--max-width));
       }
 
+      .topbar {
+        position: relative;
+        padding: 12px 0;
+      }
+
+      .header-panel {
+        padding: 15px 12px;
+      }
+
       .brand {
-        font-size: 0.96rem;
-      }
-
-      .topbar-right {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 11px;
-      }
-
-      .contact-item {
-        max-width: 100%;
-        font-size: 0.9rem;
-        white-space: normal;
-        overflow-wrap: anywhere;
-        text-align: left;
-      }
-
-      .hero {
-        min-height: 760px;
-        background-position: 65% top;
-      }
-
-      .hero-inner {
-        padding-block: 330px 44px;
-      }
-
-      .hero-title {
-        margin-bottom: 20px;
-      }
-
-      .hero-title .line-1,
-      .hero-title .line-2 {
-        font-size: clamp(2.8rem, 14vw, 4.5rem);
-      }
-
-      .hero-text {
-        margin-bottom: 22px;
         font-size: 1rem;
       }
 
-      .feature-badges {
+      .header-contacts {
+        width: 100%;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .header-divider {
+        display: none;
+      }
+
+      .header-contact {
+        max-width: 100%;
+        font-size: 0.87rem;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+      }
+
+      .hero {
+        padding-bottom: 18px;
+      }
+
+      .hero-card {
+        min-height: 790px;
+        padding: 320px 20px 32px;
+        border-radius: 17px;
+        background-position: 63% top;
+      }
+
+      .hero-title {
+        margin-bottom: 21px;
+        font-size: clamp(2.65rem, 13vw, 4.1rem);
+      }
+
+      .hero-description {
+        font-size: 0.98rem;
+      }
+
+      .feature-list {
         flex-direction: column;
         gap: 10px;
       }
 
-      .badge {
+      .feature-item {
         width: 100%;
         min-height: 56px;
-        justify-content: flex-start;
       }
 
-      .cta-button {
-        width: 100%;
+      .hero-buttons {
+        grid-template-columns: 1fr;
+        gap: 11px;
       }
 
-      .sections {
-        padding-top: 30px;
+      .hero-button {
+        min-height: 56px;
       }
 
-      .content-row {
-        margin-bottom: 44px;
+      .experiences {
+        padding-top: 10px;
       }
 
-      .content-image img {
+      .experience-row {
+        margin-bottom: 43px;
+      }
+
+      .experience-image img {
         min-height: 245px;
       }
 
-      .content-text h2 {
-        font-size: clamp(1.85rem, 8.5vw, 2.8rem);
+      .experience-content h2 {
+        font-size: clamp(1.85rem, 8vw, 2.75rem);
       }
 
-      .bottom-cta h2 {
-        font-size: clamp(1.95rem, 9vw, 3rem);
-      }
-
-      .bottom-cta p {
+      .experience-content p {
         font-size: 1rem;
       }
 
-      .contact-modal-dialog {
-        padding: 32px 18px 22px;
+      .trust-item {
+        min-height: 115px;
+        padding: 21px 18px;
       }
 
-      .contact-modal-dialog h2 {
-        padding-inline: 24px;
+      .trust-icon {
+        width: 45px;
+        height: 45px;
+        flex-basis: 45px;
+      }
+
+      .modal-panel {
+        padding: 33px 18px 22px;
+      }
+
+      .modal-panel h2 {
         font-size: 1.5rem;
       }
     }
 
-    @media (max-width: 430px) {
-      .hero {
-        min-height: 720px;
+    @media (max-width: 420px) {
+      .hero-card {
+        min-height: 750px;
+        padding-top: 285px;
       }
 
-      .hero-inner {
-        padding-top: 300px;
-      }
-
-      .hero-title .line-1,
-      .hero-title .line-2 {
-        font-size: clamp(2.55rem, 13vw, 3.7rem);
+      .hero-title {
+        font-size: clamp(2.4rem, 12.5vw, 3.5rem);
       }
     }
   </style>
@@ -715,40 +800,67 @@
 
 <body>
 
-  <!-- FELSŐ KAPCSOLATI SÁV -->
+  <!-- FEJLÉC -->
 
   <header class="topbar">
-    <div class="container topbar-inner">
+    <div class="site-shell header-panel">
 
-      <a href="#kezdolap" class="brand">
-        <span class="brand-icon" aria-hidden="true">⚡</span>
+      <a class="brand" href="#kezdolap">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M13 2 5.5 13h5L9.8 22 18.5 10h-5L13 2Z"
+              fill="currentColor"
+              stroke="none"
+            />
+          </svg>
+        </span>
+
         <span>Töltődj fel élménnyel</span>
       </a>
 
-      <div class="topbar-right">
-
-        <!-- Az e-mail-cím közvetlenül megnyitja a levelezőprogramot. -->
+      <div class="header-contacts">
 
         <a
-          class="contact-item"
+          class="header-contact"
           href="mailto:toltodjfelelmennyel@gmail.com"
-          aria-label="E-mail írása a Töltődj fel élménnyel részére"
         >
-          <span class="contact-icon" aria-hidden="true">✉</span>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3 7 9 6 9-6"></path>
+            </svg>
+          </span>
+
           <span>toltodjfelelmennyel@gmail.com</span>
         </a>
 
-        <span class="divider" aria-hidden="true"></span>
-
-        <!-- A telefonszám hívás vagy SMS választót nyit. -->
+        <span class="header-divider" aria-hidden="true"></span>
 
         <button
           type="button"
-          class="contact-item"
-          data-contact-modal="phone"
-          aria-label="Telefonos kapcsolatfelvételi lehetőségek megnyitása"
+          class="header-contact"
+          data-contact-mode="phone"
         >
-          <span class="contact-icon" aria-hidden="true">📞</span>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2
+                19.79 19.79 0 0 1-8.63-3.07
+                19.5 19.5 0 0 1-6-6
+                19.79 19.79 0 0 1-3.07-8.67
+                A2 2 0 0 1 4.11 2h3
+                a2 2 0 0 1 2 1.72
+                12.84 12.84 0 0 0 .7 2.81
+                2 2 0 0 1-.45 2.11L8.09 9.91
+                a16 16 0 0 0 6 6l1.27-1.27
+                a2 2 0 0 1 2.11-.45
+                12.84 12.84 0 0 0 2.81.7
+                A2 2 0 0 1 22 16.92Z"
+              ></path>
+            </svg>
+          </span>
+
           <span>+36 30 700 9338</span>
         </button>
 
@@ -758,63 +870,107 @@
 
   <main>
 
-    <!-- NYITÓRÉSZ: A HERO.JPG A TELJES HÁTTÉR -->
+    <!-- HERO -->
 
     <section class="hero" id="kezdolap">
-      <div class="container hero-inner">
+      <div class="site-shell hero-card">
 
         <div class="hero-copy">
 
           <h1 class="hero-title">
-            <span class="line-1">Töltődj fel</span>
-            <span class="line-2">élménnyel</span>
+            <span>Töltődj</span>
+            <span>fel</span>
+            <span class="orange">élménnyel</span>
           </h1>
 
-          <p class="hero-text">
+          <p class="hero-description">
             Hagyd magad mögött a hétköznapok fáradalmait,
             emeld maximumra az adrenalinszinted, és töltődj fel
             felejthetetlen élményekkel!
           </p>
 
-          <div class="feature-badges">
+          <div class="feature-list">
 
-            <div class="badge">
-              <span class="badge-icon" aria-hidden="true">🏍</span>
+            <div class="feature-item">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="6" cy="17" r="3"></circle>
+                  <circle cx="18" cy="17" r="3"></circle>
+                  <path d="M6 17h5l2-7h4"></path>
+                  <path d="m8 10 3 7"></path>
+                  <path d="M13 10h-3"></path>
+                </svg>
+              </span>
               <span>Több méret</span>
             </div>
 
-            <div class="badge">
-              <span class="badge-icon" aria-hidden="true">⚡</span>
-              <span>Szabályozható teljesítmény</span>
+            <div class="feature-item">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M13 2 5.5 13h5L9.8 22 18.5 10h-5L13 2Z"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </svg>
+              </span>
+              <span>Szabályozható<br>teljesítmény</span>
             </div>
 
-            <div class="badge">
-              <span class="badge-icon" aria-hidden="true">★</span>
+            <div class="feature-item">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="m12 2.8 2.85 5.78 6.38.93-4.61 4.49
+                    1.09 6.35L12 17.35l-5.71 3
+                    1.09-6.35-4.61-4.49 6.38-.93L12 2.8Z"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </svg>
+              </span>
               <span>100% élmény</span>
             </div>
 
           </div>
 
-          <button
-            type="button"
-            class="cta-button"
-            data-contact-modal="all"
-          >
-            Kapcsolatfelvétel
-          </button>
+          <div class="hero-buttons">
 
+            <a class="hero-button" href="#lehetosegek">
+              Lehetőségek
+            </a>
+
+            <button
+              type="button"
+              class="hero-button"
+              data-contact-mode="prices"
+            >
+              Árak
+            </button>
+
+            <button
+              type="button"
+              class="hero-button primary"
+              data-contact-mode="all"
+            >
+              Kapcsolatfelvétel
+            </button>
+
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SZOLGÁLTATÁSOK -->
+    <!-- LEHETŐSÉGEK -->
 
-    <section class="sections">
-      <div class="container">
+    <section class="experiences" id="lehetosegek">
+      <div class="site-shell">
 
-        <article class="content-row">
+        <!-- PÁLYAHASZNÁLAT -->
 
-          <div class="content-image">
+        <article class="experience-row">
+
+          <div class="experience-image">
             <img
               src="images/palya.jpg"
               alt="Elektromos motor használata tereppályán"
@@ -822,11 +978,20 @@
             >
           </div>
 
-          <div class="content-text">
+          <div class="experience-content">
+
+            <div class="section-lightning" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M13 2 5.5 13h5L9.8 22 18.5 10h-5L13 2Z"></path>
+              </svg>
+            </div>
+
             <h2>
               Pályahasználatra<br>
               is bérelhető
             </h2>
+
+            <div class="title-line"></div>
 
             <p>
               Elektromos motorjaink tökéletesek pályahasználatra,
@@ -834,57 +999,153 @@
               akár tapasztalt motoros, nálunk biztosan megtalálod a
               számodra ideális lehetőséget.
             </p>
-          </div>
 
+          </div>
         </article>
 
-        <article class="content-row reverse">
+        <!-- TÚRÁK: LIBASORBAN HALADÓ MOTOROSOK -->
 
-          <div class="content-image">
+        <article class="experience-row reverse">
+
+          <div class="experience-image">
             <img
-              src="images/tura.jpg"
-              alt="Elektromos motoros túra és csapatépítő program"
+              src="images/ajandek.jpg"
+              alt="Elektromos motoros túra libasorban"
               loading="lazy"
             >
           </div>
 
-          <div class="content-text">
+          <div class="experience-content">
+
+            <div class="section-lightning" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M13 2 5.5 13h5L9.8 22 18.5 10h-5L13 2Z"></path>
+              </svg>
+            </div>
+
             <h2>
               Túrákhoz és<br>
               csapatépítő programokhoz
             </h2>
 
+            <div class="title-line"></div>
+
             <p>
               Fedezd fel a természetet, éld át a közös kalandok erejét!
               Túráink, vezetett programjaink és csapatépítő eseményeink
-              felejthetetlen élményt nyújtanak baráti társaságoknak és
-              cégeknek egyaránt – elektromos erővel, a szabadban.
+              felejthetetlen élményt nyújtanak baráti társaságoknak
+              és cégeknek egyaránt – elektromos erővel, a szabadban.
             </p>
-          </div>
 
+          </div>
         </article>
 
-        <article class="content-row">
+        <!-- AJÁNDÉK: HÁROM ÁLLÓ MOTOROS -->
 
-          <div class="content-image">
+        <article class="experience-row">
+
+          <div class="experience-image">
             <img
-              src="images/ajandek.jpg"
-              alt="Elektromos motoros élmény ajándékba"
+              src="images/tura.jpg"
+              alt="Három motoros a túra során"
               loading="lazy"
             >
           </div>
 
-          <div class="content-text">
+          <div class="experience-content">
+
+            <div class="section-lightning" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M13 2 5.5 13h5L9.8 22 18.5 10h-5L13 2Z"></path>
+              </svg>
+            </div>
+
             <h2>
               Ajándéknak<br>
               is tökéletes
             </h2>
+
+            <div class="title-line"></div>
 
             <p>
               Lepd meg szeretteidet egy igazán különleges élménnyel!
               Születésnapra, névnapra vagy csak úgy – tökéletes ajándék
               mindazoknak, akik szeretik a kalandot és a motorok világát.
             </p>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- BIZALMI BLOKK -->
+
+    <section class="trust-section">
+      <div class="site-shell trust-panel">
+
+        <article class="trust-item">
+
+          <div class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2 20 5v6c0 5-3.4 9.6-8 11-4.6-1.4-8-6-8-11V5l8-3Z"></path>
+              <path
+                d="m12 7.3 1.25 2.54 2.8.4-2.02 1.97.48 2.78
+                L12 13.68 9.49 15l.48-2.78-2.02-1.97
+                2.8-.4L12 7.3Z"
+              ></path>
+            </svg>
+          </div>
+
+          <div class="trust-text">
+            <h3>Biztonság</h3>
+            <p>
+              Felszerelt motorok, rendszeresen karbantartva
+              a maximális biztonságért.
+            </p>
+          </div>
+
+        </article>
+
+        <article class="trust-item">
+
+          <div class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 14v-3a8 8 0 0 1 16 0v3"></path>
+              <path d="M18 19h-2"></path>
+              <rect x="3" y="12" width="4" height="7" rx="2"></rect>
+              <rect x="17" y="12" width="4" height="7" rx="2"></rect>
+              <path d="M17 19c0 1.1-.9 2-2 2h-3"></path>
+            </svg>
+          </div>
+
+          <div class="trust-text">
+            <h3>Szakértő támogatás</h3>
+            <p>
+              Segítünk a megfelelő motor és csomag
+              kiválasztásában.
+            </p>
+          </div>
+
+        </article>
+
+        <article class="trust-item">
+
+          <div class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+              <path d="M16 3v4M8 3v4M3 10h18"></path>
+              <path d="M8 14h.01M12 14h.01M16 14h.01"></path>
+              <path d="M8 17h.01M12 17h.01"></path>
+            </svg>
+          </div>
+
+          <div class="trust-text">
+            <h3>Időpontfoglalás</h3>
+            <p>
+              Egyeztetés telefonon, egyénre szabott
+              lehetőségekkel.
+            </p>
           </div>
 
         </article>
@@ -892,110 +1153,107 @@
       </div>
     </section>
 
-    <!-- ALSÓ KAPCSOLATFELVÉTEL -->
-
-    <section class="bottom-cta" id="kapcsolat">
-      <div class="container">
-
-        <h2>Készen állsz egy új élményre?</h2>
-
-        <p>
-          Vedd fel velünk a kapcsolatot, és indulhat a kaland!
-        </p>
-
-        <button
-          type="button"
-          class="cta-button"
-          data-contact-modal="all"
-        >
-          Kapcsolatfelvétel
-        </button>
-
-      </div>
-    </section>
-
   </main>
 
-  <!-- KAPCSOLATFELVÉTELI VÁLASZTÓABLAK -->
+  <footer class="footer">
+    © 2026 Töltődj fel élménnyel – Minden jog fenntartva.
+  </footer>
+
+  <!-- KAPCSOLATI ABLAK -->
 
   <div
     class="contact-modal"
     id="contactModal"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="contactModalTitle"
+    aria-labelledby="modalTitle"
     aria-hidden="true"
   >
-    <div class="contact-modal-dialog">
+    <div class="modal-panel">
 
       <button
         type="button"
-        class="contact-modal-close"
-        id="contactModalClose"
-        aria-label="A kapcsolatfelvételi ablak bezárása"
+        class="modal-close"
+        id="modalClose"
+        aria-label="Ablak bezárása"
       >
         ×
       </button>
 
-      <h2 id="contactModalTitle">
+      <h2 id="modalTitle">
         Hogyan lépnél kapcsolatba velünk?
       </h2>
 
-      <p>
+      <p id="modalDescription">
         Válaszd ki a számodra megfelelő lehetőséget.
       </p>
 
-      <div class="contact-modal-options">
+      <div class="modal-options">
 
         <a
+          class="modal-option"
           href="tel:+36307009338"
-          class="contact-option"
-          id="callOption"
         >
-          <span class="contact-option-icon" aria-hidden="true">📞</span>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2
+                19.79 19.79 0 0 1-8.63-3.07
+                19.5 19.5 0 0 1-6-6
+                19.79 19.79 0 0 1-3.07-8.67
+                A2 2 0 0 1 4.11 2h3
+                a2 2 0 0 1 2 1.72
+                12.84 12.84 0 0 0 .7 2.81
+                2 2 0 0 1-.45 2.11L8.09 9.91
+                a16 16 0 0 0 6 6l1.27-1.27
+                a2 2 0 0 1 2.11-.45
+                12.84 12.84 0 0 0 2.81.7
+                A2 2 0 0 1 22 16.92Z"
+              ></path>
+            </svg>
+          </span>
 
-          <span class="contact-option-text">
-            <span class="contact-option-title">
-              Telefonhívás
-            </span>
-
-            <span class="contact-option-detail">
-              +36 30 700 9338
-            </span>
+          <span class="modal-option-text">
+            <span class="modal-option-title">Telefonhívás</span>
+            <span class="modal-option-detail">+36 30 700 9338</span>
           </span>
         </a>
 
         <a
+          class="modal-option"
           href="sms:+36307009338"
-          class="contact-option"
-          id="messageOption"
         >
-          <span class="contact-option-icon" aria-hidden="true">💬</span>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10
+                a4 4 0 0 1 4 4Z"
+              ></path>
+              <path d="M8 10h.01M12 10h.01M16 10h.01"></path>
+            </svg>
+          </span>
 
-          <span class="contact-option-text">
-            <span class="contact-option-title">
-              Üzenet írása
-            </span>
-
-            <span class="contact-option-detail">
-              SMS küldése
-            </span>
+          <span class="modal-option-text">
+            <span class="modal-option-title">Üzenet írása</span>
+            <span class="modal-option-detail">SMS küldése</span>
           </span>
         </a>
 
         <a
+          class="modal-option"
+          id="modalEmail"
           href="mailto:toltodjfelelmennyel@gmail.com"
-          class="contact-option"
-          id="emailOption"
         >
-          <span class="contact-option-icon" aria-hidden="true">✉</span>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3 7 9 6 9-6"></path>
+            </svg>
+          </span>
 
-          <span class="contact-option-text">
-            <span class="contact-option-title">
-              E-mail írása
-            </span>
-
-            <span class="contact-option-detail">
+          <span class="modal-option-text">
+            <span class="modal-option-title">E-mail írása</span>
+            <span class="modal-option-detail">
               toltodjfelelmennyel@gmail.com
             </span>
           </span>
@@ -1005,35 +1263,45 @@
     </div>
   </div>
 
-  <!-- KAPCSOLATI ABLAK MŰKÖDÉSE -->
-
   <script>
     const contactModal = document.getElementById("contactModal");
-    const contactModalClose = document.getElementById("contactModalClose");
-    const emailOption = document.getElementById("emailOption");
-    const modalButtons = document.querySelectorAll("[data-contact-modal]");
+    const modalClose = document.getElementById("modalClose");
+    const modalEmail = document.getElementById("modalEmail");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalTriggers = document.querySelectorAll("[data-contact-mode]");
 
     let lastFocusedElement = null;
 
-    function openContactModal(mode, triggeringElement) {
-      lastFocusedElement = triggeringElement;
+    function openModal(mode, trigger) {
+      lastFocusedElement = trigger;
 
-      /*
-        A felső telefonszámnál csak a telefonhívás és az SMS jelenik meg.
-        A két Kapcsolatfelvétel gombnál mindhárom lehetőség megjelenik.
-      */
+      if (mode === "phone") {
+        modalTitle.textContent = "Telefonos kapcsolatfelvétel";
+        modalDescription.textContent =
+          "Válaszd ki, hogy telefonálni vagy üzenetet írni szeretnél.";
+        modalEmail.hidden = true;
+      } else if (mode === "prices") {
+        modalTitle.textContent = "Árak és ajánlatkérés";
+        modalDescription.textContent =
+          "Az ár a választott motor, program és időtartam alapján változhat. Vedd fel velünk a kapcsolatot a pontos ajánlatért.";
+        modalEmail.hidden = false;
+      } else {
+        modalTitle.textContent = "Hogyan lépnél kapcsolatba velünk?";
+        modalDescription.textContent =
+          "Válaszd ki a számodra megfelelő lehetőséget.";
+        modalEmail.hidden = false;
+      }
 
-      emailOption.hidden = mode === "phone";
-
-      contactModal.classList.add("is-open");
+      contactModal.classList.add("open");
       contactModal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
 
-      contactModalClose.focus();
+      modalClose.focus();
     }
 
-    function closeContactModal() {
-      contactModal.classList.remove("is-open");
+    function closeModal() {
+      contactModal.classList.remove("open");
       contactModal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
 
@@ -1042,32 +1310,26 @@
       }
     }
 
-    modalButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        openContactModal(
-          button.dataset.contactModal,
-          button
-        );
+    modalTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        openModal(trigger.dataset.contactMode, trigger);
       });
     });
 
-    contactModalClose.addEventListener(
-      "click",
-      closeContactModal
-    );
+    modalClose.addEventListener("click", closeModal);
 
     contactModal.addEventListener("click", (event) => {
       if (event.target === contactModal) {
-        closeContactModal();
+        closeModal();
       }
     });
 
     document.addEventListener("keydown", (event) => {
       if (
         event.key === "Escape" &&
-        contactModal.classList.contains("is-open")
+        contactModal.classList.contains("open")
       ) {
-        closeContactModal();
+        closeModal();
       }
     });
   </script>
