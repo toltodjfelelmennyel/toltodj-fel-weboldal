@@ -80,27 +80,19 @@
 
 
     img {
-
       display: block;
-
       width: 100%;
-
     }
 
 
     a {
-
       color: inherit;
-
       text-decoration: none;
-
     }
 
 
     button {
-
       font: inherit;
-
     }
 
 
@@ -223,10 +215,8 @@
 
 
     .brand .icon {
-
       width: 30px;
       height: 30px;
-
     }
 
 
@@ -283,10 +273,8 @@
 
 
     .header-contact .icon {
-
       width: 21px;
       height: 21px;
-
     }
 
 
@@ -307,9 +295,7 @@
        ===================================================== */
 
     .hero {
-
       padding-bottom: 28px;
-
     }
 
 
@@ -352,7 +338,7 @@
           rgba(0,0,0,0.85) 100%
         ),
 
-        url("images/hero.jpg?v=20260807-4");
+        url("images/hero.jpg?v=20260807-5");
 
 
       background-size: cover;
@@ -405,20 +391,14 @@
       text-transform: uppercase;
 
       text-shadow:
-
-        0 4px 12px
-        rgba(0,0,0,0.9),
-
-        0 8px 25px
-        rgba(0,0,0,0.8);
+        0 4px 12px rgba(0,0,0,0.9),
+        0 8px 25px rgba(0,0,0,0.8);
 
     }
 
 
     .hero-title span {
-
       display: block;
-
     }
 
 
@@ -427,12 +407,8 @@
       color: var(--orange);
 
       text-shadow:
-
-        0 0 15px
-        rgba(255,121,0,0.45),
-
-        0 0 32px
-        rgba(255,121,0,0.18);
+        0 0 15px rgba(255,121,0,0.45),
+        0 0 32px rgba(255,121,0,0.18);
 
     }
 
@@ -453,8 +429,7 @@
         );
 
       text-shadow:
-        0 2px 6px
-        rgba(0,0,0,1);
+        0 2px 6px rgba(0,0,0,1);
 
     }
 
@@ -491,8 +466,7 @@
         12px 17px;
 
       border:
-        1px solid
-        var(--orange-border);
+        1px solid var(--orange-border);
 
       border-radius: 11px;
 
@@ -512,10 +486,8 @@
 
 
     .feature .icon {
-
       width: 23px;
       height: 23px;
-
     }
 
 
@@ -557,8 +529,7 @@
         14px 20px;
 
       border:
-        1px solid
-        var(--orange);
+        1px solid var(--orange);
 
       border-radius: 9px;
 
@@ -610,8 +581,7 @@
         );
 
       box-shadow:
-        0 10px 28px
-        rgba(255,121,0,0.28);
+        0 10px 28px rgba(255,121,0,0.28);
 
     }
 
@@ -619,8 +589,300 @@
     .main-button.contact:hover {
 
       box-shadow:
-        0 14px 35px
-        rgba(255,121,0,0.42);
+        0 14px 35px rgba(255,121,0,0.42);
+
+    }
+
+
+
+    /* =====================================================
+       LENYÍLÓ ÁRLISTA
+       ===================================================== */
+
+    .price-wrapper {
+
+      width: 100%;
+
+      display: grid;
+
+      grid-template-rows: 0fr;
+
+      margin-top: 0;
+
+      opacity: 0;
+
+      transition:
+        grid-template-rows 0.45s ease,
+        opacity 0.35s ease,
+        margin-top 0.45s ease;
+
+    }
+
+
+    .price-wrapper.open {
+
+      grid-template-rows: 1fr;
+
+      margin-top: 24px;
+
+      opacity: 1;
+
+    }
+
+
+    .price-overflow {
+      overflow: hidden;
+    }
+
+
+    .price-panel {
+
+      padding: 24px;
+
+      border:
+        1px solid rgba(255,121,0,0.58);
+
+      border-radius: 15px;
+
+      background:
+
+        radial-gradient(
+          circle at top right,
+          rgba(255,121,0,0.15),
+          transparent 34%
+        ),
+
+        rgba(5,5,5,0.94);
+
+      box-shadow:
+        0 18px 45px rgba(0,0,0,0.35);
+
+      backdrop-filter:
+        blur(8px);
+
+    }
+
+
+    .price-heading {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-bottom: 6px;
+
+      color: #fff;
+
+      font-size: 1.45rem;
+
+      font-weight: 800;
+
+    }
+
+
+    .price-heading .icon {
+
+      width: 27px;
+      height: 27px;
+
+    }
+
+
+    .price-intro {
+
+      margin-bottom: 18px;
+
+      color: #bdbdbd;
+
+      font-size: 0.9rem;
+
+    }
+
+
+    .price-list {
+
+      display: grid;
+
+      gap: 9px;
+
+    }
+
+
+    .price-row {
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+      gap: 18px;
+
+      align-items: center;
+
+      padding:
+        14px 15px;
+
+      border:
+        1px solid rgba(255,255,255,0.10);
+
+      border-radius: 10px;
+
+      background:
+        rgba(255,255,255,0.035);
+
+    }
+
+
+    .price-row.highlight {
+
+      border-color:
+        rgba(255,121,0,0.58);
+
+      background:
+        rgba(255,121,0,0.08);
+
+    }
+
+
+    .price-name {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 3px;
+
+    }
+
+
+    .price-name strong {
+
+      color: #fff;
+
+      font-size: 0.97rem;
+
+    }
+
+
+    .price-detail {
+
+      color: #a9a9a9;
+
+      font-size: 0.79rem;
+
+      line-height: 1.4;
+
+    }
+
+
+    .price-value {
+
+      color: var(--orange-light);
+
+      font-size: 1rem;
+
+      font-weight: 800;
+
+      white-space: nowrap;
+
+    }
+
+
+    .minimum-badge {
+
+      width: fit-content;
+
+      margin-top: 4px;
+
+      padding:
+        3px 8px;
+
+      border:
+        1px solid rgba(255,121,0,0.52);
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,121,0,0.10);
+
+      color: var(--orange-light);
+
+      font-size: 0.68rem;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.04em;
+
+    }
+
+
+    .price-footer {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 10px;
+
+      margin-top: 16px;
+
+    }
+
+
+    .price-note {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 10px;
+
+      padding:
+        13px 14px;
+
+      border-radius: 10px;
+
+      background:
+        rgba(255,255,255,0.045);
+
+      color: #d5d5d5;
+
+      font-size: 0.82rem;
+
+      line-height: 1.45;
+
+    }
+
+
+    .price-note .icon {
+
+      width: 20px;
+      height: 20px;
+
+      flex-basis: 20px;
+
+      margin-top: 1px;
+
+    }
+
+
+    .price-vat {
+
+      margin-top: 14px;
+
+      color: #fff;
+
+      font-size: 0.83rem;
+
+      font-weight: 700;
+
+      text-align: center;
 
     }
 
@@ -690,14 +952,12 @@
       border-radius: 18px;
 
       border:
-        1px solid
-        rgba(255,255,255,0.08);
+        1px solid rgba(255,255,255,0.08);
 
       background: #111;
 
       box-shadow:
-        0 18px 40px
-        rgba(0,0,0,0.4);
+        0 18px 40px rgba(0,0,0,0.4);
 
     }
 
@@ -817,9 +1077,7 @@
        ===================================================== */
 
     .trust {
-
       padding-bottom: 18px;
-
     }
 
 
@@ -833,8 +1091,7 @@
       overflow: hidden;
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       border-radius: 14px;
 
@@ -871,8 +1128,7 @@
     .trust-item {
 
       border-left:
-        1px solid
-        rgba(255,255,255,0.13);
+        1px solid rgba(255,255,255,0.13);
 
     }
 
@@ -980,9 +1236,7 @@
 
 
     .modal-background.open {
-
       display: flex;
-
     }
 
 
@@ -999,8 +1253,7 @@
       padding: 36px;
 
       border:
-        1px solid
-        rgba(255,121,0,0.55);
+        1px solid rgba(255,121,0,0.55);
 
       border-radius: 20px;
 
@@ -1015,8 +1268,7 @@
         #0b0b0d;
 
       box-shadow:
-        0 25px 80px
-        rgba(0,0,0,0.75);
+        0 25px 80px rgba(0,0,0,0.75);
 
       text-align: center;
 
@@ -1095,8 +1347,7 @@
         13px 18px;
 
       border:
-        1px solid
-        rgba(255,121,0,0.48);
+        1px solid rgba(255,121,0,0.48);
 
       border-radius: 12px;
 
@@ -1105,36 +1356,17 @@
 
       text-align: left;
 
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-
-    }
-
-
-    .modal-option:hover {
-
-      transform:
-        translateY(-2px);
-
-      background:
-        rgba(255,121,0,0.11);
-
     }
 
 
     .modal-option[hidden] {
-
       display: none;
-
     }
 
 
     .modal-option .icon {
-
       width: 31px;
       height: 31px;
-
     }
 
 
@@ -1172,10 +1404,10 @@
 
     /* =====================================================
        TABLET
-       Az asztali design logikája itt sem változik.
        ===================================================== */
 
     @media (max-width: 980px) {
+
 
       .hero-box {
 
@@ -1197,7 +1429,7 @@
             #000 100%
           ),
 
-          url("images/hero.jpg?v=20260807-4");
+          url("images/hero.jpg?v=20260807-5");
 
         background-position:
           62% center;
@@ -1236,16 +1468,12 @@
 
 
       .experience-text p {
-
         max-width: none;
-
       }
 
 
       .trust-box {
-
         grid-template-columns: 1fr;
-
       }
 
 
@@ -1255,8 +1483,7 @@
         border-left: 0;
 
         border-top:
-          1px solid
-          rgba(255,255,255,0.13);
+          1px solid rgba(255,255,255,0.13);
 
       }
 
@@ -1265,25 +1492,19 @@
 
 
     /* =====================================================
-       MOBILOS NÉZET
-       CSAK EZ A RÉSZ LETT ÚJRATERVEZVE
+       MOBIL
        ===================================================== */
 
     @media (max-width: 680px) {
 
 
-      /* ---------- TELJES OLDAL ---------- */
-
       .page-width {
-
-        width:
-          calc(100% - 24px);
-
+        width: calc(100% - 24px);
       }
 
 
 
-      /* ---------- FEJLÉC ---------- */
+      /* FEJLÉC */
 
       .topbar {
 
@@ -1340,9 +1561,7 @@
 
 
       .header-separator {
-
         display: none;
-
       }
 
 
@@ -1375,21 +1594,14 @@
 
 
 
-      /* ---------- HERO ---------- */
+      /* HERO */
 
       .hero {
-
         padding-bottom: 24px;
-
       }
 
 
       .hero-box {
-
-        /*
-          A korábbi kb. 800+ px helyett
-          jóval kompaktabb.
-        */
 
         min-height: 650px;
 
@@ -1401,13 +1613,6 @@
           235px 20px 24px;
 
         border-radius: 15px;
-
-
-        /*
-          Mobilon külön sötétítés.
-          Felül jobban látszik a motoros,
-          alul olvasható marad a szöveg.
-        */
 
         background-image:
 
@@ -1421,8 +1626,7 @@
             #000 100%
           ),
 
-          url("images/hero.jpg?v=20260807-4");
-
+          url("images/hero.jpg?v=20260807-5");
 
         background-size: cover;
 
@@ -1440,9 +1644,6 @@
 
       }
 
-
-
-      /* ---------- HERO CÍM ---------- */
 
       .hero-title {
 
@@ -1477,7 +1678,7 @@
 
 
 
-      /* ---------- ELŐNY DOBOZOK ---------- */
+      /* ELŐNYÖK */
 
       .hero-features {
 
@@ -1518,27 +1719,15 @@
       }
 
 
-      /*
-        Mobilon ne törjük direkt két sorra
-        a "Szabályozható teljesítmény" szöveget.
-      */
-
       .feature br {
-
         display: none;
-
       }
 
 
 
-      /* ---------- 3 FŐ GOMB ---------- */
+      /* FŐ GOMBOK */
 
       .hero-buttons {
-
-        /*
-          Lehetőségek és Árak egymás mellett,
-          kapcsolatfelvétel teljes szélességben.
-        */
 
         grid-template-columns:
           repeat(2,1fr);
@@ -1575,7 +1764,109 @@
 
 
 
-      /* ---------- KÉPES BLOKKOK ---------- */
+      /* ÁRLISTA MOBILON */
+
+      .price-wrapper.open {
+        margin-top: 16px;
+      }
+
+
+      .price-panel {
+
+        padding:
+          17px 14px;
+
+        border-radius: 12px;
+
+      }
+
+
+      .price-heading {
+
+        font-size: 1.2rem;
+
+        margin-bottom: 4px;
+
+      }
+
+
+      .price-intro {
+
+        margin-bottom: 13px;
+
+        font-size: 0.8rem;
+
+      }
+
+
+      .price-list {
+        gap: 7px;
+      }
+
+
+      .price-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 7px;
+
+        padding:
+          12px 12px;
+
+      }
+
+
+      .price-name strong {
+        font-size: 0.9rem;
+      }
+
+
+      .price-detail {
+        font-size: 0.75rem;
+      }
+
+
+      .price-value {
+
+        font-size: 0.95rem;
+
+        white-space: normal;
+
+      }
+
+
+      .price-footer {
+
+        grid-template-columns: 1fr;
+
+        gap: 7px;
+
+        margin-top: 11px;
+
+      }
+
+
+      .price-note {
+
+        padding:
+          11px 12px;
+
+        font-size: 0.76rem;
+
+      }
+
+
+      .price-vat {
+
+        margin-top: 11px;
+
+        font-size: 0.78rem;
+
+      }
+
+
+
+      /* KÉPES BLOKKOK */
 
       .experiences {
 
@@ -1599,25 +1890,15 @@
       }
 
 
-      /*
-        Mobilon mindig:
-        először kép,
-        utána szöveg.
-      */
-
       .experience-row.reverse
       .experience-image {
-
         order: 1;
-
       }
 
 
       .experience-row.reverse
       .experience-text {
-
         order: 2;
-
       }
 
 
@@ -1700,12 +1981,10 @@
 
 
 
-      /* ---------- ALSÓ 3 INFORMÁCIÓ ---------- */
+      /* ALSÓ INFORMÁCIÓK */
 
       .trust {
-
         padding-bottom: 16px;
-
       }
 
 
@@ -1736,8 +2015,7 @@
         border-left: 0;
 
         border-top:
-          1px solid
-          rgba(255,255,255,0.13);
+          1px solid rgba(255,255,255,0.13);
 
       }
 
@@ -1770,9 +2048,6 @@
       }
 
 
-
-      /* ---------- LÁBLÉC ---------- */
-
       footer {
 
         padding-bottom: 23px;
@@ -1781,9 +2056,6 @@
 
       }
 
-
-
-      /* ---------- FELUGRÓ ABLAK ---------- */
 
       .modal {
 
@@ -1794,16 +2066,12 @@
 
 
       .modal h2 {
-
         font-size: 1.45rem;
-
       }
 
 
       .modal-option {
-
         min-height: 58px;
-
       }
 
     }
@@ -1818,9 +2086,7 @@
 
 
       .header-contact {
-
         font-size: 0.79rem;
-
       }
 
 
@@ -1850,30 +2116,22 @@
 
 
       .hero-description {
-
         font-size: 0.91rem;
-
       }
 
 
       .feature {
-
         font-size: 0.87rem;
-
       }
 
 
       .main-button {
-
         font-size: 0.9rem;
-
       }
 
 
       .main-button.contact {
-
         font-size: 0.97rem;
-
       }
 
     }
@@ -1934,8 +2192,6 @@
       <div class="header-contacts">
 
 
-        <!-- EMAIL -->
-
         <a
           class="header-contact"
           href="mailto:toltodjfelelmennyel@gmail.com"
@@ -1982,8 +2238,6 @@
 
 
 
-        <!-- TELEFON -->
-
         <button
           type="button"
           class="header-contact"
@@ -2007,14 +2261,6 @@
                 19.79 19.79 0 0 1-3.07-8.67
                 A2 2 0 0 1 4.11 2h3
                 a2 2 0 0 1 2 1.72
-                12.84 12.84 0 0 0 .7 2.81
-                2 2 0 0 1-.45 2.11
-                L8.09 9.91
-                a16 16 0 0 0 6 6
-                l1.27-1.27
-                a2 2 0 0 1 2.11-.45
-                12.84 12.84 0 0 0 2.81.7
-                A2 2 0 0 1 22 16.92Z
                 "
               ></path>
 
@@ -2095,7 +2341,6 @@
 
             <div class="feature">
 
-
               <span
                 class="icon"
                 aria-hidden="true"
@@ -2103,46 +2348,29 @@
 
                 <svg viewBox="0 0 24 24">
 
-                  <circle
-                    cx="6"
-                    cy="17"
-                    r="3"
-                  ></circle>
+                  <circle cx="6" cy="17" r="3"></circle>
 
-                  <circle
-                    cx="18"
-                    cy="17"
-                    r="3"
-                  ></circle>
+                  <circle cx="18" cy="17" r="3"></circle>
 
-                  <path
-                    d="M6 17h5l2-7h4"
-                  ></path>
+                  <path d="M6 17h5l2-7h4"></path>
 
-                  <path
-                    d="m8 10 3 7"
-                  ></path>
+                  <path d="m8 10 3 7"></path>
 
-                  <path
-                    d="M13 10h-3"
-                  ></path>
+                  <path d="M13 10h-3"></path>
 
                 </svg>
 
               </span>
 
-
               <span>
                 Több méret
               </span>
-
 
             </div>
 
 
 
             <div class="feature">
-
 
               <span
                 class="icon"
@@ -2161,19 +2389,16 @@
 
               </span>
 
-
               <span>
                 Szabályozható<br>
                 teljesítmény
               </span>
-
 
             </div>
 
 
 
             <div class="feature">
-
 
               <span
                 class="icon"
@@ -2204,11 +2429,9 @@
 
               </span>
 
-
               <span>
                 100% élmény
               </span>
-
 
             </div>
 
@@ -2230,13 +2453,19 @@
             </a>
 
 
+
+            <!-- ÁRAK: EZ NYITJA LE AZ ÁRLISTÁT -->
+
             <button
               class="main-button"
               type="button"
-              data-contact="prices"
+              id="priceToggle"
+              aria-expanded="false"
+              aria-controls="pricePanel"
             >
               Árak
             </button>
+
 
 
             <button
@@ -2247,6 +2476,289 @@
               Kapcsolatfelvétel
             </button>
 
+
+          </div>
+
+
+
+          <!-- =================================================
+               LENYÍLÓ ÁRLISTA
+               ================================================= -->
+
+          <div
+            class="price-wrapper"
+            id="pricePanel"
+          >
+
+            <div class="price-overflow">
+
+
+              <div class="price-panel">
+
+
+                <div class="price-heading">
+
+
+                  <span
+                    class="icon"
+                    aria-hidden="true"
+                  >
+
+                    <svg viewBox="0 0 24 24">
+
+                      <path
+                        d="M20 12 12 20 4 12 12 4l8 8Z"
+                      ></path>
+
+                      <path
+                        d="M9 12h6"
+                      ></path>
+
+                    </svg>
+
+                  </span>
+
+
+                  <span>
+                    Árak
+                  </span>
+
+
+                </div>
+
+
+
+                <p class="price-intro">
+                  Egyszerű, átlátható díjszabás – válaszd ki a számodra megfelelő időtartamot vagy programot.
+                </p>
+
+
+
+                <div class="price-list">
+
+
+                  <!-- ALAPCSOMAG -->
+
+                  <div class="price-row highlight">
+
+
+                    <div class="price-name">
+
+
+                      <strong>
+                        Alapcsomag – legfeljebb 5 óra
+                      </strong>
+
+
+                      <span class="minimum-badge">
+                        Minimum csomag
+                      </span>
+
+
+                    </div>
+
+
+                    <div class="price-value">
+                      20 000 Ft / motor
+                    </div>
+
+
+                  </div>
+
+
+
+                  <!-- +1 ÓRA -->
+
+                  <div class="price-row">
+
+
+                    <div class="price-name">
+
+                      <strong>
+                        +1 megkezdett óra
+                      </strong>
+
+                      <span class="price-detail">
+                        Az alapcsomagon felüli további használat.
+                      </span>
+
+                    </div>
+
+
+                    <div class="price-value">
+                      5 000 Ft / motor
+                    </div>
+
+
+                  </div>
+
+
+
+                  <!-- +2 ÓRA -->
+
+                  <div class="price-row">
+
+
+                    <div class="price-name">
+
+                      <strong>
+                        +2 megkezdett óra
+                      </strong>
+
+                      <span class="price-detail">
+                        Az alapcsomagon felüli további használat.
+                      </span>
+
+                    </div>
+
+
+                    <div class="price-value">
+                      10 000 Ft / motor
+                    </div>
+
+
+                  </div>
+
+
+
+                  <!-- TÖLTŐ -->
+
+                  <div class="price-row">
+
+
+                    <div class="price-name">
+
+                      <strong>
+                        Töltő bérlése
+                      </strong>
+
+                      <span class="price-detail">
+                        A működéshez hálózati csatlakozás szükséges, amelyet a bérlő biztosít.
+                      </span>
+
+                    </div>
+
+
+                    <div class="price-value">
+                      5 000 Ft / töltő
+                    </div>
+
+
+                  </div>
+
+
+
+                  <!-- VEZETETT TÚRA -->
+
+                  <div class="price-row">
+
+
+                    <div class="price-name">
+
+                      <strong>
+                        Vezetett túra
+                      </strong>
+
+                      <span class="price-detail">
+                        Minimum 3 fő részére vehető igénybe.
+                      </span>
+
+                    </div>
+
+
+                    <div class="price-value">
+                      10 000 Ft / fő
+                    </div>
+
+
+                  </div>
+
+
+                </div>
+
+
+
+                <!-- INFORMÁCIÓS RÉSZ -->
+
+                <div class="price-footer">
+
+
+                  <div class="price-note">
+
+
+                    <span
+                      class="icon"
+                      aria-hidden="true"
+                    >
+
+                      <svg viewBox="0 0 24 24">
+
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="9"
+                        ></circle>
+
+                        <path d="M12 11v5"></path>
+
+                        <path d="M12 8h.01"></path>
+
+                      </svg>
+
+                    </span>
+
+
+                    <span>
+                      Jelenleg összesen <strong>5 motor</strong> bérelhető.
+                    </span>
+
+
+                  </div>
+
+
+
+                  <div class="price-note">
+
+
+                    <span
+                      class="icon"
+                      aria-hidden="true"
+                    >
+
+                      <svg viewBox="0 0 24 24">
+
+                        <circle cx="7" cy="17" r="3"></circle>
+
+                        <circle cx="17" cy="17" r="3"></circle>
+
+                        <path d="M7 17h5l2-7h3"></path>
+
+                      </svg>
+
+                    </span>
+
+
+                    <span>
+                      Vezetett túra esetén legfeljebb <strong>4 motor</strong> áll rendelkezésre.
+                    </span>
+
+
+                  </div>
+
+
+                </div>
+
+
+
+                <div class="price-vat">
+                  ✓ Az árak az ÁFA-t tartalmazzák.
+                </div>
+
+
+              </div>
+
+
+            </div>
 
           </div>
 
@@ -2283,7 +2795,7 @@
           <div class="experience-image">
 
             <img
-              src="images/palya.jpg?v=20260807-4"
+              src="images/palya.jpg?v=20260807-5"
               alt="Elektromos motor tereppályán"
               loading="lazy"
             >
@@ -2345,7 +2857,7 @@
           <div class="experience-image">
 
             <img
-              src="images/ajandek.jpg?v=20260807-4"
+              src="images/ajandek.jpg?v=20260807-5"
               alt="Elektromos motoros túra"
               loading="lazy"
             >
@@ -2374,10 +2886,8 @@
 
 
             <h2>
-
               Túrákhoz és<br>
               csapatépítő programokhoz
-
             </h2>
 
 
@@ -2409,7 +2919,7 @@
           <div class="experience-image">
 
             <img
-              src="images/tura.jpg?v=20260807-4"
+              src="images/tura.jpg?v=20260807-5"
               alt="Három elektromos motoros"
               loading="lazy"
             >
@@ -2470,7 +2980,7 @@
 
 
     <!-- =====================================================
-         BIZALMI BLOKK
+         BIZTONSÁG / TÁMOGATÁS / IDŐPONT
          ===================================================== -->
 
     <section class="trust">
@@ -2479,8 +2989,6 @@
       <div class="page-width trust-box">
 
 
-
-        <!-- BIZTONSÁG -->
 
         <div class="trust-item">
 
@@ -2517,7 +3025,6 @@
           </div>
 
 
-
           <div class="trust-content">
 
             <h3>
@@ -2525,11 +3032,8 @@
             </h3>
 
             <p>
-
-              Felszerelt motorok,
-              rendszeresen karbantartva
+              Felszerelt motorok, rendszeresen karbantartva
               a maximális biztonságért.
-
             </p>
 
           </div>
@@ -2538,8 +3042,6 @@
         </div>
 
 
-
-        <!-- SZAKÉRTŐ TÁMOGATÁS -->
 
         <div class="trust-item">
 
@@ -2571,14 +3073,9 @@
                 rx="2"
               ></rect>
 
-              <path
-                d="M17 19c0 1.1-.9 2-2 2h-3"
-              ></path>
-
             </svg>
 
           </div>
-
 
 
           <div class="trust-content">
@@ -2588,10 +3085,8 @@
             </h3>
 
             <p>
-
-              Segítünk a megfelelő motor
-              és csomag kiválasztásában.
-
+              Segítünk a megfelelő motor és csomag
+              kiválasztásában.
             </p>
 
           </div>
@@ -2600,8 +3095,6 @@
         </div>
 
 
-
-        <!-- IDŐPONTFOGLALÁS -->
 
         <div class="trust-item">
 
@@ -2629,14 +3122,9 @@
                 d="M8 14h.01M12 14h.01M16 14h.01"
               ></path>
 
-              <path
-                d="M8 17h.01M12 17h.01"
-              ></path>
-
             </svg>
 
           </div>
-
 
 
           <div class="trust-content">
@@ -2646,10 +3134,8 @@
             </h3>
 
             <p>
-
               Egyeztetés telefonon,
               egyénre szabott lehetőségekkel.
-
             </p>
 
           </div>
@@ -2667,10 +3153,6 @@
   </main>
 
 
-
-  <!-- =====================================================
-       LÁBLÉC
-       ===================================================== -->
 
   <footer>
 
@@ -2710,18 +3192,13 @@
       </button>
 
 
-
       <h2 id="modalTitle">
-
         Hogyan lépnél kapcsolatba velünk?
-
       </h2>
 
 
       <p id="modalText">
-
         Válaszd ki a számodra megfelelő lehetőséget.
-
       </p>
 
 
@@ -2729,19 +3206,12 @@
       <div class="modal-options">
 
 
-
-        <!-- TELEFON -->
-
         <a
           class="modal-option"
           href="tel:+36307009338"
         >
 
-
-          <span
-            class="icon"
-            aria-hidden="true"
-          >
+          <span class="icon" aria-hidden="true">
 
             <svg viewBox="0 0 24 24">
 
@@ -2771,23 +3241,16 @@
 
           </span>
 
-
         </a>
 
 
-
-        <!-- SMS -->
 
         <a
           class="modal-option"
           href="sms:+36307009338"
         >
 
-
-          <span
-            class="icon"
-            aria-hidden="true"
-          >
+          <span class="icon" aria-hidden="true">
 
             <svg viewBox="0 0 24 24">
 
@@ -2822,12 +3285,9 @@
 
           </span>
 
-
         </a>
 
 
-
-        <!-- EMAIL -->
 
         <a
           class="modal-option"
@@ -2835,11 +3295,7 @@
           href="mailto:toltodjfelelmennyel@gmail.com"
         >
 
-
-          <span
-            class="icon"
-            aria-hidden="true"
-          >
+          <span class="icon" aria-hidden="true">
 
             <svg viewBox="0 0 24 24">
 
@@ -2872,7 +3328,6 @@
 
           </span>
 
-
         </a>
 
 
@@ -2892,6 +3347,47 @@
 
   <script>
 
+
+    /* =========================
+       ÁRLISTA
+       ========================= */
+
+    const priceToggle =
+      document.getElementById("priceToggle");
+
+    const pricePanel =
+      document.getElementById("pricePanel");
+
+
+    priceToggle.addEventListener(
+      "click",
+      () => {
+
+
+        const isOpen =
+          pricePanel.classList.toggle("open");
+
+
+        priceToggle.setAttribute(
+          "aria-expanded",
+          isOpen ? "true" : "false"
+        );
+
+
+        priceToggle.textContent =
+          isOpen
+            ? "Árak ▲"
+            : "Árak";
+
+
+      }
+    );
+
+
+
+    /* =========================
+       KAPCSOLATI ABLAK
+       ========================= */
 
     const modal =
       document.getElementById(
@@ -2950,23 +3446,6 @@
       }
 
 
-      else if (mode === "prices") {
-
-
-        modalTitle.textContent =
-          "Árak";
-
-
-        modalText.textContent =
-          "A pontos ár a választott motortól és programtól függ. Kérj személyre szabott ajánlatot telefonon, üzenetben vagy e-mailben.";
-
-
-        emailOption.hidden = false;
-
-
-      }
-
-
       else {
 
 
@@ -2982,7 +3461,6 @@
 
 
       }
-
 
 
       modal.classList.add(
