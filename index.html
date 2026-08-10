@@ -21,19 +21,14 @@
   <style>
 
     :root {
-
       --bg: #000000;
       --text: #f1f1f1;
       --muted: #c9c9c9;
-
       --orange: #ff7900;
       --orange-light: #ff982f;
-
       --border: rgba(255,255,255,0.17);
       --orange-border: rgba(255,121,0,0.72);
-
       --max-width: 1180px;
-
     }
 
 
@@ -50,20 +45,11 @@
 
 
     body {
-
       min-width: 320px;
-
       background: var(--bg);
-
       color: var(--text);
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.5;
-
     }
 
 
@@ -73,40 +59,25 @@
 
 
     img {
-
       display: block;
-
       width: 100%;
-
     }
 
 
     a {
-
       color: inherit;
-
       text-decoration: none;
-
     }
 
 
     button {
-
       font: inherit;
-
     }
 
 
     .page-width {
-
-      width:
-        min(
-          calc(100% - 42px),
-          var(--max-width)
-        );
-
+      width: min(calc(100% - 42px), var(--max-width));
       margin-inline: auto;
-
     }
 
 
@@ -116,11 +87,8 @@
        ===================================================== */
 
     .icon {
-
       display: inline-flex;
-
       align-items: center;
-
       justify-content: center;
 
       width: 25px;
@@ -129,26 +97,21 @@
       flex: 0 0 25px;
 
       color: var(--orange);
-
     }
 
 
     .icon svg {
-
       width: 100%;
       height: 100%;
 
       display: block;
 
       fill: none;
-
       stroke: currentColor;
 
       stroke-width: 2;
-
       stroke-linecap: round;
       stroke-linejoin: round;
-
     }
 
 
@@ -158,47 +121,32 @@
        ===================================================== */
 
     .topbar {
-
-      padding:
-        20px 0 16px;
-
+      padding: 20px 0 16px;
       background: #000;
-
     }
 
 
     .header-box {
-
       min-height: 120px;
 
       display: flex;
-
       flex-direction: column;
 
       align-items: center;
-
       justify-content: center;
 
-      padding:
-        18px 25px;
+      padding: 18px 25px;
 
-      border:
-        1px solid var(--border);
-
+      border: 1px solid var(--border);
       border-radius: 15px;
 
-      background:
-        rgba(5,5,5,0.96);
-
+      background: rgba(5,5,5,0.96);
     }
 
 
     .brand {
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
       gap: 11px;
@@ -208,50 +156,37 @@
       color: #fff;
 
       font-size: 1.25rem;
-
       font-weight: 700;
-
     }
 
 
     .brand .icon {
-
       width: 30px;
       height: 30px;
-
     }
 
 
     .header-contacts {
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       gap: 24px;
-
     }
 
 
     .header-contact {
-
       display: inline-flex;
-
       align-items: center;
-
       justify-content: center;
 
       gap: 10px;
 
       padding: 0;
-
       border: 0;
 
       background: transparent;
 
-      color: #eeeeee;
+      color: #eee;
 
       font-size: 0.98rem;
 
@@ -260,37 +195,26 @@
       transition:
         color 0.2s ease,
         transform 0.2s ease;
-
     }
 
 
     .header-contact:hover {
-
-      color:
-        var(--orange-light);
-
-      transform:
-        translateY(-1px);
-
+      color: var(--orange-light);
+      transform: translateY(-1px);
     }
 
 
     .header-contact .icon {
-
       width: 21px;
       height: 21px;
-
     }
 
 
     .header-separator {
-
       width: 1px;
       height: 26px;
 
-      background:
-        rgba(255,255,255,0.18);
-
+      background: rgba(255,255,255,0.18);
     }
 
 
@@ -300,30 +224,23 @@
        ===================================================== */
 
     .hero {
-
       padding-bottom: 28px;
-
     }
 
 
     .hero-box {
-
       position: relative;
 
       min-height: 660px;
 
       display: flex;
-
       align-items: center;
 
       overflow: hidden;
 
-      padding:
-        54px 45px;
+      padding: 54px 45px;
 
-      border:
-        1px solid var(--border);
-
+      border: 1px solid var(--border);
       border-radius: 17px;
 
 
@@ -345,30 +262,21 @@
           rgba(0,0,0,0.85) 100%
         ),
 
-        url("images/hero.jpg?v=20260807-12");
+        url("images/hero.jpg?v=20260810-1");
 
 
       background-size: cover;
-
-      background-position:
-        54% center;
-
-      background-repeat:
-        no-repeat;
-
+      background-position: 54% center;
+      background-repeat: no-repeat;
     }
 
 
     .hero-content {
-
       position: relative;
-
       z-index: 3;
 
       width: 57%;
-
       max-width: 650px;
-
     }
 
 
@@ -378,7 +286,6 @@
        ===================================================== */
 
     .hero-title {
-
       margin-bottom: 25px;
 
       font-size:
@@ -389,68 +296,43 @@
         );
 
       font-style: italic;
-
       font-weight: 900;
 
       line-height: 0.86;
+      letter-spacing: -0.055em;
 
-      letter-spacing:
-        -0.055em;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
       text-shadow:
-
-        0 4px 12px
-        rgba(0,0,0,0.9),
-
-        0 8px 25px
-        rgba(0,0,0,0.8);
-
+        0 4px 12px rgba(0,0,0,0.9),
+        0 8px 25px rgba(0,0,0,0.8);
     }
 
 
     .hero-title > span {
-
       display: block;
-
     }
 
 
     .hero-title-stack {
-
       position: relative;
-
-      display:
-        inline-block !important;
-
-      padding-bottom:
-        0.52em;
-
+      display: inline-block !important;
+      padding-bottom: 0.52em;
     }
 
 
     .hero-title-orange {
-
       display: block;
 
-      color:
-        var(--orange);
+      color: var(--orange);
 
       text-shadow:
-
-        0 0 15px
-        rgba(255,121,0,0.45),
-
-        0 0 32px
-        rgba(255,121,0,0.18);
-
+        0 0 15px rgba(255,121,0,0.45),
+        0 0 32px rgba(255,121,0,0.18);
     }
 
 
     .hero-subtitle {
-
       position: absolute;
 
       left: 0;
@@ -458,7 +340,7 @@
 
       display: block;
 
-      color: #ffffff;
+      color: #fff;
 
       font-family:
         "Arial Narrow",
@@ -468,13 +350,11 @@
         sans-serif;
 
       font-style: normal;
-
       font-weight: 700;
 
       line-height: 1;
 
       letter-spacing: 0;
-
       word-spacing: normal;
 
       text-transform: none;
@@ -484,14 +364,11 @@
       text-shadow:
         0 2px 8px #000;
 
-      font-size:
-        0.48em;
-
+      font-size: 0.48em;
     }
 
 
     .hero-description {
-
       max-width: 555px;
 
       margin-bottom: 28px;
@@ -507,7 +384,6 @@
 
       text-shadow:
         0 2px 6px #000;
-
     }
 
 
@@ -517,58 +393,54 @@
        ===================================================== */
 
     .hero-features {
+      display: grid;
 
-      display: flex;
+      /*
+        Mindhárom egy sorban:
+        Több méret | Szabályozható | 100% élmény
+      */
 
-      flex-wrap: wrap;
+      grid-template-columns:
+        1.05fr 1.55fr 1.05fr;
 
-      gap: 15px;
+      gap: 12px;
 
       margin-bottom: 30px;
-
     }
 
 
     .feature {
-
+      min-width: 0;
       min-height: 63px;
 
       display: flex;
-
       align-items: center;
 
-      gap: 10px;
+      gap: 9px;
 
-      padding:
-        12px 17px;
+      padding: 11px 13px;
 
-      border:
-        1px solid
-        var(--orange-border);
-
+      border: 1px solid var(--orange-border);
       border-radius: 11px;
 
-      background:
-        rgba(0,0,0,0.70);
+      background: rgba(0,0,0,0.70);
 
       color: #fff;
 
-      font-size:
-        0.98rem;
-
+      font-size: 0.91rem;
       font-weight: 700;
 
-      backdrop-filter:
-        blur(5px);
+      white-space: nowrap;
 
+      backdrop-filter: blur(5px);
     }
 
 
     .feature .icon {
+      width: 22px;
+      height: 22px;
 
-      width: 23px;
-      height: 23px;
-
+      flex: 0 0 22px;
     }
 
 
@@ -578,56 +450,48 @@
        ===================================================== */
 
     .hero-buttons {
-
       width: 100%;
 
       display: grid;
 
-      grid-template-columns:
-        repeat(
-          3,
-          minmax(170px,1fr)
-        );
+      /*
+        LEHETŐSÉGEK | ÁRAK | MOTOROK | KAPCSOLAT
+      */
 
-      gap: 30px;
+      grid-template-columns:
+        repeat(4, minmax(0,1fr));
+
+      gap: 14px;
 
       align-items: start;
-
     }
 
 
     .main-button {
-
       width: 100%;
 
+      min-width: 0;
       min-height: 62px;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
-      padding:
-        14px 20px;
+      padding: 12px 8px;
 
-      border:
-        1px solid
-        var(--orange);
-
+      border: 1px solid var(--orange);
       border-radius: 9px;
 
-      background:
-        rgba(0,0,0,0.72);
+      background: rgba(0,0,0,0.72);
 
-      color:
-        var(--orange-light);
+      color: var(--orange-light);
 
-      font-size: 1.02rem;
-
+      font-size: 0.91rem;
       font-weight: 700;
 
       text-align: center;
+
+      white-space: nowrap;
 
       cursor: pointer;
 
@@ -635,23 +499,18 @@
         transform 0.2s ease,
         background 0.2s ease,
         box-shadow 0.2s ease;
-
     }
 
 
     .main-button:hover {
-
-      transform:
-        translateY(-2px);
+      transform: translateY(-2px);
 
       background:
         rgba(255,121,0,0.10);
-
     }
 
 
     .main-button.contact {
-
       color: #fff;
 
       border-color:
@@ -667,7 +526,6 @@
       box-shadow:
         0 10px 28px
         rgba(255,121,0,0.28);
-
     }
 
 
@@ -677,34 +535,28 @@
        ===================================================== */
 
     .opportunities-arrow {
-
       display: inline-block;
 
-      margin-left: 8px;
+      margin-left: 7px;
 
-      font-size: 0.72rem;
+      font-size: 0.7rem;
 
       transition:
         transform 0.3s ease;
-
     }
 
 
     #opportunitiesButton.open
     .opportunities-arrow {
-
       transform:
         rotate(180deg);
-
     }
 
 
     .opportunities-panel {
-
       width: 100%;
 
       display: grid;
-
       grid-template-rows: 0fr;
 
       margin-top: 0;
@@ -715,30 +567,24 @@
         grid-template-rows 0.42s ease,
         margin-top 0.42s ease,
         opacity 0.3s ease;
-
     }
 
 
     .opportunities-panel.open {
-
       grid-template-rows: 1fr;
 
       margin-top: 18px;
 
       opacity: 1;
-
     }
 
 
     .opportunities-overflow {
-
       overflow: hidden;
-
     }
 
 
     .opportunities-list {
-
       padding: 8px;
 
       border:
@@ -758,37 +604,28 @@
       box-shadow:
         0 18px 45px
         rgba(0,0,0,0.35);
-
     }
 
 
     .opportunity-option {
-
       width: 100%;
-
       min-height: 54px;
 
       display: flex;
-
       align-items: center;
 
       gap: 13px;
 
-      padding:
-        11px 14px;
+      padding: 11px 14px;
 
       border: 0;
-
       border-radius: 9px;
 
-      background:
-        transparent;
+      background: transparent;
 
-      color: #ffffff;
+      color: #fff;
 
-      font-size:
-        0.94rem;
-
+      font-size: 0.94rem;
       font-weight: 700;
 
       text-align: left;
@@ -799,46 +636,37 @@
         background 0.2s ease,
         color 0.2s ease,
         transform 0.2s ease;
-
     }
 
 
     .opportunity-option:hover {
-
-      color:
-        var(--orange-light);
+      color: var(--orange-light);
 
       background:
         rgba(255,121,0,0.12);
 
       transform:
         translateX(3px);
-
     }
 
 
     .opportunity-option +
     .opportunity-option {
-
       border-top:
         1px solid
         rgba(255,255,255,0.08);
-
     }
 
 
     .opportunity-icon {
-
       width: 30px;
       height: 30px;
 
-      flex:
-        0 0 30px;
+      flex: 0 0 30px;
 
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       border:
@@ -852,38 +680,21 @@
 
       background:
         rgba(255,121,0,0.07);
-
     }
 
 
     .opportunity-text {
-
       display: flex;
-
       flex-direction: column;
-
       gap: 1px;
-
-    }
-
-
-    .opportunity-title {
-
-      color: inherit;
-
     }
 
 
     .opportunity-description {
+      color: #929292;
 
-      color:
-        #929292;
-
-      font-size:
-        0.73rem;
-
+      font-size: 0.73rem;
       font-weight: 400;
-
     }
 
 
@@ -893,11 +704,9 @@
        ===================================================== */
 
     .price-wrapper {
-
       width: 100%;
 
       display: grid;
-
       grid-template-rows: 0fr;
 
       margin-top: 0;
@@ -908,30 +717,24 @@
         grid-template-rows 0.45s ease,
         opacity 0.35s ease,
         margin-top 0.45s ease;
-
     }
 
 
     .price-wrapper.open {
-
       grid-template-rows: 1fr;
 
       margin-top: 24px;
 
       opacity: 1;
-
     }
 
 
     .price-overflow {
-
       overflow: hidden;
-
     }
 
 
     .price-panel {
-
       padding: 24px;
 
       border:
@@ -951,14 +754,11 @@
       box-shadow:
         0 18px 45px
         rgba(0,0,0,0.35);
-
     }
 
 
     .price-heading {
-
       display: flex;
-
       align-items: center;
 
       gap: 10px;
@@ -968,34 +768,26 @@
       color: #fff;
 
       font-size: 1.45rem;
-
       font-weight: 800;
-
     }
 
 
     .price-intro {
-
       margin-bottom: 18px;
 
       color: #bdbdbd;
 
       font-size: 0.9rem;
-
     }
 
 
     .price-list {
-
       display: grid;
-
       gap: 9px;
-
     }
 
 
     .price-row {
-
       display: grid;
 
       grid-template-columns:
@@ -1006,8 +798,7 @@
 
       align-items: center;
 
-      padding:
-        14px 15px;
+      padding: 14px 15px;
 
       border:
         1px solid
@@ -1017,74 +808,56 @@
 
       background:
         rgba(255,255,255,0.035);
-
     }
 
 
     .price-row.highlight {
-
       border-color:
         rgba(255,121,0,0.58);
 
       background:
         rgba(255,121,0,0.08);
-
     }
 
 
     .price-name {
-
       display: flex;
-
       flex-direction: column;
-
       gap: 3px;
-
     }
 
 
     .price-name strong {
-
       color: #fff;
-
       font-size: 0.97rem;
-
     }
 
 
     .price-detail {
-
       color: #a9a9a9;
 
       font-size: 0.79rem;
-
       line-height: 1.4;
-
     }
 
 
     .price-value {
-
       color:
         var(--orange-light);
 
       font-size: 1rem;
-
       font-weight: 800;
 
       white-space: nowrap;
-
     }
 
 
     .minimum-badge {
-
       width: fit-content;
 
       margin-top: 4px;
 
-      padding:
-        3px 8px;
+      padding: 3px 8px;
 
       border:
         1px solid
@@ -1098,39 +871,29 @@
       color:
         var(--orange-light);
 
-      font-size:
-        0.68rem;
-
+      font-size: 0.68rem;
       font-weight: 700;
 
-      text-transform:
-        uppercase;
-
+      text-transform: uppercase;
     }
 
 
     .price-footer {
-
       display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
+      grid-template-columns: 1fr 1fr;
 
       gap: 10px;
 
       margin-top: 16px;
-
     }
 
 
     .price-note {
-
       display: flex;
 
       gap: 10px;
 
-      padding:
-        13px 14px;
+      padding: 13px 14px;
 
       border-radius: 10px;
 
@@ -1140,24 +903,19 @@
       color: #d5d5d5;
 
       font-size: 0.82rem;
-
       line-height: 1.45;
-
     }
 
 
     .price-vat {
-
       margin-top: 14px;
 
       color: #fff;
 
       font-size: 0.83rem;
-
       font-weight: 700;
 
       text-align: center;
-
     }
 
 
@@ -1167,15 +925,12 @@
        ===================================================== */
 
     .experiences {
-
       padding:
         2px 0 30px;
-
     }
 
 
     .experience-row {
-
       display: grid;
 
       grid-template-columns:
@@ -1188,41 +943,28 @@
       margin-bottom: 48px;
 
       scroll-margin-top: 25px;
-
     }
 
 
     .experience-row.reverse {
-
       grid-template-columns:
         0.88fr 1.12fr;
-
     }
 
 
     .experience-row.reverse
     .experience-image {
-
       order: 2;
-
     }
 
 
     .experience-row.reverse
     .experience-text {
-
       order: 1;
-
     }
 
 
-
-    /* =====================================================
-       KÉPEK
-       ===================================================== */
-
     .experience-image {
-
       overflow: hidden;
 
       border-radius: 18px;
@@ -1236,48 +978,34 @@
       box-shadow:
         0 18px 40px
         rgba(0,0,0,0.4);
-
     }
 
 
     .experience-image img {
-
       width: 100%;
 
-      aspect-ratio:
-        16 / 8.8;
+      aspect-ratio: 16 / 8.8;
 
       object-fit: cover;
 
       transition:
         transform 0.4s ease;
-
     }
 
 
     .experience-image:hover img {
-
       transform:
         scale(1.02);
-
     }
 
 
-
-    /* =====================================================
-       LEHETŐSÉG CÍMEK
-       ===================================================== */
-
     .experience-text {
-
       padding:
         5px 3px;
-
     }
 
 
     .small-lightning {
-
       width: 23px;
       height: 28px;
 
@@ -1285,12 +1013,10 @@
 
       color:
         var(--orange);
-
     }
 
 
     .small-lightning svg {
-
       width: 100%;
       height: 100%;
 
@@ -1298,12 +1024,10 @@
         currentColor;
 
       stroke: none;
-
     }
 
 
     .experience-text h2 {
-
       margin-bottom: 12px;
 
       color: #fff;
@@ -1321,12 +1045,10 @@
 
       letter-spacing:
         -0.04em;
-
     }
 
 
     .orange-line {
-
       width: 58px;
       height: 3px;
 
@@ -1336,7 +1058,6 @@
 
       background:
         var(--orange);
-
     }
 
 
@@ -1346,7 +1067,6 @@
        ===================================================== */
 
     .extra-toggle {
-
       display: inline-flex;
 
       align-items: center;
@@ -1370,9 +1090,7 @@
       color:
         var(--orange-light);
 
-      font-size:
-        0.89rem;
-
+      font-size: 0.89rem;
       font-weight: 700;
 
       cursor: pointer;
@@ -1380,51 +1098,37 @@
       transition:
         background 0.2s ease,
         transform 0.2s ease;
-
     }
 
 
     .extra-toggle:hover {
-
       transform:
         translateY(-1px);
 
       background:
         rgba(255,121,0,0.13);
-
     }
 
 
     .toggle-arrow {
-
       display: inline-block;
 
       transition:
         transform 0.3s ease;
-
     }
 
 
     .extra-toggle.open
     .toggle-arrow {
-
       transform:
         rotate(180deg);
-
     }
 
 
-
-    /* =====================================================
-       RÉSZLETES DOBOZ
-       ===================================================== */
-
     .experience-extra {
-
       display: grid;
 
-      grid-template-rows:
-        0fr;
+      grid-template-rows: 0fr;
 
       margin-top: 0;
 
@@ -1434,31 +1138,24 @@
         grid-template-rows 0.4s ease,
         opacity 0.3s ease,
         margin-top 0.4s ease;
-
     }
 
 
     .experience-extra.open {
-
-      grid-template-rows:
-        1fr;
+      grid-template-rows: 1fr;
 
       margin-top: 15px;
 
       opacity: 1;
-
     }
 
 
     .experience-extra-overflow {
-
       overflow: hidden;
-
     }
 
 
     .experience-extra-card {
-
       max-width: 500px;
 
       padding:
@@ -1481,14 +1178,11 @@
       box-shadow:
         0 12px 30px
         rgba(0,0,0,0.20);
-
     }
 
 
     .experience-extra-title {
-
       display: flex;
-
       align-items: center;
 
       gap: 9px;
@@ -1497,35 +1191,27 @@
 
       color: #fff;
 
-      font-size:
-        0.98rem;
-
+      font-size: 0.98rem;
       font-weight: 800;
-
     }
 
 
     .experience-extra-title
     span:first-child {
-
       color:
         var(--orange);
 
       font-size:
         1.15rem;
-
     }
 
 
     .experience-extra-card p {
-
       color: #c9c9c9;
 
-      font-size:
-        0.91rem;
+      font-size: 0.91rem;
 
       line-height: 1.55;
-
     }
 
 
@@ -1535,14 +1221,11 @@
        ===================================================== */
 
     .trust {
-
       padding-bottom: 18px;
-
     }
 
 
     .trust-box {
-
       display: grid;
 
       grid-template-columns:
@@ -1557,12 +1240,10 @@
       border-radius: 14px;
 
       background: #070707;
-
     }
 
 
     .trust-item {
-
       min-height: 125px;
 
       display: flex;
@@ -1573,22 +1254,18 @@
 
       padding:
         23px 27px;
-
     }
 
 
     .trust-item +
     .trust-item {
-
       border-left:
         1px solid
         rgba(255,255,255,0.13);
-
     }
 
 
     .trust-icon {
-
       width: 53px;
       height: 53px;
 
@@ -1597,12 +1274,10 @@
 
       color:
         var(--orange);
-
     }
 
 
     .trust-icon svg {
-
       width: 100%;
       height: 100%;
 
@@ -1612,27 +1287,22 @@
         currentColor;
 
       stroke-width: 1.8;
-
     }
 
 
     .trust-content h3 {
-
       margin-bottom: 5px;
 
       color: #fff;
 
       font-size: 1.06rem;
-
     }
 
 
     .trust-content p {
-
       color: #b8b8b8;
 
       font-size: 0.82rem;
-
     }
 
 
@@ -1642,27 +1312,23 @@
        ===================================================== */
 
     footer {
-
       padding:
         3px 15px 27px;
 
       color: #777;
 
-      font-size:
-        0.85rem;
+      font-size: 0.85rem;
 
       text-align: center;
-
     }
 
 
 
     /* =====================================================
-       KAPCSOLAT MODAL
+       ÁLTALÁNOS MODAL HÁTTÉR
        ===================================================== */
 
     .modal-background {
-
       position: fixed;
 
       inset: 0;
@@ -1672,29 +1338,29 @@
       display: none;
 
       align-items: center;
-
       justify-content: center;
 
       padding: 20px;
 
       background:
-        rgba(0,0,0,0.87);
+        rgba(0,0,0,0.90);
 
       backdrop-filter:
         blur(9px);
-
     }
 
 
     .modal-background.open {
-
       display: flex;
-
     }
 
 
-    .modal {
 
+    /* =====================================================
+       KAPCSOLAT MODAL
+       ===================================================== */
+
+    .modal {
       position: relative;
 
       width:
@@ -1715,69 +1381,71 @@
         #0b0b0d;
 
       text-align: center;
-
     }
 
 
     .modal h2 {
-
       margin-bottom: 8px;
 
       font-size: 1.75rem;
-
     }
 
 
     .modal > p {
-
       margin-bottom: 24px;
 
       color: #c4c4c4;
-
     }
 
 
     .modal-close {
-
       position: absolute;
 
       top: 12px;
       right: 12px;
 
+      z-index: 5;
+
       width: 40px;
       height: 40px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
 
       border: 0;
 
       border-radius: 50%;
 
       background:
-        rgba(255,255,255,0.08);
+        rgba(0,0,0,0.65);
 
       color: #fff;
 
       font-size: 1.45rem;
 
       cursor: pointer;
+    }
 
+
+    .modal-close:hover {
+      background:
+        rgba(255,121,0,0.85);
     }
 
 
     .modal-options {
-
       display: grid;
 
       gap: 12px;
-
     }
 
 
     .modal-option {
-
       min-height: 63px;
 
       display: flex;
-
       align-items: center;
 
       padding:
@@ -1793,42 +1461,114 @@
         rgba(255,255,255,0.035);
 
       text-align: left;
-
     }
 
 
     .modal-option[hidden] {
-
       display: none;
-
     }
 
 
     .modal-option-text {
-
       display: flex;
-
       flex-direction: column;
-
     }
 
 
     .modal-option-title {
-
       color: #fff;
-
       font-weight: 700;
-
     }
 
 
     .modal-option-description {
+      color: #aaa;
+      font-size: 0.84rem;
+    }
+
+
+
+    /* =====================================================
+       MOTOROK KÉP MODAL
+       ===================================================== */
+
+    .bikes-modal {
+      position: relative;
+
+      width:
+        min(
+          100%,
+          1000px
+        );
+
+      max-height:
+        calc(100vh - 40px);
+
+      overflow: auto;
+
+      padding: 18px;
+
+      border:
+        1px solid
+        rgba(255,121,0,0.62);
+
+      border-radius: 20px;
+
+      background:
+        #070707;
+
+      box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.75);
+    }
+
+
+    .bikes-modal-header {
+      padding:
+        5px 50px 14px 5px;
+    }
+
+
+    .bikes-modal-header h2 {
+      color: #fff;
+
+      font-size: 1.65rem;
+      line-height: 1.1;
+    }
+
+
+    .bikes-modal-header p {
+      margin-top: 5px;
 
       color: #aaa;
 
-      font-size:
-        0.84rem;
+      font-size: 0.88rem;
+    }
 
+
+    .bikes-image {
+      overflow: hidden;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+      border-radius: 14px;
+
+      background: #000;
+    }
+
+
+    .bikes-image img {
+      width: 100%;
+      height: auto;
+
+      max-height:
+        calc(100vh - 150px);
+
+      object-fit: contain;
+
+      background: #000;
     }
 
 
@@ -1839,15 +1579,11 @@
 
     @media (max-width: 980px) {
 
-
       .experience-row,
       .experience-row.reverse {
-
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
 
         gap: 24px;
-
       }
 
 
@@ -1856,29 +1592,22 @@
 
       .experience-row.reverse
       .experience-text {
-
         order: initial;
-
       }
 
 
       .trust-box {
-
-        grid-template-columns:
-          1fr;
-
+        grid-template-columns: 1fr;
       }
 
 
       .trust-item +
       .trust-item {
-
         border-left: 0;
 
         border-top:
           1px solid
           rgba(255,255,255,0.13);
-
       }
 
     }
@@ -1893,73 +1622,60 @@
 
 
       .page-width {
-
         width:
           calc(100% - 24px);
-
       }
 
 
 
-      .topbar {
+      /* FEJLÉC */
 
+      .topbar {
         padding:
           10px 0 14px;
-
       }
 
 
       .header-box {
-
         min-height: auto;
 
         padding:
           14px 14px 16px;
 
         border-radius: 14px;
-
       }
 
 
       .brand {
-
         margin-bottom: 10px;
 
         font-size: 1rem;
 
         white-space: nowrap;
-
       }
 
 
       .brand .icon {
-
         width: 24px;
         height: 24px;
-
       }
 
 
       .header-contacts {
-
         width: 100%;
 
         flex-direction: column;
 
         gap: 7px;
-
       }
 
 
       .header-separator {
-
         display: none;
-
       }
 
 
       .header-contact {
-
         font-size:
           clamp(
             0.77rem,
@@ -1968,7 +1684,6 @@
           );
 
         white-space: nowrap;
-
       }
 
 
@@ -1976,14 +1691,11 @@
       /* HERO */
 
       .hero {
-
         padding-bottom: 24px;
-
       }
 
 
       .hero-box {
-
         min-height: 760px;
 
         display: block;
@@ -2007,7 +1719,7 @@
             #000 100%
           ),
 
-          url("images/hero.jpg?v=20260807-12");
+          url("images/hero.jpg?v=20260810-1");
 
 
         background-size: cover;
@@ -2015,14 +1727,11 @@
         background-position:
           50% center;
 
-        background-repeat:
-          no-repeat;
-
+        background-repeat: no-repeat;
       }
 
 
       .hero-content {
-
         width: 100%;
 
         max-width: none;
@@ -2032,12 +1741,10 @@
         display: flex;
 
         flex-direction: column;
-
       }
 
 
       .hero-title {
-
         margin:
           0 0 13px;
 
@@ -2052,51 +1759,44 @@
 
         letter-spacing:
           -0.045em;
-
       }
 
 
       .hero-title-stack {
-
         padding-bottom:
           0.55em;
-
       }
 
 
       .hero-description {
-
         max-width: 100%;
 
         margin: 0;
 
-        font-size:
-          0.94rem;
+        font-size: 0.94rem;
 
         line-height: 1.5;
 
         text-shadow:
           0 2px 8px #000,
           0 2px 14px #000;
-
       }
 
 
+
+      /* ELŐNYÖK MOBILON MARADNAK EGYMÁS ALATT */
+
       .hero-features {
-
         margin-top: auto;
-
         margin-bottom: 15px;
 
-        flex-direction: column;
+        grid-template-columns: 1fr;
 
         gap: 8px;
-
       }
 
 
       .feature {
-
         width: 100%;
 
         min-height: 50px;
@@ -2106,73 +1806,60 @@
 
         border-radius: 9px;
 
-        font-size:
-          0.91rem;
-
+        font-size: 0.91rem;
       }
 
 
 
-      /* GOMBOK */
+      /* =================================================
+         NÉGY FŐ GOMB MOBILON 2 x 2
+         ================================================= */
 
       .hero-buttons {
-
         grid-template-columns:
           repeat(2,1fr);
 
         gap: 9px;
-
       }
 
 
       .main-button {
-
         min-height: 51px;
 
         padding:
-          10px 8px;
+          10px 5px;
 
         border-radius: 8px;
 
-        font-size:
-          0.95rem;
-
+        font-size: 0.88rem;
       }
 
 
       .main-button.contact {
+        grid-column: auto;
 
-        grid-column:
-          1 / -1;
+        min-height: 51px;
 
-        min-height: 57px;
-
-        font-size: 1rem;
-
+        font-size: 0.86rem;
       }
 
 
 
-      /* LEHETŐSÉGEK MOBILON */
+      /* LEHETŐSÉGEK */
 
       .opportunities-panel.open {
-
         margin-top: 14px;
-
       }
 
 
       .opportunities-list {
-
         padding: 6px;
 
         border-radius: 11px;
-
       }
 
 
       .opportunity-option {
-
         min-height: 55px;
 
         padding:
@@ -2180,28 +1867,22 @@
 
         gap: 10px;
 
-        font-size:
-          0.87rem;
-
+        font-size: 0.87rem;
       }
 
 
       .opportunity-icon {
-
         width: 28px;
         height: 28px;
 
         flex:
           0 0 28px;
-
       }
 
 
       .opportunity-description {
-
         font-size:
           0.68rem;
-
       }
 
 
@@ -2209,96 +1890,75 @@
       /* ÁRAK */
 
       .price-wrapper.open {
-
         margin-top: 16px;
-
       }
 
 
       .price-panel {
-
         padding:
           17px 14px;
 
         border-radius: 12px;
-
       }
 
 
       .price-heading {
-
         font-size: 1.2rem;
-
       }
 
 
       .price-intro {
-
         margin-bottom: 13px;
 
         font-size:
           0.8rem;
-
       }
 
 
       .price-row {
-
         grid-template-columns:
           1fr;
 
         gap: 7px;
 
         padding: 12px;
-
       }
 
 
       .price-name strong {
-
         font-size: 0.9rem;
-
       }
 
 
       .price-detail {
-
         font-size: 0.75rem;
-
       }
 
 
       .price-value {
-
         font-size: 0.95rem;
-
       }
 
 
       .price-footer {
-
         grid-template-columns:
           1fr;
 
         gap: 7px;
-
       }
 
 
 
-      /* BLOKKOK */
+      /* LEHETŐSÉG BLOKKOK */
 
       .experiences {
-
         padding:
           2px 0 20px;
-
       }
 
 
       .experience-row,
       .experience-row.reverse {
-
         display: flex;
 
         flex-direction: column;
@@ -2308,106 +1968,114 @@
         margin-bottom: 38px;
 
         scroll-margin-top: 15px;
-
       }
 
 
       .experience-row.reverse
       .experience-image {
-
         order: 1;
-
       }
 
 
       .experience-row.reverse
       .experience-text {
-
         order: 2;
-
       }
 
 
       .experience-image {
-
         width: 100%;
 
         border-radius: 15px;
-
       }
 
 
       .experience-image img {
-
         aspect-ratio:
           16 / 10;
-
       }
 
 
       .experience-text {
-
         width: 100%;
 
         padding:
           0 7px;
-
       }
 
 
       .experience-text h2 {
-
         font-size:
           clamp(
             1.75rem,
             7.3vw,
             2.35rem
           );
-
       }
 
 
       .extra-toggle {
-
         padding:
           9px 13px;
 
         font-size:
           0.83rem;
-
       }
 
 
       .experience-extra.open {
-
         margin-top: 12px;
-
       }
 
 
       .experience-extra-card {
-
         max-width: none;
 
         padding:
           14px 15px;
-
       }
 
 
       .experience-extra-title {
-
         font-size:
           0.92rem;
-
       }
 
 
       .experience-extra-card p {
-
         font-size:
           0.84rem;
+      }
 
+
+
+      /* MOTOROK MODAL MOBIL */
+
+      .bikes-modal {
+        padding: 10px;
+
+        border-radius: 15px;
+      }
+
+
+      .bikes-modal-header {
+        padding:
+          8px 45px 11px 4px;
+      }
+
+
+      .bikes-modal-header h2 {
+        font-size: 1.3rem;
+      }
+
+
+      .bikes-modal-header p {
+        font-size: 0.78rem;
+      }
+
+
+      .bikes-image {
+        border-radius: 10px;
       }
 
 
@@ -2415,66 +2083,56 @@
       /* ALSÓ BLOKK */
 
       .trust-box {
-
         grid-template-columns:
           1fr;
-
       }
 
 
       .trust-item {
-
         min-height: 94px;
 
         padding:
           17px 18px;
-
       }
 
 
       .trust-icon {
-
         width: 43px;
         height: 43px;
 
         flex-basis: 43px;
-
       }
 
 
       .trust-content h3 {
-
         font-size: 1rem;
-
       }
 
 
       .trust-content p {
-
         font-size:
           0.78rem;
-
       }
 
 
       footer {
-
         padding-bottom: 23px;
 
         font-size:
           0.76rem;
-
       }
 
     }
 
 
 
+    /* =====================================================
+       KISEBB MOBIL
+       ===================================================== */
+
     @media (max-width: 420px) {
 
-
       .hero-box {
-
         min-height: 735px;
 
         padding:
@@ -2482,58 +2140,45 @@
 
         background-position:
           50% center;
-
       }
 
 
       .hero-content {
-
         min-height: 693px;
-
       }
 
 
       .hero-title {
-
         font-size:
           clamp(
             2.2rem,
             10.7vw,
             2.95rem
           );
-
       }
 
 
       .hero-description {
-
         font-size:
           0.9rem;
-
       }
 
 
       .feature {
-
         font-size:
           0.87rem;
-
       }
 
 
       .main-button {
-
         font-size:
-          0.9rem;
-
+          0.83rem;
       }
 
 
       .main-button.contact {
-
         font-size:
-          0.97rem;
-
+          0.81rem;
       }
 
     }
@@ -2554,7 +2199,6 @@
 
   <header class="topbar">
 
-
     <div class="page-width header-box">
 
 
@@ -2563,9 +2207,7 @@
         href="#kezdolap"
       >
 
-
         <span class="icon">
-
 
           <svg viewBox="0 0 24 24">
 
@@ -2577,14 +2219,11 @@
 
           </svg>
 
-
         </span>
-
 
         <span>
           Töltődj fel élménnyel
         </span>
-
 
       </a>
 
@@ -2598,9 +2237,7 @@
           href="mailto:toltodjfelelmennyel@gmail.com"
         >
 
-
           <span class="icon">
-
 
             <svg viewBox="0 0 24 24">
 
@@ -2618,22 +2255,17 @@
 
             </svg>
 
-
           </span>
-
 
           <span>
             toltodjfelelmennyel@gmail.com
           </span>
 
-
         </a>
 
 
 
-        <span
-          class="header-separator"
-        ></span>
+        <span class="header-separator"></span>
 
 
 
@@ -2643,12 +2275,9 @@
           data-contact="phone"
         >
 
-
           <span class="icon">
 
-
             <svg viewBox="0 0 24 24">
-
 
               <path
                 d="
@@ -2670,17 +2299,13 @@
                 "
               ></path>
 
-
             </svg>
 
-
           </span>
-
 
           <span>
             +36 30 700 9338
           </span>
-
 
         </button>
 
@@ -2689,7 +2314,6 @@
 
 
     </div>
-
 
   </header>
 
@@ -2707,28 +2331,22 @@
       id="kezdolap"
     >
 
-
       <div class="page-width hero-box">
-
 
         <div class="hero-content">
 
 
           <h1 class="hero-title">
 
-
             <span>
               Töltődj
             </span>
-
 
             <span>
               fel
             </span>
 
-
             <span class="hero-title-stack">
-
 
               <span
                 class="hero-title-orange"
@@ -2737,7 +2355,6 @@
                 élménnyel
               </span>
 
-
               <span
                 class="hero-subtitle"
                 id="heroSubtitle"
@@ -2745,9 +2362,7 @@
                 Elektromos motor bérlés
               </span>
 
-
             </span>
-
 
           </h1>
 
@@ -2763,11 +2378,14 @@
 
 
 
+          <!-- =================================================
+               3 ELŐNY - EGY SORBAN
+               ================================================= -->
+
           <div class="hero-features">
 
 
             <div class="feature">
-
 
               <span class="icon">
 
@@ -2797,18 +2415,15 @@
 
               </span>
 
-
               <span>
                 Több méret
               </span>
-
 
             </div>
 
 
 
             <div class="feature">
-
 
               <span class="icon">
 
@@ -2824,18 +2439,15 @@
 
               </span>
 
-
               <span>
                 Szabályozható teljesítmény
               </span>
-
 
             </div>
 
 
 
             <div class="feature">
-
 
               <span class="icon">
 
@@ -2863,11 +2475,9 @@
 
               </span>
 
-
               <span>
                 100% élmény
               </span>
-
 
             </div>
 
@@ -2876,10 +2486,14 @@
 
 
 
-          <!-- FŐ GOMBOK -->
+          <!-- =================================================
+               4 FŐ GOMB
+               ================================================= -->
 
           <div class="hero-buttons">
 
+
+            <!-- LEHETŐSÉGEK -->
 
             <button
               type="button"
@@ -2889,20 +2503,19 @@
               aria-controls="opportunitiesPanel"
             >
 
-
               <span>
                 Lehetőségek
               </span>
-
 
               <span class="opportunities-arrow">
                 ▼
               </span>
 
-
             </button>
 
 
+
+            <!-- ÁRAK -->
 
             <button
               class="main-button"
@@ -2915,6 +2528,20 @@
             </button>
 
 
+
+            <!-- MOTOROK -->
+
+            <button
+              class="main-button"
+              type="button"
+              id="bikesButton"
+            >
+              Motorok
+            </button>
+
+
+
+            <!-- KAPCSOLAT -->
 
             <button
               class="main-button contact"
@@ -2938,12 +2565,9 @@
             id="opportunitiesPanel"
           >
 
-
             <div class="opportunities-overflow">
 
-
               <div class="opportunities-list">
-
 
 
                 <button
@@ -2953,27 +2577,21 @@
                   data-extra="palyaExtra"
                 >
 
-
                   <span class="opportunity-icon">
                     ⚡
                   </span>
 
-
                   <span class="opportunity-text">
-
 
                     <span class="opportunity-title">
                       Pályahasználat
                     </span>
 
-
                     <span class="opportunity-description">
                       Sportosabb motorozás és gyakorlás
                     </span>
 
-
                   </span>
-
 
                 </button>
 
@@ -2986,27 +2604,21 @@
                   data-extra="turaExtra"
                 >
 
-
                   <span class="opportunity-icon">
                     ⚡
                   </span>
 
-
                   <span class="opportunity-text">
-
 
                     <span class="opportunity-title">
                       Élmény túra
                     </span>
 
-
                     <span class="opportunity-description">
                       Kikapcsolódás és természetjárás
                     </span>
 
-
                   </span>
-
 
                 </button>
 
@@ -3019,36 +2631,28 @@
                   data-extra="ajandekExtra"
                 >
 
-
                   <span class="opportunity-icon">
                     ⚡
                   </span>
 
-
                   <span class="opportunity-text">
-
 
                     <span class="opportunity-title">
                       Ajándékozd másnak
                     </span>
 
-
                     <span class="opportunity-description">
                       Különleges élmény ajándékba
                     </span>
 
-
                   </span>
-
 
                 </button>
 
 
               </div>
 
-
             </div>
-
 
           </div>
 
@@ -3063,9 +2667,7 @@
             id="pricePanel"
           >
 
-
             <div class="price-overflow">
-
 
               <div class="price-panel">
 
@@ -3083,7 +2685,6 @@
                 </div>
 
 
-
                 <p class="price-intro">
 
                   Egyszerű, átlátható díjszabás –
@@ -3099,34 +2700,27 @@
 
                   <div class="price-row highlight">
 
-
                     <div class="price-name">
-
 
                       <strong>
                         Alapcsomag – legfeljebb 5 óra
                       </strong>
 
-
                       <span class="minimum-badge">
                         Minimum csomag
                       </span>
 
-
                     </div>
-
 
                     <div class="price-value">
                       20 000 Ft / motor
                     </div>
-
 
                   </div>
 
 
 
                   <div class="price-row">
-
 
                     <div class="price-name">
 
@@ -3136,18 +2730,15 @@
 
                     </div>
 
-
                     <div class="price-value">
                       5 000 Ft / motor
                     </div>
-
 
                   </div>
 
 
 
                   <div class="price-row">
-
 
                     <div class="price-name">
 
@@ -3157,11 +2748,9 @@
 
                     </div>
 
-
                     <div class="price-value">
                       10 000 Ft / motor
                     </div>
-
 
                   </div>
 
@@ -3169,14 +2758,11 @@
 
                   <div class="price-row">
 
-
                     <div class="price-name">
-
 
                       <strong>
                         Töltő bérlése
                       </strong>
-
 
                       <span class="price-detail">
 
@@ -3185,14 +2771,11 @@
 
                       </span>
 
-
                     </div>
-
 
                     <div class="price-value">
                       5 000 Ft / töltő
                     </div>
-
 
                   </div>
 
@@ -3200,27 +2783,21 @@
 
                   <div class="price-row">
 
-
                     <div class="price-name">
-
 
                       <strong>
                         Vezetett túra
                       </strong>
 
-
                       <span class="price-detail">
                         Minimum 3 főtől vehető igénybe.
                       </span>
 
-
                     </div>
-
 
                     <div class="price-value">
                       10 000 Ft / fő
                     </div>
-
 
                   </div>
 
@@ -3234,11 +2811,9 @@
 
                   <div class="price-note">
 
-
                     <span>
                       ⓘ
                     </span>
-
 
                     <span>
 
@@ -3248,18 +2823,15 @@
 
                     </span>
 
-
                   </div>
 
 
 
                   <div class="price-note">
 
-
                     <span>
                       🏍
                     </span>
-
 
                     <span>
 
@@ -3268,7 +2840,6 @@
                       áll rendelkezésre.
 
                     </span>
-
 
                   </div>
 
@@ -3286,18 +2857,14 @@
 
               </div>
 
-
             </div>
-
 
           </div>
 
 
         </div>
 
-
       </div>
-
 
     </section>
 
@@ -3309,40 +2876,32 @@
 
     <section class="experiences">
 
-
       <div class="page-width">
 
 
 
-        <!-- =================================================
-             PÁLYAHASZNÁLAT
-             ================================================= -->
+        <!-- PÁLYAHASZNÁLAT -->
 
         <article
           class="experience-row"
           id="palya"
         >
 
-
           <div class="experience-image">
 
-
             <img
-              src="images/palya.jpg?v=20260807-12"
+              src="images/palya.jpg?v=20260810-1"
               alt="Elektromos motor tereppályán"
               loading="lazy"
             >
 
-
           </div>
-
 
 
           <div class="experience-text">
 
 
             <div class="small-lightning">
-
 
               <svg viewBox="0 0 24 24">
 
@@ -3352,9 +2911,7 @@
 
               </svg>
 
-
             </div>
-
 
 
             <h2>
@@ -3362,9 +2919,7 @@
             </h2>
 
 
-
             <div class="orange-line"></div>
-
 
 
             <button
@@ -3374,16 +2929,13 @@
               aria-expanded="false"
             >
 
-
               <span>
                 További részletek
               </span>
 
-
               <span class="toggle-arrow">
                 ▼
               </span>
-
 
             </button>
 
@@ -3394,28 +2946,22 @@
               id="palyaExtra"
             >
 
-
               <div class="experience-extra-overflow">
-
 
                 <div class="experience-extra-card">
 
 
                   <div class="experience-extra-title">
 
-
                     <span>
                       ⚡
                     </span>
-
 
                     <span>
                       Sportosabb élményre vágysz?
                     </span>
 
-
                   </div>
-
 
 
                   <p>
@@ -3432,49 +2978,39 @@
 
                 </div>
 
-
               </div>
-
 
             </div>
 
 
           </div>
 
-
         </article>
 
 
 
-        <!-- =================================================
-             ÉLMÉNY TÚRA
-             ================================================= -->
+        <!-- ÉLMÉNY TÚRA -->
 
         <article
           class="experience-row reverse"
           id="tura"
         >
 
-
           <div class="experience-image">
 
-
             <img
-              src="images/ajandek.jpg?v=20260807-12"
+              src="images/ajandek.jpg?v=20260810-1"
               alt="Elektromos motoros élménytúra"
               loading="lazy"
             >
 
-
           </div>
-
 
 
           <div class="experience-text">
 
 
             <div class="small-lightning">
-
 
               <svg viewBox="0 0 24 24">
 
@@ -3484,9 +3020,7 @@
 
               </svg>
 
-
             </div>
-
 
 
             <h2>
@@ -3494,9 +3028,7 @@
             </h2>
 
 
-
             <div class="orange-line"></div>
-
 
 
             <button
@@ -3506,16 +3038,13 @@
               aria-expanded="false"
             >
 
-
               <span>
                 További részletek
               </span>
 
-
               <span class="toggle-arrow">
                 ▼
               </span>
-
 
             </button>
 
@@ -3526,28 +3055,22 @@
               id="turaExtra"
             >
 
-
               <div class="experience-extra-overflow">
-
 
                 <div class="experience-extra-card">
 
 
                   <div class="experience-extra-title">
 
-
                     <span>
                       ⚡
                     </span>
-
 
                     <span>
                       Ha a kikapcsolódás a cél
                     </span>
 
-
                   </div>
-
 
 
                   <p>
@@ -3563,49 +3086,39 @@
 
                 </div>
 
-
               </div>
-
 
             </div>
 
 
           </div>
 
-
         </article>
 
 
 
-        <!-- =================================================
-             AJÁNDÉKOZD MÁSNAK
-             ================================================= -->
+        <!-- AJÁNDÉKOZD MÁSNAK -->
 
         <article
           class="experience-row"
           id="ajandek"
         >
 
-
           <div class="experience-image">
 
-
             <img
-              src="images/tura.jpg?v=20260807-12"
+              src="images/tura.jpg?v=20260810-1"
               alt="Motoros élmény ajándékba"
               loading="lazy"
             >
 
-
           </div>
-
 
 
           <div class="experience-text">
 
 
             <div class="small-lightning">
-
 
               <svg viewBox="0 0 24 24">
 
@@ -3615,9 +3128,7 @@
 
               </svg>
 
-
             </div>
-
 
 
             <h2>
@@ -3625,9 +3136,7 @@
             </h2>
 
 
-
             <div class="orange-line"></div>
-
 
 
             <button
@@ -3637,16 +3146,13 @@
               aria-expanded="false"
             >
 
-
               <span>
                 További részletek
               </span>
 
-
               <span class="toggle-arrow">
                 ▼
               </span>
-
 
             </button>
 
@@ -3657,28 +3163,22 @@
               id="ajandekExtra"
             >
 
-
               <div class="experience-extra-overflow">
-
 
                 <div class="experience-extra-card">
 
 
                   <div class="experience-extra-title">
 
-
                     <span>
                       ⚡
                     </span>
-
 
                     <span>
                       Ajándékozd másnak
                     </span>
 
-
                   </div>
-
 
 
                   <p>
@@ -3693,21 +3193,17 @@
 
                 </div>
 
-
               </div>
-
 
             </div>
 
 
           </div>
 
-
         </article>
 
 
       </div>
-
 
     </section>
 
@@ -3719,15 +3215,12 @@
 
     <section class="trust">
 
-
       <div class="page-width trust-box">
 
 
         <div class="trust-item">
 
-
           <div class="trust-icon">
-
 
             <svg viewBox="0 0 24 24">
 
@@ -3737,18 +3230,14 @@
 
             </svg>
 
-
           </div>
-
 
 
           <div class="trust-content">
 
-
             <h3>
               Biztonság
             </h3>
-
 
             <p>
 
@@ -3757,9 +3246,7 @@
 
             </p>
 
-
           </div>
-
 
         </div>
 
@@ -3767,17 +3254,13 @@
 
         <div class="trust-item">
 
-
           <div class="trust-icon">
 
-
             <svg viewBox="0 0 24 24">
-
 
               <path
                 d="M4 14v-3a8 8 0 0 1 16 0v3"
               ></path>
-
 
               <rect
                 x="3"
@@ -3786,7 +3269,6 @@
                 height="7"
                 rx="2"
               ></rect>
-
 
               <rect
                 x="17"
@@ -3796,21 +3278,16 @@
                 rx="2"
               ></rect>
 
-
             </svg>
-
 
           </div>
 
 
-
           <div class="trust-content">
-
 
             <h3>
               Szakértő támogatás
             </h3>
-
 
             <p>
 
@@ -3819,9 +3296,7 @@
 
             </p>
 
-
           </div>
-
 
         </div>
 
@@ -3829,12 +3304,9 @@
 
         <div class="trust-item">
 
-
           <div class="trust-icon">
 
-
             <svg viewBox="0 0 24 24">
-
 
               <rect
                 x="3"
@@ -3844,26 +3316,20 @@
                 rx="2"
               ></rect>
 
-
               <path
                 d="M16 3v4M8 3v4M3 10h18"
               ></path>
 
-
             </svg>
-
 
           </div>
 
 
-
           <div class="trust-content">
-
 
             <h3>
               Időpontfoglalás
             </h3>
-
 
             <p>
 
@@ -3872,15 +3338,12 @@
 
             </p>
 
-
           </div>
-
 
         </div>
 
 
       </div>
-
 
     </section>
 
@@ -3899,6 +3362,64 @@
 
 
   <!-- =====================================================
+       MOTOROK FELUGRÓ ABLAK
+       ===================================================== -->
+
+  <div
+    class="modal-background"
+    id="bikesModal"
+    aria-hidden="true"
+  >
+
+    <div class="bikes-modal">
+
+
+      <button
+        class="modal-close"
+        id="bikesModalClose"
+        type="button"
+        aria-label="Bezárás"
+      >
+        ×
+      </button>
+
+
+      <div class="bikes-modal-header">
+
+        <h2>
+          Motorjaink
+        </h2>
+
+        <p>
+          Jelenleg 5 elektromos motor áll rendelkezésre.
+        </p>
+
+      </div>
+
+
+      <div class="bikes-image">
+
+        <!--
+          A FELTÖLTENDŐ KÉP NEVE:
+
+          images/motorok.jpg
+        -->
+
+        <img
+          src="images/motorok.jpg?v=20260810-1"
+          alt="A bérelhető elektromos motorok"
+        >
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
        KAPCSOLATI ABLAK
        ===================================================== -->
 
@@ -3907,7 +3428,6 @@
     id="contactModal"
     aria-hidden="true"
   >
-
 
     <div class="modal">
 
@@ -3922,13 +3442,11 @@
       </button>
 
 
-
       <h2 id="modalTitle">
 
         Hogyan lépnél kapcsolatba velünk?
 
       </h2>
-
 
 
       <p id="modalText">
@@ -3938,9 +3456,7 @@
       </p>
 
 
-
       <div class="modal-options">
-
 
 
         <a
@@ -3948,22 +3464,17 @@
           href="tel:+36307009338"
         >
 
-
           <span class="modal-option-text">
-
 
             <span class="modal-option-title">
               📞 Telefonhívás
             </span>
 
-
             <span class="modal-option-description">
               +36 30 700 9338
             </span>
 
-
           </span>
-
 
         </a>
 
@@ -3974,22 +3485,17 @@
           href="sms:+36307009338"
         >
 
-
           <span class="modal-option-text">
-
 
             <span class="modal-option-title">
               💬 Üzenet írása
             </span>
 
-
             <span class="modal-option-description">
               SMS küldése
             </span>
 
-
           </span>
-
 
         </a>
 
@@ -4001,22 +3507,17 @@
           href="mailto:toltodjfelelmennyel@gmail.com"
         >
 
-
           <span class="modal-option-text">
-
 
             <span class="modal-option-title">
               ✉ E-mail írása
             </span>
 
-
             <span class="modal-option-description">
               toltodjfelelmennyel@gmail.com
             </span>
 
-
           </span>
-
 
         </a>
 
@@ -4026,10 +3527,13 @@
 
     </div>
 
-
   </div>
 
 
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
 
   <script>
 
@@ -4039,7 +3543,6 @@
        ===================================================== */
 
     function fitHeroSubtitle() {
-
 
       const titleWord =
         document.getElementById(
@@ -4057,9 +3560,7 @@
         !titleWord ||
         !subtitle
       ) {
-
         return;
-
       }
 
 
@@ -4096,7 +3597,6 @@
         targetWidth > 0
       ) {
 
-
         subtitleFontSize =
           subtitleFontSize *
           (
@@ -4108,12 +3608,9 @@
         subtitle.style.fontSize =
           subtitleFontSize + "px";
 
-
       }
 
-
     }
-
 
 
     window.addEventListener(
@@ -4130,11 +3627,9 @@
 
     if (document.fonts) {
 
-
       document.fonts.ready.then(
         fitHeroSubtitle
       );
-
 
     }
 
@@ -4162,9 +3657,7 @@
       );
 
 
-
     function closeOpportunities() {
-
 
       opportunitiesPanel
         .classList
@@ -4182,15 +3675,12 @@
           "false"
         );
 
-
     }
-
 
 
     opportunitiesButton.addEventListener(
       "click",
       () => {
-
 
         const isOpen =
           opportunitiesPanel
@@ -4214,15 +3704,12 @@
               : "false"
           );
 
-
       }
     );
 
 
-
     opportunityOptions.forEach(
       (option) => {
-
 
         option.addEventListener(
           "click",
@@ -4257,21 +3744,16 @@
               );
 
 
-
             if (extra) {
-
 
               extra
                 .classList
                 .add("open");
 
-
             }
 
 
-
             if (toggleButton) {
-
 
               toggleButton
                 .classList
@@ -4284,21 +3766,16 @@
                   "true"
                 );
 
-
             }
-
 
 
             closeOpportunities();
 
 
-
             setTimeout(
               () => {
 
-
                 if (section) {
-
 
                   section.scrollIntoView({
 
@@ -4310,18 +3787,14 @@
 
                   });
 
-
                 }
-
 
               },
               180
             );
 
-
           }
         );
-
 
       }
     );
@@ -4338,15 +3811,12 @@
       );
 
 
-
     extraButtons.forEach(
       (button) => {
-
 
         button.addEventListener(
           "click",
           () => {
-
 
             const targetId =
               button.dataset.extraTarget;
@@ -4380,10 +3850,8 @@
                   : "false"
               );
 
-
           }
         );
-
 
       }
     );
@@ -4406,11 +3874,9 @@
       );
 
 
-
     priceToggle.addEventListener(
       "click",
       () => {
-
 
         const isOpen =
           pricePanel
@@ -4432,6 +3898,100 @@
             ? "Árak ▲"
             : "Árak";
 
+      }
+    );
+
+
+
+    /* =====================================================
+       MOTOROK KÉP
+       ===================================================== */
+
+    const bikesButton =
+      document.getElementById(
+        "bikesButton"
+      );
+
+
+    const bikesModal =
+      document.getElementById(
+        "bikesModal"
+      );
+
+
+    const bikesModalClose =
+      document.getElementById(
+        "bikesModalClose"
+      );
+
+
+    function openBikesModal() {
+
+      bikesModal
+        .classList
+        .add("open");
+
+
+      bikesModal
+        .setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+
+      document
+        .body
+        .classList
+        .add("modal-open");
+
+    }
+
+
+    function closeBikesModal() {
+
+      bikesModal
+        .classList
+        .remove("open");
+
+
+      bikesModal
+        .setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+
+      document
+        .body
+        .classList
+        .remove("modal-open");
+
+    }
+
+
+    bikesButton.addEventListener(
+      "click",
+      openBikesModal
+    );
+
+
+    bikesModalClose.addEventListener(
+      "click",
+      closeBikesModal
+    );
+
+
+    bikesModal.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === bikesModal
+        ) {
+
+          closeBikesModal();
+
+        }
 
       }
     );
@@ -4478,14 +4038,11 @@
       );
 
 
-
     function openModal(mode) {
-
 
       if (
         mode === "phone"
       ) {
-
 
         modalTitle.textContent =
           "Telefonos kapcsolatfelvétel";
@@ -4498,12 +4055,9 @@
         emailOption.hidden =
           true;
 
-
       }
 
-
       else {
-
 
         modalTitle.textContent =
           "Hogyan lépnél kapcsolatba velünk?";
@@ -4515,7 +4069,6 @@
 
         emailOption.hidden =
           false;
-
 
       }
 
@@ -4537,13 +4090,10 @@
         .classList
         .add("modal-open");
 
-
     }
 
 
-
     function closeModal() {
-
 
       modal
         .classList
@@ -4562,32 +4112,25 @@
         .classList
         .remove("modal-open");
 
-
     }
-
 
 
     contactButtons.forEach(
       (button) => {
 
-
         button.addEventListener(
           "click",
           () => {
-
 
             openModal(
               button.dataset.contact
             );
 
-
           }
         );
 
-
       }
     );
-
 
 
     modalClose.addEventListener(
@@ -4596,46 +4139,42 @@
     );
 
 
-
     modal.addEventListener(
       "click",
       (event) => {
-
 
         if (
           event.target === modal
         ) {
 
-
           closeModal();
 
-
         }
-
 
       }
     );
 
 
 
+    /* =====================================================
+       ESCAPE
+       ===================================================== */
+
     document.addEventListener(
       "keydown",
       (event) => {
-
 
         if (
           event.key === "Escape"
         ) {
 
-
           closeModal();
 
+          closeBikesModal();
 
           closeOpportunities();
 
-
         }
-
 
       }
     );
