@@ -203,7 +203,7 @@
           rgba(0,0,0,.45) 88%,
           rgba(0,0,0,.85) 100%
         ),
-        url("images/hero.jpg?v=20260811-1");
+        url("images/hero.jpg?v=20260811-2");
 
       background-size: cover;
       background-position: 54% center;
@@ -933,7 +933,7 @@
 
 
     /* =====================================================
-       KAPCSOLAT
+       KAPCSOLAT MODAL
        ===================================================== */
 
     .modal {
@@ -993,7 +993,7 @@
 
 
     /* =====================================================
-       BÉRELHETŐ MOTOROK - NAGY ABLAK
+       BÉRELHETŐ MOTOROK NAGY ABLAK
        ===================================================== */
 
     .bikes-modal {
@@ -1061,7 +1061,7 @@
 
 
     /* =====================================================
-       FŐ MOTOROS KÉP
+       NAGY MOTOROS KÉP
        ===================================================== */
 
     .bike-main-photo {
@@ -1104,7 +1104,7 @@
 
 
     /* =====================================================
-       FELSŐ INFORMÁCIÓS FELIRAT
+       FELSŐ INFORMÁCIÓ
        ===================================================== */
 
     .bike-click-tip {
@@ -1141,11 +1141,6 @@
     }
 
 
-    .bike-click-tip strong {
-      color: var(--orange-light);
-    }
-
-
     /* =====================================================
        MOTOROK ALATTI SZÁMOK
        ===================================================== */
@@ -1160,21 +1155,16 @@
       width: 44px;
       height: 44px;
 
-      transform:
-        translate(-50%,-50%);
+      transform: translate(-50%,-50%);
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      border:
-        2px solid
-        #ff8a1b;
-
+      border: 2px solid #ff8a1b;
       border-radius: 50%;
 
-      background:
-        rgba(0,0,0,.94);
+      background: rgba(0,0,0,.94);
 
       color: #fff;
 
@@ -1184,10 +1174,8 @@
       cursor: pointer;
 
       box-shadow:
-        0 0 0 5px
-        rgba(255,121,0,.11),
-        0 0 25px
-        rgba(255,121,0,.55);
+        0 0 0 5px rgba(255,121,0,.11),
+        0 0 25px rgba(255,121,0,.55);
 
       animation:
         hotspotPulse
@@ -1206,6 +1194,17 @@
       transform:
         translate(-50%,-50%)
         scale(1.12);
+    }
+
+
+    /* 2-3-4 csoport picit egységesebb */
+
+    .bike-hotspot[data-group="234"] {
+      border-color: #ff7900;
+
+      box-shadow:
+        0 0 0 5px rgba(255,121,0,.14),
+        0 0 28px rgba(255,121,0,.60);
     }
 
 
@@ -1233,7 +1232,7 @@
 
 
     /* =====================================================
-       ÖSSZEKÖTŐ VONAL
+       SVG VONALAK
        ===================================================== */
 
     .bike-connectors {
@@ -1244,6 +1243,31 @@
       height: 100%;
       pointer-events: none;
     }
+
+
+    /* =====================================================
+       2-3-4 ÁLLANDÓ ÖSSZEKÖTŐ VONAL
+       ===================================================== */
+
+    #bikeGroupConnectorPath {
+      fill: none;
+      stroke: #ff7900;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: .98;
+
+      filter:
+        drop-shadow(
+          0 0 7px
+          rgba(255,121,0,.9)
+        );
+    }
+
+
+    /* =====================================================
+       KIVÁLASZTOTT MOTOR → ADATLAP VONAL
+       ===================================================== */
 
     #bikeConnectorPath {
       fill: none;
@@ -1297,7 +1321,7 @@
 
 
     /* =====================================================
-       1. MOTOR ADATLAP
+       1. MOTOR
        ===================================================== */
 
     .bike-callout[data-bike="bike1"] {
@@ -1308,7 +1332,7 @@
 
 
     /* =====================================================
-       5. MOTOR ADATLAP
+       5. MOTOR
        ===================================================== */
 
     .bike-callout[data-bike="bike5"] {
@@ -1346,7 +1370,7 @@
 
 
     /* =====================================================
-       ADATLAP DESIGN
+       KÁRTYA DESIGN
        ===================================================== */
 
     .bike-callout-card {
@@ -1366,13 +1390,10 @@
         );
 
       box-shadow:
-        0 28px 80px
-        rgba(0,0,0,.88),
-        0 0 42px
-        rgba(255,121,0,.14);
+        0 28px 80px rgba(0,0,0,.88),
+        0 0 42px rgba(255,121,0,.14);
 
-      backdrop-filter:
-        blur(9px);
+      backdrop-filter: blur(9px);
     }
 
 
@@ -1423,8 +1444,7 @@
         1px solid
         rgba(255,121,0,.60);
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       color:
         var(--orange-light);
@@ -1432,13 +1452,10 @@
       background:
         rgba(255,121,0,.10);
 
-      font-size:
-        .76rem;
-
+      font-size: .76rem;
       font-weight: 800;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
@@ -1458,8 +1475,7 @@
 
       border-radius: 999px;
 
-      background:
-        var(--orange);
+      background: var(--orange);
     }
 
 
@@ -1572,6 +1588,9 @@
         width: calc(100% - 24px);
       }
 
+
+      /* FEJLÉC */
+
       .topbar {
         padding: 10px 0 14px;
       }
@@ -1627,7 +1646,7 @@
             rgba(0,0,0,.92) 78%,
             #000 100%
           ),
-          url("images/hero.jpg?v=20260811-1");
+          url("images/hero.jpg?v=20260811-2");
 
         background-size: cover;
         background-position: 50% center;
@@ -1812,14 +1831,11 @@
         font-size:
           .78rem;
 
-        white-space:
-          normal;
+        white-space: normal;
 
-        text-align:
-          center;
+        text-align: center;
 
-        line-height:
-          1.3;
+        line-height: 1.3;
       }
 
 
@@ -1829,6 +1845,11 @@
         width: 34px;
         height: 34px;
         font-size: .75rem;
+      }
+
+
+      #bikeGroupConnectorPath {
+        stroke-width: 3;
       }
 
 
@@ -1946,6 +1967,8 @@
         display: block;
       }
 
+
+      /* ALSÓ INFO */
 
       .trust-box {
         grid-template-columns: 1fr;
@@ -2379,9 +2402,7 @@
           </div>
 
 
-          <!-- =================================================
-               LEHETŐSÉGEK LENYÍLÓ
-               ================================================= -->
+          <!-- LEHETŐSÉGEK -->
 
           <div
             class="opportunities-panel"
@@ -2478,9 +2499,7 @@
           </div>
 
 
-          <!-- =================================================
-               ÁRAK
-               ================================================= -->
+          <!-- ÁRAK -->
 
           <div
             class="price-wrapper"
@@ -2669,7 +2688,7 @@
 
 
     <!-- =====================================================
-         LEHETŐSÉGEK BLOKKOK
+         TARTALMI BLOKKOK
          ===================================================== -->
 
     <section class="experiences">
@@ -2687,7 +2706,7 @@
           <div class="experience-image">
 
             <img
-              src="images/palya.jpg?v=20260811-1"
+              src="images/palya.jpg?v=20260811-2"
               alt="Pályahasználat"
             >
 
@@ -2786,7 +2805,7 @@
           <div class="experience-image">
 
             <img
-              src="images/ajandek.jpg?v=20260811-1"
+              src="images/ajandek.jpg?v=20260811-2"
               alt="Élmény túra"
             >
 
@@ -2884,7 +2903,7 @@
           <div class="experience-image">
 
             <img
-              src="images/tura.jpg?v=20260811-1"
+              src="images/tura.jpg?v=20260811-2"
               alt="Ajándékozd másnak"
             >
 
@@ -3178,14 +3197,12 @@
 
 
           <img
-            src="images/motorok.jpg?v=20260811-1"
+            src="images/motorok.jpg?v=20260811-2"
             alt="Bérelhető elektromos motorok"
           >
 
 
-          <!-- =================================================
-               1. MOTOR
-               ================================================= -->
+          <!-- 1. MOTOR -->
 
           <button
             class="bike-hotspot"
@@ -3198,15 +3215,13 @@
           </button>
 
 
-          <!-- =================================================
-               2. MOTOR
-               ugyanazt nyitja, mint 3 és 4
-               ================================================= -->
+          <!-- 2. MOTOR -->
 
           <button
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
+            data-group="234"
             style="--x:43%; --y:64%;"
             aria-label="2. motor részletei"
           >
@@ -3214,15 +3229,13 @@
           </button>
 
 
-          <!-- =================================================
-               3. MOTOR
-               ugyanazt nyitja, mint 2 és 4
-               ================================================= -->
+          <!-- 3. MOTOR -->
 
           <button
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
+            data-group="234"
             style="--x:52%; --y:66%;"
             aria-label="3. motor részletei"
           >
@@ -3230,15 +3243,13 @@
           </button>
 
 
-          <!-- =================================================
-               4. MOTOR
-               ugyanazt nyitja, mint 2 és 3
-               ================================================= -->
+          <!-- 4. MOTOR -->
 
           <button
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
+            data-group="234"
             style="--x:61%; --y:63%;"
             aria-label="4. motor részletei"
           >
@@ -3246,9 +3257,7 @@
           </button>
 
 
-          <!-- =================================================
-               5. MOTOR
-               ================================================= -->
+          <!-- 5. MOTOR -->
 
           <button
             class="bike-hotspot"
@@ -3276,13 +3285,28 @@
 
 
         <!-- =================================================
-             ÖSSZEKÖTŐ VONAL
+             VONALAK
              ================================================= -->
 
         <svg
           class="bike-connectors"
           aria-hidden="true"
         >
+
+          <!--
+            EZ A VONAL MINDIG LÁTSZIK,
+            ÉS ÖSSZEKÖTI A 2-3-4 GOMBOT
+          -->
+
+          <path
+            id="bikeGroupConnectorPath"
+          ></path>
+
+
+          <!--
+            EZ CSAK AKKOR LÁTSZIK,
+            AMIKOR MEGNYITUNK EGY ADATLAPOT
+          -->
 
           <path
             id="bikeConnectorPath"
@@ -3306,7 +3330,7 @@
             <div class="bike-callout-image">
 
               <img
-                src="images/motor1.jpg?v=20260811-1"
+                src="images/motor1.jpg?v=20260811-2"
                 alt="Arctic Leopard XF Pro 12,5 kW"
               >
 
@@ -3364,7 +3388,7 @@
             <div class="bike-callout-image">
 
               <img
-                src="images/motor2.jpg?v=20260811-1"
+                src="images/motor2.jpg?v=20260811-2"
                 alt="2., 3. és 4. motor"
               >
 
@@ -3417,7 +3441,7 @@
             <div class="bike-callout-image">
 
               <img
-                src="images/motor3.jpg?v=20260811-1"
+                src="images/motor3.jpg?v=20260811-2"
                 alt="5. motor"
               >
 
@@ -3465,7 +3489,7 @@
 
 
   <!-- =====================================================
-       KAPCSOLAT
+       KAPCSOLAT MODAL
        ===================================================== -->
 
   <div
@@ -3638,6 +3662,7 @@
           targetWidth /
           subtitleWidth;
 
+
         subtitle.style.fontSize =
           subtitleFontSize + "px";
 
@@ -3714,6 +3739,7 @@
 
       }
     );
+
 
 
     document
@@ -3794,8 +3820,13 @@
                   ) {
 
                     section.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start"
+
+                      behavior:
+                        "smooth",
+
+                      block:
+                        "start"
+
                     });
 
                   }
@@ -3935,15 +3966,15 @@
       );
 
 
+    const bikeGroupConnectorPath =
+      document.getElementById(
+        "bikeGroupConnectorPath"
+      );
+
+
     let selectedBike =
       null;
 
-
-    /*
-      Ezt külön tároljuk, mert a
-      2-es, 3-as és 4-es gomb ugyanazt
-      az adatlapot nyitja.
-    */
 
     let selectedHotspot =
       null;
@@ -3973,12 +4004,35 @@
         .classList
         .add("modal-open");
 
+
+      /*
+        Mivel a modal előtte rejtve van,
+        csak megnyitás után tudjuk kiszámolni
+        a 2-3-4 gombok tényleges helyét.
+      */
+
+      requestAnimationFrame(
+        () => {
+
+          requestAnimationFrame(
+            () => {
+
+              drawBikeGroupConnector();
+
+              drawBikeConnector();
+
+            }
+          );
+
+        }
+      );
+
     }
 
 
 
     /* =====================================================
-       KIS ADATLAP BEZÁRÁSA
+       KIS MOTOR ADATLAP BEZÁRÁSA
        ===================================================== */
 
     function closeBikeDetail() {
@@ -4020,6 +4074,13 @@
           }
         );
 
+
+      /*
+        CSAK az adatlaphoz tartozó vonalat töröljük.
+
+        A 2-3-4 közötti állandó vonal
+        továbbra is megmarad.
+      */
 
       bikeConnectorPath
         .setAttribute(
@@ -4093,7 +4154,7 @@
 
 
     /* =====================================================
-       MOTOR SZÁM KIVÁLASZTÁSA
+       MOTOR KIVÁLASZTÁSA
        ===================================================== */
 
     document
@@ -4115,9 +4176,8 @@
 
 
               /*
-                Ha pontosan ugyanarra a számra
-                kattintunk még egyszer,
-                bezárjuk az adatlapot.
+                Ugyanarra a konkrét számra
+                még egyszer kattintva bezárjuk.
               */
 
               if (
@@ -4133,9 +4193,7 @@
 
 
               /*
-                Az előző aktív jelölés lekerül.
-                Az adatlapot is alaphelyzetbe tesszük,
-                majd az újat megnyitjuk.
+                Régi aktív gombok törlése.
               */
 
               document
@@ -4152,6 +4210,10 @@
                   }
                 );
 
+
+              /*
+                Régi adatlapok törlése.
+              */
 
               document
                 .querySelectorAll(
@@ -4219,7 +4281,7 @@
 
 
     /* =====================================================
-       KÉPEN MÁSHOVÁ KATTINTVA
+       KÉPRE KATTINTVA
        CSAK A KIS ADATLAP ZÁRÓDIK
        ===================================================== */
 
@@ -4281,11 +4343,172 @@
 
 
     /* =====================================================
-       ÖSSZEKÖTŐ VONAL
+       2-3-4 ÁLLANDÓ ÖSSZEKÖTŐ VONALA
+       ===================================================== */
 
-       FONTOS:
-       a vonal mindig ahhoz a konkrét
-       2/3/4 számhoz megy, amelyikre kattintottál.
+    function drawBikeGroupConnector() {
+
+      /*
+        Csak akkor rajzolunk,
+        ha a motoros modal nyitva van.
+      */
+
+      if (
+        !bikesModal
+          .classList
+          .contains("open")
+      ) {
+
+        return;
+
+      }
+
+
+      const buttons =
+        Array.from(
+          document.querySelectorAll(
+            '.bike-hotspot[data-group="234"]'
+          )
+        );
+
+
+      if (
+        buttons.length !== 3
+      ) {
+
+        bikeGroupConnectorPath
+          .setAttribute(
+            "d",
+            ""
+          );
+
+        return;
+
+      }
+
+
+      const diagramRect =
+        bikeDiagram
+          .getBoundingClientRect();
+
+
+      /*
+        2-es gomb
+      */
+
+      const rect2 =
+        buttons[0]
+          .getBoundingClientRect();
+
+
+      /*
+        3-as gomb
+      */
+
+      const rect3 =
+        buttons[1]
+          .getBoundingClientRect();
+
+
+      /*
+        4-es gomb
+      */
+
+      const rect4 =
+        buttons[2]
+          .getBoundingClientRect();
+
+
+
+      /*
+        Középmagasságok
+      */
+
+      const y2 =
+        rect2.top -
+        diagramRect.top +
+        rect2.height / 2;
+
+
+      const y3 =
+        rect3.top -
+        diagramRect.top +
+        rect3.height / 2;
+
+
+      const y4 =
+        rect4.top -
+        diagramRect.top +
+        rect4.height / 2;
+
+
+
+      /*
+        A vonal NEM megy bele a körökbe.
+
+        2-es jobb széle → 3-as bal széle
+
+        majd
+
+        3-as jobb széle → 4-es bal széle
+      */
+
+      const right2 =
+        rect2.right -
+        diagramRect.left;
+
+
+      const left3 =
+        rect3.left -
+        diagramRect.left;
+
+
+      const right3 =
+        rect3.right -
+        diagramRect.left;
+
+
+      const left4 =
+        rect4.left -
+        diagramRect.left;
+
+
+
+      const path =
+        "M " +
+        right2 +
+        " " +
+        y2 +
+
+        " L " +
+        left3 +
+        " " +
+        y3 +
+
+        " M " +
+        right3 +
+        " " +
+        y3 +
+
+        " L " +
+        left4 +
+        " " +
+        y4;
+
+
+
+      bikeGroupConnectorPath
+        .setAttribute(
+          "d",
+          path
+        );
+
+    }
+
+
+
+    /* =====================================================
+       KIVÁLASZTOTT MOTOR → ADATLAP VONALA
        ===================================================== */
 
     function drawBikeConnector() {
@@ -4391,7 +4614,8 @@
         const elbowY =
           startY -
           Math.abs(
-            startY - endY
+            startY -
+            endY
           ) * .35;
 
 
@@ -4420,7 +4644,7 @@
 
 
       /* =================================================
-         1. MOTOR - BAL OLDALI KÁRTYA
+         1. MOTOR
          ================================================= */
 
       else if (
@@ -4470,7 +4694,7 @@
 
 
       /* =================================================
-         5. MOTOR - JOBB OLDALI KÁRTYA
+         5. MOTOR
          ================================================= */
 
       else if (
@@ -4520,7 +4744,7 @@
 
 
       /* =================================================
-         2 / 3 / 4 - ALSÓ KÖZÖS KÁRTYA
+         2 / 3 / 4 KÖZÖS KÁRTYA
          ================================================= */
 
       else {
@@ -4576,9 +4800,27 @@
 
 
 
+    /* =====================================================
+       MÉRETVÁLTOZÁSKOR ÚJRARAJZOLÁS
+       ===================================================== */
+
     window.addEventListener(
       "resize",
-      drawBikeConnector
+      () => {
+
+        if (
+          bikesModal
+            .classList
+            .contains("open")
+        ) {
+
+          drawBikeGroupConnector();
+
+          drawBikeConnector();
+
+        }
+
+      }
     );
 
 
@@ -4751,6 +4993,11 @@
         }
 
 
+        /*
+          Első ESC:
+          csak a motor adatlap záródik.
+        */
+
         if (
           bikesModal.classList.contains("open") &&
           selectedBike
@@ -4762,6 +5009,11 @@
 
         }
 
+
+        /*
+          Második ESC:
+          teljes motoros ablak záródik.
+        */
 
         if (
           bikesModal.classList.contains("open")
