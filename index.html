@@ -172,15 +172,10 @@
       font-size: .98rem;
 
       cursor: pointer;
-
-      transition:
-        color .2s ease,
-        transform .2s ease;
     }
 
     .header-contact:hover {
       color: var(--orange-light);
-      transform: translateY(-1px);
     }
 
     .header-contact .icon {
@@ -237,7 +232,7 @@
           rgba(0,0,0,.85) 100%
         ),
 
-        url("images/hero.jpg?v=20260811-3");
+        url("images/hero.jpg?v=20260812-1");
 
       background-size: cover;
       background-position: 54% center;
@@ -260,12 +255,11 @@
     .hero-title {
       margin-bottom: 25px;
 
-      font-size:
-        clamp(
-          3.5rem,
-          7vw,
-          6.6rem
-        );
+      font-size: clamp(
+        3.5rem,
+        7vw,
+        6.6rem
+      );
 
       font-style: italic;
       font-weight: 900;
@@ -343,22 +337,18 @@
 
       color: #f1f1f1;
 
-      font-size:
-        clamp(
-          1rem,
-          1.45vw,
-          1.22rem
-        );
+      font-size: clamp(
+        1rem,
+        1.45vw,
+        1.22rem
+      );
 
       text-shadow: 0 2px 6px #000;
     }
 
 
     /* =====================================================
-       3 KIEMELT TULAJDONSÁG
-
-       NINCS KÜLÖN KERET
-       CSAK ELVÁLASZTÓ VONALAK
+       KIEMELT INFORMÁCIÓK
        ===================================================== */
 
     .hero-features {
@@ -386,7 +376,6 @@
 
     .feature {
       min-width: 0;
-
       min-height: 62px;
 
       display: flex;
@@ -432,7 +421,7 @@
 
 
     /* =====================================================
-       INFORMÁCIÓS FELIRAT A GOMBOK FÖLÖTT
+       INFORMÁCIÓS SOR
        ===================================================== */
 
     .hero-info-hint {
@@ -459,24 +448,16 @@
     }
 
     .hero-info-hint-arrow {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
       color: #aaa;
 
       font-size: 1.45rem;
-      font-weight: 400;
 
       line-height: 1;
-
-      transform: translateY(-1px);
     }
 
 
     /* =====================================================
-       HERO GOMBOK
+       FŐ GOMBOK
        ===================================================== */
 
     .hero-buttons {
@@ -491,8 +472,6 @@
         );
 
       gap: 14px;
-
-      align-items: start;
     }
 
     .main-button {
@@ -525,8 +504,6 @@
       font-size: .9rem;
       font-weight: 700;
 
-      text-align: center;
-
       white-space: nowrap;
 
       cursor: pointer;
@@ -538,8 +515,7 @@
     }
 
     .main-button:hover {
-      transform:
-        translateY(-2px);
+      transform: translateY(-2px);
 
       background:
         rgba(255,121,0,.10);
@@ -568,37 +544,22 @@
     }
 
     .button-arrow {
-      display: inline-block;
-
       color: var(--orange);
 
-      font-size: .85rem;
+      font-size: .84rem;
 
       transition:
         transform .3s ease;
     }
 
     .main-button.open .button-arrow {
-      transform:
-        rotate(180deg);
+      transform: rotate(180deg);
     }
 
     .open-symbol {
-      display: inline-flex;
+      color: var(--orange-light);
 
-      align-items: center;
-      justify-content: center;
-
-      width: 24px;
-      height: 24px;
-
-      color:
-        var(--orange-light);
-
-      font-size: 1.22rem;
-      font-weight: 400;
-
-      line-height: 1;
+      font-size: 1.2rem;
     }
 
 
@@ -611,8 +572,7 @@
 
       display: grid;
 
-      grid-template-rows:
-        0fr;
+      grid-template-rows: 0fr;
 
       margin-top: 0;
 
@@ -625,11 +585,9 @@
     }
 
     .opportunities-panel.open {
-      grid-template-rows:
-        1fr;
+      grid-template-rows: 1fr;
 
-      margin-top:
-        18px;
+      margin-top: 18px;
 
       opacity: 1;
     }
@@ -667,15 +625,13 @@
 
       gap: 13px;
 
-      padding:
-        12px 14px;
+      padding: 12px 14px;
 
       border: 0;
 
       border-radius: 9px;
 
-      background:
-        transparent;
+      background: transparent;
 
       color: #fff;
 
@@ -685,15 +641,10 @@
       text-align: left;
 
       cursor: pointer;
-
-      transition:
-        color .2s ease,
-        background .2s ease;
     }
 
     .opportunity-option:hover {
-      color:
-        var(--orange-light);
+      color: var(--orange-light);
 
       background:
         rgba(255,121,0,.12);
@@ -723,8 +674,7 @@
 
       border-radius: 8px;
 
-      color:
-        var(--orange);
+      color: var(--orange);
 
       background:
         rgba(255,121,0,.07);
@@ -755,8 +705,7 @@
 
       display: grid;
 
-      grid-template-rows:
-        0fr;
+      grid-template-rows: 0fr;
 
       margin-top: 0;
 
@@ -769,11 +718,9 @@
     }
 
     .price-wrapper.open {
-      grid-template-rows:
-        1fr;
+      grid-template-rows: 1fr;
 
-      margin-top:
-        24px;
+      margin-top: 24px;
 
       opacity: 1;
     }
@@ -840,8 +787,7 @@
 
       align-items: center;
 
-      padding:
-        14px 15px;
+      padding: 14px 15px;
 
       border:
         1px solid
@@ -879,13 +825,10 @@
       color: #a9a9a9;
 
       font-size: .79rem;
-
-      line-height: 1.4;
     }
 
     .price-value {
-      color:
-        var(--orange-light);
+      color: var(--orange-light);
 
       font-size: 1rem;
       font-weight: 800;
@@ -894,32 +837,27 @@
     }
 
     .minimum-badge {
-      width:
-        fit-content;
+      width: fit-content;
 
       margin-top: 4px;
 
-      padding:
-        3px 8px;
+      padding: 3px 8px;
 
       border:
         1px solid
         rgba(255,121,0,.52);
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       background:
         rgba(255,121,0,.10);
 
-      color:
-        var(--orange-light);
+      color: var(--orange-light);
 
       font-size: .68rem;
       font-weight: 700;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
     .price-footer {
@@ -938,8 +876,7 @@
 
       gap: 10px;
 
-      padding:
-        13px 14px;
+      padding: 13px 14px;
 
       border-radius: 10px;
 
@@ -949,8 +886,6 @@
       color: #d5d5d5;
 
       font-size: .82rem;
-
-      line-height: 1.45;
     }
 
     .price-vat {
@@ -966,12 +901,11 @@
 
 
     /* =====================================================
-       TARTALMI BLOKKOK
+       PÁLYA / TÚRA
        ===================================================== */
 
     .experiences {
-      padding:
-        2px 0 30px;
+      padding: 2px 0 30px;
     }
 
     .experience-row {
@@ -1022,13 +956,11 @@
       aspect-ratio:
         16 / 8.8;
 
-      object-fit:
-        cover;
+      object-fit: cover;
     }
 
     .experience-text {
-      padding:
-        5px 3px;
+      padding: 5px 3px;
     }
 
     .small-lightning {
@@ -1037,16 +969,14 @@
 
       margin-bottom: 7px;
 
-      color:
-        var(--orange);
+      color: var(--orange);
     }
 
     .small-lightning svg {
       width: 100%;
       height: 100%;
 
-      fill:
-        currentColor;
+      fill: currentColor;
 
       stroke: none;
     }
@@ -1056,19 +986,17 @@
 
       color: #fff;
 
-      font-size:
-        clamp(
-          2rem,
-          3.55vw,
-          3.2rem
-        );
+      font-size: clamp(
+        2rem,
+        3.55vw,
+        3.2rem
+      );
 
       font-weight: 800;
 
       line-height: 1.05;
 
-      letter-spacing:
-        -.04em;
+      letter-spacing: -.04em;
     }
 
     .orange-line {
@@ -1077,30 +1005,19 @@
 
       margin-bottom: 16px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      background:
-        var(--orange);
+      background: var(--orange);
     }
 
-
-    /* =====================================================
-       TOVÁBBI RÉSZLETEK
-       ===================================================== */
-
     .extra-toggle {
-      display:
-        inline-flex;
+      display: inline-flex;
 
       align-items: center;
 
       gap: 9px;
 
-      margin-top: 2px;
-
-      padding:
-        11px 16px;
+      padding: 11px 16px;
 
       border:
         1px solid
@@ -1111,8 +1028,7 @@
       background:
         rgba(255,121,0,.06);
 
-      color:
-        var(--orange-light);
+      color: var(--orange-light);
 
       font-size: .89rem;
       font-weight: 700;
@@ -1121,24 +1037,19 @@
     }
 
     .toggle-arrow {
-      display:
-        inline-block;
-
       transition:
         transform .3s ease;
     }
 
     .extra-toggle.open
     .toggle-arrow {
-      transform:
-        rotate(180deg);
+      transform: rotate(180deg);
     }
 
     .experience-extra {
       display: grid;
 
-      grid-template-rows:
-        0fr;
+      grid-template-rows: 0fr;
 
       margin-top: 0;
 
@@ -1151,11 +1062,9 @@
     }
 
     .experience-extra.open {
-      grid-template-rows:
-        1fr;
+      grid-template-rows: 1fr;
 
-      margin-top:
-        15px;
+      margin-top: 15px;
 
       opacity: 1;
     }
@@ -1167,8 +1076,7 @@
     .experience-extra-card {
       max-width: 500px;
 
-      padding:
-        18px 19px;
+      padding: 18px 19px;
 
       border:
         1px solid
@@ -1202,8 +1110,7 @@
 
     .experience-extra-title
     span:first-child {
-      color:
-        var(--orange);
+      color: var(--orange);
     }
 
     .experience-extra-card p {
@@ -1227,10 +1134,7 @@
       display: grid;
 
       grid-template-columns:
-        repeat(
-          3,
-          1fr
-        );
+        repeat(3,1fr);
 
       overflow: hidden;
 
@@ -1252,8 +1156,7 @@
 
       gap: 17px;
 
-      padding:
-        23px 27px;
+      padding: 23px 27px;
     }
 
     .trust-item +
@@ -1267,11 +1170,9 @@
       width: 53px;
       height: 53px;
 
-      flex:
-        0 0 53px;
+      flex: 0 0 53px;
 
-      color:
-        var(--orange);
+      color: var(--orange);
     }
 
     .trust-icon svg {
@@ -1280,8 +1181,7 @@
 
       fill: none;
 
-      stroke:
-        currentColor;
+      stroke: currentColor;
 
       stroke-width: 1.8;
     }
@@ -1300,14 +1200,8 @@
       font-size: .82rem;
     }
 
-
-    /* =====================================================
-       FOOTER
-       ===================================================== */
-
     footer {
-      padding:
-        3px 15px 27px;
+      padding: 3px 15px 27px;
 
       color: #777;
 
@@ -1318,7 +1212,7 @@
 
 
     /* =====================================================
-       MODAL HÁTTÉR
+       MODAL
        ===================================================== */
 
     .modal-background {
@@ -1336,7 +1230,7 @@
       padding: 14px;
 
       background:
-        rgba(0,0,0,.93);
+        rgba(0,0,0,.94);
 
       backdrop-filter:
         blur(9px);
@@ -1377,8 +1271,7 @@
     }
 
     .modal-close:hover {
-      background:
-        var(--orange);
+      background: var(--orange);
     }
 
 
@@ -1403,8 +1296,7 @@
 
       border-radius: 20px;
 
-      background:
-        #0b0b0d;
+      background: #0b0b0d;
 
       text-align: center;
     }
@@ -1434,8 +1326,7 @@
 
       align-items: center;
 
-      padding:
-        13px 18px;
+      padding: 13px 18px;
 
       border:
         1px solid
@@ -1473,7 +1364,7 @@
 
 
     /* =====================================================
-       BÉRELHETŐ MOTOROK NAGY ABLAK
+       MOTOROK NAGY ABLAK
        ===================================================== */
 
     .bikes-modal {
@@ -1481,12 +1372,12 @@
 
       width:
         min(
-          calc(100vw - 28px),
+          calc(100vw - 22px),
           1650px
         );
 
       max-height:
-        calc(100vh - 28px);
+        calc(100vh - 22px);
 
       display: flex;
       flex-direction: column;
@@ -1509,11 +1400,10 @@
     }
 
     .bikes-modal-header {
-      flex:
-        0 0 auto;
+      flex: 0 0 auto;
 
       padding:
-        3px 55px 14px 3px;
+        3px 55px 13px 3px;
     }
 
     .bikes-modal-title {
@@ -1531,13 +1421,14 @@
 
     .bikes-modal-title
     span:first-child {
-      color:
-        var(--orange);
+      color: var(--orange);
     }
 
 
     /* =====================================================
-       MOTOROS FŐ TERÜLET
+       MOTOROS NAGY KÉP
+
+       NINCS KÜLÖN KERET RAJTA
        ===================================================== */
 
     .bike-diagram {
@@ -1545,25 +1436,17 @@
 
       width: 100%;
 
-      aspect-ratio:
-        16 / 8.7;
-
-      max-height:
-        calc(100vh - 105px);
+      aspect-ratio: 830 / 405;
 
       overflow: hidden;
 
-      border:
-        1px solid
-        rgba(255,255,255,.11);
+      border: 0;
 
-      border-radius: 17px;
+      border-radius: 14px;
 
-      background:
-        #020202;
+      background: #000;
 
-      isolation:
-        isolate;
+      isolation: isolate;
     }
 
     .bike-main-photo {
@@ -1575,7 +1458,18 @@
 
       overflow: hidden;
 
+      border-radius: 14px;
+
       background: #000;
+    }
+
+    .bike-main-photo > img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      object-position: center;
     }
 
     .bike-main-photo::after {
@@ -1592,76 +1486,56 @@
       background:
 
         linear-gradient(
-          90deg,
-          rgba(0,0,0,.10),
-          transparent 16%,
-          transparent 84%,
-          rgba(0,0,0,.10)
-        ),
-
-        linear-gradient(
           180deg,
-          rgba(0,0,0,.05),
-          transparent 70%,
-          rgba(0,0,0,.16)
+          rgba(0,0,0,.04),
+          transparent 60%,
+          rgba(0,0,0,.15)
         );
-    }
-
-    .bike-main-photo > img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      object-position: center;
     }
 
 
     /* =====================================================
-       MOTOROS INFORMÁCIÓS FELIRAT
+       MOTOROS SEGÉDSZÖVEG
        ===================================================== */
 
     .bike-click-tip {
       position: absolute;
 
       left: 50%;
-      top: 20px;
+      top: 18px;
 
       z-index: 40;
 
-      transform:
-        translateX(-50%);
+      transform: translateX(-50%);
 
-      padding:
-        12px 22px;
+      padding: 11px 20px;
 
       border:
         1px solid
         rgba(255,121,0,.82);
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       background:
-        rgba(0,0,0,.84);
+        rgba(0,0,0,.82);
 
       color: #fff;
 
-      font-size: 1rem;
+      font-size: .94rem;
       font-weight: 700;
 
       white-space: nowrap;
 
-      backdrop-filter:
-        blur(6px);
+      backdrop-filter: blur(6px);
 
       box-shadow:
-        0 9px 30px
-        rgba(0,0,0,.55);
+        0 8px 28px
+        rgba(0,0,0,.45);
     }
 
 
     /* =====================================================
-       MOTOR GOMBOK
+       MOTOR SZÁMOK
        ===================================================== */
 
     .bike-hotspot {
@@ -1669,11 +1543,8 @@
 
       z-index: 30;
 
-      left:
-        var(--x);
-
-      top:
-        var(--y);
+      left: var(--x);
+      top: var(--y);
 
       width: 44px;
       height: 44px;
@@ -1688,12 +1559,12 @@
 
       border:
         2px solid
-        #ff8a1b;
+        #ff7900;
 
       border-radius: 50%;
 
       background:
-        rgba(0,0,0,.94);
+        rgba(0,0,0,.96);
 
       color: #fff;
 
@@ -1703,53 +1574,31 @@
       cursor: pointer;
 
       box-shadow:
-        0 0 0 5px rgba(255,121,0,.11),
-        0 0 25px rgba(255,121,0,.55);
-
-      animation:
-        hotspotPulse
-        1.8s infinite;
+        0 0 0 4px rgba(255,121,0,.10),
+        0 0 18px rgba(255,121,0,.50);
 
       transition:
+        transform .2s ease,
         background .2s ease,
-        transform .2s ease;
+        box-shadow .2s ease;
     }
 
     .bike-hotspot:hover,
     .bike-hotspot.active {
-      background:
-        var(--orange);
+      background: var(--orange);
 
       transform:
         translate(-50%,-50%)
         scale(1.12);
-    }
 
-    @keyframes hotspotPulse {
-
-      0% {
-        box-shadow:
-          0 0 0 3px rgba(255,121,0,.20),
-          0 0 12px rgba(255,121,0,.38);
-      }
-
-      50% {
-        box-shadow:
-          0 0 0 9px rgba(255,121,0,.04),
-          0 0 28px rgba(255,121,0,.72);
-      }
-
-      100% {
-        box-shadow:
-          0 0 0 3px rgba(255,121,0,.20),
-          0 0 12px rgba(255,121,0,.38);
-      }
-
+      box-shadow:
+        0 0 0 5px rgba(255,121,0,.15),
+        0 0 30px rgba(255,121,0,.85);
     }
 
 
     /* =====================================================
-       MOTOROS VONALAK
+       VONALAK
        ===================================================== */
 
     .bike-connectors {
@@ -1768,39 +1617,29 @@
     #bikeGroupConnectorPath {
       fill: none;
 
-      stroke:
-        #ff7900;
+      stroke: #ff7900;
 
       stroke-width: 4;
 
-      stroke-linecap:
-        round;
-
-      stroke-linejoin:
-        round;
-
-      opacity: .98;
+      stroke-linecap: round;
+      stroke-linejoin: round;
 
       filter:
         drop-shadow(
-          0 0 7px
-          rgba(255,121,0,.9)
+          0 0 5px
+          rgba(255,121,0,.65)
         );
     }
 
     #bikeConnectorPath {
       fill: none;
 
-      stroke:
-        #ff7900;
+      stroke: #ff7900;
 
       stroke-width: 3;
 
-      stroke-linecap:
-        round;
-
-      stroke-linejoin:
-        round;
+      stroke-linecap: round;
+      stroke-linejoin: round;
 
       filter:
         drop-shadow(
@@ -1811,85 +1650,97 @@
 
 
     /* =====================================================
-       MOTOR INFORMÁCIÓS KÁRTYÁK
+       MOTOR ADATLAP
        ===================================================== */
 
     .bike-callout {
       position: absolute;
 
-      z-index: 35;
+      z-index: 60;
 
-      max-height: 91%;
+      max-height:
+        calc(100% - 30px);
 
       overflow-y: auto;
 
       opacity: 0;
 
-      visibility:
-        hidden;
+      visibility: hidden;
 
-      pointer-events:
-        none;
+      pointer-events: none;
 
       transform:
         translateY(10px)
-        scale(.94);
+        scale(.96);
 
       transition:
         opacity .25s ease,
         transform .25s ease,
         visibility .25s ease;
+
+      scrollbar-width: thin;
+
+      scrollbar-color:
+        var(--orange)
+        #111;
     }
 
     .bike-callout.active {
       opacity: 1;
 
-      visibility:
-        visible;
+      visibility: visible;
 
-      pointer-events:
-        auto;
+      pointer-events: auto;
 
       transform:
         translateY(0)
         scale(1);
     }
 
+
+    /* 1 - BAL */
+
     .bike-callout[data-bike="bike1"] {
-      left: 2.5%;
-      top: 6%;
+      left: 2%;
+      top: 2.5%;
 
       width:
         min(
-          45%,
-          670px
+          47%,
+          720px
         );
     }
+
+
+    /* 5 - JOBB */
 
     .bike-callout[data-bike="bike5"] {
-      right: 2.5%;
-      top: 6%;
+      right: 2%;
+      top: 2.5%;
 
       width:
         min(
-          45%,
-          670px
+          47%,
+          720px
         );
     }
+
+
+    /* 2-3-4 - KÖZÉP */
 
     .bike-callout[data-bike="bike234"] {
       left: 50%;
-      bottom: 3%;
+      top: 2.5%;
 
       width:
         min(
-          62%,
-          900px
+          68%,
+          1000px
         );
 
       transform:
         translate(-50%,10px)
-        scale(.94);
+        scale(.96);
     }
 
     .bike-callout[data-bike="bike234"].active {
@@ -1898,71 +1749,130 @@
         scale(1);
     }
 
-    .bike-callout-card {
+
+    /* =====================================================
+       MOTOR ADATLAP DESIGN
+       ===================================================== */
+
+    .bike-detail-card {
+      position: relative;
+
       overflow: hidden;
 
       border:
         2px solid
-        rgba(255,121,0,.92);
+        rgba(255,121,0,.88);
 
       border-radius: 20px;
 
       background:
+
+        radial-gradient(
+          circle at top right,
+          rgba(255,121,0,.11),
+          transparent 36%
+        ),
+
         linear-gradient(
           145deg,
-          rgba(18,18,18,.98),
+          rgba(16,16,16,.99),
           rgba(3,3,3,.99)
         );
 
       box-shadow:
-        0 28px 80px rgba(0,0,0,.88),
-        0 0 42px rgba(255,121,0,.14);
+        0 28px 90px
+        rgba(0,0,0,.92),
+        0 0 42px
+        rgba(255,121,0,.15);
 
-      backdrop-filter:
-        blur(9px);
+      backdrop-filter: blur(10px);
     }
 
-    .bike-callout-image {
-      overflow: hidden;
+    .bike-detail-close {
+      position: absolute;
 
-      border-bottom:
+      top: 12px;
+      right: 12px;
+
+      z-index: 10;
+
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border:
         1px solid
-        rgba(255,121,0,.30);
+        rgba(255,121,0,.75);
+
+      border-radius: 50%;
 
       background:
-        #070707;
+        rgba(0,0,0,.83);
+
+      color: #fff;
+
+      font-size: 1.45rem;
+
+      cursor: pointer;
     }
 
-    .bike-callout-image img {
+    .bike-detail-close:hover {
+      background: var(--orange);
+    }
+
+
+    /* =====================================================
+       MOTOR ADATLAP KÉP
+       ===================================================== */
+
+    .bike-detail-photo {
+      margin:
+        22px 22px 0;
+
+      overflow: hidden;
+
+      border-radius: 15px;
+
+      border:
+        1px solid
+        rgba(255,121,0,.55);
+
+      background: #080808;
+    }
+
+    .bike-detail-photo img {
       width: 100%;
 
       height:
         clamp(
-          280px,
-          38vh,
-          430px
+          220px,
+          31vh,
+          380px
         );
 
-      object-fit:
-        contain;
+      object-fit: contain;
 
-      object-position:
-        center;
+      object-position: center;
 
-      padding: 7px;
-
-      background:
-        #070707;
+      background: #080808;
     }
 
-    .bike-callout-content {
+
+    /* =====================================================
+       MOTOR ADATLAP SZÖVEG
+       ===================================================== */
+
+    .bike-detail-body {
       padding:
-        22px 25px 25px;
+        22px 25px 28px;
     }
 
-    .bike-callout-number {
-      display:
-        inline-block;
+    .bike-detail-label {
+      display: inline-block;
 
       margin-bottom: 9px;
 
@@ -1971,10 +1881,9 @@
 
       border:
         1px solid
-        rgba(255,121,0,.60);
+        rgba(255,121,0,.62);
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       color:
         var(--orange-light);
@@ -1985,81 +1894,165 @@
       font-size: .76rem;
       font-weight: 800;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
-    .bike-callout-content h3 {
-      margin-bottom: 8px;
+    .bike-detail-title {
+      margin-bottom: 17px;
 
       color: #fff;
 
-      font-size: 1.65rem;
+      font-size:
+        clamp(
+          1.45rem,
+          2.2vw,
+          2.3rem
+        );
 
-      line-height: 1.15;
+      line-height: 1.12;
+
+      font-weight: 900;
     }
 
-    .bike-callout-line {
-      width: 62px;
-      height: 4px;
 
-      margin-bottom: 13px;
+    /* =====================================================
+       SPECIFIKÁCIÓS KÁRTYÁK
+       ===================================================== */
 
-      border-radius:
-        999px;
-
-      background:
-        var(--orange);
-    }
-
-    .bike-callout-content p {
-      color: #e0e0e0;
-
-      font-size: 1rem;
-
-      line-height: 1.6;
-    }
-
-    .bike-callout[data-bike="bike234"]
-    .bike-callout-card {
+    .bike-specs {
       display: grid;
 
       grid-template-columns:
-        52% 48%;
+        repeat(
+          3,
+          minmax(0,1fr)
+        );
 
-      align-items: stretch;
+      gap: 9px;
+
+      margin-bottom: 20px;
     }
 
-    .bike-callout[data-bike="bike234"]
-    .bike-callout-image {
-      border-bottom: 0;
+    .bike-spec {
+      min-width: 0;
+      min-height: 84px;
 
-      border-right:
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding:
+        12px 13px;
+
+      border:
         1px solid
-        rgba(255,121,0,.30);
+        rgba(255,121,0,.68);
+
+      border-radius: 12px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          rgba(255,121,0,.08),
+          rgba(0,0,0,.22)
+        );
     }
 
-    .bike-callout[data-bike="bike234"]
-    .bike-callout-image img {
-      width: 100%;
-      height: 100%;
-
-      min-height: 360px;
-
-      object-fit:
-        contain;
+    .bike-spec:nth-child(4) {
+      grid-column:
+        span 1;
     }
 
-    .bike-callout[data-bike="bike234"]
-    .bike-callout-content {
+    .bike-spec:nth-child(5) {
+      grid-column:
+        span 2;
+    }
+
+    .bike-spec-icon {
+      width: 36px;
+      height: 36px;
+
+      flex:
+        0 0 36px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      color: var(--orange);
+
+      font-size: 1.6rem;
+
+      text-shadow:
+        0 0 10px
+        rgba(255,121,0,.40);
+    }
+
+    .bike-spec-text {
+      min-width: 0;
+
       display: flex;
 
       flex-direction: column;
 
-      justify-content: center;
+      gap: 1px;
+    }
 
-      padding:
-        27px 30px;
+    .bike-spec-label {
+      color:
+        var(--orange-light);
+
+      font-size: .77rem;
+
+      line-height: 1.2;
+    }
+
+    .bike-spec-value {
+      color: #fff;
+
+      font-size: .96rem;
+      font-weight: 800;
+
+      line-height: 1.2;
+    }
+
+
+    /* =====================================================
+       LEÍRÁS
+       ===================================================== */
+
+    .bike-detail-description {
+      color: #d7d7d7;
+
+      font-size: .95rem;
+
+      line-height: 1.62;
+    }
+
+    .bike-detail-description strong {
+      color: #fff;
+
+      font-weight: 800;
+    }
+
+    .bike-detail-footnote {
+      margin-top: 15px;
+
+      padding-top: 13px;
+
+      border-top:
+        1px solid
+        rgba(255,121,0,.25);
+
+      color: #aaa;
+
+      font-size: .77rem;
+
+      line-height: 1.5;
     }
 
 
@@ -2067,24 +2060,31 @@
        TABLET
        ===================================================== */
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1000px) {
 
       .bike-callout[data-bike="bike1"],
       .bike-callout[data-bike="bike5"] {
-        width: 48%;
+        width: 53%;
       }
 
       .bike-callout[data-bike="bike234"] {
-        width: 70%;
+        width: 78%;
       }
 
-      .bike-callout-image img {
-        height:
-          clamp(
-            240px,
-            32vh,
-            350px
-          );
+      .bike-specs {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .bike-spec:nth-child(4),
+      .bike-spec:nth-child(5) {
+        grid-column:
+          span 1;
+      }
+
+      .bike-spec:nth-child(5) {
+        grid-column:
+          1 / -1;
       }
 
     }
@@ -2094,23 +2094,20 @@
 
       .experience-row,
       .experience-row.reverse {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
 
         gap: 24px;
       }
 
       .experience-row.reverse
       .experience-image,
-
       .experience-row.reverse
       .experience-text {
         order: initial;
       }
 
       .trust-box {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
 
       .trust-item +
@@ -2162,8 +2159,7 @@
       .header-contacts {
         width: 100%;
 
-        flex-direction:
-          column;
+        flex-direction: column;
 
         gap: 7px;
       }
@@ -2207,10 +2203,9 @@
             #000 100%
           ),
 
-          url("images/hero.jpg?v=20260811-3");
+          url("images/hero.jpg?v=20260812-1");
 
-        background-size:
-          cover;
+        background-size: cover;
 
         background-position:
           50% center;
@@ -2251,25 +2246,17 @@
       }
 
 
-      /* =================================================
-         MOBIL ELŐNYÖK
-
-         NINCS KERET
-         CSAK VÍZSZINTES ELVÁLASZTÓK
-         ================================================= */
+      /* ELŐNYÖK */
 
       .hero-features {
-        margin-top:
-          auto;
+        margin-top: auto;
 
-        margin-bottom:
-          16px;
+        margin-bottom: 16px;
 
         padding:
           0 18px;
 
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
 
         gap: 0;
 
@@ -2289,7 +2276,8 @@
         font-size: .91rem;
       }
 
-      .feature + .feature {
+      .feature +
+      .feature {
         border-left: 0;
 
         border-top:
@@ -2305,27 +2293,17 @@
           0 0 28px;
       }
 
-
-      /* INFORMÁCIÓS FELIRAT */
-
       .hero-info-hint {
         justify-content:
           flex-start;
 
         gap: 7px;
 
-        margin-bottom:
-          12px;
+        margin-bottom: 12px;
 
-        font-size:
-          .82rem;
+        font-size: .82rem;
 
         text-align: left;
-      }
-
-      .hero-info-hint-arrow {
-        font-size:
-          1.2rem;
       }
 
 
@@ -2333,41 +2311,40 @@
 
       .hero-buttons {
         grid-template-columns:
-          1fr;
+          1fr 1fr;
 
         gap: 8px;
       }
 
       .main-button {
-        min-height: 48px;
+        min-height: 49px;
 
         padding:
-          10px 8px;
+          10px 6px;
 
-        font-size: .88rem;
+        font-size: .81rem;
       }
 
       .main-button.contact {
-        font-size: .88rem;
+        grid-column:
+          1 / -1;
       }
 
 
       /* ÁRAK */
 
       .price-row {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
 
         gap: 7px;
       }
 
       .price-footer {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
 
 
-      /* TARTALMI BLOKKOK */
+      /* BLOKKOK */
 
       .experience-row,
       .experience-row.reverse {
@@ -2398,8 +2375,7 @@
       .experience-text {
         width: 100%;
 
-        padding:
-          0 7px;
+        padding: 0 7px;
       }
 
       .experience-text h2 {
@@ -2417,17 +2393,17 @@
          ================================================= */
 
       .modal-background {
-        padding: 5px;
+        padding: 4px;
       }
 
       .bikes-modal {
         width:
-          calc(100vw - 10px);
+          calc(100vw - 8px);
 
         max-height:
-          calc(100vh - 10px);
+          calc(100vh - 8px);
 
-        padding: 9px;
+        padding: 8px;
 
         border-radius: 15px;
 
@@ -2440,7 +2416,7 @@
       }
 
       .bikes-modal-title {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
 
       .modal-close {
@@ -2453,185 +2429,201 @@
         font-size: 1.25rem;
       }
 
+
+      /* NAGY KÉP MOBILON IS EREDETI ARÁNYBAN */
+
       .bike-diagram {
-        width: 100%;
-
         aspect-ratio:
-          4 / 5.5;
+          830 / 405;
 
-        max-height: none;
-
-        border-radius: 13px;
+        border-radius: 9px;
       }
 
-      .bike-main-photo > img {
-        width: 100%;
-        height: 100%;
-
-        object-fit: cover;
-
-        object-position:
-          50% center;
-      }
-
-      .bike-main-photo::after {
-        background:
-          linear-gradient(
-            180deg,
-            rgba(0,0,0,.05) 0%,
-            rgba(0,0,0,.02) 40%,
-            rgba(0,0,0,.20) 68%,
-            rgba(0,0,0,.58) 100%
-          );
+      .bike-main-photo {
+        border-radius: 9px;
       }
 
       .bike-click-tip {
-        top: 10px;
+        top: 6px;
 
         width:
-          calc(100% - 62px);
-
-        max-width: 370px;
+          calc(100% - 85px);
 
         padding:
-          9px 12px;
+          5px 8px;
 
-        font-size: .78rem;
+        font-size: .57rem;
 
         white-space: normal;
 
         text-align: center;
-
-        line-height: 1.3;
       }
 
       .bike-hotspot {
-        width: 34px;
-        height: 34px;
+        width: 29px;
+        height: 29px;
 
-        font-size: .75rem;
+        font-size: .66rem;
+
+        border-width: 1.5px;
       }
 
       #bikeGroupConnectorPath {
-        stroke-width: 3;
+        stroke-width: 2.5;
       }
+
+      #bikeConnectorPath {
+        stroke-width: 2;
+      }
+
+
+      /* ADATLAP MOBILON */
 
       .bike-callout,
       .bike-callout[data-bike="bike1"],
       .bike-callout[data-bike="bike5"],
       .bike-callout[data-bike="bike234"] {
 
-        position: absolute;
-
-        left: 3%;
+        left: 2%;
         right: auto;
 
-        top: 5%;
-        bottom: auto;
+        top: 2%;
 
-        width: 94%;
+        width: 96%;
 
-        max-height: 90%;
-
-        overflow-y: auto;
-
-        margin: 0;
+        max-height: 96%;
 
         transform:
-          translateY(9px)
-          scale(.95);
+          translateY(7px)
+          scale(.96);
       }
 
       .bike-callout.active,
       .bike-callout[data-bike="bike234"].active {
+
         transform:
           translateY(0)
           scale(1);
       }
 
-      .bike-callout-card,
-      .bike-callout[data-bike="bike234"]
-      .bike-callout-card {
-        display: block;
-
-        border-radius: 16px;
+      .bike-detail-card {
+        border-radius: 14px;
       }
 
-      .bike-callout-image,
-      .bike-callout[data-bike="bike234"]
-      .bike-callout-image {
-        border-right: 0;
+      .bike-detail-close {
+        top: 7px;
+        right: 7px;
 
-        border-bottom:
-          1px solid
-          rgba(255,121,0,.30);
+        width: 32px;
+        height: 32px;
+
+        font-size: 1.15rem;
       }
 
-      .bike-callout-image img,
-      .bike-callout[data-bike="bike234"]
-      .bike-callout-image img {
+      .bike-detail-photo {
+        margin:
+          10px 10px 0;
 
-        width: 100%;
+        border-radius: 10px;
+      }
 
+      .bike-detail-photo img {
         height:
           clamp(
-            240px,
-            38vh,
-            340px
+            145px,
+            26vh,
+            230px
           );
-
-        min-height: 0;
-
-        object-fit: contain;
-
-        padding: 5px;
       }
 
-      .bike-callout-content,
-      .bike-callout[data-bike="bike234"]
-      .bike-callout-content {
-        display: block;
-
+      .bike-detail-body {
         padding:
-          18px 19px 21px;
+          14px 14px 17px;
       }
 
-      .bike-callout-number {
+      .bike-detail-label {
         margin-bottom: 7px;
 
         padding:
-          4px 9px;
+          4px 8px;
 
-        font-size: .68rem;
+        font-size: .64rem;
       }
 
-      .bike-callout-content h3 {
-        margin-bottom: 7px;
+      .bike-detail-title {
+        margin-bottom: 12px;
 
-        font-size: 1.35rem;
+        padding-right: 30px;
 
-        line-height: 1.2;
+        font-size: 1.2rem;
       }
 
-      .bike-callout-line {
-        width: 50px;
-        height: 3px;
+      .bike-specs {
+        grid-template-columns:
+          1fr 1fr;
 
-        margin-bottom: 10px;
+        gap: 6px;
+
+        margin-bottom: 13px;
       }
 
-      .bike-callout-content p {
-        font-size: .9rem;
+      .bike-spec,
+      .bike-spec:nth-child(4),
+      .bike-spec:nth-child(5) {
+        grid-column: auto;
+      }
 
-        line-height: 1.52;
+      .bike-spec:nth-child(5) {
+        grid-column:
+          1 / -1;
+      }
+
+      .bike-spec {
+        min-height: 64px;
+
+        gap: 7px;
+
+        padding:
+          8px 8px;
+      }
+
+      .bike-spec-icon {
+        width: 27px;
+        height: 27px;
+
+        flex:
+          0 0 27px;
+
+        font-size: 1.15rem;
+      }
+
+      .bike-spec-label {
+        font-size: .62rem;
+      }
+
+      .bike-spec-value {
+        font-size: .74rem;
+      }
+
+      .bike-detail-description {
+        font-size: .78rem;
+
+        line-height: 1.48;
+      }
+
+      .bike-detail-footnote {
+        margin-top: 10px;
+
+        padding-top: 9px;
+
+        font-size: .65rem;
       }
 
 
       /* ALSÓ INFO */
 
       .trust-box {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
 
       .trust-item {
@@ -2652,10 +2644,6 @@
 
     }
 
-
-    /* =====================================================
-       KISEBB TELEFON
-       ===================================================== */
 
     @media (max-width: 420px) {
 
@@ -2684,58 +2672,7 @@
       }
 
       .main-button {
-        font-size: .84rem;
-      }
-
-      .bike-diagram {
-        aspect-ratio:
-          4 / 5.8;
-      }
-
-      .bike-click-tip {
-        font-size: .73rem;
-      }
-
-      .bike-callout,
-      .bike-callout[data-bike="bike1"],
-      .bike-callout[data-bike="bike5"],
-      .bike-callout[data-bike="bike234"] {
-
-        left: 2.5%;
-        top: 4%;
-
-        width: 95%;
-
-        max-height: 92%;
-      }
-
-      .bike-callout-image img,
-      .bike-callout[data-bike="bike234"]
-      .bike-callout-image img {
-
-        height:
-          clamp(
-            220px,
-            35vh,
-            300px
-          );
-      }
-
-      .bike-callout-content,
-      .bike-callout[data-bike="bike234"]
-      .bike-callout-content {
-
-        padding: 16px;
-      }
-
-      .bike-callout-content h3 {
-        font-size: 1.22rem;
-      }
-
-      .bike-callout-content p {
-        font-size: .85rem;
-
-        line-height: 1.48;
+        font-size: .77rem;
       }
 
     }
@@ -2928,9 +2865,7 @@
           </p>
 
 
-          <!-- =================================================
-               3 KIEMELT ELŐNY
-               ================================================= -->
+          <!-- ELŐNYÖK -->
 
           <div class="hero-features">
 
@@ -3033,10 +2968,6 @@
           </div>
 
 
-          <!-- =================================================
-               ÚJ INFORMÁCIÓS SOR
-               ================================================= -->
-
           <div class="hero-info-hint">
 
             <span>
@@ -3050,9 +2981,7 @@
           </div>
 
 
-          <!-- =================================================
-               FŐ GOMBOK
-               ================================================= -->
+          <!-- GOMBOK -->
 
           <div class="hero-buttons">
 
@@ -3122,9 +3051,7 @@
           </div>
 
 
-          <!-- =================================================
-               LEHETŐSÉGEK
-               ================================================= -->
+          <!-- LEHETŐSÉGEK -->
 
           <div
             class="opportunities-panel"
@@ -3195,9 +3122,7 @@
           </div>
 
 
-          <!-- =================================================
-               ÁRAK
-               ================================================= -->
+          <!-- ÁRAK -->
 
           <div
             class="price-wrapper"
@@ -3394,7 +3319,7 @@
 
 
     <!-- =====================================================
-         PÁLYAHASZNÁLAT + ÉLMÉNY TÚRA
+         PÁLYAHASZNÁLAT / TÚRA
          ===================================================== -->
 
     <section class="experiences">
@@ -3402,9 +3327,7 @@
       <div class="page-width">
 
 
-        <!-- =================================================
-             PÁLYAHASZNÁLAT
-             ================================================= -->
+        <!-- PÁLYA -->
 
         <article
           class="experience-row"
@@ -3414,7 +3337,7 @@
           <div class="experience-image">
 
             <img
-              src="images/palya.jpg?v=20260811-3"
+              src="images/palya.jpg?v=20260812-1"
               alt="Pályahasználat"
             >
 
@@ -3506,9 +3429,7 @@
 
 
 
-        <!-- =================================================
-             ÉLMÉNY TÚRA
-             ================================================= -->
+        <!-- TÚRA -->
 
         <article
           class="experience-row reverse"
@@ -3518,7 +3439,7 @@
           <div class="experience-image">
 
             <img
-              src="images/ajandek.jpg?v=20260811-3"
+              src="images/ajandek.jpg?v=20260812-1"
               alt="Élmény túra"
             >
 
@@ -3765,7 +3686,7 @@
 
 
   <!-- =====================================================
-       BÉRELHETŐ MOTOROK ABLAK
+       MOTOROK MODAL
        ===================================================== -->
 
   <div
@@ -3808,17 +3729,12 @@
       >
 
 
-        <!-- =================================================
-             NAGY KÉP
-             ================================================= -->
+        <!-- NAGY MOTOROS KÉP -->
 
-        <div
-          class="bike-main-photo"
-          id="bikeMainPhoto"
-        >
+        <div class="bike-main-photo">
 
           <img
-            src="images/motorok.jpg?v=20260811-3"
+            src="images/motorok.jpg?v=20260812-1"
             alt="Bérelhető elektromos motorok"
           >
 
@@ -3826,11 +3742,10 @@
           <!-- 1 -->
 
           <button
-            class="bike-hotspot"
             type="button"
+            class="bike-hotspot"
             data-bike="bike1"
-            style="--x:30%; --y:61%;"
-            aria-label="1. motor részletei"
+            style="--x:10.5%; --y:85%;"
           >
             1
           </button>
@@ -3839,12 +3754,11 @@
           <!-- 2 -->
 
           <button
-            class="bike-hotspot"
             type="button"
+            class="bike-hotspot"
             data-bike="bike234"
             data-group="234"
-            style="--x:43%; --y:64%;"
-            aria-label="2. motor részletei"
+            style="--x:35.5%; --y:91%;"
           >
             2
           </button>
@@ -3853,12 +3767,11 @@
           <!-- 3 -->
 
           <button
-            class="bike-hotspot"
             type="button"
+            class="bike-hotspot"
             data-bike="bike234"
             data-group="234"
-            style="--x:52%; --y:66%;"
-            aria-label="3. motor részletei"
+            style="--x:53%; --y:94%;"
           >
             3
           </button>
@@ -3867,12 +3780,11 @@
           <!-- 4 -->
 
           <button
-            class="bike-hotspot"
             type="button"
+            class="bike-hotspot"
             data-bike="bike234"
             data-group="234"
-            style="--x:61%; --y:63%;"
-            aria-label="4. motor részletei"
+            style="--x:70.5%; --y:87%;"
           >
             4
           </button>
@@ -3881,11 +3793,10 @@
           <!-- 5 -->
 
           <button
-            class="bike-hotspot"
             type="button"
+            class="bike-hotspot"
             data-bike="bike5"
-            style="--x:71%; --y:57%;"
-            aria-label="5. motor részletei"
+            style="--x:90%; --y:76%;"
           >
             5
           </button>
@@ -3894,6 +3805,8 @@
         </div>
 
 
+        <!-- SEGÉDSZÖVEG -->
+
         <div class="bike-click-tip">
 
           Információhoz kattints a motorok alatti számokra!
@@ -3901,9 +3814,7 @@
         </div>
 
 
-        <!-- =================================================
-             VONALAK
-             ================================================= -->
+        <!-- VONALAK -->
 
         <svg
           class="bike-connectors"
@@ -3921,8 +3832,9 @@
         </svg>
 
 
+
         <!-- =================================================
-             1. MOTOR
+             1. ARCTIC LEOPARD
              ================================================= -->
 
         <div
@@ -3930,44 +3842,167 @@
           data-bike="bike1"
         >
 
-          <div class="bike-callout-card">
+          <div class="bike-detail-card">
 
 
-            <div class="bike-callout-image">
+            <button
+              type="button"
+              class="bike-detail-close"
+              data-close-bike-detail
+              aria-label="Adatlap bezárása"
+            >
+              ×
+            </button>
+
+
+            <div class="bike-detail-photo">
 
               <img
-                src="images/motor1.jpg?v=20260811-3"
-                alt="Arctic Leopard XF Pro 12,5 kW"
+                src="images/motor1.jpg?v=20260812-1"
+                alt="Arctic Leopard XF Pro"
               >
 
             </div>
 
 
-            <div class="bike-callout-content">
+            <div class="bike-detail-body">
 
-              <span class="bike-callout-number">
+
+              <span class="bike-detail-label">
+
                 1. motor
+
               </span>
 
 
-              <h3>
-                Arctic Leopard XF Pro 12 kW (16LE) – 1 db
+              <h3 class="bike-detail-title">
+
+                Arctic Leopard XF Pro 12 kW (16 LE) – 1 db
+
               </h3>
 
 
-              <div class="bike-callout-line"></div>
+              <div class="bike-specs">
 
 
-              <p>
+                <div class="bike-spec">
 
-                Kisebb méretének köszönhetően nagyobb gyermekek
-                számára is kipróbálható, körülbelül 10–12 éves
-                kortól, tapasztalattól függően. Rövidebb tengelytávval
-                és alacsonyabb, 80–82 cm-es ülésmagassággal
-                rendelkezik, tömege pedig mindössze 60–65 kg.
-                Vékonyabb, alacsonyabb testalkatú felnőtteknek,
-                kezdő tudással szintén optimális választás lehet,
-                legfeljebb 75 kg-os testsúlyig.
+                  <div class="bike-spec-icon">
+                    ⚡
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Max. teljesítmény
+                    </span>
+
+                    <span class="bike-spec-value">
+                      12 kW (16 LE)
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ⚖
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Tömeg
+                    </span>
+
+                    <span class="bike-spec-value">
+                      60–65 kg
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ↕
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Ülésmagasság
+                    </span>
+
+                    <span class="bike-spec-value">
+                      80–82 cm
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ◉
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Kerékméret
+                    </span>
+
+                    <span class="bike-spec-value">
+                      19” / 17”
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ●
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Pilóta max. súlya
+                    </span>
+
+                    <span class="bike-spec-value">
+                      75 kg
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+              </div>
+
+
+              <p class="bike-detail-description">
+
+                Kisebb méretének köszönhetően
+                <strong>
+                  nagyobb gyermekek számára is kipróbálható,
+                  kb. 10–12 éves kortól
+                </strong>,
+                tapasztalattól függően.
+                Alacsonyabb testalkatú felnőtteknek és kezdőknek
+                is optimális választás lehet.
 
               </p>
 
@@ -3980,8 +4015,9 @@
         </div>
 
 
+
         <!-- =================================================
-             2-3-4 KÖZÖS MOTOR
+             2-3-4. SUR-RON ULTRA BEE
              ================================================= -->
 
         <div
@@ -3989,46 +4025,171 @@
           data-bike="bike234"
         >
 
-          <div class="bike-callout-card">
+          <div class="bike-detail-card">
 
 
-            <div class="bike-callout-image">
+            <button
+              type="button"
+              class="bike-detail-close"
+              data-close-bike-detail
+              aria-label="Adatlap bezárása"
+            >
+              ×
+            </button>
+
+
+            <div class="bike-detail-photo">
 
               <img
-                src="images/motor2.jpg?v=20260811-3"
-                alt="2., 3. és 4. motor"
+                src="images/motor2.jpg?v=20260812-1"
+                alt="Sur-Ron Ultra Bee"
               >
 
             </div>
 
 
-            <div class="bike-callout-content">
+            <div class="bike-detail-body">
 
-              <span class="bike-callout-number">
+
+              <span class="bike-detail-label">
+
                 2–3–4. motor
+
               </span>
 
 
-              <h3>
-                Surron Ultrabee 12,5kW (17LE) és 21kW (28,5LE)
+              <h3 class="bike-detail-title">
+
+                Sur-Ron Ultra Bee
+
               </h3>
 
 
-              <div class="bike-callout-line"></div>
+              <div class="bike-specs">
 
 
-              <p>
+                <div class="bike-spec">
 
-              A Sur-Ron Ultra Bee már egy jóval nyomatékosabb
-              és dinamikusabb elektromos motor, robusztusabb,
-              85 kg-os tömeggel, 90 cm-es ülésmagassággal, valamint
-              19”/18”-as kerékmérettel.
+                  <div class="bike-spec-icon">
+                    ⚡
+                  </div>
 
-              Tökéletes választás felnőttek számára, kezdőknek és 
-              tapasztaltabb motorosoknak egyaránt. Két teljesítményváltozat
-              érhető el: 12,5 kW (17 LE) és 21 kW (28,5 LE) maximális teljesítménnyel.
-              Viszont teljesítmény itt is 3 különböző üzemmódban szabályozható,
-              így mindenki a saját tudásszintjéhez és tempójához igazíthatja a motor karakterét
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Max. teljesítmény
+                    </span>
+
+                    <span class="bike-spec-value">
+                      12,5 / 21 kW
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ⚖
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Tömeg
+                    </span>
+
+                    <span class="bike-spec-value">
+                      85 kg
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ↕
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Ülésmagasság
+                    </span>
+
+                    <span class="bike-spec-value">
+                      90 cm
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ◉
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Kerékméret
+                    </span>
+
+                    <span class="bike-spec-value">
+                      19” / 18”
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ●
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Pilóta max. súlya
+                    </span>
+
+                    <span class="bike-spec-value">
+                      100 kg
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+              </div>
+
+
+              <p class="bike-detail-description">
+
+                Jóval nyomatékosabb, dinamikusabb és robusztusabb
+                elektromos motor,
+                <strong>
+                  felnőtteknek, kezdőknek és tapasztaltabb
+                  motorosoknak egyaránt.
+                </strong>
+
+                A teljesítmény
+                <strong>
+                  3 különböző üzemmódban szabályozható
+                </strong>,
+                így könnyen a pilóta tudásszintjéhez igazítható.
 
               </p>
 
@@ -4041,8 +4202,9 @@
         </div>
 
 
+
         <!-- =================================================
-             5. MOTOR
+             5. STARK VARG
              ================================================= -->
 
         <div
@@ -4050,48 +4212,185 @@
           data-bike="bike5"
         >
 
-          <div class="bike-callout-card">
+          <div class="bike-detail-card">
 
 
-            <div class="bike-callout-image">
+            <button
+              type="button"
+              class="bike-detail-close"
+              data-close-bike-detail
+              aria-label="Adatlap bezárása"
+            >
+              ×
+            </button>
+
+
+            <div class="bike-detail-photo">
 
               <img
-                src="images/motor3.jpg?v=20260811-3"
-                alt="5. motor"
+                src="images/motor3.jpg?v=20260812-1"
+                alt="Stark VARG MX"
               >
 
             </div>
 
 
-            <div class="bike-callout-content">
+            <div class="bike-detail-body">
 
-              <span class="bike-callout-number">
+
+              <span class="bike-detail-label">
+
                 5. motor
+
               </span>
 
 
-              <h3>
-                Stark Varg Mx
+              <h3 class="bike-detail-title">
+
+                Stark VARG MX
+
               </h3>
 
 
-              <div class="bike-callout-line"></div>
+              <div class="bike-specs">
 
 
-              <p>
+                <div class="bike-spec">
 
-              A Stark VARG már a valódi versenymotorok világát képviseli.
-              Akár 60 kW-os (80LE) teljesítményével, 118 kg-os tömegével és
-              közel 95 cm-es ülésmagasságával elképesztően dinamikus, erős és
-              közvetlen motorozási élményt nyújt.
+                  <div class="bike-spec-icon">
+                    ⚡
+                  </div>
 
-              Elsősorban tapasztaltabb motorosoknak ajánljuk, ugyanakkor a 
-              teljesítmény széles tartományban szabályozható, így fokozatosan
-              0LE-től 80LE-ig is megismerhető a motor ereje. Ha igazán komoly
-              adrenalinlöketre és egy modern elektromos motocross/enduro élményére vágysz,
-              a Stark VARG a tökéletes választás.
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Max. teljesítmény
+                    </span>
+
+                    <span class="bike-spec-value">
+                      60 kW (80 LE)
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ⚖
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Tömeg
+                    </span>
+
+                    <span class="bike-spec-value">
+                      118 kg
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ↕
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Ülésmagasság
+                    </span>
+
+                    <span class="bike-spec-value">
+                      94,7 cm
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ◉
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Kerékméret
+                    </span>
+
+                    <span class="bike-spec-value">
+                      21” / 19”
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="bike-spec">
+
+                  <div class="bike-spec-icon">
+                    ●
+                  </div>
+
+                  <div class="bike-spec-text">
+
+                    <span class="bike-spec-label">
+                      Pilóta max. súlya
+                    </span>
+
+                    <span class="bike-spec-value">
+                      110 kg*
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+              </div>
+
+
+              <p class="bike-detail-description">
+
+                A kínálat legerősebb motorja, amely már a
+                <strong>
+                  valódi versenymotorok világát képviseli
+                </strong>,
+                ezért elsősorban tapasztaltabb motorosoknak ajánljuk.
+
+                Teljesítménye
+                <strong>
+                  0–80 LE között szabadon szabályozható
+                </strong>,
+                így fokozatosan is megismerhető az ereje.
+
+                Igazi választás azoknak, akik maximális adrenalinra
+                és egy modern elektromos motocross élményére vágynak.
 
               </p>
+
+
+              <div class="bike-detail-footnote">
+
+                * A 110 kg a bérléshez meghatározott javasolt
+                felső határ, nem a Stark által megadott gyári
+                maximális terhelhetőség. A gyártó a futóművet
+                a pilóta súlyához igazított beállításokkal kínálja.
+
+              </div>
 
 
             </div>
@@ -4229,7 +4528,7 @@
 
 
     /* =====================================================
-       HERO ALCÍM MÉRETE
+       HERO ALCÍM MÉRET
        ===================================================== */
 
     function fitHeroSubtitle() {
@@ -4251,10 +4550,12 @@
         return;
       }
 
+
       const targetWidth =
         titleWord
           .getBoundingClientRect()
           .width;
+
 
       const titleFontSize =
         parseFloat(
@@ -4263,16 +4564,20 @@
           ).fontSize
         );
 
+
       let subtitleFontSize =
         titleFontSize * .48;
 
+
       subtitle.style.fontSize =
         subtitleFontSize + "px";
+
 
       const subtitleWidth =
         subtitle
           .getBoundingClientRect()
           .width;
+
 
       if (
         subtitleWidth > 0 &&
@@ -4282,6 +4587,7 @@
         subtitleFontSize *=
           targetWidth /
           subtitleWidth;
+
 
         subtitle.style.fontSize =
           subtitleFontSize + "px";
@@ -4296,10 +4602,12 @@
       fitHeroSubtitle
     );
 
+
     window.addEventListener(
       "resize",
       fitHeroSubtitle
     );
+
 
     if (
       document.fonts
@@ -4312,6 +4620,7 @@
     }
 
 
+
     /* =====================================================
        LEHETŐSÉGEK
        ===================================================== */
@@ -4320,6 +4629,7 @@
       document.getElementById(
         "opportunitiesButton"
       );
+
 
     const opportunitiesPanel =
       document.getElementById(
@@ -4336,12 +4646,14 @@
             .classList
             .toggle("open");
 
+
         opportunitiesButton
           .classList
           .toggle(
             "open",
             open
           );
+
 
         opportunitiesButton
           .setAttribute(
@@ -4371,10 +4683,12 @@
                   option.dataset.section
                 );
 
+
               const extra =
                 document.getElementById(
                   option.dataset.extra
                 );
+
 
               const button =
                 document.querySelector(
@@ -4432,11 +4746,9 @@
 
                     section.scrollIntoView({
 
-                      behavior:
-                        "smooth",
+                      behavior: "smooth",
 
-                      block:
-                        "start"
+                      block: "start"
 
                     });
 
@@ -4451,6 +4763,7 @@
 
         }
       );
+
 
 
     /* =====================================================
@@ -4473,10 +4786,12 @@
                   button.dataset.extraTarget
                 );
 
+
               const open =
                 panel
                   .classList
                   .toggle("open");
+
 
               button
                 .classList
@@ -4492,6 +4807,7 @@
       );
 
 
+
     /* =====================================================
        ÁRAK
        ===================================================== */
@@ -4500,6 +4816,7 @@
       document.getElementById(
         "priceToggle"
       );
+
 
     const pricePanel =
       document.getElementById(
@@ -4516,12 +4833,14 @@
             .classList
             .toggle("open");
 
+
         priceToggle
           .classList
           .toggle(
             "open",
             open
           );
+
 
         priceToggle
           .setAttribute(
@@ -4535,8 +4854,9 @@
     );
 
 
+
     /* =====================================================
-       MOTOROK
+       MOTOR MODAL
        ===================================================== */
 
     const bikesButton =
@@ -4544,36 +4864,44 @@
         "bikesButton"
       );
 
+
     const bikesModal =
       document.getElementById(
         "bikesModal"
       );
+
 
     const bikesModalClose =
       document.getElementById(
         "bikesModalClose"
       );
 
+
     const bikeDiagram =
       document.getElementById(
         "bikeDiagram"
       );
+
 
     const bikeConnectorPath =
       document.getElementById(
         "bikeConnectorPath"
       );
 
+
     const bikeGroupConnectorPath =
       document.getElementById(
         "bikeGroupConnectorPath"
       );
 
+
     let selectedBike =
       null;
 
+
     let selectedHotspot =
       null;
+
 
 
     function openBikesModal() {
@@ -4582,11 +4910,13 @@
         .classList
         .add("open");
 
+
       bikesModal
         .setAttribute(
           "aria-hidden",
           "false"
         );
+
 
       document
         .body
@@ -4613,10 +4943,12 @@
     }
 
 
+
     function closeBikeDetail() {
 
       selectedBike =
         null;
+
 
       selectedHotspot =
         null;
@@ -4661,6 +4993,7 @@
     }
 
 
+
     function closeBikesModal() {
 
       closeBikeDetail();
@@ -4684,6 +5017,7 @@
         .remove("modal-open");
 
     }
+
 
 
     bikesButton.addEventListener(
@@ -4713,6 +5047,7 @@
 
       }
     );
+
 
 
     /* =====================================================
@@ -4828,9 +5163,36 @@
       );
 
 
+
     /* =====================================================
-       KÉP MELLÉ KATTINTVA
-       CSAK KIS ADATLAP ZÁRÓDIK
+       KIS ADATLAP X
+       ===================================================== */
+
+    document
+      .querySelectorAll(
+        "[data-close-bike-detail]"
+      )
+      .forEach(
+        button => {
+
+          button.addEventListener(
+            "click",
+            event => {
+
+              event.stopPropagation();
+
+              closeBikeDetail();
+
+            }
+          );
+
+        }
+      );
+
+
+
+    /* =====================================================
+       KÉPRE KATTINTVA CSAK AZ ADATLAP ZÁR
        ===================================================== */
 
     bikeDiagram.addEventListener(
@@ -4843,6 +5205,7 @@
           return;
         }
 
+
         if (
           event.target.closest(
             ".bike-callout"
@@ -4851,6 +5214,7 @@
           return;
         }
 
+
         if (
           event.target.closest(
             ".bike-hotspot"
@@ -4858,6 +5222,7 @@
         ) {
           return;
         }
+
 
         closeBikeDetail();
 
@@ -4885,8 +5250,9 @@
       );
 
 
+
     /* =====================================================
-       2-3-4 ÁLLANDÓ ÖSSZEKÖTŐ VONAL
+       2-3-4 ÖSSZEKÖTŐ VONAL
        ===================================================== */
 
     function drawBikeGroupConnector() {
@@ -4943,24 +5309,6 @@
           .getBoundingClientRect();
 
 
-      const y2 =
-        rect2.top -
-        diagramRect.top +
-        rect2.height / 2;
-
-
-      const y3 =
-        rect3.top -
-        diagramRect.top +
-        rect3.height / 2;
-
-
-      const y4 =
-        rect4.top -
-        diagramRect.top +
-        rect4.height / 2;
-
-
       const right2 =
         rect2.right -
         diagramRect.left;
@@ -4981,7 +5329,26 @@
         diagramRect.left;
 
 
+      const y2 =
+        rect2.top -
+        diagramRect.top +
+        rect2.height / 2;
+
+
+      const y3 =
+        rect3.top -
+        diagramRect.top +
+        rect3.height / 2;
+
+
+      const y4 =
+        rect4.top -
+        diagramRect.top +
+        rect4.height / 2;
+
+
       const path =
+
         "M " +
         right2 +
         " " +
@@ -5012,8 +5379,9 @@
     }
 
 
+
     /* =====================================================
-       KIVÁLASZTOTT MOTOR → KÁRTYA VONALA
+       KIVÁLASZTOTT MOTOR → ADATLAP
        ===================================================== */
 
     function drawBikeConnector() {
@@ -5034,15 +5402,6 @@
       }
 
 
-      const diagramRect =
-        bikeDiagram
-          .getBoundingClientRect();
-
-
-      const hotspot =
-        selectedHotspot;
-
-
       const callout =
         document.querySelector(
           '.bike-callout[data-bike="' +
@@ -5052,15 +5411,19 @@
 
 
       if (
-        !hotspot ||
         !callout
       ) {
         return;
       }
 
 
+      const diagramRect =
+        bikeDiagram
+          .getBoundingClientRect();
+
+
       const hotRect =
-        hotspot
+        selectedHotspot
           .getBoundingClientRect();
 
 
@@ -5093,8 +5456,6 @@
         cardRect.height / 2;
 
 
-      let endX;
-      let endY;
       let path;
 
 
@@ -5104,11 +5465,11 @@
         window.innerWidth <= 680
       ) {
 
-        endX =
+        const endX =
           cardCenterX;
 
 
-        endY =
+        const endY =
           cardRect.bottom -
           diagramRect.top;
 
@@ -5122,6 +5483,7 @@
 
 
         path =
+
           "M " +
           startX +
           " " +
@@ -5145,19 +5507,19 @@
       }
 
 
-      /* 1 */
+      /* ARCTIC BALRA */
 
       else if (
         selectedBike ===
         "bike1"
       ) {
 
-        endX =
+        const endX =
           cardRect.right -
           diagramRect.left;
 
 
-        endY =
+        const endY =
           cardCenterY;
 
 
@@ -5166,10 +5528,11 @@
           Math.abs(
             startX -
             endX
-          ) * .42;
+          ) * .4;
 
 
         path =
+
           "M " +
           startX +
           " " +
@@ -5193,19 +5556,19 @@
       }
 
 
-      /* 5 */
+      /* STARK JOBBRA */
 
       else if (
         selectedBike ===
         "bike5"
       ) {
 
-        endX =
+        const endX =
           cardRect.left -
           diagramRect.left;
 
 
-        endY =
+        const endY =
           cardCenterY;
 
 
@@ -5214,10 +5577,11 @@
           Math.abs(
             endX -
             startX
-          ) * .42;
+          ) * .4;
 
 
         path =
+
           "M " +
           startX +
           " " +
@@ -5241,28 +5605,29 @@
       }
 
 
-      /* 2-3-4 */
+      /* SUR-RON KÖZÉP */
 
       else {
 
-        endX =
+        const endX =
           cardCenterX;
 
 
-        endY =
-          cardRect.top -
+        const endY =
+          cardRect.bottom -
           diagramRect.top;
 
 
         const elbowY =
-          startY +
+          startY -
           Math.abs(
-            endY -
-            startY
-          ) * .42;
+            startY -
+            endY
+          ) * .4;
 
 
         path =
+
           "M " +
           startX +
           " " +
@@ -5295,6 +5660,7 @@
     }
 
 
+
     window.addEventListener(
       "resize",
       () => {
@@ -5315,6 +5681,7 @@
     );
 
 
+
     /* =====================================================
        KAPCSOLAT
        ===================================================== */
@@ -5324,20 +5691,24 @@
         "contactModal"
       );
 
+
     const modalClose =
       document.getElementById(
         "modalClose"
       );
+
 
     const modalTitle =
       document.getElementById(
         "modalTitle"
       );
 
+
     const modalText =
       document.getElementById(
         "modalText"
       );
+
 
     const emailOption =
       document.getElementById(
@@ -5459,6 +5830,7 @@
     );
 
 
+
     /* =====================================================
        ESC
        ===================================================== */
@@ -5511,6 +5883,7 @@
 
 
   </script>
+
 
 </body>
 
