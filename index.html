@@ -1277,11 +1277,6 @@
 
     /* =====================================================
        MOTOROK NAGY KÉPE
-
-       ÚJ:
-       - szűkebb képkivágás
-       - kevesebb háttér
-       - nagyobb motorok
        ===================================================== */
 
     .bike-diagram {
@@ -1291,11 +1286,6 @@
       max-width: 1500px;
 
       margin-inline: auto;
-
-      /*
-       A második referenciafotóhoz
-       közelebb álló széles képarány.
-      */
 
       aspect-ratio: 1.97 / 1;
 
@@ -1326,12 +1316,6 @@
     .bike-main-photo img {
       width: 100%;
       height: 100%;
-
-      /*
-       A fotót felnagyítjuk,
-       ezért kevesebb kerítés,
-       fű és felső háttér látszik.
-      */
 
       object-fit: cover;
 
@@ -1411,9 +1395,6 @@
 
     /* =====================================================
        MOTOROK ALATTI SZÁMOK
-
-       ÚJ POZÍCIÓ:
-       KÖZVETLEN AZ ELSŐ KEREKEK ALATT
        ===================================================== */
 
     .bike-hotspot {
@@ -2113,12 +2094,6 @@
         font-size: 1.2rem;
       }
 
-
-      /*
-       MOBILON IS UGYANAZ A SZŰKÍTETT
-       MOTOROS KIVÁGÁS.
-      */
-
       .bike-diagram {
         width: 100%;
 
@@ -2607,6 +2582,11 @@
           </div>
 
 
+          <!-- =================================================
+               GOMBSOR
+               LEHETŐSÉGEK → MOTOROK → ÁRAK → KAPCSOLAT
+               ================================================= -->
+
           <div class="hero-buttons">
 
 
@@ -2627,21 +2607,6 @@
 
             <button
               class="main-button"
-              id="priceToggle"
-              type="button"
-            >
-
-              Árak
-
-              <span class="button-arrow">
-                ▼
-              </span>
-
-            </button>
-
-
-            <button
-              class="main-button"
               id="bikesButton"
               type="button"
             >
@@ -2650,6 +2615,21 @@
 
               <span class="open-symbol">
                 ↗
+              </span>
+
+            </button>
+
+
+            <button
+              class="main-button"
+              id="priceToggle"
+              type="button"
+            >
+
+              Árak
+
+              <span class="button-arrow">
+                ▼
               </span>
 
             </button>
@@ -2928,6 +2908,7 @@
 
     <!-- =====================================================
          PÁLYAHASZNÁLAT
+         SZÖVEG BALRA / KÉP JOBBRA
          ===================================================== -->
 
     <section class="experiences">
@@ -2936,7 +2917,7 @@
 
 
         <article
-          class="experience-row"
+          class="experience-row reverse"
           id="palya"
         >
 
@@ -3035,10 +3016,11 @@
 
         <!-- =================================================
              ÉLMÉNY TÚRA
+             KÉP BALRA / SZÖVEG JOBBRA
              ================================================= -->
 
         <article
-          class="experience-row reverse"
+          class="experience-row"
           id="tura"
         >
 
@@ -3333,14 +3315,6 @@
             src="images/motorok.jpg?v=20260813-2"
             alt="Bérelhető motorok"
           >
-
-
-          <!--
-            ÚJ POZÍCIÓK
-
-            Mindegyik szám közvetlenül
-            az első kerék alatt.
-          -->
 
 
           <!-- ARCTIC -->
