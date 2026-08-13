@@ -231,7 +231,7 @@
           rgba(0,0,0,.85) 100%
         ),
 
-        url("images/hero.jpg?v=20260812-2");
+        url("images/hero.jpg?v=20260813-1");
 
       background-size: cover;
       background-position: 54% center;
@@ -448,9 +448,7 @@
 
     .hero-info-hint-arrow {
       color: #aaa;
-
       font-size: 1.45rem;
-
       line-height: 1;
     }
 
@@ -465,10 +463,7 @@
       display: grid;
 
       grid-template-columns:
-        repeat(
-          4,
-          minmax(0,1fr)
-        );
+        repeat(4,minmax(0,1fr));
 
       gap: 14px;
     }
@@ -476,11 +471,9 @@
     .main-button {
       width: 100%;
       min-width: 0;
-
       min-height: 62px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -488,17 +481,11 @@
 
       padding: 12px 7px;
 
-      border:
-        1px solid
-        var(--orange);
-
+      border: 1px solid var(--orange);
       border-radius: 9px;
 
-      background:
-        rgba(0,0,0,.72);
-
-      color:
-        var(--orange-light);
+      background: rgba(0,0,0,.72);
+      color: var(--orange-light);
 
       font-size: .9rem;
       font-weight: 700;
@@ -516,8 +503,7 @@
     .main-button:hover {
       transform: translateY(-2px);
 
-      background:
-        rgba(255,121,0,.10);
+      background: rgba(255,121,0,.10);
 
       box-shadow:
         0 8px 24px
@@ -618,7 +604,6 @@
       min-height: 60px;
 
       display: flex;
-
       align-items: center;
 
       gap: 13px;
@@ -626,11 +611,9 @@
       padding: 12px 14px;
 
       border: 0;
-
       border-radius: 9px;
 
       background: transparent;
-
       color: #fff;
 
       font-size: .94rem;
@@ -662,7 +645,6 @@
       flex: 0 0 30px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -1083,7 +1065,6 @@
 
     .experience-extra-title {
       display: flex;
-
       align-items: center;
 
       gap: 9px;
@@ -1139,7 +1120,6 @@
       min-height: 125px;
 
       display: flex;
-
       align-items: center;
 
       gap: 17px;
@@ -1239,7 +1219,6 @@
       height: 40px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -1307,7 +1286,6 @@
       min-height: 63px;
 
       display: flex;
-
       align-items: center;
 
       padding: 13px 18px;
@@ -1389,7 +1367,6 @@
 
     .bikes-modal-title {
       display: flex;
-
       align-items: center;
 
       gap: 10px;
@@ -1508,7 +1485,7 @@
 
 
     /* =====================================================
-       SZÁMOK
+       MOTOR SZÁMOK
        ===================================================== */
 
     .bike-hotspot {
@@ -1526,7 +1503,6 @@
         translate(-50%,-50%);
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -1618,12 +1594,7 @@
 
 
     /* =====================================================
-       ÚJ MOTOR ADATLAP ELRENDEZÉS
-
-       DESKTOP:
-       KÉP BALRA
-       INFÓK JOBBRA
-       NINCS BELSŐ GÖRGETÉS
+       MOTOR ADATLAP
        ===================================================== */
 
     .bike-callout {
@@ -1684,8 +1655,8 @@
       display: grid;
 
       grid-template-columns:
-        minmax(300px, .78fr)
-        minmax(0, 1.55fr);
+        minmax(300px,.78fr)
+        minmax(0,1.55fr);
 
       overflow: hidden;
 
@@ -1718,7 +1689,7 @@
 
 
     /* =====================================================
-       KIS X
+       ADATLAP X
        ===================================================== */
 
     .bike-detail-close {
@@ -1733,7 +1704,6 @@
       height: 38px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -1759,7 +1729,7 @@
 
 
     /* =====================================================
-       BAL OLDALI KÉP
+       MOTOR KÉPE
        ===================================================== */
 
     .bike-detail-photo {
@@ -1784,7 +1754,6 @@
       max-height: 680px;
 
       object-fit: cover;
-
       object-position: center;
 
       background: #080808;
@@ -1792,7 +1761,7 @@
 
 
     /* =====================================================
-       JOBB OLDALI INFÓ
+       MOTOR INFORMÁCIÓ
        ===================================================== */
 
     .bike-detail-body {
@@ -1858,8 +1827,7 @@
 
 
     /* =====================================================
-       KISEBB SPECIFIKÁCIÓS DOBOZOK
-       3 FELÜL + 2 ALUL
+       SPECIFIKÁCIÓK
        ===================================================== */
 
     .bike-specs {
@@ -1916,11 +1884,9 @@
       width: 29px;
       height: 29px;
 
-      flex:
-        0 0 29px;
+      flex: 0 0 29px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -1933,11 +1899,37 @@
         rgba(255,121,0,.35);
     }
 
+    /* ÚJ SVG PIKTOGRAMOK */
+
+    .bike-spec-icon svg {
+      width: 25px;
+      height: 25px;
+
+      display: block;
+
+      fill: none;
+      stroke: currentColor;
+
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      filter:
+        drop-shadow(
+          0 0 5px
+          rgba(255,121,0,.25)
+        );
+    }
+
+    .bike-spec-icon.person-icon svg {
+      width: 27px;
+      height: 27px;
+    }
+
     .bike-spec-text {
       min-width: 0;
 
       display: flex;
-
       flex-direction: column;
 
       gap: 1px;
@@ -1983,22 +1975,6 @@
       color: #fff;
 
       font-weight: 800;
-    }
-
-    .bike-detail-footnote {
-      margin-top: 11px;
-
-      padding-top: 10px;
-
-      border-top:
-        1px solid
-        rgba(255,121,0,.25);
-
-      color: #a8a8a8;
-
-      font-size: .7rem;
-
-      line-height: 1.4;
     }
 
 
@@ -2049,14 +2025,6 @@
         line-height: 1.43;
       }
 
-      .bike-detail-footnote {
-        margin-top: 7px;
-
-        padding-top: 7px;
-
-        font-size: .62rem;
-      }
-
     }
 
 
@@ -2094,6 +2062,11 @@
           0 0 25px;
 
         font-size: 1.05rem;
+      }
+
+      .bike-spec-icon svg {
+        width: 22px;
+        height: 22px;
       }
 
       .bike-spec-label {
@@ -2151,8 +2124,6 @@
           calc(100% - 24px);
       }
 
-
-      /* FEJLÉC */
 
       .topbar {
         padding:
@@ -2221,7 +2192,7 @@
             #000 100%
           ),
 
-          url("images/hero.jpg?v=20260812-2");
+          url("images/hero.jpg?v=20260813-1");
 
         background-size: cover;
 
@@ -2263,8 +2234,6 @@
         font-size: .94rem;
       }
 
-
-      /* ELŐNYÖK */
 
       .hero-features {
         margin-top: auto;
@@ -2325,8 +2294,6 @@
       }
 
 
-      /* GOMBOK */
-
       .hero-buttons {
         grid-template-columns:
           1fr 1fr;
@@ -2349,8 +2316,6 @@
       }
 
 
-      /* ÁRAK */
-
       .price-row {
         grid-template-columns: 1fr;
 
@@ -2361,8 +2326,6 @@
         grid-template-columns: 1fr;
       }
 
-
-      /* TARTALMI BLOKK */
 
       .experience-row,
       .experience-row.reverse {
@@ -2406,9 +2369,7 @@
       }
 
 
-      /* =================================================
-         MOTOROK MOBILON
-         ================================================= */
+      /* MOTOROK MOBIL */
 
       .modal-background {
         padding: 4px;
@@ -2446,9 +2407,6 @@
 
         font-size: 1.25rem;
       }
-
-
-      /* NAGY KÉP */
 
       .bike-diagram {
         aspect-ratio:
@@ -2495,12 +2453,7 @@
       }
 
 
-      /* =================================================
-         MOTOR ADATLAP MOBILON
-
-         KÉP FELÜL,
-         DE JÓVAL KISEBB
-         ================================================= */
+      /* MOTOR ADATLAP MOBILON */
 
       .bike-callout {
         left: 2%;
@@ -2513,8 +2466,7 @@
 
         overflow-y: auto;
 
-        transform:
-          none;
+        transform: none;
       }
 
       .bike-callout.active {
@@ -2622,6 +2574,12 @@
         font-size: .95rem;
       }
 
+      .bike-spec-icon svg,
+      .bike-spec-icon.person-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
       .bike-spec-label {
         font-size: .55rem;
       }
@@ -2636,18 +2594,6 @@
         line-height: 1.42;
       }
 
-      .bike-detail-footnote {
-        margin-top: 7px;
-
-        padding-top: 7px;
-
-        font-size: .57rem;
-
-        line-height: 1.35;
-      }
-
-
-      /* ALSÓ INFÓ */
 
       .trust-box {
         grid-template-columns: 1fr;
@@ -3328,7 +3274,7 @@
           <div class="experience-image">
 
             <img
-              src="images/palya.jpg?v=20260812-2"
+              src="images/palya.jpg?v=20260813-1"
               alt="Pályahasználat"
             >
 
@@ -3426,7 +3372,7 @@
           <div class="experience-image">
 
             <img
-              src="images/ajandek.jpg?v=20260812-2"
+              src="images/ajandek.jpg?v=20260813-1"
               alt="Élmény túra"
             >
 
@@ -3711,7 +3657,7 @@
         <div class="bike-main-photo">
 
           <img
-            src="images/motorok.jpg?v=20260812-2"
+            src="images/motorok.jpg?v=20260813-1"
             alt="Bérelhető elektromos motorok"
           >
 
@@ -3797,7 +3743,7 @@
 
 
         <!-- =================================================
-             ARCTIC LEOPARD
+             1. ARCTIC LEOPARD
              ================================================= -->
 
         <div
@@ -3812,6 +3758,7 @@
               type="button"
               class="bike-detail-close"
               data-close-bike-detail
+              aria-label="Bezárás"
             >
               ×
             </button>
@@ -3820,7 +3767,7 @@
             <div class="bike-detail-photo">
 
               <img
-                src="images/motor1.jpg?v=20260812-2"
+                src="images/motor1.jpg?v=20260813-1"
                 alt="Arctic Leopard XF Pro"
               >
 
@@ -3906,10 +3853,37 @@
                 </div>
 
 
+                <!-- KERÉKMÉRET -->
+
                 <div class="bike-spec">
 
                   <div class="bike-spec-icon">
-                    ◉
+
+                    <svg viewBox="0 0 24 24">
+
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="9"
+                      ></circle>
+
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="2.2"
+                      ></circle>
+
+                      <path d="M12 3v6.8"></path>
+                      <path d="M12 14.2V21"></path>
+                      <path d="M3 12h6.8"></path>
+                      <path d="M14.2 12H21"></path>
+                      <path d="m5.6 5.6 4.8 4.8"></path>
+                      <path d="m13.6 13.6 4.8 4.8"></path>
+                      <path d="m18.4 5.6-4.8 4.8"></path>
+                      <path d="m10.4 13.6-4.8 4.8"></path>
+
+                    </svg>
+
                   </div>
 
                   <div class="bike-spec-text">
@@ -3927,10 +3901,35 @@
                 </div>
 
 
+                <!-- PILÓTA SÚLY -->
+
                 <div class="bike-spec">
 
-                  <div class="bike-spec-icon">
-                    ●
+                  <div class="bike-spec-icon person-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                      <circle
+                        cx="12"
+                        cy="6.5"
+                        r="3.5"
+                      ></circle>
+
+                      <path
+                        d="
+                        M5.5 21
+                        v-2.2
+                        c0-4
+                        2.8-6.3
+                        6.5-6.3
+                        s6.5 2.3
+                        6.5 6.3
+                        V21
+                        "
+                      ></path>
+
+                    </svg>
+
                   </div>
 
                   <div class="bike-spec-text">
@@ -3975,7 +3974,7 @@
 
 
         <!-- =================================================
-             SUR-RON ULTRA BEE
+             2-3-4. SUR-RON ULTRA BEE
              ================================================= -->
 
         <div
@@ -3990,6 +3989,7 @@
               type="button"
               class="bike-detail-close"
               data-close-bike-detail
+              aria-label="Bezárás"
             >
               ×
             </button>
@@ -3998,7 +3998,7 @@
             <div class="bike-detail-photo">
 
               <img
-                src="images/motor2.jpg?v=20260812-2"
+                src="images/motor2.jpg?v=20260813-1"
                 alt="Sur-Ron Ultra Bee"
               >
 
@@ -4084,10 +4084,37 @@
                 </div>
 
 
+                <!-- KERÉKMÉRET -->
+
                 <div class="bike-spec">
 
                   <div class="bike-spec-icon">
-                    ◉
+
+                    <svg viewBox="0 0 24 24">
+
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="9"
+                      ></circle>
+
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="2.2"
+                      ></circle>
+
+                      <path d="M12 3v6.8"></path>
+                      <path d="M12 14.2V21"></path>
+                      <path d="M3 12h6.8"></path>
+                      <path d="M14.2 12H21"></path>
+                      <path d="m5.6 5.6 4.8 4.8"></path>
+                      <path d="m13.6 13.6 4.8 4.8"></path>
+                      <path d="m18.4 5.6-4.8 4.8"></path>
+                      <path d="m10.4 13.6-4.8 4.8"></path>
+
+                    </svg>
+
                   </div>
 
                   <div class="bike-spec-text">
@@ -4105,10 +4132,35 @@
                 </div>
 
 
+                <!-- PILÓTA SÚLY -->
+
                 <div class="bike-spec">
 
-                  <div class="bike-spec-icon">
-                    ●
+                  <div class="bike-spec-icon person-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                      <circle
+                        cx="12"
+                        cy="6.5"
+                        r="3.5"
+                      ></circle>
+
+                      <path
+                        d="
+                        M5.5 21
+                        v-2.2
+                        c0-4
+                        2.8-6.3
+                        6.5-6.3
+                        s6.5 2.3
+                        6.5 6.3
+                        V21
+                        "
+                      ></path>
+
+                    </svg>
+
                   </div>
 
                   <div class="bike-spec-text">
@@ -4157,7 +4209,7 @@
 
 
         <!-- =================================================
-             STARK VARG
+             5. STARK VARG
              ================================================= -->
 
         <div
@@ -4172,6 +4224,7 @@
               type="button"
               class="bike-detail-close"
               data-close-bike-detail
+              aria-label="Bezárás"
             >
               ×
             </button>
@@ -4180,7 +4233,7 @@
             <div class="bike-detail-photo">
 
               <img
-                src="images/motor3.jpg?v=20260812-2"
+                src="images/motor3.jpg?v=20260813-1"
                 alt="Stark VARG MX"
               >
 
@@ -4266,10 +4319,37 @@
                 </div>
 
 
+                <!-- KERÉKMÉRET -->
+
                 <div class="bike-spec">
 
                   <div class="bike-spec-icon">
-                    ◉
+
+                    <svg viewBox="0 0 24 24">
+
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="9"
+                      ></circle>
+
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="2.2"
+                      ></circle>
+
+                      <path d="M12 3v6.8"></path>
+                      <path d="M12 14.2V21"></path>
+                      <path d="M3 12h6.8"></path>
+                      <path d="M14.2 12H21"></path>
+                      <path d="m5.6 5.6 4.8 4.8"></path>
+                      <path d="m13.6 13.6 4.8 4.8"></path>
+                      <path d="m18.4 5.6-4.8 4.8"></path>
+                      <path d="m10.4 13.6-4.8 4.8"></path>
+
+                    </svg>
+
                   </div>
 
                   <div class="bike-spec-text">
@@ -4287,10 +4367,35 @@
                 </div>
 
 
+                <!-- PILÓTA SÚLY -->
+
                 <div class="bike-spec">
 
-                  <div class="bike-spec-icon">
-                    ●
+                  <div class="bike-spec-icon person-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                      <circle
+                        cx="12"
+                        cy="6.5"
+                        r="3.5"
+                      ></circle>
+
+                      <path
+                        d="
+                        M5.5 21
+                        v-2.2
+                        c0-4
+                        2.8-6.3
+                        6.5-6.3
+                        s6.5 2.3
+                        6.5 6.3
+                        V21
+                        "
+                      ></path>
+
+                    </svg>
+
                   </div>
 
                   <div class="bike-spec-text">
@@ -4300,7 +4405,7 @@
                     </span>
 
                     <span class="bike-spec-value">
-                      110 kg*
+                      110 kg
                     </span>
 
                   </div>
@@ -4324,20 +4429,11 @@
                   0–80 LE között szabadon szabályozható
                 </strong>,
                 így fokozatosan is megismerhető az ereje.
+
                 Igazi választás azoknak, akik maximális adrenalinra
                 és egy modern elektromos motocross élményére vágynak.
 
               </p>
-
-
-              <div class="bike-detail-footnote">
-
-                * A 110 kg a bérléshez meghatározott javasolt
-                felső határ, nem a Stark által megadott gyári
-                maximális terhelhetőség. A gyártó a futóművet
-                a pilóta súlyához igazított beállításokkal kínálja.
-
-              </div>
 
 
             </div>
@@ -4358,7 +4454,7 @@
 
 
   <!-- =====================================================
-       KAPCSOLAT MODAL
+       KAPCSOLAT
        ===================================================== -->
 
   <div
@@ -4374,6 +4470,7 @@
         class="modal-close"
         id="modalClose"
         type="button"
+        aria-label="Bezárás"
       >
         ×
       </button>
@@ -4837,12 +4934,9 @@
       );
 
 
-    let selectedBike =
-      null;
+    let selectedBike = null;
 
-
-    let selectedHotspot =
-      null;
+    let selectedHotspot = null;
 
 
 
@@ -4990,7 +5084,7 @@
 
 
     /* =====================================================
-       MOTOR SZÁMRA KATTINTÁS
+       MOTOR KIVÁLASZTÁS
        ===================================================== */
 
     document
@@ -5101,7 +5195,7 @@
 
 
     /* =====================================================
-       KIS X
+       ADATLAP X
        ===================================================== */
 
     document
@@ -5128,7 +5222,7 @@
 
 
     /* =====================================================
-       KÉPRE KATTINTVA KIS ADATLAP BEZÁR
+       KÉPRE KATTINTVA ADATLAP BEZÁR
        ===================================================== */
 
     bikeDiagram.addEventListener(
@@ -5188,7 +5282,7 @@
 
 
     /* =====================================================
-       2-3-4 ÖSSZEKÖTÉS
+       2-3-4 ÖSSZEKÖTŐ VONAL
        ===================================================== */
 
     function drawBikeGroupConnector() {
@@ -5316,7 +5410,7 @@
 
 
     /* =====================================================
-       MOTOR → ADATLAP VONAL
+       MOTOR -> ADATLAP VONAL
        ===================================================== */
 
     function drawBikeConnector() {
@@ -5385,96 +5479,44 @@
         cardRect.width / 2;
 
 
-      let path;
+      const endX =
+        cardCenterX;
 
 
-      if (
-        window.innerWidth <= 680
-      ) {
-
-        const endX =
-          cardCenterX;
+      const endY =
+        cardRect.bottom -
+        diagramRect.top;
 
 
-        const endY =
-          cardRect.bottom -
-          diagramRect.top;
-
-
-        const elbowY =
+      const elbowY =
+        startY -
+        Math.abs(
           startY -
-          Math.abs(
-            startY -
-            endY
-          ) * .30;
+          endY
+        ) * .34;
 
 
-        path =
+      const path =
 
-          "M " +
-          startX +
-          " " +
-          startY +
+        "M " +
+        startX +
+        " " +
+        startY +
 
-          " L " +
-          startX +
-          " " +
-          elbowY +
+        " L " +
+        startX +
+        " " +
+        elbowY +
 
-          " L " +
-          endX +
-          " " +
-          elbowY +
+        " L " +
+        endX +
+        " " +
+        elbowY +
 
-          " L " +
-          endX +
-          " " +
-          endY;
-
-      }
-
-      else {
-
-        const endX =
-          cardCenterX;
-
-
-        const endY =
-          cardRect.bottom -
-          diagramRect.top;
-
-
-        const elbowY =
-          startY -
-          Math.abs(
-            startY -
-            endY
-          ) * .34;
-
-
-        path =
-
-          "M " +
-          startX +
-          " " +
-          startY +
-
-          " L " +
-          startX +
-          " " +
-          elbowY +
-
-          " L " +
-          endX +
-          " " +
-          elbowY +
-
-          " L " +
-          endX +
-          " " +
-          endY;
-
-      }
+        " L " +
+        endX +
+        " " +
+        endY;
 
 
       bikeConnectorPath
