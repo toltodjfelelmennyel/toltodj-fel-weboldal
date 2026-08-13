@@ -2180,43 +2180,40 @@
 
       .modal-background {
         padding: 4px;
+        align-items: stretch;
+        height: 100dvh;
+        min-height: 100dvh;
+        overflow: hidden;
       }
 
       .bikes-modal {
-        width:
-          calc(100vw - 8px);
-
-        max-height:
-          calc(100vh - 8px);
-
-        padding:
-          8px 6px 10px;
-
-        overflow-y: auto;
-
+        width: calc(100vw - 8px);
+        height: calc(100dvh - 8px);
+        max-height: none;
+        margin: 0 auto;
+        padding: 8px 6px 10px;
+        overflow: hidden;
         border-radius: 15px;
       }
 
       .bikes-modal-header {
-        padding:
-          3px 42px 9px 5px;
+        flex: 0 0 auto;
+        min-height: 46px;
+        padding: 3px 42px 7px 5px;
+        display: flex;
+        align-items: center;
       }
 
       .bikes-modal-title {
-        font-size: 1.2rem;
+        font-size: 1.18rem;
+        line-height: 1.1;
       }
-
-
-      /*
-       MOBILON IS UGYANAZ A SZŰKÍTETT
-       MOTOROS KIVÁGÁS.
-      */
 
       .bike-diagram {
         width: 100%;
-
-        aspect-ratio: 1.97 / 1;
-
+        flex: 1 1 auto;
+        min-height: 0;
+        aspect-ratio: auto;
         border-radius: 9px;
       }
 
@@ -2225,35 +2222,23 @@
       }
 
       .bike-main-photo img {
-        transform:
-          scale(1.25);
-
-        object-position:
-          50% 48%;
+        transform: scale(1.25);
+        object-position: 50% 48%;
       }
 
       .bike-click-tip {
         top: 5px;
-
-        width:
-          calc(100% - 70px);
-
-        padding:
-          5px 7px;
-
+        width: calc(100% - 70px);
+        padding: 5px 7px;
         font-size: .55rem;
-
         white-space: normal;
-
         text-align: center;
       }
 
       .bike-hotspot {
         width: 28px;
         height: 28px;
-
         font-size: .63rem;
-
         border-width: 1.5px;
       }
 
@@ -2262,20 +2247,28 @@
       }
 
 
-      /* MOTOR ADATLAP */
+      /* =================================================
+         MOTOR ADATLAP MOBILON
+
+         TELJES KÉPERNYŐS, KOMPAKT ELRENDEZÉS:
+         - nincs belső görgetés
+         - a teljes adatlap egyszerre látható
+         - a kép felül marad
+         - az 5 adatdoboz két sorban marad
+         ================================================= */
 
       .bike-callout {
-        left: 2%;
-        top: 2%;
-
-        width: 96%;
-
-        max-height:
-          calc(100% - 12px);
-
-        overflow-y: auto;
-
+        position: fixed;
+        left: 4px;
+        right: 4px;
+        top: 55px;
+        bottom: 4px;
+        width: auto;
+        height: auto;
+        max-height: none;
+        overflow: hidden;
         transform: none;
+        z-index: 1200;
       }
 
       .bike-callout.active {
@@ -2283,55 +2276,61 @@
       }
 
       .bike-detail-card {
-        display: block;
-
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: clamp(120px, 20dvh, 165px) minmax(0,1fr);
+        overflow: hidden;
         border-radius: 14px;
       }
 
       .bike-detail-photo {
+        width: 100%;
+        height: 100%;
         min-height: 0;
-
+        overflow: hidden;
         border-right: 0;
-
-        border-bottom:
-          1px solid
-          rgba(255,121,0,.40);
+        border-bottom: 1px solid rgba(255,121,0,.40);
       }
 
       .bike-detail-photo img {
-        height: 150px;
-        min-height: 150px;
-
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        max-height: none;
         object-fit: cover;
+        object-position: center 48%;
       }
 
       .bike-detail-body {
-        display: block;
-
-        padding: 13px;
+        min-width: 0;
+        min-height: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 8px 9px 9px;
+        overflow: hidden;
       }
 
       .bike-detail-close {
-        top: 7px;
-        right: 7px;
-
+        top: 6px;
+        right: 6px;
         width: 31px;
         height: 31px;
-
-        font-size: 1.1rem;
+        font-size: 1.08rem;
       }
 
       .bike-detail-nav {
-        top: 75px;
-
-        width: 32px;
+        top: clamp(58px, 10dvh, 82px);
+        width: 31px;
         height: 42px;
-
-        transform: none;
-
+        transform: translateY(-50%);
         border-radius: 9px;
-
-        font-size: 1.45rem;
+        font-size: 1.38rem;
+        background: rgba(0,0,0,.72);
       }
 
       .bike-detail-nav-prev {
@@ -2344,75 +2343,88 @@
 
       .bike-detail-nav-prev:hover,
       .bike-detail-nav-next:hover {
-        transform: none;
+        transform: translateY(-50%);
       }
 
       .bike-detail-label {
-        padding: 3px 7px;
-
-        font-size: .59rem;
+        flex: 0 0 auto;
+        margin-bottom: 3px;
+        padding: 2px 7px;
+        font-size: .54rem;
+        line-height: 1.2;
       }
 
       .bike-detail-title {
-        margin-bottom: 9px;
-
-        font-size: 1.05rem;
+        flex: 0 0 auto;
+        max-width: calc(100% - 28px);
+        margin-bottom: 6px;
+        font-size: clamp(.93rem, 4.2vw, 1.08rem);
+        line-height: 1.05;
       }
 
       .bike-specs {
-        grid-template-columns:
-          1fr 1fr;
-
-        gap: 5px;
-
-        margin-bottom: 10px;
+        flex: 0 0 auto;
+        display: grid;
+        grid-template-columns: repeat(6,minmax(0,1fr));
+        gap: 4px;
+        margin-bottom: 7px;
       }
 
-      .bike-spec,
-      .bike-spec:first-child,
-      .bike-spec:nth-child(4),
-      .bike-spec:nth-child(5) {
-        grid-column: auto;
-
-        min-height: 53px;
-
-        padding: 6px 7px;
+      .bike-spec {
+        grid-column: span 2;
+        min-width: 0;
+        min-height: 44px;
+        gap: 4px;
+        padding: 5px 5px;
+        border-radius: 8px;
       }
 
       .bike-spec:first-child {
-        grid-column:
-          1 / -1;
+        grid-column: span 4;
       }
 
       .bike-spec-icon {
-        width: 23px;
-        height: 23px;
-
-        flex: 0 0 23px;
+        width: 19px;
+        height: 19px;
+        flex: 0 0 19px;
+        font-size: .82rem;
       }
 
       .bike-spec-icon svg {
-        width: 20px;
-        height: 20px;
+        width: 17px;
+        height: 17px;
+      }
+
+      .bike-spec-text {
+        min-width: 0;
       }
 
       .bike-spec-label {
-        font-size: .55rem;
+        font-size: clamp(.43rem, 1.85vw, .53rem);
+        line-height: 1.05;
       }
 
       .bike-spec-value {
-        font-size: .68rem;
+        font-size: clamp(.57rem, 2.35vw, .69rem);
+        line-height: 1.08;
       }
 
       .bike-spec-note {
-        margin-top: 2px;
-        font-size: .59rem;
+        margin-top: 1px;
+        font-size: clamp(.45rem, 1.9vw, .56rem);
+        line-height: 1.08;
       }
 
       .bike-detail-description {
-        font-size: .71rem;
+        flex: 0 1 auto;
+        margin: 0;
+        overflow: hidden;
+        font-size: clamp(.59rem, 2.45vw, .70rem);
+        line-height: 1.28;
+      }
 
-        line-height: 1.42;
+      .bike-detail-description strong {
+        font-weight: 800;
       }
 
     }
