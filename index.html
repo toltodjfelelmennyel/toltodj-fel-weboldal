@@ -25,6 +25,8 @@
       --orange-light: #ff982f;
       --border: rgba(255,255,255,.17);
       --max-width: 1180px;
+      --bike-detail-card-height: 620px;
+      --bike-detail-card-height-mobile: 515px;
     }
 
     * {
@@ -1568,6 +1570,8 @@
       position: relative;
 
       width: 100%;
+      height: var(--bike-detail-card-height);
+      min-height: var(--bike-detail-card-height);
 
       display: grid;
 
@@ -1728,8 +1732,8 @@
       width: 100%;
       height: 100%;
 
-      min-height: 520px;
-      max-height: 680px;
+      min-height: 100%;
+      max-height: none;
 
       object-fit: cover;
       object-position: center;
@@ -2188,11 +2192,11 @@
 
       .bikes-modal {
         width: calc(100vw - 8px);
-        height: calc(100dvh - 8px);
-        max-height: none;
+        max-height: calc(100dvh - 8px);
+        height: auto;
         margin: 0 auto;
         padding: 8px 6px 10px;
-        overflow: hidden;
+        overflow: auto;
         border-radius: 15px;
       }
 
@@ -2211,9 +2215,9 @@
 
       .bike-diagram {
         width: 100%;
-        flex: 1 1 auto;
+        flex: 0 0 auto;
         min-height: 0;
-        aspect-ratio: auto;
+        aspect-ratio: 1.97 / 1;
         border-radius: 9px;
       }
 
@@ -2222,8 +2226,10 @@
       }
 
       .bike-main-photo img {
-        transform: scale(1.25);
-        object-position: 50% 48%;
+        transform: none;
+        object-fit: contain;
+        object-position: center center;
+        background: #000;
       }
 
       .bike-click-tip {
@@ -2266,8 +2272,7 @@
         width: auto;
         height: auto;
         max-height: calc(100dvh - 100px);
-        overflow-y: auto;
-        overflow-x: hidden;
+        overflow: hidden;
         transform: translateY(-50%);
         z-index: 1200;
         padding-bottom: 6px;
@@ -2279,11 +2284,11 @@
 
       .bike-detail-card {
         width: 100%;
-        height: auto;
-        min-height: 0;
+        height: var(--bike-detail-card-height-mobile);
+        min-height: var(--bike-detail-card-height-mobile);
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: clamp(190px, 30dvh, 260px) auto;
+        grid-template-rows: 215px 1fr;
         overflow: hidden;
         border-radius: 14px;
       }
@@ -2313,12 +2318,12 @@
       .bike-detail-body {
         min-width: 0;
         min-height: 0;
-        height: auto;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         padding: 8px 9px 10px;
-        overflow: visible;
+        overflow: hidden;
       }
 
       .bike-detail-close {
@@ -2364,7 +2369,7 @@
         flex: 0 0 auto;
         max-width: calc(100% - 28px);
         margin-bottom: 6px;
-        font-size: clamp(.93rem, 4.2vw, 1.08rem);
+        font-size: clamp(.91rem, 4vw, 1.04rem);
         line-height: 1.05;
       }
 
@@ -2411,7 +2416,7 @@
       }
 
       .bike-spec-value {
-        font-size: clamp(.57rem, 2.35vw, .69rem);
+        font-size: clamp(.55rem, 2.25vw, .67rem);
         line-height: 1.08;
       }
 
@@ -2425,7 +2430,7 @@
         flex: 0 1 auto;
         margin: 0;
         overflow: hidden;
-        font-size: clamp(.59rem, 2.45vw, .70rem);
+        font-size: clamp(.57rem, 2.35vw, .68rem);
         line-height: 1.28;
       }
 
@@ -3491,7 +3496,8 @@
           <button
             class="bike-hotspot"
             type="button"
-            data-bike="bike1"
+            data-bike="bike234"
+            data-group="1234"
             style="
               --x:22.5%;
               --y:87%;
@@ -3507,7 +3513,7 @@
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
-            data-group="234"
+            data-group="1234"
             style="
               --x:43%;
               --y:82%;
@@ -3523,7 +3529,7 @@
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
-            data-group="234"
+            data-group="1234"
             style="
               --x:59%;
               --y:78%;
@@ -3539,7 +3545,7 @@
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
-            data-group="234"
+            data-group="1234"
             style="
               --x:72.5%;
               --y:75%;
@@ -3588,263 +3594,6 @@
           ></path>
 
         </svg>
-
-
-
-        <!-- =================================================
-             ARCTIC LEOPARD
-             ================================================= -->
-
-        <div
-          class="bike-callout"
-          data-bike="bike1"
-        >
-
-          <div class="bike-detail-card">
-
-
-            <button
-              class="bike-detail-nav bike-detail-nav-prev"
-              type="button"
-              data-bike-nav="-1"
-              aria-label="Előző motortípus"
-              title="Előző motortípus"
-            >
-              ‹
-            </button>
-
-
-            <button
-              class="bike-detail-nav bike-detail-nav-next"
-              type="button"
-              data-bike-nav="1"
-              aria-label="Következő motortípus"
-              title="Következő motortípus"
-            >
-              ›
-            </button>
-
-
-            <button
-              class="bike-detail-close"
-              type="button"
-              data-close-bike-detail
-            >
-              ×
-            </button>
-
-
-            <div class="bike-detail-photo">
-
-              <img
-                src="images/motor1.jpg?v=20260813-2"
-                alt="Arctic Leopard XF Pro"
-              >
-
-            </div>
-
-
-            <div class="bike-detail-body">
-
-
-              <span class="bike-detail-label">
-                1. motor
-              </span>
-
-
-              <h3 class="bike-detail-title">
-
-                Arctic Leopard XF Pro
-
-              </h3>
-
-
-              <div class="bike-specs">
-
-
-                <div class="bike-spec">
-
-                  <div class="bike-spec-icon">
-                    ⚡
-                  </div>
-
-                  <div class="bike-spec-text">
-
-                    <span class="bike-spec-label">
-                      Max. teljesítmény
-                    </span>
-
-                    <span class="bike-spec-value">
-                      12 kW - 16 LE
-                    </span>
-
-                    <span class="bike-spec-note">
-                      3 módban szabályozható
-                    </span>
-
-                  </div>
-
-                </div>
-
-
-                <div class="bike-spec">
-
-                  <div class="bike-spec-icon">
-                    ⚖
-                  </div>
-
-                  <div class="bike-spec-text">
-
-                    <span class="bike-spec-label">
-                      Tömeg
-                    </span>
-
-                    <span class="bike-spec-value">
-                      65 kg
-                    </span>
-
-                  </div>
-
-                </div>
-
-
-                <div class="bike-spec">
-
-                  <div class="bike-spec-icon">
-                    ↕
-                  </div>
-
-                  <div class="bike-spec-text">
-
-                    <span class="bike-spec-label">
-                      Ülésmagasság
-                    </span>
-
-                    <span class="bike-spec-value">
-                      ~80 cm
-                    </span>
-
-                  </div>
-
-                </div>
-
-
-                <!-- KERÉK -->
-
-                <div class="bike-spec">
-
-                  <div class="bike-spec-icon">
-
-                    <svg viewBox="0 0 24 24">
-
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="9"
-                      ></circle>
-
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="2.2"
-                      ></circle>
-
-                      <path d="M12 3v6.8"></path>
-                      <path d="M12 14.2V21"></path>
-                      <path d="M3 12h6.8"></path>
-                      <path d="M14.2 12H21"></path>
-                      <path d="m5.6 5.6 4.8 4.8"></path>
-                      <path d="m13.6 13.6 4.8 4.8"></path>
-
-                    </svg>
-
-                  </div>
-
-                  <div class="bike-spec-text">
-
-                    <span class="bike-spec-label">
-                      Kerékméret
-                    </span>
-
-                    <span class="bike-spec-value">
-                      19” / 17”
-                    </span>
-
-                  </div>
-
-                </div>
-
-
-                <!-- EMBER -->
-
-                <div class="bike-spec">
-
-                  <div class="bike-spec-icon">
-
-                    <svg viewBox="0 0 24 24">
-
-                      <circle
-                        cx="12"
-                        cy="6.5"
-                        r="3.4"
-                      ></circle>
-
-                      <path
-                        d="
-                        M5.5 21
-                        v-2.2
-                        c0-4
-                        2.8-6.3
-                        6.5-6.3
-                        s6.5 2.3
-                        6.5 6.3
-                        V21
-                        "
-                      ></path>
-
-                    </svg>
-
-                  </div>
-
-                  <div class="bike-spec-text">
-
-                    <span class="bike-spec-label">
-                      Pilóta max. súlya
-                    </span>
-
-                    <span class="bike-spec-value">
-                      75 kg
-                    </span>
-
-                  </div>
-
-                </div>
-
-
-              </div>
-
-
-              <p class="bike-detail-description">
-
-                Kisebb méretének köszönhetően
-                <strong>
-                  nagyobb gyermekek számára is kipróbálható,
-                  kb. 10–12 éves kortól
-                </strong>,
-                tapasztalattól függően.
-
-                Alacsonyabb, vékonyabb testalkatú, kevés tapasztalattal
-                rendelkező felnőtteknek is optimális választás lehet.
-
-              </p>
-
-
-            </div>
-
-          </div>
-
-        </div>
-
 
 
         <!-- =================================================
@@ -3904,7 +3653,7 @@
 
 
               <span class="bike-detail-label">
-                2–3–4. motor
+                1–2–3–4. motor
               </span>
 
 
@@ -4778,7 +4527,6 @@
     */
 
     const bikeTypeOrder = [
-      "bike1",
       "bike234",
       "bike5"
     ];
@@ -4840,9 +4588,9 @@
 
       if (
         bike === "bike234" &&
-        hotspots.length >= 2
+        hotspots.length >= 3
       ) {
-        return hotspots[1];
+        return hotspots[2];
       }
 
 
@@ -5174,7 +4922,7 @@
 
 
     /* =====================================================
-       2-3-4 NARANCSSÁRGA VONAL
+       1-2-3-4 NARANCSSÁRGA VONAL
        ===================================================== */
 
     function drawBikeGroupConnector() {
@@ -5182,12 +4930,12 @@
       const buttons =
         Array.from(
           document.querySelectorAll(
-            '.bike-hotspot[data-group="234"]'
+            '.bike-hotspot[data-group="1234"]'
           )
         );
 
 
-      if (buttons.length !== 3) return;
+      if (buttons.length !== 4) return;
 
 
       const parent =
@@ -5195,84 +4943,47 @@
           .getBoundingClientRect();
 
 
-      const a =
-        buttons[0]
-          .getBoundingClientRect();
+      const points =
+        buttons.map(
+          button => {
+
+            const rect =
+              button.getBoundingClientRect();
 
 
-      const b =
-        buttons[1]
-          .getBoundingClientRect();
+            return {
+              left: rect.left - parent.left,
+              right: rect.right - parent.left,
+              y: rect.top - parent.top + rect.height / 2
+            };
+
+          }
+        );
 
 
-      const c =
-        buttons[2]
-          .getBoundingClientRect();
+      let path = "";
 
 
-      const rightA =
-        a.right -
-        parent.left;
+      for (let i = 0; i < points.length - 1; i++) {
 
+        path +=
+          "M " +
+          points[i].right +
+          " " +
+          points[i].y +
+          " L " +
+          points[i + 1].left +
+          " " +
+          points[i + 1].y +
+          " ";
 
-      const leftB =
-        b.left -
-        parent.left;
-
-
-      const rightB =
-        b.right -
-        parent.left;
-
-
-      const leftC =
-        c.left -
-        parent.left;
-
-
-      const yA =
-        a.top -
-        parent.top +
-        a.height / 2;
-
-
-      const yB =
-        b.top -
-        parent.top +
-        b.height / 2;
-
-
-      const yC =
-        c.top -
-        parent.top +
-        c.height / 2;
+      }
 
 
       bikeGroupConnectorPath
         .setAttribute(
-
           "d",
-
-          "M " +
-          rightA +
-          " " +
-          yA +
-
-          " L " +
-          leftB +
-          " " +
-          yB +
-
-          " M " +
-          rightB +
-          " " +
-          yB +
-
-          " L " +
-          leftC +
-          " " +
-          yC
-
+          path.trim()
         );
 
     }
