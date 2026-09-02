@@ -25,7 +25,8 @@
       --orange-light: #ff982f;
       --border: rgba(255,255,255,.17);
       --max-width: 1180px;
-      --bike-detail-card-height: 620px;
+      --bike-detail-card-height: 540px;
+      --bike-detail-photo-width: 720px;
       --bike-detail-card-height-mobile: 515px;
     }
 
@@ -1225,10 +1226,15 @@
     .bikes-modal {
       position: relative;
 
+      /*
+       A motoros főablak már nem nyúlik szinte a teljes
+       monitor szélességére. A keret a képhez simul,
+       így nem marad két oldalt nagy üres fekete terület.
+      */
       width:
         min(
           calc(100vw - 22px),
-          1650px
+          1120px
         );
 
       max-height:
@@ -1289,17 +1295,18 @@
     .bike-diagram {
       position: relative;
 
-      width: 96%;
-      max-width: 1500px;
+      width: 100%;
+      max-width: none;
 
       margin-inline: auto;
 
       /*
-       A második referenciafotóhoz
-       közelebb álló széles képarány.
+       Nincs ráerőltetett képarány.
+       A keret magasságát maga a motorok.jpg határozza meg,
+       ezért a teljes kép látszik, és nem keletkezik oldalt
+       nagy fekete üres sáv.
       */
-
-      aspect-ratio: 1.97 / 1;
+      aspect-ratio: auto;
 
       overflow: hidden;
 
@@ -1312,11 +1319,13 @@
     }
 
     .bike-main-photo {
-      position: absolute;
+      position: relative;
 
-      inset: 0;
+      inset: auto;
 
       z-index: 1;
+
+      width: 100%;
 
       overflow: hidden;
 
@@ -1327,14 +1336,14 @@
 
     .bike-main-photo img {
       width: 100%;
-      height: 100%;
+      height: auto;
 
       /*
-       A teljes motoros fotó mindig látható marad.
-       Nincs nagyítás és nincs levágás a kép szélein.
+       A fotó természetes képaránya marad meg.
+       Így egyik motor sem vágódik le és nincs felesleges
+       fekete terület a kép két oldalán.
       */
-
-      object-fit: contain;
+      object-fit: initial;
       object-position: center center;
       transform: none;
 
@@ -1526,7 +1535,7 @@
       width:
         min(
           94%,
-          1450px
+          1280px
         );
 
       max-height:
@@ -1570,8 +1579,8 @@
       display: grid;
 
       grid-template-columns:
-        minmax(300px,.78fr)
-        minmax(0,1.55fr);
+        var(--bike-detail-photo-width)
+        minmax(0,1fr);
 
       overflow: hidden;
 
@@ -1713,6 +1722,10 @@
     .bike-detail-photo {
       min-height: 100%;
 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       overflow: hidden;
 
       border-right:
@@ -1730,8 +1743,9 @@
       max-height: none;
 
       /*
-       Az adatlap képe sem vágja le a motor egyetlen részét sem.
-       A teljes fotó a kereten belül marad.
+       A motorfotók 4:3-as képarányához igazított
+       képmező miatt a teljes kép kitölti a saját keretét:
+       nincs levágás és nincs nagy üres fekete sáv sem.
       */
       object-fit: contain;
       object-position: center center;
@@ -1751,7 +1765,7 @@
       flex-direction: column;
       justify-content: center;
 
-      padding: 28px 32px;
+      padding: 22px 26px;
     }
 
     .bike-detail-label {
@@ -1924,6 +1938,39 @@
 
     .bike-detail-description strong {
       color: #fff;
+    }
+
+
+    @media (min-width: 681px) and (max-height: 850px) {
+
+      .bikes-modal {
+        width: min(calc(100vw - 22px), 940px);
+      }
+
+      .bike-detail-card {
+        height: 500px;
+        min-height: 500px;
+        grid-template-columns: 666px minmax(0,1fr);
+      }
+
+      .bike-detail-body {
+        padding: 18px 22px;
+      }
+
+      .bike-detail-title {
+        margin-bottom: 12px;
+        font-size: clamp(1.5rem, 1.9vw, 2.2rem);
+      }
+
+      .bike-specs {
+        margin-bottom: 12px;
+      }
+
+      .bike-detail-description {
+        font-size: .82rem;
+        line-height: 1.42;
+      }
+
     }
 
 
@@ -2217,17 +2264,21 @@
         width: 100%;
         flex: 0 0 auto;
         min-height: 0;
-        aspect-ratio: 1.97 / 1;
+        aspect-ratio: auto;
         border-radius: 9px;
       }
 
       .bike-main-photo {
+        position: relative;
+        width: 100%;
         border-radius: 9px;
       }
 
       .bike-main-photo img {
+        width: 100%;
+        height: auto;
         transform: none;
-        object-fit: contain;
+        object-fit: initial;
         object-position: center center;
         background: #000;
       }
@@ -3478,7 +3529,7 @@
         <div class="bike-main-photo">
 
           <img
-            src="images/motorok.jpg?v=20260902-2"
+            src="images/motorok.jpg?v=20260902-3"
             alt="Bérelhető motorok"
           >
 
@@ -3642,7 +3693,7 @@
             <div class="bike-detail-photo">
 
               <img
-                src="images/motor2.jpg?v=20260902-2"
+                src="images/motor2.jpg?v=20260902-3"
                 alt="Sur-Ron Ultra Bee"
               >
 
@@ -3895,7 +3946,7 @@
             <div class="bike-detail-photo">
 
               <img
-                src="images/motor3.jpg?v=20260902-2"
+                src="images/motor3.jpg?v=20260902-3"
                 alt="Stark VARG MX"
               >
 
