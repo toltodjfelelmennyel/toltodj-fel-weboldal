@@ -1330,21 +1330,15 @@
       height: 100%;
 
       /*
-       A fotót felnagyítjuk,
-       ezért kevesebb kerítés,
-       fű és felső háttér látszik.
+       A teljes motoros fotó mindig látható marad.
+       Nincs nagyítás és nincs levágás a kép szélein.
       */
 
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center center;
+      transform: none;
 
-      object-position:
-        50% 48%;
-
-      transform:
-        scale(1.25);
-
-      transform-origin:
-        center center;
+      background: #000;
     }
 
     .bike-main-photo::after {
@@ -1735,8 +1729,14 @@
       min-height: 100%;
       max-height: none;
 
-      object-fit: cover;
-      object-position: center;
+      /*
+       Az adatlap képe sem vágja le a motor egyetlen részét sem.
+       A teljes fotó a kereten belül marad.
+      */
+      object-fit: contain;
+      object-position: center center;
+
+      background: #080808;
     }
 
 
@@ -3478,7 +3478,7 @@
         <div class="bike-main-photo">
 
           <img
-            src="images/motorok.jpg?v=20260813-2"
+            src="images/motorok.jpg?v=20260902-2"
             alt="Bérelhető motorok"
           >
 
@@ -3642,7 +3642,7 @@
             <div class="bike-detail-photo">
 
               <img
-                src="images/motor2.jpg?v=20260813-2"
+                src="images/motor2.jpg?v=20260902-2"
                 alt="Sur-Ron Ultra Bee"
               >
 
@@ -3825,7 +3825,7 @@
 
               <p class="bike-detail-description">
 
-                Jóval nyomatékosabb,dinamikusabb
+                Jóval nyomatékosabb, dinamikusabb
                 és robusztusabb elektromos motor,
                 <strong>
                   felnőtteknek, kezdőknek és
@@ -3895,7 +3895,7 @@
             <div class="bike-detail-photo">
 
               <img
-                src="images/motor3.jpg?v=20260813-2"
+                src="images/motor3.jpg?v=20260902-2"
                 alt="Stark VARG MX"
               >
 
