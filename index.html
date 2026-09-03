@@ -25,8 +25,7 @@
       --orange-light: #ff982f;
       --border: rgba(255,255,255,.17);
       --max-width: 1180px;
-      --bike-detail-card-height: 540px;
-      --bike-detail-photo-width: 720px;
+      --bike-detail-card-height: 620px;
       --bike-detail-card-height-mobile: 515px;
     }
 
@@ -1579,8 +1578,8 @@
       display: grid;
 
       grid-template-columns:
-        var(--bike-detail-photo-width)
-        minmax(0,1fr);
+        minmax(300px,.78fr)
+        minmax(0,1.55fr);
 
       overflow: hidden;
 
@@ -1722,10 +1721,6 @@
     .bike-detail-photo {
       min-height: 100%;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
       overflow: hidden;
 
       border-right:
@@ -1742,15 +1737,8 @@
       min-height: 100%;
       max-height: none;
 
-      /*
-       A motorfotók 4:3-as képarányához igazított
-       képmező miatt a teljes kép kitölti a saját keretét:
-       nincs levágás és nincs nagy üres fekete sáv sem.
-      */
-      object-fit: contain;
-      object-position: center center;
-
-      background: #080808;
+      object-fit: cover;
+      object-position: center;
     }
 
 
@@ -1765,7 +1753,7 @@
       flex-direction: column;
       justify-content: center;
 
-      padding: 22px 26px;
+      padding: 28px 32px;
     }
 
     .bike-detail-label {
