@@ -72,6 +72,153 @@
 
 
     /* =====================================================
+       WEBES OLDALSÓ KÉPGALÉRIA
+
+       Csak nagy asztali kijelzőn jelenik meg.
+       A középső weboldal szélességét nem módosítja.
+
+       Feltöltendő képek az images mappába:
+       bal1.jpg
+       bal2.jpg
+       bal3.jpg
+       jobb1.jpg
+       jobb2.jpg
+       jobb3.jpg
+       ===================================================== */
+
+    .desktop-side-gallery {
+      position: absolute;
+      top: 175px;
+      z-index: 3;
+
+      width:
+        min(
+          260px,
+          calc((100vw - var(--max-width)) / 2 - 48px)
+        );
+
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+
+      pointer-events: none;
+    }
+
+    .desktop-side-gallery.left {
+      left: 22px;
+      align-items: flex-end;
+    }
+
+    .desktop-side-gallery.right {
+      right: 22px;
+      align-items: flex-start;
+    }
+
+    .side-gallery-card {
+      position: relative;
+
+      width: 100%;
+      aspect-ratio: 4 / 3;
+
+      overflow: hidden;
+
+      border:
+        1px solid
+        rgba(255,121,0,.58);
+
+      border-radius: 16px;
+
+      background: #080808;
+
+      box-shadow:
+        0 16px 38px rgba(0,0,0,.60),
+        0 0 0 1px rgba(255,121,0,.05);
+
+      opacity: .93;
+
+      transition:
+        transform .25s ease,
+        opacity .25s ease,
+        border-color .25s ease;
+    }
+
+    .side-gallery-card img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .side-gallery-card::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,.02),
+          rgba(0,0,0,.12)
+        );
+    }
+
+    .desktop-side-gallery.left
+    .side-gallery-card:nth-child(2) {
+      transform: translateX(18px);
+    }
+
+    .desktop-side-gallery.right
+    .side-gallery-card:nth-child(2) {
+      transform: translateX(-18px);
+    }
+
+    .desktop-side-gallery.left
+    .side-gallery-card:nth-child(3) {
+      transform: translateX(5px);
+    }
+
+    .desktop-side-gallery.right
+    .side-gallery-card:nth-child(3) {
+      transform: translateX(-5px);
+    }
+
+    @media (hover: hover) {
+
+      .side-gallery-card:hover {
+        opacity: 1;
+        border-color: var(--orange);
+      }
+
+      .desktop-side-gallery.left
+      .side-gallery-card:hover {
+        transform:
+          translateX(8px)
+          scale(1.025);
+      }
+
+      .desktop-side-gallery.right
+      .side-gallery-card:hover {
+        transform:
+          translateX(-8px)
+          scale(1.025);
+      }
+
+    }
+
+    @media (max-width: 1640px) {
+
+      .desktop-side-gallery {
+        display: none;
+      }
+
+    }
+
+
+    /* =====================================================
        ÁLTALÁNOS IKON
        ===================================================== */
 
@@ -2549,6 +2696,71 @@
 
 
 <body>
+
+
+  <!-- =====================================================
+       WEBES OLDALSÓ KÉPEK
+
+       Csak nagy asztali kijelzőn láthatók.
+       Mobilon és kisebb laptopon automatikusan eltűnnek.
+       ===================================================== -->
+
+  <aside
+    class="desktop-side-gallery left"
+    aria-hidden="true"
+  >
+
+    <div class="side-gallery-card">
+      <img
+        src="images/bal1.jpg?v=20260923-1"
+        alt=""
+      >
+    </div>
+
+    <div class="side-gallery-card">
+      <img
+        src="images/bal2.jpg?v=20260923-1"
+        alt=""
+      >
+    </div>
+
+    <div class="side-gallery-card">
+      <img
+        src="images/bal3.jpg?v=20260923-1"
+        alt=""
+      >
+    </div>
+
+  </aside>
+
+
+  <aside
+    class="desktop-side-gallery right"
+    aria-hidden="true"
+  >
+
+    <div class="side-gallery-card">
+      <img
+        src="images/jobb1.jpg?v=20260923-1"
+        alt=""
+      >
+    </div>
+
+    <div class="side-gallery-card">
+      <img
+        src="images/jobb2.jpg?v=20260923-1"
+        alt=""
+      >
+    </div>
+
+    <div class="side-gallery-card">
+      <img
+        src="images/jobb3.jpg?v=20260923-1"
+        alt=""
+      >
+    </div>
+
+  </aside>
 
 
   <!-- =====================================================
