@@ -25,8 +25,8 @@
       --orange-light: #ff982f;
       --border: rgba(255,255,255,.17);
       --max-width: 1180px;
-      --bike-detail-card-height: 620px;
-      --bike-detail-card-height-mobile: 515px;
+      --bike-detail-card-height: 640px;
+      --bike-detail-card-height-mobile: 525px;
     }
 
     * {
@@ -1226,23 +1226,23 @@
       position: relative;
 
       /*
-       A motoros főablak már nem nyúlik szinte a teljes
-       monitor szélességére. A keret a képhez simul,
-       így nem marad két oldalt nagy üres fekete terület.
+       WEBES NÉZET:
+       nagyobb külső motorablak, hogy a fő fotó és a részletes
+       adatlap is kényelmesebben elférjen a képernyőn.
       */
       width:
         min(
-          calc(100vw - 22px),
-          1120px
+          calc(100vw - 40px),
+          1500px
         );
 
       max-height:
-        calc(100vh - 22px);
+        calc(100dvh - 40px);
 
       display: flex;
       flex-direction: column;
 
-      padding: 16px 18px 18px;
+      padding: 18px 20px 20px;
 
       overflow: hidden;
 
@@ -1250,7 +1250,7 @@
         1px solid
         rgba(255,121,0,.78);
 
-      border-radius: 20px;
+      border-radius: 22px;
 
       background: #040404;
 
@@ -1531,14 +1531,18 @@
 
       z-index: 70;
 
+      /*
+       A részletes Sur-Ron / Stark ablak weben szélesebb lett.
+       A nagyobb képmező miatt a teljes motor megjeleníthető.
+      */
       width:
         min(
-          94%,
-          1280px
+          96%,
+          1420px
         );
 
       max-height:
-        calc(100% - 24px);
+        calc(100% - 18px);
 
       opacity: 0;
 
@@ -1577,9 +1581,13 @@
 
       display: grid;
 
+      /*
+       Közel fele-fele arány: nagyobb képmező, de az adatoknak
+       továbbra is bőséges hely marad.
+      */
       grid-template-columns:
-        minmax(300px,.78fr)
-        minmax(0,1.55fr);
+        minmax(520px,1.04fr)
+        minmax(0,.96fr);
 
       overflow: hidden;
 
@@ -1721,24 +1729,31 @@
     .bike-detail-photo {
       min-height: 100%;
 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       overflow: hidden;
 
       border-right:
         1px solid
         rgba(255,121,0,.40);
 
-      background: #080808;
+      background: #050505;
     }
 
     .bike-detail-photo img {
       width: 100%;
       height: 100%;
 
-      min-height: 100%;
-      max-height: none;
+      min-height: 0;
+      max-height: 100%;
 
-      object-fit: cover;
-      object-position: center;
+      /* A TELJES MOTOR látható marad, nincs levágás. */
+      object-fit: contain;
+      object-position: center center;
+
+      background: #050505;
     }
 
 
@@ -1753,7 +1768,7 @@
       flex-direction: column;
       justify-content: center;
 
-      padding: 28px 32px;
+      padding: 30px 34px;
     }
 
     .bike-detail-label {
@@ -1931,23 +1946,39 @@
 
     @media (min-width: 681px) and (max-height: 850px) {
 
+      /*
+       Alacsonyabb monitorokon se zsugorodjon össze keskeny oszloppá
+       az adatlap. Inkább széles marad, csak a magasság csökken.
+      */
       .bikes-modal {
-        width: min(calc(100vw - 22px), 940px);
+        width: min(calc(100vw - 24px), 1450px);
+        max-height: calc(100dvh - 24px);
+      }
+
+      .bike-callout {
+        width: min(96%, 1360px);
       }
 
       .bike-detail-card {
-        height: 500px;
-        min-height: 500px;
-        grid-template-columns: 666px minmax(0,1fr);
+        height: 540px;
+        min-height: 540px;
+        grid-template-columns:
+          minmax(480px,1.02fr)
+          minmax(0,.98fr);
+      }
+
+      .bike-detail-photo img {
+        object-fit: contain;
+        object-position: center center;
       }
 
       .bike-detail-body {
-        padding: 18px 22px;
+        padding: 20px 24px;
       }
 
       .bike-detail-title {
         margin-bottom: 12px;
-        font-size: clamp(1.5rem, 1.9vw, 2.2rem);
+        font-size: clamp(1.65rem, 2.1vw, 2.35rem);
       }
 
       .bike-specs {
@@ -1955,7 +1986,7 @@
       }
 
       .bike-detail-description {
-        font-size: .82rem;
+        font-size: .84rem;
         line-height: 1.42;
       }
 
@@ -2327,7 +2358,7 @@
         min-height: var(--bike-detail-card-height-mobile);
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 215px 1fr;
+        grid-template-rows: 225px 1fr;
         overflow: hidden;
         border-radius: 14px;
       }
@@ -2352,6 +2383,7 @@
         max-height: none;
         object-fit: contain;
         object-position: center center;
+        background: #050505;
       }
 
       .bike-detail-body {
