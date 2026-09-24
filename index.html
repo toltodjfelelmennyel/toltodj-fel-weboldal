@@ -9,7 +9,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Töltődj fel ÉLMÉNNYEL</title>
+  <title>Töltődj fel élménnyel</title>
 
   <meta
     name="description"
@@ -1414,22 +1414,22 @@
 
 
     /* =====================================================
-       MOTOROK ALATTI SZÁMOK
+       MOTOROKON LÉVŐ SZÁMOK
 
        ÚJ POZÍCIÓ:
-       KÖZVETLEN AZ ELSŐ KEREKEK ALATT
+       A FEJIDOMOKRA / LÁMPÁKHOZ IGAZÍTVA
        ===================================================== */
 
     .bike-hotspot {
       position: absolute;
 
-      z-index: 30;
+      z-index: 35;
 
       left: var(--x);
       top: var(--y);
 
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
 
       transform:
         translate(-50%,-50%);
@@ -1445,31 +1445,39 @@
       border-radius: 50%;
 
       background:
-        rgba(0,0,0,.97);
+        rgba(0,0,0,.88);
 
       color: #fff;
 
-      font-size: .98rem;
+      font-size: .96rem;
       font-weight: 800;
+      line-height: 1;
 
       cursor: pointer;
 
+      backdrop-filter: blur(4px);
+
       box-shadow:
         0 0 0 4px rgba(255,121,0,.10),
-        0 0 18px rgba(255,121,0,.50);
+        0 0 18px rgba(255,121,0,.38);
 
       transition:
         transform .2s ease,
-        background .2s ease;
+        background .2s ease,
+        box-shadow .2s ease;
     }
 
     .bike-hotspot:hover,
     .bike-hotspot.active {
       background: var(--orange);
 
+      box-shadow:
+        0 0 0 4px rgba(255,121,0,.16),
+        0 0 20px rgba(255,121,0,.55);
+
       transform:
         translate(-50%,-50%)
-        scale(1.12);
+        scale(1.10);
     }
 
 
@@ -1478,16 +1486,7 @@
        ===================================================== */
 
     .bike-connectors {
-      position: absolute;
-
-      inset: 0;
-
-      z-index: 20;
-
-      width: 100%;
-      height: 100%;
-
-      pointer-events: none;
+      display: none;
     }
 
     #bikeGroupConnectorPath {
@@ -2316,9 +2315,9 @@
       }
 
       .bike-hotspot {
-        width: 28px;
-        height: 28px;
-        font-size: .63rem;
+        width: 30px;
+        height: 30px;
+        font-size: .66rem;
         border-width: 1.5px;
       }
 
@@ -2544,266 +2543,11 @@
 
     }
 
-
-
-    /* =====================================================
-       FIX OLDALSÓ KÉPGALÉRIÁK – CSAK NAGY WEBES NÉZETBEN
-
-       A két oldalsó oszlop a böngészőablakhoz rögzített.
-       A középső weboldal normál módon gördül tovább.
-
-       Feltöltendő fájlnevek az images mappába:
-       bal1.jpg, bal2.jpg, bal3.jpg
-       jobb1.jpg, jobb2.jpg, jobb3.jpg
-       ===================================================== */
-
-    :root {
-      --side-gallery-gap: 18px;
-      --side-gallery-width:
-        clamp(
-          155px,
-          calc((100vw - 1180px) / 2 - 34px),
-          300px
-        );
-    }
-
-    .side-gallery {
-      position: fixed;
-      top: 16px;
-      bottom: 16px;
-      z-index: 40;
-
-      width: var(--side-gallery-width);
-
-      display: none;
-      gap: 12px;
-
-      pointer-events: none;
-    }
-
-    .side-gallery-left {
-      left:
-        calc(
-          (100vw - 1180px) / 2
-          - var(--side-gallery-gap)
-          - var(--side-gallery-width)
-        );
-
-      grid-template-rows:
-        1.06fr
-        .96fr
-        .98fr;
-    }
-
-    .side-gallery-right {
-      right:
-        calc(
-          (100vw - 1180px) / 2
-          - var(--side-gallery-gap)
-          - var(--side-gallery-width)
-        );
-
-      grid-template-rows:
-        1.08fr
-        .96fr
-        .96fr;
-    }
-
-    .side-gallery-card {
-      position: relative;
-
-      min-height: 0;
-
-      overflow: hidden;
-
-      border:
-        1px solid
-        rgba(255,121,0,.82);
-
-      border-radius: 15px;
-
-      background: #050505;
-
-      box-shadow:
-        0 0 0 1px rgba(255,121,0,.08),
-        0 0 22px rgba(255,121,0,.12),
-        0 12px 35px rgba(0,0,0,.50);
-    }
-
-    .side-gallery-card::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      pointer-events: none;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.03),
-          transparent 68%,
-          rgba(0,0,0,.13)
-        );
-    }
-
-    .side-gallery-card img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      object-position: center;
-
-      filter:
-        saturate(1.04)
-        contrast(1.03);
-    }
-
-    /*
-       A képekhez külön fókuszpontok, hogy a fontos részletek
-       a keskeny oldalsó kártyákban is jól látszódjanak.
-    */
-
-    .side-gallery-left
-    .side-gallery-card:nth-child(1) img {
-      object-position: 52% 50%;
-    }
-
-    .side-gallery-left
-    .side-gallery-card:nth-child(2) img {
-      object-position: 48% 45%;
-    }
-
-    .side-gallery-left
-    .side-gallery-card:nth-child(3) img {
-      object-position: 50% 50%;
-    }
-
-    .side-gallery-right
-    .side-gallery-card:nth-child(1) img {
-      object-position: 50% 58%;
-    }
-
-    .side-gallery-right
-    .side-gallery-card:nth-child(2) img {
-      object-position: 50% 52%;
-    }
-
-    .side-gallery-right
-    .side-gallery-card:nth-child(3) img {
-      object-position: 52% 50%;
-    }
-
-    /*
-       Csak akkor jelennek meg, amikor valóban van elegendő hely
-       a 1180 px széles középső oldal mellett.
-    */
-
-    @media (min-width: 1560px) {
-
-      .side-gallery {
-        display: grid;
-      }
-
-    }
-
-    /*
-       Nagyon széles kijelzőn a képek kissé nagyobbak lehetnek,
-       de a középső tartalom mérete változatlan marad.
-    */
-
-    @media (min-width: 1900px) {
-
-      :root {
-        --side-gallery-gap: 22px;
-        --side-gallery-width:
-          clamp(
-            240px,
-            calc((100vw - 1180px) / 2 - 54px),
-            340px
-          );
-      }
-
-      .side-gallery {
-        top: 18px;
-        bottom: 18px;
-        gap: 14px;
-      }
-
-      .side-gallery-card {
-        border-radius: 17px;
-      }
-
-    }
-
   </style>
 </head>
 
 
 <body>
-
-
-  <!-- =====================================================
-       FIX OLDALSÓ KÉPGALÉRIÁK – NAGY WEBES NÉZET
-       ===================================================== -->
-
-  <aside
-    class="side-gallery side-gallery-left"
-    aria-hidden="true"
-  >
-
-    <div class="side-gallery-card">
-      <img
-        src="images/bal1.jpg?v=20260924-1"
-        alt=""
-      >
-    </div>
-
-    <div class="side-gallery-card">
-      <img
-        src="images/bal2.jpg?v=20260924-1"
-        alt=""
-      >
-    </div>
-
-    <div class="side-gallery-card">
-      <img
-        src="images/bal3.jpg?v=20260924-1"
-        alt=""
-      >
-    </div>
-
-  </aside>
-
-
-  <aside
-    class="side-gallery side-gallery-right"
-    aria-hidden="true"
-  >
-
-    <div class="side-gallery-card">
-      <img
-        src="images/jobb1.jpg?v=20260924-1"
-        alt=""
-      >
-    </div>
-
-    <div class="side-gallery-card">
-      <img
-        src="images/jobb2.jpg?v=20260924-1"
-        alt=""
-      >
-    </div>
-
-    <div class="side-gallery-card">
-      <img
-        src="images/jobb3.jpg?v=20260924-1"
-        alt=""
-      >
-    </div>
-
-  </aside>
-
 
 
   <!-- =====================================================
@@ -3591,7 +3335,7 @@
 
                     Ha inkább sportolnál, és egy kis barátságos
                     versengésre vágysz, a pályás program a neked
-                    való.Könnyen teljesíthető akadályokkal és
+                    való. Könnyen teljesíthető akadályokkal és
                     egyénre szabott, kijelölt útvonallal,
                     barátságos környezetben próbálhatod ki
                     magad és a motorokat.
@@ -3812,100 +3556,91 @@
             alt="Bérelhető motorok"
           >
 
-
           <!--
-            ÚJ POZÍCIÓK
-
-            Mindegyik szám közvetlenül
-            az első kerék alatt.
+            A számok most közvetlenül
+            a motorok fejidomjaira / lámpáihoz kerülnek,
+            webes és mobilos nézetben is.
           -->
 
-
-          <!-- ARCTIC -->
-
+          <!-- 1 / SUR-RON -->
           <button
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
             data-group="1234"
             style="
-              --x:22.5%;
-              --y:87%;
+              --x:9.2%;
+              --y:27.2%;
             "
+            aria-label="1-es motor"
           >
             1
           </button>
 
-
-          <!-- SUR-RON 1 -->
-
+          <!-- 2 / SUR-RON -->
           <button
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
             data-group="1234"
             style="
-              --x:43%;
-              --y:82%;
+              --x:36.8%;
+              --y:26.9%;
             "
+            aria-label="2-es motor"
           >
             2
           </button>
 
-
-          <!-- SUR-RON 2 -->
-
+          <!-- 3 / SUR-RON -->
           <button
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
             data-group="1234"
             style="
-              --x:59%;
-              --y:78%;
+              --x:58.5%;
+              --y:26.2%;
             "
+            aria-label="3-as motor"
           >
             3
           </button>
 
-
-          <!-- SUR-RON 3 -->
-
+          <!-- 4 / SUR-RON -->
           <button
             class="bike-hotspot"
             type="button"
             data-bike="bike234"
             data-group="1234"
             style="
-              --x:72.5%;
-              --y:75%;
+              --x:73.8%;
+              --y:25.4%;
             "
+            aria-label="4-es motor"
           >
             4
           </button>
 
-
-          <!-- STARK -->
-
+          <!-- 5 / STARK -->
           <button
             class="bike-hotspot"
             type="button"
             data-bike="bike5"
             style="
-              --x:86%;
-              --y:72%;
+              --x:88.7%;
+              --y:22.6%;
             "
+            aria-label="5-ös motor"
           >
             5
           </button>
-
-
         </div>
 
 
         <div class="bike-click-tip">
 
-          Információhoz kattints a motorok alatti számokra!
+          Információhoz kattints a motorokon lévő számokra!
 
         </div>
 
@@ -5256,6 +4991,8 @@
        ===================================================== */
 
     function drawBikeGroupConnector() {
+
+      return;
 
       const buttons =
         Array.from(
