@@ -72,153 +72,6 @@
 
 
     /* =====================================================
-       WEBES OLDALSÓ KÉPGALÉRIA
-
-       Csak nagy asztali kijelzőn jelenik meg.
-       A középső weboldal szélességét nem módosítja.
-
-       Feltöltendő képek az images mappába:
-       bal1.jpg
-       bal2.jpg
-       bal3.jpg
-       jobb1.jpg
-       jobb2.jpg
-       jobb3.jpg
-       ===================================================== */
-
-    .desktop-side-gallery {
-      position: absolute;
-      top: 175px;
-      z-index: 3;
-
-      width:
-        min(
-          260px,
-          calc((100vw - var(--max-width)) / 2 - 48px)
-        );
-
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-
-      pointer-events: none;
-    }
-
-    .desktop-side-gallery.left {
-      left: 22px;
-      align-items: flex-end;
-    }
-
-    .desktop-side-gallery.right {
-      right: 22px;
-      align-items: flex-start;
-    }
-
-    .side-gallery-card {
-      position: relative;
-
-      width: 100%;
-      aspect-ratio: 4 / 3;
-
-      overflow: hidden;
-
-      border:
-        1px solid
-        rgba(255,121,0,.58);
-
-      border-radius: 16px;
-
-      background: #080808;
-
-      box-shadow:
-        0 16px 38px rgba(0,0,0,.60),
-        0 0 0 1px rgba(255,121,0,.05);
-
-      opacity: .93;
-
-      transition:
-        transform .25s ease,
-        opacity .25s ease,
-        border-color .25s ease;
-    }
-
-    .side-gallery-card img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .side-gallery-card::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      pointer-events: none;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.02),
-          rgba(0,0,0,.12)
-        );
-    }
-
-    .desktop-side-gallery.left
-    .side-gallery-card:nth-child(2) {
-      transform: translateX(18px);
-    }
-
-    .desktop-side-gallery.right
-    .side-gallery-card:nth-child(2) {
-      transform: translateX(-18px);
-    }
-
-    .desktop-side-gallery.left
-    .side-gallery-card:nth-child(3) {
-      transform: translateX(5px);
-    }
-
-    .desktop-side-gallery.right
-    .side-gallery-card:nth-child(3) {
-      transform: translateX(-5px);
-    }
-
-    @media (hover: hover) {
-
-      .side-gallery-card:hover {
-        opacity: 1;
-        border-color: var(--orange);
-      }
-
-      .desktop-side-gallery.left
-      .side-gallery-card:hover {
-        transform:
-          translateX(8px)
-          scale(1.025);
-      }
-
-      .desktop-side-gallery.right
-      .side-gallery-card:hover {
-        transform:
-          translateX(-8px)
-          scale(1.025);
-      }
-
-    }
-
-    @media (max-width: 1640px) {
-
-      .desktop-side-gallery {
-        display: none;
-      }
-
-    }
-
-
-    /* =====================================================
        ÁLTALÁNOS IKON
        ===================================================== */
 
@@ -2691,6 +2544,198 @@
 
     }
 
+
+
+    /* =====================================================
+       FIX OLDALSÓ KÉPGALÉRIÁK – CSAK NAGY WEBES NÉZETBEN
+
+       A két oldalsó oszlop a böngészőablakhoz rögzített.
+       A középső weboldal normál módon gördül tovább.
+
+       Feltöltendő fájlnevek az images mappába:
+       bal1.jpg, bal2.jpg, bal3.jpg
+       jobb1.jpg, jobb2.jpg, jobb3.jpg
+       ===================================================== */
+
+    :root {
+      --side-gallery-gap: 18px;
+      --side-gallery-width:
+        clamp(
+          155px,
+          calc((100vw - 1180px) / 2 - 34px),
+          300px
+        );
+    }
+
+    .side-gallery {
+      position: fixed;
+      top: 16px;
+      bottom: 16px;
+      z-index: 40;
+
+      width: var(--side-gallery-width);
+
+      display: none;
+      gap: 12px;
+
+      pointer-events: none;
+    }
+
+    .side-gallery-left {
+      left:
+        calc(
+          (100vw - 1180px) / 2
+          - var(--side-gallery-gap)
+          - var(--side-gallery-width)
+        );
+
+      grid-template-rows:
+        1.06fr
+        .96fr
+        .98fr;
+    }
+
+    .side-gallery-right {
+      right:
+        calc(
+          (100vw - 1180px) / 2
+          - var(--side-gallery-gap)
+          - var(--side-gallery-width)
+        );
+
+      grid-template-rows:
+        1.08fr
+        .96fr
+        .96fr;
+    }
+
+    .side-gallery-card {
+      position: relative;
+
+      min-height: 0;
+
+      overflow: hidden;
+
+      border:
+        1px solid
+        rgba(255,121,0,.82);
+
+      border-radius: 15px;
+
+      background: #050505;
+
+      box-shadow:
+        0 0 0 1px rgba(255,121,0,.08),
+        0 0 22px rgba(255,121,0,.12),
+        0 12px 35px rgba(0,0,0,.50);
+    }
+
+    .side-gallery-card::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,.03),
+          transparent 68%,
+          rgba(0,0,0,.13)
+        );
+    }
+
+    .side-gallery-card img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      filter:
+        saturate(1.04)
+        contrast(1.03);
+    }
+
+    /*
+       A képekhez külön fókuszpontok, hogy a fontos részletek
+       a keskeny oldalsó kártyákban is jól látszódjanak.
+    */
+
+    .side-gallery-left
+    .side-gallery-card:nth-child(1) img {
+      object-position: 52% 50%;
+    }
+
+    .side-gallery-left
+    .side-gallery-card:nth-child(2) img {
+      object-position: 48% 45%;
+    }
+
+    .side-gallery-left
+    .side-gallery-card:nth-child(3) img {
+      object-position: 50% 50%;
+    }
+
+    .side-gallery-right
+    .side-gallery-card:nth-child(1) img {
+      object-position: 50% 58%;
+    }
+
+    .side-gallery-right
+    .side-gallery-card:nth-child(2) img {
+      object-position: 50% 52%;
+    }
+
+    .side-gallery-right
+    .side-gallery-card:nth-child(3) img {
+      object-position: 52% 50%;
+    }
+
+    /*
+       Csak akkor jelennek meg, amikor valóban van elegendő hely
+       a 1180 px széles középső oldal mellett.
+    */
+
+    @media (min-width: 1560px) {
+
+      .side-gallery {
+        display: grid;
+      }
+
+    }
+
+    /*
+       Nagyon széles kijelzőn a képek kissé nagyobbak lehetnek,
+       de a középső tartalom mérete változatlan marad.
+    */
+
+    @media (min-width: 1900px) {
+
+      :root {
+        --side-gallery-gap: 22px;
+        --side-gallery-width:
+          clamp(
+            240px,
+            calc((100vw - 1180px) / 2 - 54px),
+            340px
+          );
+      }
+
+      .side-gallery {
+        top: 18px;
+        bottom: 18px;
+        gap: 14px;
+      }
+
+      .side-gallery-card {
+        border-radius: 17px;
+      }
+
+    }
+
   </style>
 </head>
 
@@ -2699,34 +2744,31 @@
 
 
   <!-- =====================================================
-       WEBES OLDALSÓ KÉPEK
-
-       Csak nagy asztali kijelzőn láthatók.
-       Mobilon és kisebb laptopon automatikusan eltűnnek.
+       FIX OLDALSÓ KÉPGALÉRIÁK – NAGY WEBES NÉZET
        ===================================================== -->
 
   <aside
-    class="desktop-side-gallery left"
+    class="side-gallery side-gallery-left"
     aria-hidden="true"
   >
 
     <div class="side-gallery-card">
       <img
-        src="images/bal1.jpg?v=20260923-1"
+        src="images/bal1.jpg?v=20260924-1"
         alt=""
       >
     </div>
 
     <div class="side-gallery-card">
       <img
-        src="images/bal2.jpg?v=20260923-1"
+        src="images/bal2.jpg?v=20260924-1"
         alt=""
       >
     </div>
 
     <div class="side-gallery-card">
       <img
-        src="images/bal3.jpg?v=20260923-1"
+        src="images/bal3.jpg?v=20260924-1"
         alt=""
       >
     </div>
@@ -2735,32 +2777,33 @@
 
 
   <aside
-    class="desktop-side-gallery right"
+    class="side-gallery side-gallery-right"
     aria-hidden="true"
   >
 
     <div class="side-gallery-card">
       <img
-        src="images/jobb1.jpg?v=20260923-1"
+        src="images/jobb1.jpg?v=20260924-1"
         alt=""
       >
     </div>
 
     <div class="side-gallery-card">
       <img
-        src="images/jobb2.jpg?v=20260923-1"
+        src="images/jobb2.jpg?v=20260924-1"
         alt=""
       >
     </div>
 
     <div class="side-gallery-card">
       <img
-        src="images/jobb3.jpg?v=20260923-1"
+        src="images/jobb3.jpg?v=20260924-1"
         alt=""
       >
     </div>
 
   </aside>
+
 
 
   <!-- =====================================================
