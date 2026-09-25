@@ -6,7 +6,7 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover"
   >
 
   <title>Töltődj fel élménnyel</title>
@@ -36,11 +36,20 @@
     }
 
     html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      overscroll-behavior-x: none;
       scroll-behavior: smooth;
     }
 
     body {
+      width: 100%;
+      max-width: 100%;
       min-width: 320px;
+      overflow-x: hidden;
+      overscroll-behavior-x: none;
+      position: relative;
       background: #000;
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
@@ -2208,15 +2217,41 @@
         overflow: visible;
       }
 
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+      }
+
+      .page-width,
+      .hero,
+      .hero-box,
+      .content-section,
+      .trust-bar,
+      footer {
+        max-width: 100%;
+      }
+
+      .mobile-info-menu-anchor {
+        display: block;
+        width: 100%;
+        height: 0;
+        pointer-events: none;
+      }
+
       .hero-buttons {
         grid-template-columns:
           1fr 1fr;
 
         gap: 8px;
 
-        position: sticky;
-        top: 6px;
+        position: relative;
+        top: auto;
         z-index: 520;
+
+        width: 100%;
+        max-width: 100%;
 
         padding: 8px;
 
@@ -2235,6 +2270,90 @@
         box-shadow:
           0 9px 28px
           rgba(0,0,0,.48);
+      }
+
+      /*
+        Amint a gombsor eléri a kijelző tetejét,
+        kilép a hero korlátozott területéből és onnantól
+        a teljes oldal görgetése alatt fix fejléc marad.
+      */
+      .hero-buttons.mobile-fixed {
+        position: fixed;
+        top: calc(env(safe-area-inset-top, 0px) + 6px);
+        left: 8px;
+        right: 8px;
+
+        width: auto;
+        max-width: none;
+
+        margin: 0;
+
+        z-index: 1600;
+      }
+
+      /*
+        Ha a fejléc már fix, a kiválasztott panel is
+        közvetlenül alóla nyílik le – nem a régi helyén.
+      */
+      body.mobile-info-header-active
+      #opportunitiesPanel.open,
+
+      body.mobile-info-header-active
+      #mobileBikesPanel.open,
+
+      body.mobile-info-header-active
+      #pricePanel.open {
+        position: fixed;
+
+        left: 8px;
+        right: 8px;
+        top: var(--mobile-info-panel-top, 210px);
+        bottom: auto;
+
+        width: auto;
+        max-width: none;
+        max-height:
+          calc(
+            100dvh
+            - var(--mobile-info-panel-top, 210px)
+            - env(safe-area-inset-bottom, 0px)
+            - 8px
+          );
+
+        display: block;
+        grid-template-rows: 1fr;
+
+        margin: 0;
+        opacity: 1;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+
+        z-index: 1580;
+
+        border-radius: 15px;
+
+        background: rgba(0,0,0,.985);
+
+        box-shadow:
+          0 16px 45px rgba(0,0,0,.68);
+      }
+
+      body.mobile-info-header-active
+      #opportunitiesPanel.open
+      .opportunities-overflow,
+
+      body.mobile-info-header-active
+      #mobileBikesPanel.open
+      .mobile-bikes-overflow,
+
+      body.mobile-info-header-active
+      #pricePanel.open
+      .price-overflow {
+        overflow: visible;
       }
 
       .main-button {
@@ -5055,41 +5174,172 @@
       );
 
 
-    function scrollMobileInfoMenuToTop() {
+    /*
+      A fix mobil fejléc eredeti helyét egy láthatatlan horgonnyal
+      őrizzük meg. Így a gombsor nem ugrik el, amikor fixed lesz,
+      és pontosan akkor engedjük vissza, amikor felfelé görgetve
+      újra elérjük az eredeti helyét.
+    */
+    const mobileInfoMenuAnchor =
+      document.createElement(
+        "div"
+      );
+
+
+    mobileInfoMenuAnchor
+      .classList
+      .add(
+        "mobile-info-menu-anchor"
+      );
+
+
+    if (
+      mobileInfoMenu &&
+      mobileInfoMenu.parentNode
+    ) {
+
+      mobileInfoMenu.parentNode
+        .insertBefore(
+          mobileInfoMenuAnchor,
+          mobileInfoMenu
+        );
+
+    }
+
+
+    function updateMobileInfoPanelTop() {
 
       if (!mobileInfoMenu) return;
 
 
-      const doScroll = () => {
-
-        const rect =
-          mobileInfoMenu
-            .getBoundingClientRect();
+      const rect =
+        mobileInfoMenu
+          .getBoundingClientRect();
 
 
-        const top =
-          window.scrollY +
-          rect.top -
-          6;
+      document
+        .documentElement
+        .style
+        .setProperty(
+          "--mobile-info-panel-top",
+          Math.ceil(rect.bottom + 6) + "px"
+        );
+
+    }
 
 
-        window.scrollTo({
-          top,
-          behavior: "smooth"
-        });
+    function updateMobileInfoHeaderState() {
 
-      };
+      if (
+        !mobileInfoMenu ||
+        !mobileInfoMenuAnchor
+      ) return;
+
+
+      if (!isMobileBikesView()) {
+
+        mobileInfoMenu
+          .classList
+          .remove(
+            "mobile-fixed"
+          );
+
+
+        document
+          .body
+          .classList
+          .remove(
+            "mobile-info-header-active"
+          );
+
+
+        mobileInfoMenuAnchor
+          .style
+          .height = "0px";
+
+
+        return;
+
+      }
+
+
+      const anchorRect =
+        mobileInfoMenuAnchor
+          .getBoundingClientRect();
+
+
+      const shouldFix =
+        anchorRect.top <= 6;
+
+
+      if (shouldFix) {
+
+        mobileInfoMenuAnchor
+          .style
+          .height =
+          mobileInfoMenu.offsetHeight +
+          "px";
+
+
+        mobileInfoMenu
+          .classList
+          .add(
+            "mobile-fixed"
+          );
+
+
+        document
+          .body
+          .classList
+          .add(
+            "mobile-info-header-active"
+          );
+
+
+        requestAnimationFrame(
+          updateMobileInfoPanelTop
+        );
+
+      }
+
+      else {
+
+        mobileInfoMenu
+          .classList
+          .remove(
+            "mobile-fixed"
+          );
+
+
+        document
+          .body
+          .classList
+          .remove(
+            "mobile-info-header-active"
+          );
+
+
+        mobileInfoMenuAnchor
+          .style
+          .height = "0px";
+
+      }
+
+    }
+
+
+    /*
+      A korábbi változat kattintáskor odagörgette a gombsort.
+      Most nincs mesterséges ugrás: a panel ott nyílik le,
+      ahol a fejléc éppen van. Ha már fix fejléc, közvetlenül alatta.
+    */
+    function scrollMobileInfoMenuToTop() {
+
+      updateMobileInfoHeaderState();
 
 
       requestAnimationFrame(
-        () => {
-
-          setTimeout(
-            doScroll,
-            60
-          );
-
-        }
+        updateMobileInfoPanelTop
       );
 
     }
@@ -5225,6 +5475,64 @@
     }
 
 
+    window.addEventListener(
+      "scroll",
+      updateMobileInfoHeaderState,
+      { passive: true }
+    );
+
+
+    window.addEventListener(
+      "resize",
+      () => {
+
+        updateMobileInfoHeaderState();
+        updateMobileInfoPanelTop();
+
+      }
+    );
+
+
+    window.addEventListener(
+      "orientationchange",
+      () => {
+
+        setTimeout(
+          () => {
+
+            updateMobileInfoHeaderState();
+            updateMobileInfoPanelTop();
+
+          },
+          120
+        );
+
+      }
+    );
+
+
+    if (window.visualViewport) {
+
+      window.visualViewport
+        .addEventListener(
+          "resize",
+          updateMobileInfoPanelTop
+        );
+
+    }
+
+
+    window.addEventListener(
+      "load",
+      () => {
+
+        updateMobileInfoHeaderState();
+        updateMobileInfoPanelTop();
+
+      }
+    );
+
+
     /* =====================================================
        LEHETŐSÉGEK
        ===================================================== */
@@ -5319,6 +5627,9 @@
               opportunitiesButton
                 .classList
                 .remove("open");
+
+
+              updateMobileInfoHeaderState();
 
 
               setTimeout(
@@ -5787,6 +6098,10 @@
           mobileLastInfoPanelId = null;
 
         }
+
+
+        updateMobileInfoHeaderState();
+        updateMobileInfoPanelTop();
 
       }
     );
