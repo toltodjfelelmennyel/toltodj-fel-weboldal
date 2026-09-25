@@ -514,6 +514,75 @@
 
 
     /* =====================================================
+       MOBILOS SZEKCIÓUGRÁS – iOS / SAFARI STABIL VERZIÓ
+
+       A korábbi scrollIntoView + setTimeout megoldást az iOS
+       időnként megszakította, amikor a fix gombsor és a lenyíló
+       panel állapota ugyanabban a pillanatban változott.
+
+       Itt előbb lezárjuk a panelt, megvárjuk két képkockán át,
+       hogy a böngésző befejezze az újrarajzolást, majd konkrét
+       oldalpozícióra görgetünk.
+       ===================================================== */
+
+    function scrollToOpportunitySection(section) {
+
+      if (!section) return;
+
+
+      const performScroll = () => {
+
+        updateMobileInfoHeaderState();
+        updateMobileInfoPanelTop();
+
+
+        const menuIsFixed =
+          mobileInfoMenu &&
+          mobileInfoMenu.classList.contains("mobile-fixed");
+
+
+        const fixedMenuHeight =
+          menuIsFixed && mobileInfoMenu
+            ? mobileInfoMenu.getBoundingClientRect().height
+            : 0;
+
+
+        const safeGap = 12;
+
+
+        const targetTop =
+          Math.max(
+            0,
+            window.scrollY +
+            section.getBoundingClientRect().top -
+            fixedMenuHeight -
+            safeGap
+          );
+
+
+        window.scrollTo({
+          top: targetTop,
+          left: 0,
+          behavior: "smooth"
+        });
+
+      };
+
+
+      requestAnimationFrame(
+        () => {
+
+          requestAnimationFrame(
+            performScroll
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
        LEHETŐSÉGEK
        ===================================================== */
 
@@ -2238,6 +2307,19 @@
         width: 100%;
         height: 0;
         pointer-events: none;
+        overflow-anchor: none;
+      }
+
+      .hero-buttons,
+      #opportunitiesPanel,
+      #mobileBikesPanel,
+      #pricePanel {
+        overflow-anchor: none;
+      }
+
+      #tura,
+      #palya {
+        scroll-margin-top: 118px;
       }
 
       .hero-buttons {
@@ -5629,22 +5711,22 @@
                 .remove("open");
 
 
+              opportunitiesButton
+                .setAttribute(
+                  "aria-expanded",
+                  "false"
+                );
+
+
+              mobileLastInfoPanelId = null;
+
+
               updateMobileInfoHeaderState();
+              updateMobileInfoPanelTop();
 
 
-              setTimeout(
-                () => {
-
-                  section?.scrollIntoView({
-
-                    behavior: "smooth",
-
-                    block: "start"
-
-                  });
-
-                },
-                150
+              scrollToOpportunitySection(
+                section
               );
 
             }
