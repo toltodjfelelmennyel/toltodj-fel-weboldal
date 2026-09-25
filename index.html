@@ -2200,11 +2200,41 @@
         text-align: left;
       }
 
+      .hero-box {
+        /*
+          Mobilon a választógombok fejlécszerűen a kijelző tetején
+          tudnak maradni, amikor egy információs panel nyitva van.
+        */
+        overflow: visible;
+      }
+
       .hero-buttons {
         grid-template-columns:
           1fr 1fr;
 
         gap: 8px;
+
+        position: sticky;
+        top: 6px;
+        z-index: 520;
+
+        padding: 8px;
+
+        border:
+          1px solid
+          rgba(255,121,0,.42);
+
+        border-radius: 13px;
+
+        background:
+          rgba(2,2,2,.96);
+
+        backdrop-filter:
+          blur(12px);
+
+        box-shadow:
+          0 9px 28px
+          rgba(0,0,0,.48);
       }
 
       .main-button {
@@ -2251,7 +2281,7 @@
       .mobile-bikes-wrapper.open {
         grid-template-rows: 1fr;
         opacity: 1;
-        margin-top: 14px;
+        margin-top: 10px;
       }
 
       .mobile-bikes-overflow {
@@ -5002,29 +5032,45 @@
 
 
     /* =====================================================
-       MOBILOS LENYÍLÓ PANELEK – AKTÍV PANEL KÖVETÉSE
+       MOBILOS LENYÍLÓ PANELEK – FEJLÉCSZERŰ MŰKÖDÉS
 
-       Mobilon a Lehetőségek / Motorok / Árak panelek
-       egyszerre is nyitva maradhatnak.
+       Mobilon a Lehetőségek / Motorok / Árak közül
+       egyszerre csak egy információs panel van nyitva.
 
-       Ha egy már nyitott, de nem aktuális panel gombjára
-       kattintunk, nem zárjuk be: először odagörgetünk.
-       Ha ugyanarra az aktuális gombra kattintunk újra,
-       akkor bezárjuk, ahogy eddig.
+       Bármelyik gombra kattintva:
+       - a választógombok a kijelző tetejére kerülnek,
+       - az adott panel közvetlenül alattuk nyílik le,
+       - a korábban nyitott másik panel bezáródik.
+
+       Ha a már nyitott panel saját gombjára kattintunk újra,
+       az bezáródik.
        ===================================================== */
 
     let mobileLastInfoPanelId = null;
 
 
-    function scrollMobileInfoPanelIntoView(panel) {
+    const mobileInfoMenu =
+      document.querySelector(
+        ".hero-buttons"
+      );
 
-      if (!panel) return;
+
+    function scrollMobileInfoMenuToTop() {
+
+      if (!mobileInfoMenu) return;
 
 
       const doScroll = () => {
 
-        const rect = panel.getBoundingClientRect();
-        const top = window.scrollY + rect.top - 12;
+        const rect =
+          mobileInfoMenu
+            .getBoundingClientRect();
+
+
+        const top =
+          window.scrollY +
+          rect.top -
+          6;
 
 
         window.scrollTo({
@@ -5040,7 +5086,61 @@
 
           setTimeout(
             doScroll,
-            70
+            60
+          );
+
+        }
+      );
+
+    }
+
+
+    function closeMobileInfoPanel(
+      panel,
+      button
+    ) {
+
+      if (!panel || !button) return;
+
+
+      panel
+        .classList
+        .remove("open");
+
+
+      button
+        .classList
+        .remove("open");
+
+
+      button
+        .setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+    }
+
+
+    function closeOtherMobileInfoPanels(
+      keepPanel = null
+    ) {
+
+      const pairs = [
+        [opportunitiesPanel, opportunitiesButton],
+        [mobileBikesPanel, bikesButton],
+        [pricePanel, priceToggle]
+      ];
+
+
+      pairs.forEach(
+        ([panel, button]) => {
+
+          if (panel === keepPanel) return;
+
+          closeMobileInfoPanel(
+            panel,
+            button
           );
 
         }
@@ -5058,50 +5158,69 @@
 
 
       const panelId = panel.id;
-      const isOpen = panel.classList.contains("open");
+      const isOpen =
+        panel
+          .classList
+          .contains("open");
 
 
-      if (!isOpen) {
+      /*
+        Ha ugyanaz a panel már nyitva van,
+        második kattintásra bezárjuk.
+      */
 
-        panel.classList.add("open");
-        button.classList.add("open");
+      if (isOpen) {
 
-        button.setAttribute(
+        closeMobileInfoPanel(
+          panel,
+          button
+        );
+
+
+        mobileLastInfoPanelId = null;
+
+
+        scrollMobileInfoMenuToTop();
+
+        return false;
+
+      }
+
+
+      /*
+        Új panel megnyitásakor a másik kettőt bezárjuk,
+        így a kiválasztott tartalom mindig közvetlenül
+        a felső gombsor alatt jelenik meg.
+      */
+
+      closeOtherMobileInfoPanels(
+        panel
+      );
+
+
+      panel
+        .classList
+        .add("open");
+
+
+      button
+        .classList
+        .add("open");
+
+
+      button
+        .setAttribute(
           "aria-expanded",
           "true"
         );
 
-        mobileLastInfoPanelId = panelId;
 
-        scrollMobileInfoPanelIntoView(panel);
-
-        return true;
-
-      }
+      mobileLastInfoPanelId = panelId;
 
 
-      if (mobileLastInfoPanelId !== panelId) {
+      scrollMobileInfoMenuToTop();
 
-        mobileLastInfoPanelId = panelId;
-
-        scrollMobileInfoPanelIntoView(panel);
-
-        return true;
-
-      }
-
-
-      panel.classList.remove("open");
-      button.classList.remove("open");
-
-      button.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      mobileLastInfoPanelId = null;
-
-      return false;
+      return true;
 
     }
 
@@ -5650,19 +5769,20 @@
 
         if (!isMobileBikesView()) {
 
-          mobileBikesPanel
-            .classList
-            .remove("open");
+          closeMobileInfoPanel(
+            mobileBikesPanel,
+            bikesButton
+          );
 
-          bikesButton
-            .classList
-            .remove("open");
+          closeMobileInfoPanel(
+            opportunitiesPanel,
+            opportunitiesButton
+          );
 
-          bikesButton
-            .setAttribute(
-              "aria-expanded",
-              "false"
-            );
+          closeMobileInfoPanel(
+            pricePanel,
+            priceToggle
+          );
 
           mobileLastInfoPanelId = null;
 
