@@ -2585,6 +2585,147 @@
         object-position: center;
       }
 
+      .mobile-bike-photo-button {
+        position: relative;
+        padding: 0;
+        border: 0;
+        color: inherit;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .mobile-bike-photo-button::after {
+        content: "↗";
+
+        position: absolute;
+        right: 7px;
+        bottom: 7px;
+
+        width: 25px;
+        height: 25px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid rgba(255,121,0,.82);
+        border-radius: 8px;
+
+        background: rgba(0,0,0,.76);
+        color: var(--orange);
+
+        font-size: .78rem;
+        font-weight: 900;
+
+        box-shadow: 0 4px 12px rgba(0,0,0,.35);
+      }
+
+      .mobile-bike-photo-button.open::after {
+        content: "×";
+        color: #fff;
+      }
+
+      .mobile-bike-expanded {
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-rows: 0fr;
+
+        opacity: 0;
+        margin-top: 0;
+
+        transition:
+          grid-template-rows .38s ease,
+          opacity .28s ease,
+          margin-top .38s ease;
+      }
+
+      .mobile-bike-expanded.open {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        margin-top: 4px;
+      }
+
+      .mobile-bike-expanded-overflow {
+        overflow: hidden;
+      }
+
+      .mobile-bike-expanded-photo {
+        position: relative;
+
+        width: 100%;
+        aspect-ratio: 4 / 3;
+
+        overflow: hidden;
+
+        border: 1px solid rgba(255,121,0,.74);
+        border-radius: 11px;
+
+        background: #060606;
+
+        box-shadow:
+          inset 0 0 0 1px rgba(255,255,255,.02),
+          0 8px 22px rgba(0,0,0,.28);
+      }
+
+      /*
+        A fő motoros képből pontosan a bal oldali 80%-ot
+        mutatjuk, így az 1–4. Sur-Ron látszik, az 5. Stark nem.
+      */
+      .mobile-bike-expanded-photo.surron-four-crop img {
+        width: 125%;
+        max-width: none;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: left center;
+      }
+
+      .mobile-bike-expanded-photo.stark-full img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        object-position: center center;
+
+        background: #060606;
+      }
+
+      .mobile-bike-availability {
+        position: absolute;
+        left: 9px;
+        right: 9px;
+        bottom: 9px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+
+        padding: 8px 10px;
+
+        border: 1px solid rgba(255,121,0,.88);
+        border-radius: 10px;
+
+        background:
+          linear-gradient(90deg, rgba(0,0,0,.90), rgba(20,10,0,.90));
+
+        color: var(--orange-light);
+
+        font-size: .78rem;
+        font-weight: 800;
+        line-height: 1.2;
+        text-align: center;
+
+        backdrop-filter: blur(6px);
+        box-shadow: 0 5px 18px rgba(0,0,0,.45);
+      }
+
+      .mobile-bike-availability .availability-icon {
+        color: var(--orange);
+        font-size: .95rem;
+      }
+
       .mobile-bike-content {
         min-width: 0;
 
@@ -3646,12 +3787,19 @@
 
                   <article class="mobile-bike-card">
 
-                    <div class="mobile-bike-photo">
+                    <button
+                      class="mobile-bike-photo mobile-bike-photo-button"
+                      type="button"
+                      data-mobile-bike-photo="surron"
+                      aria-expanded="false"
+                      aria-controls="mobileBikeExpandedSurron"
+                      title="Sur-Ron kép megnyitása"
+                    >
                       <img
-                        src="images/motor2.jpg?v=20260924-mobile"
+                        src="images/motor2.jpg?v=20260925-mobile"
                         alt="Sur-Ron Ultra Bee"
                       >
-                    </div>
+                    </button>
 
                     <div class="mobile-bike-content">
 
@@ -3693,17 +3841,46 @@
 
                     </div>
 
+                    <div
+                      class="mobile-bike-expanded"
+                      id="mobileBikeExpandedSurron"
+                      data-mobile-bike-expanded="surron"
+                    >
+                      <div class="mobile-bike-expanded-overflow">
+
+                        <div class="mobile-bike-expanded-photo surron-four-crop">
+                          <img
+                            src="images/motorok.jpg?v=20260925-mobile-four"
+                            alt="Négy bérelhető Sur-Ron Ultra Bee"
+                          >
+
+                          <div class="mobile-bike-availability">
+                            <span class="availability-icon">●●●●</span>
+                            <span>4 db elérhető ebből a modellből</span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
                   </article>
 
 
                   <article class="mobile-bike-card">
 
-                    <div class="mobile-bike-photo">
+                    <button
+                      class="mobile-bike-photo mobile-bike-photo-button"
+                      type="button"
+                      data-mobile-bike-photo="stark"
+                      aria-expanded="false"
+                      aria-controls="mobileBikeExpandedStark"
+                      title="Stark kép megnyitása"
+                    >
                       <img
-                        src="images/motor3.jpg?v=20260924-mobile"
+                        src="images/motor3.jpg?v=20260925-mobile"
                         alt="Stark VARG MX"
                       >
-                    </div>
+                    </button>
 
                     <div class="mobile-bike-content">
 
@@ -3743,6 +3920,23 @@
                         Fokozatmentesen szabályozható 0–60 LE között.
                       </p>
 
+                    </div>
+
+                    <div
+                      class="mobile-bike-expanded"
+                      id="mobileBikeExpandedStark"
+                      data-mobile-bike-expanded="stark"
+                    >
+                      <div class="mobile-bike-expanded-overflow">
+
+                        <div class="mobile-bike-expanded-photo stark-full">
+                          <img
+                            src="images/motor3.jpg?v=20260925-mobile-large"
+                            alt="Stark VARG MX"
+                          >
+                        </div>
+
+                      </div>
                     </div>
 
                   </article>
@@ -5451,6 +5645,13 @@
           "false"
         );
 
+
+      if (
+        panel.id === "mobileBikesPanel"
+      ) {
+        closeMobileBikeImagePreviews();
+      }
+
     }
 
 
@@ -6135,6 +6336,83 @@
       );
 
     }
+
+
+    function closeMobileBikeImagePreviews() {
+
+      document
+        .querySelectorAll(
+          ".mobile-bike-expanded.open"
+        )
+        .forEach(
+          panel => {
+            panel.classList.remove("open");
+          }
+        );
+
+
+      document
+        .querySelectorAll(
+          ".mobile-bike-photo-button.open"
+        )
+        .forEach(
+          button => {
+            button.classList.remove("open");
+            button.setAttribute("aria-expanded", "false");
+          }
+        );
+
+    }
+
+
+    document
+      .querySelectorAll(
+        ".mobile-bike-photo-button"
+      )
+      .forEach(
+        button => {
+
+          button.addEventListener(
+            "click",
+            event => {
+
+              if (!isMobileBikesView()) {
+                return;
+              }
+
+              event.preventDefault();
+              event.stopPropagation();
+
+              const bikeKey =
+                button.dataset.mobileBikePhoto;
+
+              const expanded =
+                document.querySelector(
+                  '[data-mobile-bike-expanded="' +
+                  bikeKey +
+                  '"]'
+                );
+
+              if (!expanded) {
+                return;
+              }
+
+              const wasOpen =
+                expanded.classList.contains("open");
+
+              closeMobileBikeImagePreviews();
+
+              if (!wasOpen) {
+                expanded.classList.add("open");
+                button.classList.add("open");
+                button.setAttribute("aria-expanded", "true");
+              }
+
+            }
+          );
+
+        }
+      );
 
 
     bikesButton.addEventListener(
