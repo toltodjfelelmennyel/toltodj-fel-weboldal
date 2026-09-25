@@ -512,76 +512,6 @@
       font-size: 1.2rem;
     }
 
-
-    /* =====================================================
-       MOBILOS SZEKCIÓUGRÁS – iOS / SAFARI STABIL VERZIÓ
-
-       A korábbi scrollIntoView + setTimeout megoldást az iOS
-       időnként megszakította, amikor a fix gombsor és a lenyíló
-       panel állapota ugyanabban a pillanatban változott.
-
-       Itt előbb lezárjuk a panelt, megvárjuk két képkockán át,
-       hogy a böngésző befejezze az újrarajzolást, majd konkrét
-       oldalpozícióra görgetünk.
-       ===================================================== */
-
-    function scrollToOpportunitySection(section) {
-
-      if (!section) return;
-
-
-      const performScroll = () => {
-
-        updateMobileInfoHeaderState();
-        updateMobileInfoPanelTop();
-
-
-        const menuIsFixed =
-          mobileInfoMenu &&
-          mobileInfoMenu.classList.contains("mobile-fixed");
-
-
-        const fixedMenuHeight =
-          menuIsFixed && mobileInfoMenu
-            ? mobileInfoMenu.getBoundingClientRect().height
-            : 0;
-
-
-        const safeGap = 12;
-
-
-        const targetTop =
-          Math.max(
-            0,
-            window.scrollY +
-            section.getBoundingClientRect().top -
-            fixedMenuHeight -
-            safeGap
-          );
-
-
-        window.scrollTo({
-          top: targetTop,
-          left: 0,
-          behavior: "smooth"
-        });
-
-      };
-
-
-      requestAnimationFrame(
-        () => {
-
-          requestAnimationFrame(
-            performScroll
-          );
-
-        }
-      );
-
-    }
-
-
     /* =====================================================
        LEHETŐSÉGEK
        ===================================================== */
@@ -2126,6 +2056,16 @@
        MOBIL
        ===================================================== */
 
+
+
+    /* =====================================================
+       MOBIL INFORMÁCIÓS PANELEK BEZÁRÓ GOMBJA
+       ===================================================== */
+
+    .mobile-info-panel-close {
+      display: none;
+    }
+
     @media (max-width: 680px) {
 
       .page-width {
@@ -2289,8 +2229,17 @@
       html,
       body {
         width: 100%;
+        min-width: 100%;
         max-width: 100%;
         overflow-x: hidden !important;
+        overscroll-behavior-x: none;
+      }
+
+      @supports (overflow: clip) {
+        html,
+        body {
+          overflow-x: clip !important;
+        }
       }
 
       .page-width,
@@ -2307,19 +2256,6 @@
         width: 100%;
         height: 0;
         pointer-events: none;
-        overflow-anchor: none;
-      }
-
-      .hero-buttons,
-      #opportunitiesPanel,
-      #mobileBikesPanel,
-      #pricePanel {
-        overflow-anchor: none;
-      }
-
-      #tura,
-      #palya {
-        scroll-margin-top: 118px;
       }
 
       .hero-buttons {
@@ -2436,6 +2372,98 @@
       #pricePanel.open
       .price-overflow {
         overflow: visible;
+      }
+
+      /*
+        Amíg egy felső információs panel nyitva van,
+        a háttéroldal teljesen rögzített. Így iPhone-on sem
+        tud a hero / tartalom a panel mögött elcsúszni.
+      */
+      html.mobile-info-scroll-locked,
+      body.mobile-info-scroll-locked {
+        overflow: hidden !important;
+        overscroll-behavior: none !important;
+      }
+
+      body.mobile-info-scroll-locked {
+        position: fixed !important;
+        left: 0;
+        right: 0;
+        width: 100%;
+      }
+
+      body.mobile-info-panel-open
+      .hero-buttons {
+        position: fixed;
+        top: calc(env(safe-area-inset-top, 0px) + 6px);
+        left: 8px;
+        right: 8px;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        z-index: 1600;
+      }
+
+      .mobile-info-panel-close {
+        display: none;
+      }
+
+      body.mobile-info-header-active
+      #opportunitiesPanel.open
+      .mobile-info-panel-close,
+
+      body.mobile-info-header-active
+      #mobileBikesPanel.open
+      .mobile-info-panel-close,
+
+      body.mobile-info-header-active
+      #pricePanel.open
+      .mobile-info-panel-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: fixed;
+        top: calc(var(--mobile-info-panel-top, 210px) + 10px);
+        right: 18px;
+
+        width: 42px;
+        height: 42px;
+
+        border: 1.5px solid var(--orange);
+        border-radius: 50%;
+
+        background: rgba(7,7,7,.94);
+        color: #fff;
+
+        font-size: 1.55rem;
+        line-height: 1;
+
+        cursor: pointer;
+        z-index: 1650;
+
+        box-shadow:
+          0 8px 24px rgba(0,0,0,.45),
+          0 0 0 3px rgba(255,121,0,.06);
+      }
+
+      body.mobile-info-header-active
+      #opportunitiesPanel.open,
+
+      body.mobile-info-header-active
+      #mobileBikesPanel.open,
+
+      body.mobile-info-header-active
+      #pricePanel.open {
+        padding-top: 56px;
+        touch-action: pan-y;
+      }
+
+      body.mobile-info-header-active
+      #opportunitiesPanel.open {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
       }
 
       .main-button {
@@ -2583,147 +2611,6 @@
 
         object-fit: cover;
         object-position: center;
-      }
-
-      .mobile-bike-photo-button {
-        position: relative;
-        padding: 0;
-        border: 0;
-        color: inherit;
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      .mobile-bike-photo-button::after {
-        content: "↗";
-
-        position: absolute;
-        right: 7px;
-        bottom: 7px;
-
-        width: 25px;
-        height: 25px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border: 1px solid rgba(255,121,0,.82);
-        border-radius: 8px;
-
-        background: rgba(0,0,0,.76);
-        color: var(--orange);
-
-        font-size: .78rem;
-        font-weight: 900;
-
-        box-shadow: 0 4px 12px rgba(0,0,0,.35);
-      }
-
-      .mobile-bike-photo-button.open::after {
-        content: "×";
-        color: #fff;
-      }
-
-      .mobile-bike-expanded {
-        grid-column: 1 / -1;
-
-        display: grid;
-        grid-template-rows: 0fr;
-
-        opacity: 0;
-        margin-top: 0;
-
-        transition:
-          grid-template-rows .38s ease,
-          opacity .28s ease,
-          margin-top .38s ease;
-      }
-
-      .mobile-bike-expanded.open {
-        grid-template-rows: 1fr;
-        opacity: 1;
-        margin-top: 4px;
-      }
-
-      .mobile-bike-expanded-overflow {
-        overflow: hidden;
-      }
-
-      .mobile-bike-expanded-photo {
-        position: relative;
-
-        width: 100%;
-        aspect-ratio: 4 / 3;
-
-        overflow: hidden;
-
-        border: 1px solid rgba(255,121,0,.74);
-        border-radius: 11px;
-
-        background: #060606;
-
-        box-shadow:
-          inset 0 0 0 1px rgba(255,255,255,.02),
-          0 8px 22px rgba(0,0,0,.28);
-      }
-
-      /*
-        A fő motoros képből pontosan a bal oldali 80%-ot
-        mutatjuk, így az 1–4. Sur-Ron látszik, az 5. Stark nem.
-      */
-      .mobile-bike-expanded-photo.surron-four-crop img {
-        width: 125%;
-        max-width: none;
-        height: 100%;
-
-        object-fit: cover;
-        object-position: left center;
-      }
-
-      .mobile-bike-expanded-photo.stark-full img {
-        width: 100%;
-        height: 100%;
-
-        object-fit: contain;
-        object-position: center center;
-
-        background: #060606;
-      }
-
-      .mobile-bike-availability {
-        position: absolute;
-        left: 9px;
-        right: 9px;
-        bottom: 9px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 7px;
-
-        padding: 8px 10px;
-
-        border: 1px solid rgba(255,121,0,.88);
-        border-radius: 10px;
-
-        background:
-          linear-gradient(90deg, rgba(0,0,0,.90), rgba(20,10,0,.90));
-
-        color: var(--orange-light);
-
-        font-size: .78rem;
-        font-weight: 800;
-        line-height: 1.2;
-        text-align: center;
-
-        backdrop-filter: blur(6px);
-        box-shadow: 0 5px 18px rgba(0,0,0,.45);
-      }
-
-      .mobile-bike-availability .availability-icon {
-        color: var(--orange);
-        font-size: .95rem;
       }
 
       .mobile-bike-content {
@@ -3770,6 +3657,15 @@
             id="mobileBikesPanel"
           >
 
+            <button
+              class="mobile-info-panel-close"
+              type="button"
+              data-close-mobile-info="mobileBikesPanel"
+              aria-label="Motorok bezárása"
+            >
+              ×
+            </button>
+
             <div class="mobile-bikes-overflow">
 
               <div class="mobile-bikes-panel">
@@ -3787,19 +3683,12 @@
 
                   <article class="mobile-bike-card">
 
-                    <button
-                      class="mobile-bike-photo mobile-bike-photo-button"
-                      type="button"
-                      data-mobile-bike-photo="surron"
-                      aria-expanded="false"
-                      aria-controls="mobileBikeExpandedSurron"
-                      title="Sur-Ron kép megnyitása"
-                    >
+                    <div class="mobile-bike-photo">
                       <img
-                        src="images/motor2.jpg?v=20260925-mobile"
+                        src="images/motor2.jpg?v=20260924-mobile"
                         alt="Sur-Ron Ultra Bee"
                       >
-                    </button>
+                    </div>
 
                     <div class="mobile-bike-content">
 
@@ -3841,46 +3730,17 @@
 
                     </div>
 
-                    <div
-                      class="mobile-bike-expanded"
-                      id="mobileBikeExpandedSurron"
-                      data-mobile-bike-expanded="surron"
-                    >
-                      <div class="mobile-bike-expanded-overflow">
-
-                        <div class="mobile-bike-expanded-photo surron-four-crop">
-                          <img
-                            src="images/motorok.jpg?v=20260925-mobile-four"
-                            alt="Négy bérelhető Sur-Ron Ultra Bee"
-                          >
-
-                          <div class="mobile-bike-availability">
-                            <span class="availability-icon">●●●●</span>
-                            <span>4 db elérhető ebből a modellből</span>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-
                   </article>
 
 
                   <article class="mobile-bike-card">
 
-                    <button
-                      class="mobile-bike-photo mobile-bike-photo-button"
-                      type="button"
-                      data-mobile-bike-photo="stark"
-                      aria-expanded="false"
-                      aria-controls="mobileBikeExpandedStark"
-                      title="Stark kép megnyitása"
-                    >
+                    <div class="mobile-bike-photo">
                       <img
-                        src="images/motor3.jpg?v=20260925-mobile"
+                        src="images/motor3.jpg?v=20260924-mobile"
                         alt="Stark VARG MX"
                       >
-                    </button>
+                    </div>
 
                     <div class="mobile-bike-content">
 
@@ -3922,23 +3782,6 @@
 
                     </div>
 
-                    <div
-                      class="mobile-bike-expanded"
-                      id="mobileBikeExpandedStark"
-                      data-mobile-bike-expanded="stark"
-                    >
-                      <div class="mobile-bike-expanded-overflow">
-
-                        <div class="mobile-bike-expanded-photo stark-full">
-                          <img
-                            src="images/motor3.jpg?v=20260925-mobile-large"
-                            alt="Stark VARG MX"
-                          >
-                        </div>
-
-                      </div>
-                    </div>
-
                   </article>
 
                 </div>
@@ -3958,6 +3801,15 @@
             class="opportunities-panel"
             id="opportunitiesPanel"
           >
+
+            <button
+              class="mobile-info-panel-close"
+              type="button"
+              data-close-mobile-info="opportunitiesPanel"
+              aria-label="Lehetőségek bezárása"
+            >
+              ×
+            </button>
 
             <div class="opportunities-overflow">
 
@@ -4031,6 +3883,15 @@
             class="price-wrapper"
             id="pricePanel"
           >
+
+            <button
+              class="mobile-info-panel-close"
+              type="button"
+              data-close-mobile-info="pricePanel"
+              aria-label="Árak bezárása"
+            >
+              ×
+            </button>
 
             <div class="price-overflow">
 
@@ -5442,6 +5303,9 @@
        ===================================================== */
 
     let mobileLastInfoPanelId = null;
+    let mobileInfoMenuStartY = null;
+    let mobileScrollLockY = 0;
+    let mobileScrollLocked = false;
 
 
     const mobileInfoMenu =
@@ -5451,10 +5315,10 @@
 
 
     /*
-      A fix mobil fejléc eredeti helyét egy láthatatlan horgonnyal
-      őrizzük meg. Így a gombsor nem ugrik el, amikor fixed lesz,
-      és pontosan akkor engedjük vissza, amikor felfelé görgetve
-      újra elérjük az eredeti helyét.
+      A gombsor eredeti helyét egy horgony őrzi.
+      A rögzítés nem a pillanatnyi getBoundingClientRect értékre,
+      hanem egy dokumentumon belüli fix Y pontra épül. Ettől iOS
+      Safariban sem "enged el" később a fejléc.
     */
     const mobileInfoMenuAnchor =
       document.createElement(
@@ -5483,6 +5347,31 @@
     }
 
 
+    function refreshMobileInfoMenuStartY() {
+
+      if (
+        !mobileInfoMenuAnchor ||
+        !isMobileBikesView()
+      ) return;
+
+
+      const rect =
+        mobileInfoMenuAnchor
+          .getBoundingClientRect();
+
+
+      const liveScrollY =
+        mobileScrollLocked
+          ? mobileScrollLockY
+          : window.scrollY;
+
+
+      mobileInfoMenuStartY =
+        rect.top + liveScrollY;
+
+    }
+
+
     function updateMobileInfoPanelTop() {
 
       if (!mobileInfoMenu) return;
@@ -5500,6 +5389,137 @@
           "--mobile-info-panel-top",
           Math.ceil(rect.bottom + 6) + "px"
         );
+
+    }
+
+
+    function hasOpenMobileInfoPanel() {
+
+      return [
+        opportunitiesPanel,
+        mobileBikesPanel,
+        pricePanel
+      ].some(
+        panel =>
+          panel &&
+          panel.classList.contains("open")
+      );
+
+    }
+
+
+    function lockMobileBackground() {
+
+      if (
+        !isMobileBikesView() ||
+        mobileScrollLocked
+      ) return;
+
+
+      mobileScrollLockY =
+        window.scrollY;
+
+
+      mobileScrollLocked = true;
+
+
+      document
+        .documentElement
+        .classList
+        .add(
+          "mobile-info-scroll-locked"
+        );
+
+
+      document
+        .body
+        .classList
+        .add(
+          "mobile-info-scroll-locked",
+          "mobile-info-panel-open"
+        );
+
+
+      document.body.style.top =
+        "-" + mobileScrollLockY + "px";
+
+
+      updateMobileInfoHeaderState();
+
+
+      requestAnimationFrame(
+        updateMobileInfoPanelTop
+      );
+
+    }
+
+
+    function unlockMobileBackground() {
+
+      if (!mobileScrollLocked) return;
+
+
+      const restoreY =
+        mobileScrollLockY;
+
+
+      mobileScrollLocked = false;
+
+
+      document
+        .documentElement
+        .classList
+        .remove(
+          "mobile-info-scroll-locked"
+        );
+
+
+      document
+        .body
+        .classList
+        .remove(
+          "mobile-info-scroll-locked",
+          "mobile-info-panel-open"
+        );
+
+
+      document.body.style.top = "";
+
+
+      window.scrollTo(
+        0,
+        restoreY
+      );
+
+
+      requestAnimationFrame(
+        () => {
+
+          updateMobileInfoHeaderState();
+          updateMobileInfoPanelTop();
+
+        }
+      );
+
+    }
+
+
+    function syncMobileBackgroundLock() {
+
+      if (
+        isMobileBikesView() &&
+        hasOpenMobileInfoPanel()
+      ) {
+
+        lockMobileBackground();
+
+      }
+
+      else {
+
+        unlockMobileBackground();
+
+      }
 
     }
 
@@ -5539,13 +5559,31 @@
       }
 
 
-      const anchorRect =
-        mobileInfoMenuAnchor
-          .getBoundingClientRect();
+      if (mobileInfoMenuStartY === null) {
+        refreshMobileInfoMenuStartY();
+      }
+
+
+      const liveScrollY =
+        mobileScrollLocked
+          ? mobileScrollLockY
+          : window.scrollY;
+
+
+      const panelForcesHeader =
+        hasOpenMobileInfoPanel() ||
+        document.body.classList.contains(
+          "mobile-info-panel-open"
+        );
 
 
       const shouldFix =
-        anchorRect.top <= 6;
+        panelForcesHeader ||
+        (
+          mobileInfoMenuStartY !== null &&
+          liveScrollY >=
+            mobileInfoMenuStartY - 6
+        );
 
 
       if (shouldFix) {
@@ -5604,26 +5642,10 @@
     }
 
 
-    /*
-      A korábbi változat kattintáskor odagörgette a gombsort.
-      Most nincs mesterséges ugrás: a panel ott nyílik le,
-      ahol a fejléc éppen van. Ha már fix fejléc, közvetlenül alatta.
-    */
-    function scrollMobileInfoMenuToTop() {
-
-      updateMobileInfoHeaderState();
-
-
-      requestAnimationFrame(
-        updateMobileInfoPanelTop
-      );
-
-    }
-
-
     function closeMobileInfoPanel(
       panel,
-      button
+      button,
+      syncLock = true
     ) {
 
       if (!panel || !button) return;
@@ -5646,10 +5668,8 @@
         );
 
 
-      if (
-        panel.id === "mobileBikesPanel"
-      ) {
-        closeMobileBikeImagePreviews();
+      if (syncLock) {
+        syncMobileBackgroundLock();
       }
 
     }
@@ -5673,7 +5693,8 @@
 
           closeMobileInfoPanel(
             panel,
-            button
+            button,
+            false
           );
 
         }
@@ -5697,34 +5718,21 @@
           .contains("open");
 
 
-      /*
-        Ha ugyanaz a panel már nyitva van,
-        második kattintásra bezárjuk.
-      */
-
       if (isOpen) {
 
         closeMobileInfoPanel(
           panel,
-          button
+          button,
+          true
         );
 
 
         mobileLastInfoPanelId = null;
 
-
-        scrollMobileInfoMenuToTop();
-
         return false;
 
       }
 
-
-      /*
-        Új panel megnyitásakor a másik kettőt bezárjuk,
-        így a kiválasztott tartalom mindig közvetlenül
-        a felső gombsor alatt jelenik meg.
-      */
 
       closeOtherMobileInfoPanels(
         panel
@@ -5751,16 +5759,135 @@
       mobileLastInfoPanelId = panelId;
 
 
-      scrollMobileInfoMenuToTop();
+      syncMobileBackgroundLock();
+      updateMobileInfoHeaderState();
+
+
+      requestAnimationFrame(
+        () => {
+
+          updateMobileInfoPanelTop();
+
+          if (panel.scrollTo) {
+            panel.scrollTo(0, 0);
+          }
+
+        }
+      );
+
 
       return true;
 
     }
 
 
+    /*
+      Lehetőségek kiválasztásakor a panel bezárása után
+      mindig az adott kép TETEJE kerül közvetlenül a fix
+      gombsor alá. Nem az article elejére és nem a címre ugrunk.
+    */
+    function jumpToMobileSection(section) {
+
+      if (!section) return;
+
+
+      const target =
+        section.querySelector(
+          ".experience-image"
+        ) || section;
+
+
+      requestAnimationFrame(
+        () => {
+
+          updateMobileInfoHeaderState();
+
+
+          requestAnimationFrame(
+            () => {
+
+              const headerHeight =
+                mobileInfoMenu
+                  ? mobileInfoMenu.offsetHeight
+                  : 0;
+
+
+              const targetTop =
+                Math.max(
+                  0,
+                  window.scrollY +
+                  target.getBoundingClientRect().top -
+                  headerHeight -
+                  8
+                );
+
+
+              window.scrollTo({
+                top: targetTop,
+                left: 0,
+                behavior: "auto"
+              });
+
+
+              setTimeout(
+                () => {
+
+                  updateMobileInfoHeaderState();
+
+
+                  const liveHeaderHeight =
+                    mobileInfoMenu
+                      ? mobileInfoMenu.offsetHeight
+                      : 0;
+
+
+                  const desiredTop =
+                    liveHeaderHeight + 8;
+
+
+                  const currentTop =
+                    target
+                      .getBoundingClientRect()
+                      .top;
+
+
+                  if (
+                    Math.abs(
+                      currentTop - desiredTop
+                    ) > 10
+                  ) {
+
+                    window.scrollBy({
+                      top:
+                        currentTop - desiredTop,
+                      left: 0,
+                      behavior: "auto"
+                    });
+
+                  }
+
+                },
+                120
+              );
+
+            }
+          );
+
+        }
+      );
+
+    }
+
+
     window.addEventListener(
       "scroll",
-      updateMobileInfoHeaderState,
+      () => {
+
+        if (!mobileScrollLocked) {
+          updateMobileInfoHeaderState();
+        }
+
+      },
       { passive: true }
     );
 
@@ -5768,6 +5895,11 @@
     window.addEventListener(
       "resize",
       () => {
+
+        if (!mobileScrollLocked) {
+          mobileInfoMenuStartY = null;
+          refreshMobileInfoMenuStartY();
+        }
 
         updateMobileInfoHeaderState();
         updateMobileInfoPanelTop();
@@ -5783,11 +5915,13 @@
         setTimeout(
           () => {
 
+            mobileInfoMenuStartY = null;
+            refreshMobileInfoMenuStartY();
             updateMobileInfoHeaderState();
             updateMobileInfoPanelTop();
 
           },
-          120
+          150
         );
 
       }
@@ -5809,6 +5943,8 @@
       "load",
       () => {
 
+        mobileInfoMenuStartY = null;
+        refreshMobileInfoMenuStartY();
         updateMobileInfoHeaderState();
         updateMobileInfoPanelTop();
 
@@ -5902,32 +6038,30 @@
               }
 
 
-              opportunitiesPanel
-                .classList
-                .remove("open");
-
-
-              opportunitiesButton
-                .classList
-                .remove("open");
-
-
-              opportunitiesButton
-                .setAttribute(
-                  "aria-expanded",
-                  "false"
-                );
+              /*
+                A panel állapotát ugyanazzal a központi
+                függvénnyel zárjuk, mint a többi mobil panelt.
+                Így az aria-expanded és a vizuális állapot is
+                biztosan szinkronban marad.
+              */
+              closeMobileInfoPanel(
+                opportunitiesPanel,
+                opportunitiesButton,
+                true
+              );
 
 
               mobileLastInfoPanelId = null;
 
 
-              updateMobileInfoHeaderState();
-              updateMobileInfoPanelTop();
-
-
-              scrollToOpportunitySection(
-                section
+              /*
+                A háttér feloldása után ugrunk, így iOS Safariban
+                is biztosan a kiválasztott KÉP TETEJE lesz látható.
+              */
+              requestAnimationFrame(
+                () => {
+                  jumpToMobileSection(section);
+                }
               );
 
             }
@@ -5936,6 +6070,68 @@
         }
       );
 
+
+
+    /* =====================================================
+       MOBIL LENYÍLÓ PANELEK X GOMBJAI
+       ===================================================== */
+
+    document
+      .querySelectorAll(
+        "[data-close-mobile-info]"
+      )
+      .forEach(
+        closeButton => {
+
+          closeButton.addEventListener(
+            "click",
+            event => {
+
+              event.preventDefault();
+              event.stopPropagation();
+
+
+              const panelId =
+                closeButton.dataset
+                  .closeMobileInfo;
+
+
+              const panel =
+                document.getElementById(
+                  panelId
+                );
+
+
+              let trigger = null;
+
+
+              if (panelId === "opportunitiesPanel") {
+                trigger = opportunitiesButton;
+              }
+
+              else if (panelId === "mobileBikesPanel") {
+                trigger = bikesButton;
+              }
+
+              else if (panelId === "pricePanel") {
+                trigger = priceToggle;
+              }
+
+
+              closeMobileInfoPanel(
+                panel,
+                trigger,
+                true
+              );
+
+
+              mobileLastInfoPanelId = null;
+
+            }
+          );
+
+        }
+      );
 
 
     /* =====================================================
@@ -6338,83 +6534,6 @@
     }
 
 
-    function closeMobileBikeImagePreviews() {
-
-      document
-        .querySelectorAll(
-          ".mobile-bike-expanded.open"
-        )
-        .forEach(
-          panel => {
-            panel.classList.remove("open");
-          }
-        );
-
-
-      document
-        .querySelectorAll(
-          ".mobile-bike-photo-button.open"
-        )
-        .forEach(
-          button => {
-            button.classList.remove("open");
-            button.setAttribute("aria-expanded", "false");
-          }
-        );
-
-    }
-
-
-    document
-      .querySelectorAll(
-        ".mobile-bike-photo-button"
-      )
-      .forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            event => {
-
-              if (!isMobileBikesView()) {
-                return;
-              }
-
-              event.preventDefault();
-              event.stopPropagation();
-
-              const bikeKey =
-                button.dataset.mobileBikePhoto;
-
-              const expanded =
-                document.querySelector(
-                  '[data-mobile-bike-expanded="' +
-                  bikeKey +
-                  '"]'
-                );
-
-              if (!expanded) {
-                return;
-              }
-
-              const wasOpen =
-                expanded.classList.contains("open");
-
-              closeMobileBikeImagePreviews();
-
-              if (!wasOpen) {
-                expanded.classList.add("open");
-                button.classList.add("open");
-                button.setAttribute("aria-expanded", "true");
-              }
-
-            }
-          );
-
-        }
-      );
-
-
     bikesButton.addEventListener(
       "click",
       () => {
@@ -6442,20 +6561,25 @@
 
           closeMobileInfoPanel(
             mobileBikesPanel,
-            bikesButton
+            bikesButton,
+            false
           );
 
           closeMobileInfoPanel(
             opportunitiesPanel,
-            opportunitiesButton
+            opportunitiesButton,
+            false
           );
 
           closeMobileInfoPanel(
             pricePanel,
-            priceToggle
+            priceToggle,
+            false
           );
 
           mobileLastInfoPanelId = null;
+
+          unlockMobileBackground();
 
         }
 
@@ -6933,6 +7057,26 @@
     );
 
 
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape" &&
+          isMobileBikesView() &&
+          hasOpenMobileInfoPanel()
+        ) {
+
+          closeOtherMobileInfoPanels(null);
+          mobileLastInfoPanelId = null;
+          syncMobileBackgroundLock();
+
+        }
+
+      }
+    );
   </script>
 
 </body>
