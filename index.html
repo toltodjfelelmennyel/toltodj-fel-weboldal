@@ -118,7 +118,7 @@ margin-inline: auto;
 
 
 /* =====================================================
-   ÁLTALÁNOS IKON
+ÁLTALÁNOS IKON
 ===================================================== */
 
 .icon {
@@ -143,7 +143,7 @@ stroke-linejoin: round;
 
 
 /* =====================================================
-   FEJLÉC
+FEJLÉC
 ===================================================== */
 
 .topbar {
@@ -213,7 +213,7 @@ background: rgba(255,255,255,.18);
 
 
 /* =====================================================
-   HERO
+HERO
 ===================================================== */
 
 .hero {
@@ -261,12 +261,16 @@ max-width: 650px;
 
 
 /* =====================================================
-   HERO CÍM
+HERO CÍM
 ===================================================== */
 
 .hero-title {
 margin-bottom: 25px;
-font-size: clamp(3.5rem,7vw,6.6rem);
+font-size: clamp(
+3.5rem,
+7vw,
+6.6rem
+);
 font-style: italic;
 font-weight: 900;
 line-height: .86;
@@ -318,19 +322,24 @@ text-shadow: 0 2px 8px #000;
 max-width: 555px;
 margin-bottom: 34px;
 color: #f1f1f1;
-font-size: clamp(1rem,1.45vw,1.22rem);
+font-size: clamp(
+1rem,
+1.45vw,
+1.22rem
+);
 text-shadow: 0 2px 6px #000;
 }
 
 
 /* =====================================================
-   KIEMELT INFORMÁCIÓK
+KIEMELT INFORMÁCIÓK
 ===================================================== */
 
 .hero-features {
 width: 100%;
 display: grid;
-grid-template-columns: 1fr 1.45fr 1fr;
+grid-template-columns:
+1fr 1.45fr 1fr;
 margin-bottom: 27px;
 background:
 linear-gradient(
@@ -370,7 +379,7 @@ flex: 0 0 29px;
 
 
 /* =====================================================
-   INFO A GOMBOK FÖLÖTT
+INFO A GOMBOK FÖLÖTT
 ===================================================== */
 
 .hero-info-hint {
@@ -392,7 +401,7 @@ font-size: 1.45rem;
 
 
 /* =====================================================
-   FŐ GOMBOK
+FŐ GOMBOK
 ===================================================== */
 
 .hero-buttons {
@@ -448,7 +457,8 @@ color: var(--orange);
 transition: transform .3s ease;
 }
 
-.main-button.open .button-arrow {
+.main-button.open
+.button-arrow {
 transform: rotate(180deg);
 }
 
@@ -459,7 +469,7 @@ font-size: 1.2rem;
 
 
 /* =====================================================
-   LEHETŐSÉGEK
+LEHETŐSÉGEK
 ===================================================== */
 
 .opportunities-panel {
@@ -557,7 +567,7 @@ font-weight: 400;
 
 
 /* =====================================================
-   MOTOROK – MOBILOS PANEL
+MOTOROK – MOBILOS, OLDALON BELÜL LENYÍLÓ PANEL
 ===================================================== */
 
 .mobile-bikes-wrapper {
@@ -566,7 +576,7 @@ display: none;
 
 
 /* =====================================================
-   ÁRAK
+ÁRAK
 ===================================================== */
 
 .price-wrapper {
@@ -709,7 +719,7 @@ text-align: center;
 
 
 /* =====================================================
-   PÁLYA / TÚRA
+PÁLYA / TÚRA
 ===================================================== */
 
 .experiences {
@@ -865,7 +875,7 @@ line-height: 1.55;
 
 
 /* =====================================================
-   ALSÓ INFORMÁCIÓ
+ALSÓ INFORMÁCIÓ
 ===================================================== */
 
 .trust {
@@ -930,7 +940,7 @@ text-align: center;
 
 
 /* =====================================================
-   MODAL
+MODAL
 ===================================================== */
 
 .modal-background {
@@ -969,7 +979,7 @@ cursor: pointer;
 
 
 /* =====================================================
-   KAPCSOLAT MODAL
+KAPCSOLAT MODAL
 ===================================================== */
 
 .modal {
@@ -1033,7 +1043,7 @@ font-size: .84rem;
 
 
 /* =====================================================
-   MOTOROK TELJES ABLAK
+MOTOROK TELJES ABLAK
 ===================================================== */
 
 .bikes-modal {
@@ -1080,7 +1090,7 @@ color: var(--orange);
 
 
 /* =====================================================
-   MOTOROK NAGY KÉPE
+MOTOROK NAGY KÉPE
 ===================================================== */
 
 .bike-diagram {
@@ -1132,7 +1142,7 @@ rgba(0,0,0,.11)
 
 
 /* =====================================================
-   FELSŐ SEGÉDSZÖVEG
+FELSŐ SEGÉDSZÖVEG
 ===================================================== */
 
 .bike-click-tip {
@@ -1163,7 +1173,7 @@ rgba(0,0,0,.5);
 
 
 /* =====================================================
-   MOTOROKON LÉVŐ SZÁMOK
+MOTOROKON LÉVŐ SZÁMOK
 ===================================================== */
 
 .bike-hotspot {
@@ -1237,7 +1247,7 @@ stroke-linejoin: round;
 
 
 /* =====================================================
-   MOTOR ADATLAP
+MOTOR ADATLAP
 ===================================================== */
 
 .bike-callout {
@@ -1323,7 +1333,7 @@ cursor: pointer;
 
 
 /* =====================================================
-   MOTOR ADATLAP LAPOZÓ NYILAK
+MOTOR ADATLAP LAPOZÓ NYILAK
 ===================================================== */
 
 .bike-detail-nav {
@@ -1385,7 +1395,7 @@ translateX(2px);
 
 
 /* =====================================================
-   ADATLAP KÉP
+ADATLAP KÉP
 ===================================================== */
 
 .bike-detail-photo {
@@ -1415,7 +1425,7 @@ background: transparent;
 
 
 /* =====================================================
-   ADATLAP INFÓ
+ADATLAP INFÓ
 ===================================================== */
 
 .bike-detail-body {
@@ -1459,7 +1469,7 @@ letter-spacing: -.025em;
 
 
 /* =====================================================
-   MOTOR SPECIFIKÁCIÓK
+MOTOR SPECIFIKÁCIÓK
 ===================================================== */
 
 .bike-specs {
@@ -1601,7 +1611,7 @@ line-height: 1.42;
 
 
 /* =====================================================
-   TABLET
+TABLET
 ===================================================== */
 
 @media (max-width: 980px) {
@@ -1635,7 +1645,7 @@ rgba(255,255,255,.13);
 
 
 /* =====================================================
-   MOBIL
+MOBIL
 ===================================================== */
 
 .mobile-info-panel-close {
@@ -1972,7 +1982,7 @@ grid-column:
 
 
 /* =================================================
-   MOTOROK – MOBILOS LENYÍLÓ PANEL
+MOTOROK – MOBILOS LENYÍLÓ PANEL
 ================================================= */
 
 #bikesButton .bikes-open-symbol {
@@ -2184,7 +2194,7 @@ aspect-ratio: 16 / 10;
 
 
 /* =================================================
-   MOTOROS ABLAK MOBIL
+MOTOROS ABLAK MOBIL
 ================================================= */
 
 .modal-background {
@@ -2263,7 +2273,7 @@ stroke-width: 2.5;
 
 
 /* =================================================
-   MOTOR ADATLAP MOBILON
+MOTOR ADATLAP MOBILON
 ================================================= */
 
 .bike-callout {
@@ -2496,16 +2506,17 @@ font-size: .77rem;
 
 
 /* =====================================================
-   FIX OLDALSÓ KÉPGALÉRIÁK
+FIX OLDALSÓ KÉPGALÉRIÁK
 ===================================================== */
 
 :root {
---side-gallery-gap: 18px;
+--side-gallery-gap: 14px;
+--side-gallery-edge: 10px;
 --side-gallery-width:
 clamp(
-155px,
-calc((100vw - 1180px) / 2 - 34px),
-300px
+105px,
+10vw,
+240px
 );
 }
 
@@ -2521,12 +2532,7 @@ pointer-events: none;
 }
 
 .side-gallery-left {
-left:
-calc(
-(100vw - 1180px) / 2
-- var(--side-gallery-gap)
-- var(--side-gallery-width)
-);
+left: var(--side-gallery-edge);
 grid-template-rows:
 1.06fr
 .96fr
@@ -2534,12 +2540,7 @@ grid-template-rows:
 }
 
 .side-gallery-right {
-right:
-calc(
-(100vw - 1180px) / 2
-- var(--side-gallery-gap)
-- var(--side-gallery-width)
-);
+right: var(--side-gallery-edge);
 grid-template-rows:
 1.08fr
 .96fr
@@ -2615,10 +2616,74 @@ object-position: 50% 52%;
 object-position: 52% 50%;
 }
 
-@media (min-width: 1560px) {
+@media (min-width: 1280px) {
 
 .side-gallery {
 display: grid;
+}
+
+.page-width {
+width:
+min(
+calc(
+100%
+- var(--side-gallery-width)
+- var(--side-gallery-width)
+- var(--side-gallery-gap)
+- var(--side-gallery-gap)
+- var(--side-gallery-edge)
+- var(--side-gallery-edge)
+- 22px
+),
+var(--max-width)
+);
+}
+
+}
+
+@media (min-width: 1560px) {
+
+:root {
+--side-gallery-gap: 18px;
+--side-gallery-edge: 12px;
+--side-gallery-width:
+clamp(
+155px,
+calc((100vw - 1180px) / 2 - 34px),
+300px
+);
+}
+
+.page-width {
+width:
+min(
+calc(100% - 42px),
+var(--max-width)
+);
+}
+
+.side-gallery-left {
+left:
+max(
+var(--side-gallery-edge),
+calc(
+(100vw - 1180px) / 2
+- var(--side-gallery-gap)
+- var(--side-gallery-width)
+)
+);
+}
+
+.side-gallery-right {
+right:
+max(
+var(--side-gallery-edge),
+calc(
+(100vw - 1180px) / 2
+- var(--side-gallery-gap)
+- var(--side-gallery-width)
+)
+);
 }
 
 }
@@ -2649,7 +2714,7 @@ border-radius: 17px;
 
 
 /* =====================================================
-   MOBIL – MOTOR KÉP NAGYÍTÁS
+MOBIL – MOTOR KÉP NAGYÍTÁS
 ===================================================== */
 
 .mobile-bike-photo.is-zoomable {
@@ -2777,7 +2842,7 @@ display: none;
 
 
 <!-- =====================================================
-   FIX OLDALSÓ KÉPGALÉRIÁK
+FIX OLDALSÓ KÉPGALÉRIÁK
 ===================================================== -->
 
 <aside
@@ -2839,7 +2904,7 @@ alt=""
 
 
 <!-- =====================================================
-   FEJLÉC
+FEJLÉC
 ===================================================== -->
 
 <header class="topbar">
@@ -2943,7 +3008,7 @@ A2 2 0 0 1 22 16.92Z
 
 
 <!-- =====================================================
-   HERO
+HERO
 ===================================================== -->
 
 <section
@@ -3147,7 +3212,7 @@ Kapcsolatfelvétel
 
 
 <!-- =================================================
-   MOTOROK – MOBILON OLDALON BELÜL LENYÍLÓ PANEL
+MOTOROK – MOBILOS PANEL
 ================================================= -->
 
 <div
@@ -3233,7 +3298,12 @@ Sur-Ron Ultra Bee
 
 <div class="mobile-bike-spec">
 <span class="mobile-bike-spec-icon">◉</span>
-<span>19” / 18” kerékméret · max. 100 kg</span>
+<span>19” / 18” kerékméret</span>
+</div>
+
+<div class="mobile-bike-spec">
+<span class="mobile-bike-spec-icon">⚖</span>
+<span><strong>Pilóta max. súlya:</strong> 100 kg</span>
 </div>
 
 </div>
@@ -3297,7 +3367,12 @@ Stark VARG MX
 
 <div class="mobile-bike-spec">
 <span class="mobile-bike-spec-icon">◉</span>
-<span>21” / 19” kerékméret · 100+ kg</span>
+<span>21” / 19” kerékméret</span>
+</div>
+
+<div class="mobile-bike-spec">
+<span class="mobile-bike-spec-icon">⚖</span>
+<span><strong>Pilóta súlya:</strong> 100+ kg</span>
 </div>
 
 </div>
@@ -3322,7 +3397,7 @@ Fokozatmentesen szabályozható 0–60 LE között.
 
 
 <!-- =================================================
-   LEHETŐSÉGEK
+LEHETŐSÉGEK
 ================================================= -->
 
 <div
@@ -3405,7 +3480,7 @@ Sportosabb motorozás és gyakorlás
 
 
 <!-- =================================================
-   ÁRAK
+ÁRAK
 ================================================= -->
 
 <div
@@ -3581,7 +3656,7 @@ Vezetett túra esetén
 
 
 <!-- =====================================================
-   TÚRA / PÁLYAHASZNÁLAT
+TÚRA / PÁLYAHASZNÁLAT
 ===================================================== -->
 
 <section class="experiences">
@@ -3764,7 +3839,7 @@ magad és a motorokat.
 
 
 <!-- =====================================================
-   ALSÓ INFÓK
+ALSÓ INFÓK
 ===================================================== -->
 
 <section class="trust">
@@ -3895,7 +3970,7 @@ Minden jog fenntartva.
 
 
 <!-- =====================================================
-   MOTOROK ABLAK
+MOTOROK ABLAK
 ===================================================== -->
 
 <div
@@ -4037,9 +4112,7 @@ id="bikeConnectorPath"
 </svg>
 
 
-<!-- =================================================
-   SUR-RON
-================================================= -->
+<!-- SUR-RON -->
 
 <div
 class="bike-callout"
@@ -4291,9 +4364,7 @@ A teljesítmény
 </div>
 
 
-<!-- =================================================
-   STARK
-================================================= -->
+<!-- STARK -->
 
 <div
 class="bike-callout"
@@ -4364,7 +4435,6 @@ Stark VARG Mx
 <div class="bike-spec-icon">
 ⚡
 </div>
-
 
 <div class="bike-spec-text">
 
@@ -4558,7 +4628,7 @@ motocross élményére vágynak.
 
 
 <!-- =====================================================
-   MOBIL – MOTOR KÉP NAGYÍTÓ
+MOBIL – MOTOR KÉP NAGYÍTÓ
 ===================================================== -->
 
 <div
@@ -4604,7 +4674,7 @@ id="mobileBikeImageTitle"
 
 
 <!-- =====================================================
-   KAPCSOLAT MODAL
+KAPCSOLAT MODAL
 ===================================================== -->
 
 <div
@@ -4709,7 +4779,7 @@ toltodjfelelmennyel@gmail.com
 
 
 /* =====================================================
-   HERO ALCÍM SZÉLESSÉGE
+HERO ALCÍM
 ===================================================== */
 
 function fitHeroSubtitle() {
@@ -4781,7 +4851,7 @@ fitHeroSubtitle
 
 
 /* =====================================================
-   MOBILOS LENYÍLÓ PANELEK
+MOBILOS LENYÍLÓ PANELEK
 ===================================================== */
 
 let mobileLastInfoPanelId = null;
@@ -5461,7 +5531,7 @@ updateMobileInfoPanelTop();
 
 
 /* =====================================================
-   LEHETŐSÉGEK
+LEHETŐSÉGEK
 ===================================================== */
 
 const opportunitiesButton =
@@ -5579,7 +5649,7 @@ jumpToMobileSection(section);
 
 
 /* =====================================================
-   MOBIL LENYÍLÓ PANELEK X GOMBJAI
+MOBIL LENYÍLÓ PANELEK X
 ===================================================== */
 
 document
@@ -5651,7 +5721,7 @@ mobileLastInfoPanelId = null;
 
 
 /* =====================================================
-   TOVÁBBI RÉSZLETEK
+TOVÁBBI RÉSZLETEK
 ===================================================== */
 
 document
@@ -5692,7 +5762,7 @@ button
 
 
 /* =====================================================
-   ÁRAK
+ÁRAK
 ===================================================== */
 
 const priceToggle =
@@ -5742,7 +5812,7 @@ priceToggle
 
 
 /* =====================================================
-   MOTOROK
+MOTOROK
 ===================================================== */
 
 const bikesButton =
@@ -5798,6 +5868,7 @@ const bikeTypeOrder = [
 ];
 
 
+
 function openBikesModal() {
 
 bikesModal
@@ -5826,6 +5897,7 @@ drawBikeGroupConnector();
 );
 
 }
+
 
 
 function getPreferredHotspotForBike(bike) {
@@ -5860,6 +5932,7 @@ return hotspots[2];
 return hotspots[0];
 
 }
+
 
 
 function showBikeDetail(
@@ -5930,6 +6003,7 @@ detail
 }
 
 
+
 function changeBikeDetail(direction) {
 
 if (!selectedBike) {
@@ -5965,6 +6039,7 @@ bikeTypeOrder[nextIndex]
 );
 
 }
+
 
 
 function closeBikeDetail() {
@@ -6013,6 +6088,7 @@ bikeConnectorPath
 }
 
 
+
 function closeBikesModal() {
 
 closeBikeDetail();
@@ -6054,7 +6130,7 @@ bikesButton
 
 
 /* =====================================================
-   MOBIL – MOTOR KÉP NAGYÍTÁS
+MOBIL – MOTOR KÉP NAGYÍTÁS
 ===================================================== */
 
 const mobileBikeImageModal =
@@ -6325,7 +6401,7 @@ closeBikesModal
 
 
 /* =====================================================
-   MOTOR SZÁMOK
+MOTOR SZÁMOK
 ===================================================== */
 
 document
@@ -6375,7 +6451,7 @@ hotspot
 
 
 /* =====================================================
-   MOTOR ADATLAP LAPOZÁS
+MOTOR ADATLAP LAPOZÁS
 ===================================================== */
 
 document
@@ -6421,7 +6497,7 @@ direction
 
 
 /* =====================================================
-   ADATLAP BEZÁRÁSA
+ADATLAP BEZÁRÁSA
 ===================================================== */
 
 document
@@ -6480,7 +6556,7 @@ closeBikeDetail();
 
 
 /* =====================================================
-   1-2-3-4 NARANCSSÁRGA VONAL
+1-2-3-4 NARANCSSÁRGA VONAL
 ===================================================== */
 
 function drawBikeGroupConnector() {
@@ -6579,7 +6655,7 @@ drawBikeGroupConnector();
 
 
 /* =====================================================
-   KAPCSOLAT
+KAPCSOLAT
 ===================================================== */
 
 const contactModal =
@@ -6724,7 +6800,7 @@ closeContactModal();
 
 
 /* =====================================================
-   ESC
+ESC
 ===================================================== */
 
 document.addEventListener(
