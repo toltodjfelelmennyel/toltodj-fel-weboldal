@@ -12,12 +12,10 @@ name="description"
 content="Hagyd magad mögött a hétköznapok fáradalmait, emeld maximumra az adrenalinszinted, és töltődj fel felejthetetlen élményekkel!"
 >
 <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon.png">
-
 <link
 rel="canonical"
 href="https://www.toltodjfelelmennyel.hu/"
 >
-
 <meta property="og:locale" content="hu_HU">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Töltődj fel élménnyel">
@@ -42,7 +40,6 @@ content="https://www.toltodjfelelmennyel.hu/images/facebook-megosztas.jpg"
 property="og:image:alt"
 content="Töltődj fel élménnyel – elektromos motor bérlés"
 >
-
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Töltődj fel élménnyel">
 <meta
@@ -138,7 +135,9 @@ stroke-linejoin: round;
 }
 
 
-/* FEJLÉC */
+/* =====================================================
+FEJLÉC
+===================================================== */
 
 .topbar {
 padding: 20px 0 16px;
@@ -146,14 +145,47 @@ padding: 20px 0 16px;
 
 .header-box {
 min-height: 120px;
+display: grid;
+grid-template-columns: minmax(92px, 126px) minmax(0, 1fr) minmax(92px, 126px);
+align-items: center;
+gap: 24px;
+padding: 14px 18px;
+border: 1px solid var(--border);
+border-radius: 15px;
+background: rgba(5,5,5,.96);
+}
+
+.header-center {
+min-width: 0;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-padding: 18px 25px;
-border: 1px solid var(--border);
-border-radius: 15px;
-background: rgba(5,5,5,.96);
+}
+
+.header-side-image {
+width: 100%;
+height: 96px;
+overflow: hidden;
+border: 1px solid rgba(255,121,0,.46);
+border-radius: 12px;
+background: #050505;
+box-shadow: 0 8px 24px rgba(0,0,0,.32);
+}
+
+.header-side-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center;
+}
+
+.header-side-image-left img {
+object-position: 52% 50%;
+}
+
+.header-side-image-right img {
+object-position: 50% 50%;
 }
 
 .brand {
@@ -172,6 +204,8 @@ height: 30px;
 }
 
 .header-contacts {
+width: 100%;
+min-width: 0;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -179,6 +213,8 @@ gap: 24px;
 }
 
 .header-contact {
+min-width: 0;
+max-width: 100%;
 display: inline-flex;
 align-items: center;
 gap: 10px;
@@ -206,7 +242,9 @@ background: rgba(255,255,255,.18);
 }
 
 
-/* HERO */
+/* =====================================================
+HERO
+===================================================== */
 
 .hero {
 padding-bottom: 28px;
@@ -251,9 +289,18 @@ width: 57%;
 max-width: 650px;
 }
 
+
+/* =====================================================
+HERO CÍM
+===================================================== */
+
 .hero-title {
 margin-bottom: 25px;
-font-size: clamp(3.5rem,7vw,6.6rem);
+font-size: clamp(
+3.5rem,
+7vw,
+6.6rem
+);
 font-style: italic;
 font-weight: 900;
 line-height: .86;
@@ -305,14 +352,24 @@ text-shadow: 0 2px 8px #000;
 max-width: 555px;
 margin-bottom: 34px;
 color: #f1f1f1;
-font-size: clamp(1rem,1.45vw,1.22rem);
+font-size: clamp(
+1rem,
+1.45vw,
+1.22rem
+);
 text-shadow: 0 2px 6px #000;
 }
+
+
+/* =====================================================
+KIEMELT INFORMÁCIÓK
+===================================================== */
 
 .hero-features {
 width: 100%;
 display: grid;
-grid-template-columns: 1fr 1.45fr 1fr;
+grid-template-columns:
+1fr 1.45fr 1fr;
 margin-bottom: 27px;
 background:
 linear-gradient(
@@ -339,7 +396,9 @@ text-shadow:
 }
 
 .feature + .feature {
-border-left: 1px solid rgba(255,255,255,.27);
+border-left:
+1px solid
+rgba(255,255,255,.27);
 }
 
 .feature .icon {
@@ -347,6 +406,11 @@ width: 29px;
 height: 29px;
 flex: 0 0 29px;
 }
+
+
+/* =====================================================
+INFO A GOMBOK FÖLÖTT
+===================================================== */
 
 .hero-info-hint {
 display: flex;
@@ -366,11 +430,14 @@ font-size: 1.45rem;
 }
 
 
-/* FŐ GOMBOK */
+/* =====================================================
+FŐ GOMBOK
+===================================================== */
 
 .hero-buttons {
 display: grid;
-grid-template-columns: repeat(4,minmax(0,1fr));
+grid-template-columns:
+repeat(4,minmax(0,1fr));
 gap: 14px;
 }
 
@@ -396,12 +463,14 @@ background .2s ease;
 
 .main-button:hover {
 transform: translateY(-2px);
-background: rgba(255,121,0,.10);
+background:
+rgba(255,121,0,.10);
 }
 
 .main-button.contact {
 color: #fff;
-border-color: rgba(255,255,255,.08);
+border-color:
+rgba(255,255,255,.08);
 background:
 linear-gradient(
 180deg,
@@ -409,7 +478,8 @@ linear-gradient(
 #ff6400
 );
 box-shadow:
-0 10px 28px rgba(255,121,0,.28);
+0 10px 28px
+rgba(255,121,0,.28);
 }
 
 .button-arrow {
@@ -417,7 +487,8 @@ color: var(--orange);
 transition: transform .3s ease;
 }
 
-.main-button.open .button-arrow {
+.main-button.open
+.button-arrow {
 transform: rotate(180deg);
 }
 
@@ -427,7 +498,9 @@ font-size: 1.2rem;
 }
 
 
-/* LEHETŐSÉGEK */
+/* =====================================================
+LEHETŐSÉGEK
+===================================================== */
 
 .opportunities-panel {
 display: grid;
@@ -452,7 +525,9 @@ overflow: hidden;
 
 .opportunities-list {
 padding: 8px;
-border: 1px solid rgba(255,121,0,.58);
+border:
+1px solid
+rgba(255,121,0,.58);
 border-radius: 13px;
 background:
 radial-gradient(
@@ -482,11 +557,15 @@ cursor: pointer;
 
 .opportunity-option:hover {
 color: var(--orange-light);
-background: rgba(255,121,0,.12);
+background:
+rgba(255,121,0,.12);
 }
 
-.opportunity-option + .opportunity-option {
-border-top: 1px solid rgba(255,255,255,.08);
+.opportunity-option +
+.opportunity-option {
+border-top:
+1px solid
+rgba(255,255,255,.08);
 }
 
 .opportunity-icon {
@@ -496,10 +575,13 @@ flex: 0 0 30px;
 display: flex;
 align-items: center;
 justify-content: center;
-border: 1px solid rgba(255,121,0,.4);
+border:
+1px solid
+rgba(255,121,0,.4);
 border-radius: 8px;
 color: var(--orange);
-background: rgba(255,121,0,.07);
+background:
+rgba(255,121,0,.07);
 }
 
 .opportunity-text {
@@ -514,14 +596,18 @@ font-weight: 400;
 }
 
 
-/* MOBIL MOTOR PANEL */
+/* =====================================================
+MOTOROK – MOBILOS PANEL
+===================================================== */
 
 .mobile-bikes-wrapper {
 display: none;
 }
 
 
-/* ÁRAK */
+/* =====================================================
+ÁRAK
+===================================================== */
 
 .price-wrapper {
 display: grid;
@@ -545,7 +631,9 @@ overflow: hidden;
 
 .price-panel {
 padding: 24px;
-border: 1px solid rgba(255,121,0,.58);
+border:
+1px solid
+rgba(255,121,0,.58);
 border-radius: 15px;
 background:
 radial-gradient(
@@ -579,18 +667,25 @@ gap: 9px;
 
 .price-row {
 display: grid;
-grid-template-columns: minmax(0,1fr) auto;
+grid-template-columns:
+minmax(0,1fr)
+auto;
 gap: 18px;
 align-items: center;
 padding: 14px 15px;
-border: 1px solid rgba(255,255,255,.10);
+border:
+1px solid
+rgba(255,255,255,.10);
 border-radius: 10px;
-background: rgba(255,255,255,.035);
+background:
+rgba(255,255,255,.035);
 }
 
 .price-row.highlight {
-border-color: rgba(255,121,0,.58);
-background: rgba(255,121,0,.08);
+border-color:
+rgba(255,121,0,.58);
+background:
+rgba(255,121,0,.08);
 }
 
 .price-name {
@@ -614,17 +709,21 @@ white-space: nowrap;
 width: fit-content;
 margin-top: 4px;
 padding: 3px 8px;
-border: 1px solid rgba(255,121,0,.52);
+border:
+1px solid
+rgba(255,121,0,.52);
 border-radius: 999px;
 color: var(--orange-light);
-background: rgba(255,121,0,.10);
+background:
+rgba(255,121,0,.10);
 font-size: .68rem;
 font-weight: 700;
 }
 
 .price-footer {
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns:
+1fr 1fr;
 gap: 10px;
 margin-top: 16px;
 }
@@ -634,7 +733,8 @@ display: flex;
 gap: 10px;
 padding: 13px 14px;
 border-radius: 10px;
-background: rgba(255,255,255,.045);
+background:
+rgba(255,255,255,.045);
 color: #d5d5d5;
 font-size: .82rem;
 }
@@ -648,7 +748,9 @@ text-align: center;
 }
 
 
-/* TÚRA / PÁLYA */
+/* =====================================================
+PÁLYA / TÚRA
+===================================================== */
 
 .experiences {
 padding: 2px 0 30px;
@@ -656,7 +758,8 @@ padding: 2px 0 30px;
 
 .experience-row {
 display: grid;
-grid-template-columns: 1.12fr .88fr;
+grid-template-columns:
+1.12fr .88fr;
 align-items: center;
 gap: 46px;
 margin-bottom: 48px;
@@ -664,21 +767,26 @@ scroll-margin-top: 25px;
 }
 
 .experience-row.reverse {
-grid-template-columns: .88fr 1.12fr;
+grid-template-columns:
+.88fr 1.12fr;
 }
 
-.experience-row.reverse .experience-image {
+.experience-row.reverse
+.experience-image {
 order: 2;
 }
 
-.experience-row.reverse .experience-text {
+.experience-row.reverse
+.experience-text {
 order: 1;
 }
 
 .experience-image {
 overflow: hidden;
 border-radius: 18px;
-border: 1px solid rgba(255,255,255,.08);
+border:
+1px solid
+rgba(255,255,255,.08);
 }
 
 .experience-image img {
@@ -689,7 +797,11 @@ object-fit: cover;
 .experience-text h2 {
 margin-bottom: 12px;
 color: #fff;
-font-size: clamp(2rem,3.55vw,3.2rem);
+font-size: clamp(
+2rem,
+3.55vw,
+3.2rem
+);
 line-height: 1.05;
 letter-spacing: -.04em;
 }
@@ -720,9 +832,12 @@ display: inline-flex;
 align-items: center;
 gap: 9px;
 padding: 11px 16px;
-border: 1px solid rgba(255,121,0,.65);
+border:
+1px solid
+rgba(255,121,0,.65);
 border-radius: 9px;
-background: rgba(255,121,0,.06);
+background:
+rgba(255,121,0,.06);
 color: var(--orange-light);
 font-size: .89rem;
 font-weight: 700;
@@ -733,7 +848,8 @@ cursor: pointer;
 transition: transform .3s ease;
 }
 
-.extra-toggle.open .toggle-arrow {
+.extra-toggle.open
+.toggle-arrow {
 transform: rotate(180deg);
 }
 
@@ -760,9 +876,12 @@ overflow: hidden;
 .experience-extra-card {
 max-width: 500px;
 padding: 18px 19px;
-border: 1px solid rgba(255,121,0,.42);
+border:
+1px solid
+rgba(255,121,0,.42);
 border-radius: 12px;
-background: rgba(255,255,255,.035);
+background:
+rgba(255,255,255,.035);
 }
 
 .experience-extra-title {
@@ -773,7 +892,8 @@ color: #fff;
 font-weight: 800;
 }
 
-.experience-extra-title span:first-child {
+.experience-extra-title
+span:first-child {
 color: var(--orange);
 }
 
@@ -784,7 +904,9 @@ line-height: 1.55;
 }
 
 
-/* ALSÓ INFORMÁCIÓ */
+/* =====================================================
+ALSÓ INFORMÁCIÓ
+===================================================== */
 
 .trust {
 padding-bottom: 18px;
@@ -792,7 +914,8 @@ padding-bottom: 18px;
 
 .trust-box {
 display: grid;
-grid-template-columns: repeat(3,1fr);
+grid-template-columns:
+repeat(3,1fr);
 overflow: hidden;
 border: 1px solid var(--border);
 border-radius: 14px;
@@ -807,8 +930,11 @@ gap: 17px;
 padding: 23px 27px;
 }
 
-.trust-item + .trust-item {
-border-left: 1px solid rgba(255,255,255,.13);
+.trust-item +
+.trust-item {
+border-left:
+1px solid
+rgba(255,255,255,.13);
 }
 
 .trust-icon {
@@ -843,7 +969,9 @@ text-align: center;
 }
 
 
-/* MODALOK */
+/* =====================================================
+MODAL
+===================================================== */
 
 .modal-background {
 position: fixed;
@@ -853,8 +981,10 @@ display: none;
 align-items: center;
 justify-content: center;
 padding: 12px;
-background: rgba(0,0,0,.94);
-backdrop-filter: blur(9px);
+background:
+rgba(0,0,0,.94);
+backdrop-filter:
+blur(9px);
 }
 
 .modal-background.open {
@@ -870,17 +1000,25 @@ width: 40px;
 height: 40px;
 border: 0;
 border-radius: 50%;
-background: rgba(0,0,0,.82);
+background:
+rgba(0,0,0,.82);
 color: #fff;
 font-size: 1.45rem;
 cursor: pointer;
 }
 
+
+/* =====================================================
+KAPCSOLAT MODAL
+===================================================== */
+
 .modal {
 position: relative;
 width: min(100%,445px);
 padding: 36px;
-border: 1px solid rgba(255,121,0,.55);
+border:
+1px solid
+rgba(255,121,0,.55);
 border-radius: 20px;
 background: #0b0b0d;
 text-align: center;
@@ -905,9 +1043,12 @@ min-height: 63px;
 display: flex;
 align-items: center;
 padding: 13px 18px;
-border: 1px solid rgba(255,121,0,.48);
+border:
+1px solid
+rgba(255,121,0,.48);
 border-radius: 12px;
-background: rgba(255,255,255,.035);
+background:
+rgba(255,255,255,.035);
 text-align: left;
 }
 
@@ -931,24 +1072,36 @@ font-size: .84rem;
 }
 
 
-/* MOTOROK MODAL */
+/* =====================================================
+MOTOROK TELJES ABLAK
+===================================================== */
 
 .bikes-modal {
 position: relative;
-width: min(calc(100vw - 40px),1500px);
-max-height: calc(100dvh - 40px);
+width:
+min(
+calc(100vw - 40px),
+1500px
+);
+max-height:
+calc(100dvh - 40px);
 display: flex;
 flex-direction: column;
 padding: 18px 20px 20px;
 overflow: hidden;
-border: 1px solid rgba(255,121,0,.78);
+border:
+1px solid
+rgba(255,121,0,.78);
 border-radius: 22px;
 background: #040404;
-box-shadow: 0 30px 110px rgba(0,0,0,.92);
+box-shadow:
+0 30px 110px
+rgba(0,0,0,.92);
 }
 
 .bikes-modal-header {
-padding: 4px 55px 10px 8px;
+padding:
+4px 55px 10px 8px;
 }
 
 .bikes-modal-title {
@@ -960,9 +1113,15 @@ font-size: 1.7rem;
 font-weight: 800;
 }
 
-.bikes-modal-title span:first-child {
+.bikes-modal-title
+span:first-child {
 color: var(--orange);
 }
+
+
+/* =====================================================
+MOTOROK NAGY KÉPE
+===================================================== */
 
 .bike-diagram {
 position: relative;
@@ -979,6 +1138,7 @@ isolation: isolate;
 
 .bike-main-photo {
 position: relative;
+inset: auto;
 z-index: 1;
 width: 100%;
 overflow: hidden;
@@ -1010,23 +1170,41 @@ rgba(0,0,0,.11)
 );
 }
 
+
+/* =====================================================
+FELSŐ SEGÉDSZÖVEG
+===================================================== */
+
 .bike-click-tip {
 position: absolute;
 left: 50%;
 top: 14px;
 z-index: 40;
-transform: translateX(-50%);
-padding: 10px 19px;
-border: 1px solid rgba(255,121,0,.82);
+transform:
+translateX(-50%);
+padding:
+10px 19px;
+border:
+1px solid
+rgba(255,121,0,.82);
 border-radius: 999px;
-background: rgba(0,0,0,.83);
+background:
+rgba(0,0,0,.83);
 color: #fff;
 font-size: .93rem;
 font-weight: 700;
 white-space: nowrap;
-backdrop-filter: blur(6px);
-box-shadow: 0 8px 25px rgba(0,0,0,.5);
+backdrop-filter:
+blur(6px);
+box-shadow:
+0 8px 25px
+rgba(0,0,0,.5);
 }
+
+
+/* =====================================================
+MOTOROKON LÉVŐ SZÁMOK
+===================================================== */
 
 .bike-hotspot {
 position: absolute;
@@ -1035,13 +1213,17 @@ left: var(--x);
 top: var(--y);
 width: 42px;
 height: 42px;
-transform: translate(-50%,-50%);
+transform:
+translate(-50%,-50%);
 display: flex;
 align-items: center;
 justify-content: center;
-border: 2px solid var(--orange);
+border:
+2px solid
+var(--orange);
 border-radius: 50%;
-background: rgba(0,0,0,.88);
+background:
+rgba(0,0,0,.88);
 color: #fff;
 font-size: .96rem;
 font-weight: 800;
@@ -1063,7 +1245,9 @@ background: var(--orange);
 box-shadow:
 0 0 0 4px rgba(255,121,0,.16),
 0 0 20px rgba(255,121,0,.55);
-transform: translate(-50%,-50%) scale(1.10);
+transform:
+translate(-50%,-50%)
+scale(1.10);
 }
 
 .bike-connectors {
@@ -1076,7 +1260,11 @@ stroke: var(--orange);
 stroke-width: 4;
 stroke-linecap: round;
 stroke-linejoin: round;
-filter: drop-shadow(0 0 5px rgba(255,121,0,.65));
+filter:
+drop-shadow(
+0 0 5px
+rgba(255,121,0,.65)
+);
 }
 
 #bikeConnectorPath {
@@ -1087,17 +1275,29 @@ stroke-linecap: round;
 stroke-linejoin: round;
 }
 
+
+/* =====================================================
+MOTOR ADATLAP
+===================================================== */
+
 .bike-callout {
 position: absolute;
 left: 50%;
 top: 50%;
 z-index: 70;
-width: min(96%,1420px);
-max-height: calc(100% - 18px);
+width:
+min(
+96%,
+1420px
+);
+max-height:
+calc(100% - 18px);
 opacity: 0;
 visibility: hidden;
 pointer-events: none;
-transform: translate(-50%,-50%) scale(.96);
+transform:
+translate(-50%,-50%)
+scale(.96);
 transition:
 opacity .22s ease,
 transform .22s ease,
@@ -1108,7 +1308,9 @@ visibility .22s ease;
 opacity: 1;
 visibility: visible;
 pointer-events: auto;
-transform: translate(-50%,-50%) scale(1);
+transform:
+translate(-50%,-50%)
+scale(1);
 }
 
 .bike-detail-card {
@@ -1121,7 +1323,9 @@ grid-template-columns:
 minmax(640px,1.18fr)
 minmax(500px,.82fr);
 overflow: hidden;
-border: 2px solid rgba(255,121,0,.90);
+border:
+2px solid
+rgba(255,121,0,.90);
 border-radius: 21px;
 background:
 radial-gradient(
@@ -1134,7 +1338,9 @@ linear-gradient(
 #111,
 #030303 65%
 );
-box-shadow: 0 28px 100px rgba(0,0,0,.95);
+box-shadow:
+0 28px 100px
+rgba(0,0,0,.95);
 }
 
 .bike-detail-close {
@@ -1144,13 +1350,21 @@ right: 11px;
 z-index: 20;
 width: 38px;
 height: 38px;
-border: 1px solid rgba(255,121,0,.85);
+border:
+1px solid
+rgba(255,121,0,.85);
 border-radius: 50%;
-background: rgba(0,0,0,.88);
+background:
+rgba(0,0,0,.88);
 color: #fff;
 font-size: 1.4rem;
 cursor: pointer;
 }
+
+
+/* =====================================================
+MOTOR ADATLAP LAPOZÓ NYILAK
+===================================================== */
 
 .bike-detail-nav {
 position: absolute;
@@ -1162,16 +1376,31 @@ transform: translateY(-50%);
 display: flex;
 align-items: center;
 justify-content: center;
-border: 1px solid rgba(255,121,0,.85);
+border:
+1px solid
+rgba(255,121,0,.85);
 border-radius: 12px;
-background: rgba(0,0,0,.78);
+background:
+rgba(0,0,0,.78);
 color: #fff;
 font-size: 2rem;
 font-weight: 400;
 line-height: 1;
 cursor: pointer;
 backdrop-filter: blur(5px);
-box-shadow: 0 0 20px rgba(0,0,0,.50);
+box-shadow:
+0 0 20px
+rgba(0,0,0,.50);
+transition:
+background .18s ease,
+border-color .18s ease,
+transform .18s ease;
+}
+
+.bike-detail-nav:hover {
+border-color: var(--orange);
+background:
+rgba(255,121,0,.18);
 }
 
 .bike-detail-nav-prev {
@@ -1182,13 +1411,32 @@ left: 12px;
 right: 12px;
 }
 
+.bike-detail-nav-prev:hover {
+transform:
+translateY(-50%)
+translateX(-2px);
+}
+
+.bike-detail-nav-next:hover {
+transform:
+translateY(-50%)
+translateX(2px);
+}
+
+
+/* =====================================================
+ADATLAP KÉP
+===================================================== */
+
 .bike-detail-photo {
 min-height: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
 overflow: hidden;
-border-right: 1px solid rgba(255,121,0,.40);
+border-right:
+1px solid
+rgba(255,121,0,.40);
 background: transparent;
 }
 
@@ -1205,6 +1453,11 @@ margin: 0 auto;
 background: transparent;
 }
 
+
+/* =====================================================
+ADATLAP INFÓ
+===================================================== */
+
 .bike-detail-body {
 min-width: 0;
 display: flex;
@@ -1217,28 +1470,42 @@ padding: 30px 34px;
 width: fit-content;
 margin-bottom: 7px;
 padding: 4px 10px;
-border: 1px solid rgba(255,121,0,.62);
+border:
+1px solid
+rgba(255,121,0,.62);
 border-radius: 999px;
 color: var(--orange-light);
-background: rgba(255,121,0,.09);
+background:
+rgba(255,121,0,.09);
 font-size: .7rem;
 font-weight: 800;
 text-transform: uppercase;
 }
 
 .bike-detail-title {
-max-width: calc(100% - 42px);
+max-width:
+calc(100% - 42px);
 margin-bottom: 17px;
 color: #fff;
-font-size: clamp(1.7rem,2.15vw,2.55rem);
+font-size: clamp(
+1.7rem,
+2.15vw,
+2.55rem
+);
 line-height: 1.08;
 font-weight: 900;
 letter-spacing: -.025em;
 }
 
+
+/* =====================================================
+MOTOR SPECIFIKÁCIÓK
+===================================================== */
+
 .bike-specs {
 display: grid;
-grid-template-columns: repeat(6,minmax(0,1fr));
+grid-template-columns:
+repeat(6,minmax(0,1fr));
 gap: 8px;
 margin-bottom: 18px;
 }
@@ -1250,7 +1517,9 @@ display: flex;
 align-items: center;
 gap: 9px;
 padding: 9px 10px;
-border: 1px solid rgba(255,121,0,.68);
+border:
+1px solid
+rgba(255,121,0,.68);
 border-radius: 11px;
 background:
 linear-gradient(
@@ -1313,7 +1582,11 @@ line-height: 1.18;
 
 .bike-detail-description {
 color: #d5d5d5;
-font-size: clamp(.82rem,1.05vw,.96rem);
+font-size: clamp(
+.82rem,
+1.05vw,
+.96rem
+);
 line-height: 1.52;
 }
 
@@ -1322,7 +1595,54 @@ color: #fff;
 }
 
 
-/* TABLET */
+@media (min-width: 681px) and (max-height: 850px) {
+
+.bikes-modal {
+width: min(calc(100vw - 24px), 1450px);
+max-height: calc(100dvh - 24px);
+}
+
+.bike-callout {
+width: min(96%, 1360px);
+}
+
+.bike-detail-card {
+height: 540px;
+min-height: 540px;
+grid-template-columns:
+minmax(480px,1.02fr)
+minmax(0,.98fr);
+}
+
+.bike-detail-photo img {
+object-fit: contain;
+object-position: center center;
+}
+
+.bike-detail-body {
+padding: 20px 24px;
+}
+
+.bike-detail-title {
+margin-bottom: 12px;
+font-size: clamp(1.65rem, 2.1vw, 2.35rem);
+}
+
+.bike-specs {
+margin-bottom: 12px;
+}
+
+.bike-detail-description {
+font-size: .84rem;
+line-height: 1.42;
+}
+
+}
+
+
+/* =====================================================
+TABLET
+===================================================== */
 
 @media (max-width: 980px) {
 
@@ -1332,8 +1652,10 @@ grid-template-columns: 1fr;
 gap: 24px;
 }
 
-.experience-row.reverse .experience-image,
-.experience-row.reverse .experience-text {
+.experience-row.reverse
+.experience-image,
+.experience-row.reverse
+.experience-text {
 order: initial;
 }
 
@@ -1341,15 +1663,20 @@ order: initial;
 grid-template-columns: 1fr;
 }
 
-.trust-item + .trust-item {
+.trust-item +
+.trust-item {
 border-left: 0;
-border-top: 1px solid rgba(255,255,255,.13);
+border-top:
+1px solid
+rgba(255,255,255,.13);
 }
 
 }
 
 
-/* MOBIL */
+/* =====================================================
+MOBIL
+===================================================== */
 
 .mobile-info-panel-close {
 display: none;
@@ -1358,28 +1685,50 @@ display: none;
 @media (max-width: 680px) {
 
 .page-width {
-width: calc(100% - 24px);
+width:
+calc(100% - 24px);
 }
 
 .topbar {
-padding: 10px 0 14px;
+padding:
+10px 0 14px;
 }
 
 .header-box {
 min-height: auto;
-padding: 14px 14px 16px;
+grid-template-columns: clamp(48px, 15vw, 74px) minmax(0, 1fr) clamp(48px, 15vw, 74px);
+gap: clamp(6px, 2.2vw, 10px);
+padding: 12px 10px;
+}
+
+.header-center {
+min-width: 0;
+}
+
+.header-side-image {
+height: clamp(78px, 22vw, 104px);
+border-radius: 10px;
 }
 
 .brand {
-margin-bottom: 10px;
-font-size: 1rem;
+max-width: 100%;
+margin-bottom: 9px;
+gap: 6px;
+font-size: clamp(.76rem, 3vw, 1rem);
 white-space: nowrap;
+}
+
+.brand .icon {
+width: 24px;
+height: 24px;
+flex-basis: 24px;
 }
 
 .header-contacts {
 width: 100%;
+min-width: 0;
 flex-direction: column;
-gap: 7px;
+gap: 6px;
 }
 
 .header-separator {
@@ -1387,14 +1736,26 @@ display: none;
 }
 
 .header-contact {
-font-size: clamp(.77rem,3.25vw,.9rem);
+max-width: 100%;
+gap: 6px;
+font-size: clamp(.62rem, 2.45vw, .82rem);
 white-space: nowrap;
 }
+
+.header-contact .icon {
+width: 18px;
+height: 18px;
+flex-basis: 18px;
+}
+
+
+/* HERO */
 
 .hero-box {
 min-height: 760px;
 display: block;
-padding: 25px 20px 23px;
+padding:
+25px 20px 23px;
 
 background-image:
 linear-gradient(
@@ -1410,7 +1771,8 @@ rgba(0,0,0,.92) 78%,
 url("images/hero.jpg?v=20260813-2");
 
 background-size: cover;
-background-position: 50% center;
+background-position:
+50% center;
 }
 
 .hero-content {
@@ -1422,8 +1784,30 @@ flex-direction: column;
 }
 
 .hero-title {
-margin: 0 0 13px;
-font-size: clamp(2.35rem,11vw,3.25rem);
+margin:
+0 0 16px;
+font-size:
+clamp(
+2.35rem,
+11vw,
+3.25rem
+);
+}
+
+.hero-title-stack {
+padding-bottom: 0;
+}
+
+.hero-subtitle {
+position: static;
+display: block;
+width: 100%;
+max-width: 100%;
+margin-top: .12em;
+font-size: clamp(1.08rem, 6.15vw, 1.85rem) !important;
+line-height: 1.08;
+white-space: nowrap;
+text-align: left;
 }
 
 .hero-description {
@@ -1434,24 +1818,31 @@ font-size: .94rem;
 .hero-features {
 margin-top: auto;
 margin-bottom: 16px;
-padding: 0 18px;
+padding:
+0 18px;
 grid-template-columns: 1fr;
 }
 
 .feature {
 min-height: 54px;
-justify-content: flex-start;
-padding: 11px 5px;
+justify-content:
+flex-start;
+padding:
+11px 5px;
 font-size: .91rem;
 }
 
-.feature + .feature {
+.feature +
+.feature {
 border-left: 0;
-border-top: 1px solid rgba(255,121,0,.42);
+border-top:
+1px solid
+rgba(255,121,0,.42);
 }
 
 .hero-info-hint {
-justify-content: flex-start;
+justify-content:
+flex-start;
 font-size: .82rem;
 text-align: left;
 }
@@ -1469,6 +1860,22 @@ overflow-x: hidden !important;
 overscroll-behavior-x: none;
 }
 
+@supports (overflow: clip) {
+html,
+body {
+overflow-x: clip !important;
+}
+}
+
+.page-width,
+.hero,
+.hero-box,
+.content-section,
+.trust-bar,
+footer {
+max-width: 100%;
+}
+
 .mobile-info-menu-anchor {
 display: block;
 width: 100%;
@@ -1477,18 +1884,26 @@ pointer-events: none;
 }
 
 .hero-buttons {
-grid-template-columns: 1fr 1fr;
+grid-template-columns:
+1fr 1fr;
 gap: 8px;
 position: relative;
+top: auto;
 z-index: 520;
 width: 100%;
 max-width: 100%;
 padding: 8px;
-border: 1px solid rgba(255,121,0,.42);
+border:
+1px solid
+rgba(255,121,0,.42);
 border-radius: 13px;
-background: rgba(2,2,2,.96);
-backdrop-filter: blur(12px);
-box-shadow: 0 9px 28px rgba(0,0,0,.48);
+background:
+rgba(2,2,2,.96);
+backdrop-filter:
+blur(12px);
+box-shadow:
+0 9px 28px
+rgba(0,0,0,.48);
 }
 
 .hero-buttons.mobile-fixed {
@@ -1512,6 +1927,7 @@ position: fixed;
 left: 8px;
 right: 8px;
 top: var(--mobile-info-panel-top, 210px);
+bottom: auto;
 width: auto;
 max-width: none;
 max-height:
@@ -1532,7 +1948,20 @@ overscroll-behavior: contain;
 z-index: 1580;
 border-radius: 15px;
 background: rgba(0,0,0,.985);
-box-shadow: 0 16px 45px rgba(0,0,0,.68);
+box-shadow:
+0 16px 45px rgba(0,0,0,.68);
+}
+
+body.mobile-info-header-active
+#opportunitiesPanel.open
+.opportunities-overflow,
+body.mobile-info-header-active
+#mobileBikesPanel.open
+.mobile-bikes-overflow,
+body.mobile-info-header-active
+#pricePanel.open
+.price-overflow {
+overflow: visible;
 }
 
 html.mobile-info-scroll-locked,
@@ -1546,6 +1975,18 @@ position: fixed !important;
 left: 0;
 right: 0;
 width: 100%;
+}
+
+body.mobile-info-panel-open
+.hero-buttons {
+position: fixed;
+top: calc(env(safe-area-inset-top, 0px) + 6px);
+left: 8px;
+right: 8px;
+width: auto;
+max-width: none;
+margin: 0;
+z-index: 1600;
 }
 
 .mobile-info-panel-close {
@@ -1574,7 +2015,12 @@ border-radius: 50%;
 background: rgba(7,7,7,.94);
 color: #fff;
 font-size: 1.55rem;
+line-height: 1;
+cursor: pointer;
 z-index: 1650;
+box-shadow:
+0 8px 24px rgba(0,0,0,.45),
+0 0 0 3px rgba(255,121,0,.06);
 }
 
 body.mobile-info-header-active
@@ -1584,6 +2030,14 @@ body.mobile-info-header-active
 body.mobile-info-header-active
 #pricePanel.open {
 padding-top: 56px;
+touch-action: pan-y;
+}
+
+body.mobile-info-header-active
+#opportunitiesPanel.open {
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 10px;
 }
 
 .main-button {
@@ -1592,8 +2046,14 @@ font-size: .81rem;
 }
 
 .main-button.contact {
-grid-column: 1 / -1;
+grid-column:
+1 / -1;
 }
+
+
+/* =================================================
+MOTOROK – MOBILOS LENYÍLÓ PANEL
+================================================= */
 
 #bikesButton .bikes-open-symbol {
 font-size: 0;
@@ -1631,7 +2091,9 @@ overflow: hidden;
 
 .mobile-bikes-panel {
 padding: 16px 12px 12px;
-border: 1px solid rgba(255,121,0,.58);
+border:
+1px solid
+rgba(255,121,0,.58);
 border-radius: 15px;
 background:
 radial-gradient(
@@ -1674,9 +2136,19 @@ grid-template-columns: 112px minmax(0,1fr);
 gap: 12px;
 align-items: stretch;
 padding: 8px;
-border: 1px solid rgba(255,121,0,.72);
+border:
+1px solid
+rgba(255,121,0,.72);
 border-radius: 12px;
-background: rgba(2,2,2,.94);
+background:
+linear-gradient(
+135deg,
+rgba(255,121,0,.055),
+rgba(255,255,255,.012)
+),
+rgba(2,2,2,.94);
+box-shadow:
+inset 0 0 0 1px rgba(255,255,255,.015);
 }
 
 .mobile-bike-photo {
@@ -1707,12 +2179,15 @@ justify-content: center;
 width: fit-content;
 margin-bottom: 3px;
 padding: 2px 7px;
-border: 1px solid rgba(255,121,0,.58);
+border:
+1px solid
+rgba(255,121,0,.58);
 border-radius: 999px;
 color: var(--orange-light);
 background: rgba(255,121,0,.07);
 font-size: .55rem;
 font-weight: 800;
+text-transform: uppercase;
 }
 
 .mobile-bike-title {
@@ -1720,6 +2195,7 @@ margin-bottom: 6px;
 color: #fff;
 font-size: .98rem;
 font-weight: 800;
+line-height: 1.08;
 }
 
 .mobile-bike-specs {
@@ -1750,6 +2226,9 @@ font-size: .59rem;
 line-height: 1.3;
 }
 
+
+/* ÁRAK */
+
 .price-row {
 grid-template-columns: 1fr;
 }
@@ -1757,6 +2236,9 @@ grid-template-columns: 1fr;
 .price-footer {
 grid-template-columns: 1fr;
 }
+
+
+/* TARTALMI BLOKK */
 
 .experience-row,
 .experience-row.reverse {
@@ -1766,11 +2248,13 @@ gap: 16px;
 margin-bottom: 38px;
 }
 
-.experience-row.reverse .experience-image {
+.experience-row.reverse
+.experience-image {
 order: 1;
 }
 
-.experience-row.reverse .experience-text {
+.experience-row.reverse
+.experience-text {
 order: 2;
 }
 
@@ -1779,7 +2263,9 @@ aspect-ratio: 16 / 10;
 }
 
 
-/* MOBIL MOTOROS ADATLAP */
+/* =================================================
+MOTOROS ABLAK MOBIL
+================================================= */
 
 .modal-background {
 padding: 4px;
@@ -1800,6 +2286,7 @@ border-radius: 15px;
 }
 
 .bikes-modal-header {
+flex: 0 0 auto;
 min-height: 46px;
 padding: 3px 42px 7px 5px;
 display: flex;
@@ -1808,10 +2295,30 @@ align-items: center;
 
 .bikes-modal-title {
 font-size: 1.18rem;
+line-height: 1.1;
 }
 
 .bike-diagram {
 width: 100%;
+flex: 0 0 auto;
+min-height: 0;
+aspect-ratio: auto;
+border-radius: 9px;
+}
+
+.bike-main-photo {
+position: relative;
+width: 100%;
+border-radius: 9px;
+}
+
+.bike-main-photo img {
+width: 100%;
+height: auto;
+transform: none;
+object-fit: initial;
+object-position: center center;
+background: #000;
 }
 
 .bike-click-tip {
@@ -1827,18 +2334,31 @@ text-align: center;
 width: 30px;
 height: 30px;
 font-size: .66rem;
+border-width: 1.5px;
 }
+
+#bikeGroupConnectorPath {
+stroke-width: 2.5;
+}
+
+
+/* =================================================
+MOTOR ADATLAP MOBILON
+================================================= */
 
 .bike-callout {
 position: fixed;
 left: 6px;
 right: 6px;
 top: 53%;
+bottom: auto;
 width: auto;
+height: auto;
 max-height: calc(100dvh - 100px);
 overflow: hidden;
 transform: translateY(-50%);
 z-index: 1200;
+padding-bottom: 6px;
 }
 
 .bike-callout.active {
@@ -1860,15 +2380,22 @@ border-radius: 14px;
 width: 100%;
 height: 100%;
 min-height: 0;
+overflow: hidden;
 border-right: 0;
 border-bottom: 1px solid rgba(255,121,0,.40);
 background: #060606;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .bike-detail-photo img {
 width: 100%;
 height: 100%;
+min-height: 0;
+max-height: none;
 object-fit: contain;
+object-position: center center;
 background: #050505;
 }
 
@@ -1892,10 +2419,13 @@ font-size: 1.08rem;
 }
 
 .bike-detail-nav {
-top: clamp(58px,10dvh,82px);
+top: clamp(58px, 10dvh, 82px);
 width: 31px;
 height: 42px;
+transform: translateY(-50%);
+border-radius: 9px;
 font-size: 1.38rem;
+background: rgba(0,0,0,.72);
 }
 
 .bike-detail-nav-prev {
@@ -1906,19 +2436,29 @@ left: 6px;
 right: 6px;
 }
 
+.bike-detail-nav-prev:hover,
+.bike-detail-nav-next:hover {
+transform: translateY(-50%);
+}
+
 .bike-detail-label {
+flex: 0 0 auto;
 margin-bottom: 3px;
 padding: 2px 7px;
 font-size: .54rem;
+line-height: 1.2;
 }
 
 .bike-detail-title {
+flex: 0 0 auto;
 max-width: calc(100% - 28px);
 margin-bottom: 6px;
-font-size: clamp(.91rem,4vw,1.04rem);
+font-size: clamp(.91rem, 4vw, 1.04rem);
+line-height: 1.05;
 }
 
 .bike-specs {
+flex: 0 0 auto;
 display: grid;
 grid-template-columns: repeat(6,minmax(0,1fr));
 gap: 4px;
@@ -1927,9 +2467,10 @@ margin-bottom: 7px;
 
 .bike-spec {
 grid-column: span 2;
+min-width: 0;
 min-height: 44px;
 gap: 4px;
-padding: 5px;
+padding: 5px 5px;
 border-radius: 8px;
 }
 
@@ -1944,27 +2485,70 @@ flex: 0 0 19px;
 font-size: .82rem;
 }
 
+.bike-spec-icon svg {
+width: 17px;
+height: 17px;
+}
+
+.bike-spec-text {
+min-width: 0;
+}
+
 .bike-spec-label {
-font-size: clamp(.43rem,1.85vw,.53rem);
+font-size: clamp(.43rem, 1.85vw, .53rem);
+line-height: 1.05;
 }
 
 .bike-spec-value {
-font-size: clamp(.55rem,2.25vw,.67rem);
+font-size: clamp(.55rem, 2.25vw, .67rem);
+line-height: 1.08;
 }
 
 .bike-spec-note {
-font-size: clamp(.45rem,1.9vw,.56rem);
+margin-top: 1px;
+font-size: clamp(.45rem, 1.9vw, .56rem);
+line-height: 1.08;
 }
 
 .bike-detail-description {
-font-size: clamp(.57rem,2.35vw,.68rem);
+flex: 0 1 auto;
+margin: 0;
+overflow: hidden;
+font-size: clamp(.57rem, 2.35vw, .68rem);
 line-height: 1.28;
+}
+
+.bike-detail-description strong {
+font-weight: 800;
 }
 
 }
 
 
 @media (max-width: 420px) {
+
+.header-box {
+grid-template-columns: 46px minmax(0, 1fr) 46px;
+gap: 6px;
+padding-left: 8px;
+padding-right: 8px;
+}
+
+.header-side-image {
+height: 76px;
+}
+
+.brand {
+font-size: .74rem;
+}
+
+.header-contact {
+font-size: .60rem;
+}
+
+.hero-subtitle {
+font-size: clamp(1rem, 5.9vw, 1.55rem) !important;
+}
 
 .mobile-bikes-panel {
 padding: 14px 10px 10px;
@@ -1990,7 +2574,8 @@ font-size: .63rem;
 
 .hero-box {
 min-height: 735px;
-padding: 22px 17px 20px;
+padding:
+22px 17px 20px;
 }
 
 .hero-content {
@@ -1998,7 +2583,12 @@ min-height: 693px;
 }
 
 .hero-title {
-font-size: clamp(2.2rem,10.7vw,2.95rem);
+font-size:
+clamp(
+2.2rem,
+10.7vw,
+2.95rem
+);
 }
 
 .main-button {
@@ -2008,12 +2598,19 @@ font-size: .77rem;
 }
 
 
-/* OLDALSÓ KÉPEK */
+/* =====================================================
+FIX OLDALSÓ KÉPGALÉRIÁK
+===================================================== */
 
 :root {
 --side-gallery-gap: 14px;
 --side-gallery-edge: 10px;
---side-gallery-width: clamp(105px,10vw,240px);
+--side-gallery-width:
+clamp(
+105px,
+10vw,
+240px
+);
 }
 
 .side-gallery {
@@ -2029,19 +2626,27 @@ pointer-events: none;
 
 .side-gallery-left {
 left: var(--side-gallery-edge);
-grid-template-rows: 1.06fr .96fr .98fr;
+grid-template-rows:
+1.06fr
+.96fr
+.98fr;
 }
 
 .side-gallery-right {
 right: var(--side-gallery-edge);
-grid-template-rows: 1.08fr .96fr .96fr;
+grid-template-rows:
+1.08fr
+.96fr
+.96fr;
 }
 
 .side-gallery-card {
 position: relative;
 min-height: 0;
 overflow: hidden;
-border: 1px solid rgba(255,121,0,.82);
+border:
+1px solid
+rgba(255,121,0,.82);
 border-radius: 15px;
 background: #050505;
 box-shadow:
@@ -2050,11 +2655,58 @@ box-shadow:
 0 12px 35px rgba(0,0,0,.50);
 }
 
+.side-gallery-card::after {
+content: "";
+position: absolute;
+inset: 0;
+pointer-events: none;
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,.03),
+transparent 68%,
+rgba(0,0,0,.13)
+);
+}
+
 .side-gallery-card img {
 width: 100%;
 height: 100%;
 object-fit: cover;
 object-position: center;
+filter:
+saturate(1.04)
+contrast(1.03);
+}
+
+.side-gallery-left
+.side-gallery-card:nth-child(1) img {
+object-position: 52% 50%;
+}
+
+.side-gallery-left
+.side-gallery-card:nth-child(2) img {
+object-position: 48% 45%;
+}
+
+.side-gallery-left
+.side-gallery-card:nth-child(3) img {
+object-position: 50% 50%;
+}
+
+.side-gallery-right
+.side-gallery-card:nth-child(1) img {
+object-position: 50% 58%;
+}
+
+.side-gallery-right
+.side-gallery-card:nth-child(2) img {
+object-position: 50% 52%;
+}
+
+.side-gallery-right
+.side-gallery-card:nth-child(3) img {
+object-position: 52% 50%;
 }
 
 @media (min-width: 1280px) {
@@ -2096,17 +2748,72 @@ calc((100vw - 1180px) / 2 - 34px),
 }
 
 .page-width {
-width: min(calc(100% - 42px),var(--max-width));
+width:
+min(
+calc(100% - 42px),
+var(--max-width)
+);
+}
+
+.side-gallery-left {
+left:
+max(
+var(--side-gallery-edge),
+calc(
+(100vw - 1180px) / 2
+- var(--side-gallery-gap)
+- var(--side-gallery-width)
+)
+);
+}
+
+.side-gallery-right {
+right:
+max(
+var(--side-gallery-edge),
+calc(
+(100vw - 1180px) / 2
+- var(--side-gallery-gap)
+- var(--side-gallery-width)
+)
+);
+}
+
+}
+
+@media (min-width: 1900px) {
+
+:root {
+--side-gallery-gap: 22px;
+--side-gallery-width:
+clamp(
+240px,
+calc((100vw - 1180px) / 2 - 54px),
+340px
+);
+}
+
+.side-gallery {
+top: 18px;
+bottom: 18px;
+gap: 14px;
+}
+
+.side-gallery-card {
+border-radius: 17px;
 }
 
 }
 
 
-/* MOBIL KÉPNAGYÍTÓ */
+/* =====================================================
+MOBIL – MOTOR KÉP NAGYÍTÁS
+===================================================== */
 
 .mobile-bike-photo.is-zoomable {
 position: relative;
 cursor: zoom-in;
+-webkit-tap-highlight-color: transparent;
 }
 
 .mobile-bike-photo.is-zoomable::after {
@@ -2124,6 +2831,10 @@ border-radius: 50%;
 background: rgba(0,0,0,.80);
 color: #fff;
 font-size: 1.15rem;
+font-weight: 800;
+line-height: 1;
+pointer-events: none;
+box-shadow: 0 5px 16px rgba(0,0,0,.42);
 }
 
 .mobile-bike-image-modal {
@@ -2133,9 +2844,14 @@ inset: 0;
 z-index: 3000;
 align-items: center;
 justify-content: center;
-padding: 18px 14px;
+padding:
+calc(env(safe-area-inset-top, 0px) + 18px)
+14px
+calc(env(safe-area-inset-bottom, 0px) + 18px);
 background: rgba(0,0,0,.96);
 backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+overscroll-behavior: contain;
 }
 
 .mobile-bike-image-modal.open {
@@ -2144,7 +2860,7 @@ display: flex;
 
 .mobile-bike-image-dialog {
 position: relative;
-width: min(100%,760px);
+width: min(100%, 760px);
 max-height: 100%;
 display: flex;
 flex-direction: column;
@@ -2154,7 +2870,11 @@ gap: 10px;
 padding: 54px 10px 12px;
 border: 1px solid rgba(255,121,0,.72);
 border-radius: 16px;
-background: #050505;
+background:
+radial-gradient(circle at top right, rgba(255,121,0,.12), transparent 34%),
+#050505;
+box-shadow: 0 18px 60px rgba(0,0,0,.70);
+overflow: hidden;
 }
 
 .mobile-bike-image-close {
@@ -2171,12 +2891,18 @@ border-radius: 50%;
 background: rgba(7,7,7,.96);
 color: #fff;
 font-size: 1.45rem;
+line-height: 1;
+cursor: pointer;
+z-index: 2;
 }
 
 .mobile-bike-image-modal img {
 width: 100%;
-max-height: calc(100dvh - 130px);
+max-width: 100%;
+max-height:
+calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 130px);
 object-fit: contain;
+object-position: center;
 border-radius: 10px;
 background: #000;
 }
@@ -2185,6 +2911,7 @@ background: #000;
 color: #fff;
 font-size: .92rem;
 font-weight: 800;
+line-height: 1.2;
 text-align: center;
 }
 
@@ -2203,7 +2930,13 @@ display: none;
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+FIX OLDALSÓ KÉPGALÉRIÁK
+===================================================== -->
 
 <aside
 class="side-gallery side-gallery-left"
@@ -2211,15 +2944,24 @@ aria-hidden="true"
 >
 
 <div class="side-gallery-card">
-<img src="images/bal1.jpg?v=20260924-1" alt="">
+<img
+src="images/bal1.jpg?v=20260924-1"
+alt=""
+>
 </div>
 
 <div class="side-gallery-card">
-<img src="images/bal2.jpg?v=20260924-1" alt="">
+<img
+src="images/bal2.jpg?v=20260924-1"
+alt=""
+>
 </div>
 
 <div class="side-gallery-card">
-<img src="images/bal3.jpg?v=20260924-1" alt="">
+<img
+src="images/bal3.jpg?v=20260924-1"
+alt=""
+>
 </div>
 
 </aside>
@@ -2231,25 +2973,51 @@ aria-hidden="true"
 >
 
 <div class="side-gallery-card">
-<img src="images/jobb1.jpg?v=20260924-1" alt="">
+<img
+src="images/jobb1.jpg?v=20260924-1"
+alt=""
+>
 </div>
 
 <div class="side-gallery-card">
-<img src="images/jobb2.jpg?v=20260924-1" alt="">
+<img
+src="images/jobb2.jpg?v=20260924-1"
+alt=""
+>
 </div>
 
 <div class="side-gallery-card">
-<img src="images/jobb3.jpg?v=20260924-1" alt="">
+<img
+src="images/jobb3.jpg?v=20260924-1"
+alt=""
+>
 </div>
 
 </aside>
 
 
+<!-- =====================================================
+FEJLÉC
+===================================================== -->
+
 <header class="topbar">
 
 <div class="page-width header-box">
 
-<a class="brand" href="#kezdolap">
+<div class="header-side-image header-side-image-left" aria-hidden="true">
+<img
+src="images/bal1.jpg?v=20261008-header"
+alt=""
+>
+</div>
+
+
+<div class="header-center">
+
+<a
+class="brand"
+href="#kezdolap"
+>
 
 <span class="icon">
 <svg viewBox="0 0 24 24">
@@ -2275,8 +3043,16 @@ href="mailto:toltodjfelelmennyel@gmail.com"
 
 <span class="icon">
 <svg viewBox="0 0 24 24">
-<rect x="3" y="5" width="18" height="14" rx="2"></rect>
-<path d="m3 7 9 6 9-6"></path>
+<rect
+x="3"
+y="5"
+width="18"
+height="14"
+rx="2"
+></rect>
+<path
+d="m3 7 9 6 9-6"
+></path>
 </svg>
 </span>
 
@@ -2328,10 +3104,25 @@ A2 2 0 0 1 22 16.92Z
 
 </div>
 
+
+<div class="header-side-image header-side-image-right" aria-hidden="true">
+<img
+src="images/bal3.jpg?v=20261008-header"
+alt=""
+>
+</div>
+
+</div>
+
 </header>
 
 
 <main>
+
+
+<!-- =====================================================
+HERO
+===================================================== -->
 
 <section
 class="hero"
@@ -2341,6 +3132,7 @@ id="kezdolap"
 <div class="page-width hero-box">
 
 <div class="hero-content">
+
 
 <h1 class="hero-title">
 
@@ -2386,10 +3178,22 @@ felejthetetlen élményekkel!
 
 <span class="icon">
 <svg viewBox="0 0 24 24">
-<circle cx="6" cy="17" r="3"></circle>
-<circle cx="18" cy="17" r="3"></circle>
-<path d="M6 17h5l2-7h4"></path>
-<path d="m8 10 3 7"></path>
+<circle
+cx="6"
+cy="17"
+r="3"
+></circle>
+<circle
+cx="18"
+cy="17"
+r="3"
+></circle>
+<path
+d="M6 17h5l2-7h4"
+></path>
+<path
+d="m8 10 3 7"
+></path>
 </svg>
 </span>
 
@@ -2420,7 +3224,19 @@ Szabályozható teljesítmény
 <span class="icon">
 <svg viewBox="0 0 24 24">
 <path
-d="m12 2.8 2.85 5.78 6.38.93-4.61 4.49 1.09 6.35L12 17.35l-5.71 3 1.09-6.35-4.61-4.49 6.38-.93L12 2.8Z"
+d="
+m12 2.8
+2.85 5.78
+6.38.93
+-4.61 4.49
+1.09 6.35
+L12 17.35
+l-5.71 3
+1.09-6.35
+-4.61-4.49
+6.38-.93
+L12 2.8Z
+"
 fill="currentColor"
 stroke="none"
 />
@@ -2507,6 +3323,10 @@ Kapcsolatfelvétel
 
 </div>
 
+
+<!-- =================================================
+MOTOROK – MOBILOS PANEL
+================================================= -->
 
 <div
 class="mobile-bikes-wrapper"
@@ -2689,6 +3509,10 @@ Fokozatmentesen szabályozható 0–60 LE között.
 </div>
 
 
+<!-- =================================================
+LEHETŐSÉGEK
+================================================= -->
+
 <div
 class="opportunities-panel"
 id="opportunitiesPanel"
@@ -2767,6 +3591,10 @@ Sportosabb motorozás és gyakorlás
 
 </div>
 
+
+<!-- =================================================
+ÁRAK
+================================================= -->
 
 <div
 class="price-wrapper"
@@ -2940,6 +3768,10 @@ Vezetett túra esetén
 </section>
 
 
+<!-- =====================================================
+TÚRA / PÁLYAHASZNÁLAT
+===================================================== -->
+
 <section class="experiences">
 
 <div class="page-width">
@@ -3037,7 +3869,7 @@ id="palya"
 <div class="experience-image">
 
 <img
-src="images/palya.jpg?v=20260813-2"
+src="images/bal3.jpg?v=20261008-palya"
 alt="Pályahasználat"
 >
 
@@ -3119,6 +3951,10 @@ magad és a motorokat.
 </section>
 
 
+<!-- =====================================================
+ALSÓ INFÓK
+===================================================== -->
+
 <section class="trust">
 
 <div class="page-width trust-box">
@@ -3158,9 +3994,23 @@ a maximális biztonságért.
 <div class="trust-icon">
 
 <svg viewBox="0 0 24 24">
-<path d="M4 14v-3a8 8 0 0 1 16 0v3"></path>
-<rect x="3" y="12" width="4" height="7" rx="2"></rect>
-<rect x="17" y="12" width="4" height="7" rx="2"></rect>
+<path
+d="M4 14v-3a8 8 0 0 1 16 0v3"
+></path>
+<rect
+x="3"
+y="12"
+width="4"
+height="7"
+rx="2"
+></rect>
+<rect
+x="17"
+y="12"
+width="4"
+height="7"
+rx="2"
+></rect>
 </svg>
 
 </div>
@@ -3187,8 +4037,16 @@ kiválasztásában.
 <div class="trust-icon">
 
 <svg viewBox="0 0 24 24">
-<rect x="3" y="5" width="18" height="16" rx="2"></rect>
-<path d="M16 3v4M8 3v4M3 10h18"></path>
+<rect
+x="3"
+y="5"
+width="18"
+height="16"
+rx="2"
+></rect>
+<path
+d="M16 3v4M8 3v4M3 10h18"
+></path>
 </svg>
 
 </div>
@@ -3224,7 +4082,9 @@ Minden jog fenntartva.
 </footer>
 
 
-<!-- MOTOROK ABLAK -->
+<!-- =====================================================
+MOTOROK ABLAK
+===================================================== -->
 
 <div
 class="modal-background"
@@ -3272,7 +4132,11 @@ class="bike-hotspot"
 type="button"
 data-bike="bike234"
 data-group="1234"
-style="--x:15.3%;--y:39.4%;"
+style="
+--x:15.3%;
+--y:39.4%;
+"
+aria-label="1-es motor"
 >
 1
 </button>
@@ -3283,7 +4147,11 @@ class="bike-hotspot"
 type="button"
 data-bike="bike234"
 data-group="1234"
-style="--x:40.1%;--y:39.0%;"
+style="
+--x:40.1%;
+--y:39.0%;
+"
+aria-label="2-es motor"
 >
 2
 </button>
@@ -3294,7 +4162,11 @@ class="bike-hotspot"
 type="button"
 data-bike="bike234"
 data-group="1234"
-style="--x:61.6%;--y:37.4%;"
+style="
+--x:61.6%;
+--y:37.4%;
+"
+aria-label="3-as motor"
 >
 3
 </button>
@@ -3305,7 +4177,11 @@ class="bike-hotspot"
 type="button"
 data-bike="bike234"
 data-group="1234"
-style="--x:76.4%;--y:38.0%;"
+style="
+--x:76.4%;
+--y:38.0%;
+"
+aria-label="4-es motor"
 >
 4
 </button>
@@ -3315,7 +4191,11 @@ style="--x:76.4%;--y:38.0%;"
 class="bike-hotspot"
 type="button"
 data-bike="bike5"
-style="--x:90%;--y:32.8%;"
+style="
+--x:90.0%;
+--y:32.8%;
+"
+aria-label="5-ös motor"
 >
 5
 </button>
@@ -3329,14 +4209,23 @@ Információhoz kattints a motorokon lévő számokra!
 </div>
 
 
-<svg class="bike-connectors">
+<svg
+class="bike-connectors"
+aria-hidden="true"
+>
 
-<path id="bikeGroupConnectorPath"></path>
+<path
+id="bikeGroupConnectorPath"
+></path>
 
-<path id="bikeConnectorPath"></path>
+<path
+id="bikeConnectorPath"
+></path>
 
 </svg>
 
+
+<!-- SUR-RON -->
 
 <div
 class="bike-callout"
@@ -3350,6 +4239,8 @@ data-bike="bike234"
 class="bike-detail-nav bike-detail-nav-prev"
 type="button"
 data-bike-nav="-1"
+aria-label="Előző motortípus"
+title="Előző motortípus"
 >
 ‹
 </button>
@@ -3359,6 +4250,8 @@ data-bike-nav="-1"
 class="bike-detail-nav bike-detail-nav-next"
 type="button"
 data-bike-nav="1"
+aria-label="Következő motortípus"
+title="Következő motortípus"
 >
 ›
 </button>
@@ -3468,8 +4361,30 @@ Tömeg
 <div class="bike-spec">
 
 <div class="bike-spec-icon">
-◉
+
+<svg viewBox="0 0 24 24">
+
+<circle
+cx="12"
+cy="12"
+r="9"
+></circle>
+
+<circle
+cx="12"
+cy="12"
+r="2.2"
+></circle>
+
+<path d="M12 3v6.8"></path>
+<path d="M12 14.2V21"></path>
+<path d="M3 12h6.8"></path>
+<path d="M14.2 12H21"></path>
+
+</svg>
+
 </div>
+
 
 <div class="bike-spec-text">
 
@@ -3489,8 +4404,32 @@ Kerékméret
 <div class="bike-spec">
 
 <div class="bike-spec-icon">
-♟
+
+<svg viewBox="0 0 24 24">
+
+<circle
+cx="12"
+cy="6.5"
+r="3.4"
+></circle>
+
+<path
+d="
+M5.5 21
+v-2.2
+c0-4
+2.8-6.3
+6.5-6.3
+s6.5 2.3
+6.5 6.3
+V21
+"
+></path>
+
+</svg>
+
 </div>
+
 
 <div class="bike-spec-text">
 
@@ -3512,10 +4451,12 @@ Pilóta max. súlya
 
 <p class="bike-detail-description">
 
-Nyomatékos, dinamikus elektromos motor,
+Nyomatékos, dinamikus
+elektromos motor,
 
 <strong>
-felnőtteknek, kezdőknek és tapasztaltabb motorosoknak egyaránt.
+felnőtteknek, kezdőknek és
+tapasztaltabb motorosoknak egyaránt.
 </strong>
 
 A teljesítmény
@@ -3536,6 +4477,8 @@ A teljesítmény
 </div>
 
 
+<!-- STARK -->
+
 <div
 class="bike-callout"
 data-bike="bike5"
@@ -3548,6 +4491,8 @@ data-bike="bike5"
 class="bike-detail-nav bike-detail-nav-prev"
 type="button"
 data-bike-nav="-1"
+aria-label="Előző motortípus"
+title="Előző motortípus"
 >
 ‹
 </button>
@@ -3557,6 +4502,8 @@ data-bike-nav="-1"
 class="bike-detail-nav bike-detail-nav-next"
 type="button"
 data-bike-nav="1"
+aria-label="Következő motortípus"
+title="Következő motortípus"
 >
 ›
 </button>
@@ -3666,8 +4613,30 @@ Tömeg
 <div class="bike-spec">
 
 <div class="bike-spec-icon">
-◉
+
+<svg viewBox="0 0 24 24">
+
+<circle
+cx="12"
+cy="12"
+r="9"
+></circle>
+
+<circle
+cx="12"
+cy="12"
+r="2.2"
+></circle>
+
+<path d="M12 3v6.8"></path>
+<path d="M12 14.2V21"></path>
+<path d="M3 12h6.8"></path>
+<path d="M14.2 12H21"></path>
+
+</svg>
+
 </div>
+
 
 <div class="bike-spec-text">
 
@@ -3687,8 +4656,32 @@ Kerékméret
 <div class="bike-spec">
 
 <div class="bike-spec-icon">
-♟
+
+<svg viewBox="0 0 24 24">
+
+<circle
+cx="12"
+cy="6.5"
+r="3.4"
+></circle>
+
+<path
+d="
+M5.5 21
+v-2.2
+c0-4
+2.8-6.3
+6.5-6.3
+s6.5 2.3
+6.5 6.3
+V21
+"
+></path>
+
+</svg>
+
 </div>
+
 
 <div class="bike-spec-text">
 
@@ -3747,7 +4740,9 @@ motocross élményére vágynak.
 </div>
 
 
-<!-- MOBIL MOTOR KÉP -->
+<!-- =====================================================
+MOBIL – MOTOR KÉP NAGYÍTÓ
+===================================================== -->
 
 <div
 class="mobile-bike-image-modal"
@@ -3757,12 +4752,17 @@ aria-hidden="true"
 
 <div
 class="mobile-bike-image-dialog"
+role="dialog"
+aria-modal="true"
+aria-labelledby="mobileBikeImageTitle"
 >
+
 
 <button
 class="mobile-bike-image-close"
 id="mobileBikeImageClose"
 type="button"
+aria-label="Kép bezárása"
 >
 ×
 </button>
@@ -3786,7 +4786,9 @@ id="mobileBikeImageTitle"
 </div>
 
 
-<!-- KAPCSOLAT -->
+<!-- =====================================================
+KAPCSOLAT MODAL
+===================================================== -->
 
 <div
 class="modal-background"
@@ -3888,7 +4890,10 @@ toltodjfelelmennyel@gmail.com
 
 <script>
 
-/* HERO ALCÍM */
+
+/* =====================================================
+HERO ALCÍM
+===================================================== */
 
 function fitHeroSubtitle() {
 
@@ -3904,24 +4909,45 @@ document.getElementById(
 
 if (!word || !subtitle) return;
 
+
+if (
+window
+.matchMedia(
+"(max-width: 680px)"
+)
+.matches
+) {
+
+subtitle.style.fontSize = "";
+
+return;
+
+}
+
+
 const targetWidth =
 word.getBoundingClientRect().width;
+
 
 const titleFont =
 parseFloat(
 getComputedStyle(word).fontSize
 );
 
+
 let size =
 titleFont * .48;
 
+
 subtitle.style.fontSize =
 size + "px";
+
 
 const currentWidth =
 subtitle
 .getBoundingClientRect()
 .width;
+
 
 if (
 currentWidth > 0 &&
@@ -3939,6 +4965,7 @@ size + "px";
 
 }
 
+
 window.addEventListener(
 "load",
 fitHeroSubtitle
@@ -3950,7 +4977,10 @@ fitHeroSubtitle
 );
 
 
-/* MOBIL PANELEK */
+
+/* =====================================================
+MOBILOS LENYÍLÓ PANELEK
+===================================================== */
 
 let mobileLastInfoPanelId = null;
 
@@ -3973,7 +5003,9 @@ document.createElement(
 );
 
 
-mobileInfoMenuAnchor.classList.add(
+mobileInfoMenuAnchor
+.classList
+.add(
 "mobile-info-menu-anchor"
 );
 
@@ -3983,7 +5015,8 @@ mobileInfoMenu &&
 mobileInfoMenu.parentNode
 ) {
 
-mobileInfoMenu.parentNode.insertBefore(
+mobileInfoMenu.parentNode
+.insertBefore(
 mobileInfoMenuAnchor,
 mobileInfoMenu
 );
@@ -3998,13 +5031,17 @@ if (
 !isMobileBikesView()
 ) return;
 
+
 const rect =
-mobileInfoMenuAnchor.getBoundingClientRect();
+mobileInfoMenuAnchor
+.getBoundingClientRect();
+
 
 const liveScrollY =
 mobileScrollLocked
 ? mobileScrollLockY
 : window.scrollY;
+
 
 mobileInfoMenuStartY =
 rect.top + liveScrollY;
@@ -4016,10 +5053,16 @@ function updateMobileInfoPanelTop() {
 
 if (!mobileInfoMenu) return;
 
-const rect =
-mobileInfoMenu.getBoundingClientRect();
 
-document.documentElement.style.setProperty(
+const rect =
+mobileInfoMenu
+.getBoundingClientRect();
+
+
+document
+.documentElement
+.style
+.setProperty(
 "--mobile-info-panel-top",
 Math.ceil(rect.bottom + 6) + "px"
 );
@@ -4049,24 +5092,37 @@ if (
 mobileScrollLocked
 ) return;
 
+
 mobileScrollLockY =
 window.scrollY;
 
+
 mobileScrollLocked = true;
 
-document.documentElement.classList.add(
+
+document
+.documentElement
+.classList
+.add(
 "mobile-info-scroll-locked"
 );
 
-document.body.classList.add(
+
+document
+.body
+.classList
+.add(
 "mobile-info-scroll-locked",
 "mobile-info-panel-open"
 );
 
+
 document.body.style.top =
 "-" + mobileScrollLockY + "px";
 
+
 updateMobileInfoHeaderState();
+
 
 requestAnimationFrame(
 updateMobileInfoPanelTop
@@ -4079,32 +5135,44 @@ function unlockMobileBackground() {
 
 if (!mobileScrollLocked) return;
 
+
 const restoreY =
 mobileScrollLockY;
 
+
 mobileScrollLocked = false;
 
-document.documentElement.classList.remove(
+
+document
+.documentElement
+.classList
+.remove(
 "mobile-info-scroll-locked"
 );
 
-document.body.classList.remove(
+
+document
+.body
+.classList
+.remove(
 "mobile-info-scroll-locked",
 "mobile-info-panel-open"
 );
 
+
 document.body.style.top = "";
+
 
 window.scrollTo(
 0,
 restoreY
 );
 
+
 requestAnimationFrame(
 () => {
 
 updateMobileInfoHeaderState();
-
 updateMobileInfoPanelTop();
 
 }
@@ -4122,7 +5190,9 @@ hasOpenMobileInfoPanel()
 
 lockMobileBackground();
 
-} else {
+}
+
+else {
 
 unlockMobileBackground();
 
@@ -4138,21 +5208,33 @@ if (
 !mobileInfoMenuAnchor
 ) return;
 
+
 if (!isMobileBikesView()) {
 
-mobileInfoMenu.classList.remove(
+mobileInfoMenu
+.classList
+.remove(
 "mobile-fixed"
 );
 
-document.body.classList.remove(
+
+document
+.body
+.classList
+.remove(
 "mobile-info-header-active"
 );
 
-mobileInfoMenuAnchor.style.height = "0px";
+
+mobileInfoMenuAnchor
+.style
+.height = "0px";
+
 
 return;
 
 }
+
 
 if (mobileInfoMenuStartY === null) {
 
@@ -4160,16 +5242,19 @@ refreshMobileInfoMenuStartY();
 
 }
 
+
 const liveScrollY =
 mobileScrollLocked
 ? mobileScrollLockY
 : window.scrollY;
+
 
 const panelForcesHeader =
 hasOpenMobileInfoPanel() ||
 document.body.classList.contains(
 "mobile-info-panel-open"
 );
+
 
 const shouldFix =
 panelForcesHeader ||
@@ -4179,34 +5264,57 @@ liveScrollY >=
 mobileInfoMenuStartY - 6
 );
 
+
 if (shouldFix) {
 
-mobileInfoMenuAnchor.style.height =
-mobileInfoMenu.offsetHeight + "px";
+mobileInfoMenuAnchor
+.style
+.height =
+mobileInfoMenu.offsetHeight +
+"px";
 
-mobileInfoMenu.classList.add(
+
+mobileInfoMenu
+.classList
+.add(
 "mobile-fixed"
 );
 
-document.body.classList.add(
+
+document
+.body
+.classList
+.add(
 "mobile-info-header-active"
 );
+
 
 requestAnimationFrame(
 updateMobileInfoPanelTop
 );
 
-} else {
+}
 
-mobileInfoMenu.classList.remove(
+else {
+
+mobileInfoMenu
+.classList
+.remove(
 "mobile-fixed"
 );
 
-document.body.classList.remove(
+
+document
+.body
+.classList
+.remove(
 "mobile-info-header-active"
 );
 
-mobileInfoMenuAnchor.style.height = "0px";
+
+mobileInfoMenuAnchor
+.style
+.height = "0px";
 
 }
 
@@ -4221,14 +5329,23 @@ syncLock = true
 
 if (!panel || !button) return;
 
-panel.classList.remove("open");
 
-button.classList.remove("open");
+panel
+.classList
+.remove("open");
 
-button.setAttribute(
+
+button
+.classList
+.remove("open");
+
+
+button
+.setAttribute(
 "aria-expanded",
 "false"
 );
+
 
 if (syncLock) {
 
@@ -4253,10 +5370,12 @@ const pairs = [
 
 ];
 
+
 pairs.forEach(
-([panel,button]) => {
+([panel, button]) => {
 
 if (panel === keepPanel) return;
+
 
 closeMobileInfoPanel(
 panel,
@@ -4277,8 +5396,15 @@ button
 
 if (!panel || !button) return false;
 
+
+const panelId = panel.id;
+
+
 const isOpen =
-panel.classList.contains("open");
+panel
+.classList
+.contains("open");
+
 
 if (isOpen) {
 
@@ -4288,67 +5414,94 @@ button,
 true
 );
 
+
+mobileLastInfoPanelId = null;
+
+
 return false;
 
 }
+
 
 closeOtherMobileInfoPanels(
 panel
 );
 
-panel.classList.add("open");
 
-button.classList.add("open");
+panel
+.classList
+.add("open");
 
-button.setAttribute(
+
+button
+.classList
+.add("open");
+
+
+button
+.setAttribute(
 "aria-expanded",
 "true"
 );
 
+
+mobileLastInfoPanelId = panelId;
+
+
 syncMobileBackgroundLock();
 
+
 updateMobileInfoHeaderState();
+
 
 requestAnimationFrame(
 () => {
 
 updateMobileInfoPanelTop();
 
+
 if (panel.scrollTo) {
 
-panel.scrollTo(0,0);
+panel.scrollTo(0, 0);
 
 }
 
 }
 );
 
+
 return true;
 
 }
+
 
 
 function jumpToMobileSection(section) {
 
 if (!section) return;
 
+
 const target =
 section.querySelector(
 ".experience-image"
 ) || section;
+
 
 requestAnimationFrame(
 () => {
 
 updateMobileInfoHeaderState();
 
+
 requestAnimationFrame(
 () => {
+
 
 const headerHeight =
 mobileInfoMenu
 ? mobileInfoMenu.offsetHeight
 : 0;
+
 
 const targetTop =
 Math.max(
@@ -4359,19 +5512,63 @@ headerHeight -
 8
 );
 
+
 window.scrollTo({
 top: targetTop,
 left: 0,
 behavior: "auto"
 });
 
+
+setTimeout(
+() => {
+
+updateMobileInfoHeaderState();
+
+
+const liveHeaderHeight =
+mobileInfoMenu
+? mobileInfoMenu.offsetHeight
+: 0;
+
+
+const desiredTop =
+liveHeaderHeight + 8;
+
+
+const currentTop =
+target
+.getBoundingClientRect()
+.top;
+
+
+if (
+Math.abs(
+currentTop - desiredTop
+) > 10
+) {
+
+window.scrollBy({
+top:
+currentTop - desiredTop,
+left: 0,
+behavior: "auto"
+});
+
 }
+
+},
+120
 );
 
 }
 );
 
 }
+);
+
+}
+
 
 
 window.addEventListener(
@@ -4401,12 +5598,47 @@ refreshMobileInfoMenuStartY();
 
 }
 
+
 updateMobileInfoHeaderState();
 
 updateMobileInfoPanelTop();
 
 }
 );
+
+
+window.addEventListener(
+"orientationchange",
+() => {
+
+setTimeout(
+() => {
+
+mobileInfoMenuStartY = null;
+
+refreshMobileInfoMenuStartY();
+
+updateMobileInfoHeaderState();
+
+updateMobileInfoPanelTop();
+
+},
+150
+);
+
+}
+);
+
+
+if (window.visualViewport) {
+
+window.visualViewport
+.addEventListener(
+"resize",
+updateMobileInfoPanelTop
+);
+
+}
 
 
 window.addEventListener(
@@ -4425,12 +5657,16 @@ updateMobileInfoPanelTop();
 );
 
 
-/* LEHETŐSÉGEK */
+
+/* =====================================================
+LEHETŐSÉGEK
+===================================================== */
 
 const opportunitiesButton =
 document.getElementById(
 "opportunitiesButton"
 );
+
 
 const opportunitiesPanel =
 document.getElementById(
@@ -4453,21 +5689,23 @@ return;
 
 }
 
-const open =
-opportunitiesPanel.classList.toggle(
-"open"
-);
 
-opportunitiesButton.classList.toggle(
-"open",
-open
-);
+const open =
+opportunitiesPanel
+.classList
+.toggle("open");
+
+
+opportunitiesButton
+.classList
+.toggle("open", open);
 
 }
 );
 
 
-document.querySelectorAll(
+document
+.querySelectorAll(
 ".opportunity-option"
 )
 .forEach(
@@ -4477,23 +5715,40 @@ option.addEventListener(
 "click",
 () => {
 
+
 const section =
 document.getElementById(
 option.dataset.section
 );
+
 
 const extra =
 document.getElementById(
 option.dataset.extra
 );
 
-if (extra) {
 
-extra.classList.add(
-"open"
+const toggle =
+document.querySelector(
+'[data-extra-target="' +
+option.dataset.extra +
+'"]'
 );
 
+
+if (extra) {
+
+extra.classList.add("open");
+
 }
+
+
+if (toggle) {
+
+toggle.classList.add("open");
+
+}
+
 
 closeMobileInfoPanel(
 opportunitiesPanel,
@@ -4501,12 +5756,14 @@ opportunitiesButton,
 true
 );
 
+
+mobileLastInfoPanelId = null;
+
+
 requestAnimationFrame(
 () => {
 
-jumpToMobileSection(
-section
-);
+jumpToMobileSection(section);
 
 }
 );
@@ -4518,61 +5775,61 @@ section
 );
 
 
-/* X GOMBOK */
 
-document.querySelectorAll(
+/* =====================================================
+MOBIL LENYÍLÓ PANELEK X
+===================================================== */
+
+document
+.querySelectorAll(
 "[data-close-mobile-info]"
 )
 .forEach(
 closeButton => {
 
+
 closeButton.addEventListener(
 "click",
 event => {
+
 
 event.preventDefault();
 
 event.stopPropagation();
 
+
 const panelId =
-closeButton.dataset.closeMobileInfo;
+closeButton.dataset
+.closeMobileInfo;
+
 
 const panel =
 document.getElementById(
 panelId
 );
 
+
 let trigger = null;
 
-if (
-panelId ===
-"opportunitiesPanel"
-) {
 
-trigger =
-opportunitiesButton;
+if (panelId === "opportunitiesPanel") {
+
+trigger = opportunitiesButton;
 
 }
 
-else if (
-panelId ===
-"mobileBikesPanel"
-) {
+else if (panelId === "mobileBikesPanel") {
 
-trigger =
-bikesButton;
+trigger = bikesButton;
 
 }
 
-else if (
-panelId ===
-"pricePanel"
-) {
+else if (panelId === "pricePanel") {
 
-trigger =
-priceToggle;
+trigger = priceToggle;
 
 }
+
 
 closeMobileInfoPanel(
 panel,
@@ -4580,53 +5837,67 @@ trigger,
 true
 );
 
-}
-);
+
+mobileLastInfoPanelId = null;
 
 }
 );
 
+}
+);
 
-/* TOVÁBBI RÉSZLETEK */
 
-document.querySelectorAll(
+
+/* =====================================================
+TOVÁBBI RÉSZLETEK
+===================================================== */
+
+document
+.querySelectorAll(
 "[data-extra-target]"
 )
 .forEach(
 button => {
 
+
 button.addEventListener(
 "click",
 () => {
+
 
 const panel =
 document.getElementById(
 button.dataset.extraTarget
 );
 
+
 const open =
-panel.classList.toggle(
-"open"
-);
+panel
+.classList
+.toggle("open");
 
-button.classList.toggle(
-"open",
-open
+
+button
+.classList
+.toggle("open", open);
+
+}
 );
 
 }
 );
 
-}
-);
 
 
-/* ÁRAK */
+/* =====================================================
+ÁRAK
+===================================================== */
 
 const priceToggle =
 document.getElementById(
 "priceToggle"
 );
+
 
 const pricePanel =
 document.getElementById(
@@ -4638,57 +5909,75 @@ priceToggle.addEventListener(
 "click",
 () => {
 
+
 if (isMobileBikesView()) {
+
 
 handleMobileInfoPanel(
 pricePanel,
 priceToggle
 );
 
+
 return;
 
 }
 
-const open =
-pricePanel.classList.toggle(
-"open"
-);
 
-priceToggle.classList.toggle(
-"open",
-open
-);
+const open =
+pricePanel
+.classList
+.toggle("open");
+
+
+priceToggle
+.classList
+.toggle("open", open);
 
 }
 );
 
 
-/* MOTOROK */
+
+/* =====================================================
+MOTOROK
+===================================================== */
 
 const bikesButton =
 document.getElementById(
 "bikesButton"
 );
 
+
 const mobileBikesPanel =
 document.getElementById(
 "mobileBikesPanel"
 );
+
 
 const bikesModal =
 document.getElementById(
 "bikesModal"
 );
 
+
 const bikesModalClose =
 document.getElementById(
 "bikesModalClose"
 );
 
+
 const bikeDiagram =
 document.getElementById(
 "bikeDiagram"
 );
+
+
+const bikeGroupConnectorPath =
+document.getElementById(
+"bikeGroupConnectorPath"
+);
+
 
 const bikeConnectorPath =
 document.getElementById(
@@ -4707,22 +5996,39 @@ const bikeTypeOrder = [
 ];
 
 
+
 function openBikesModal() {
 
-bikesModal.classList.add(
-"open"
+bikesModal
+.classList
+.add("open");
+
+
+document
+.body
+.classList
+.add("modal-open");
+
+
+requestAnimationFrame(
+() => {
+
+requestAnimationFrame(
+() => {
+
+drawBikeGroupConnector();
+
+}
 );
 
-document.body.classList.add(
-"modal-open"
+}
 );
 
 }
 
 
-function getPreferredHotspotForBike(
-bike
-) {
+
+function getPreferredHotspotForBike(bike) {
 
 const hotspots =
 Array.from(
@@ -4733,13 +6039,13 @@ bike +
 )
 );
 
-if (
-hotspots.length === 0
-) {
+
+if (hotspots.length === 0) {
 
 return null;
 
 }
+
 
 if (
 bike === "bike234" &&
@@ -4750,9 +6056,11 @@ return hotspots[2];
 
 }
 
+
 return hotspots[0];
 
 }
+
 
 
 function showBikeDetail(
@@ -4760,47 +6068,53 @@ bike,
 hotspot = null
 ) {
 
-document.querySelectorAll(
+
+document
+.querySelectorAll(
 ".bike-hotspot"
 )
 .forEach(
 item => {
 
-item.classList.remove(
-"active"
-);
+item
+.classList
+.remove("active");
 
 }
 );
 
-document.querySelectorAll(
+
+document
+.querySelectorAll(
 ".bike-callout"
 )
 .forEach(
 item => {
 
-item.classList.remove(
-"active"
-);
+item
+.classList
+.remove("active");
 
 }
 );
+
 
 selectedBike = bike;
 
+
 selectedHotspot =
 hotspot ||
-getPreferredHotspotForBike(
-bike
-);
+getPreferredHotspotForBike(bike);
+
 
 if (selectedHotspot) {
 
-selectedHotspot.classList.add(
-"active"
-);
+selectedHotspot
+.classList
+.add("active");
 
 }
+
 
 const detail =
 document.querySelector(
@@ -4809,32 +6123,44 @@ bike +
 '"]'
 );
 
-detail?.classList.add(
-"active"
-);
+
+detail
+?.classList
+.add("active");
 
 }
 
 
-function changeBikeDetail(
-direction
-) {
 
-if (!selectedBike) return;
+function changeBikeDetail(direction) {
+
+if (!selectedBike) {
+
+return;
+
+}
+
 
 const currentIndex =
-bikeTypeOrder.indexOf(
-selectedBike
-);
+bikeTypeOrder
+.indexOf(selectedBike);
+
+
+if (currentIndex === -1) {
+
+return;
+
+}
+
 
 const nextIndex =
 (
 currentIndex +
 direction +
 bikeTypeOrder.length
-)
-%
+) %
 bikeTypeOrder.length;
+
 
 showBikeDetail(
 bikeTypeOrder[nextIndex]
@@ -4843,39 +6169,46 @@ bikeTypeOrder[nextIndex]
 }
 
 
+
 function closeBikeDetail() {
 
 selectedBike = null;
 
 selectedHotspot = null;
 
-document.querySelectorAll(
+
+document
+.querySelectorAll(
 ".bike-hotspot"
 )
 .forEach(
 hotspot => {
 
-hotspot.classList.remove(
-"active"
-);
+hotspot
+.classList
+.remove("active");
 
 }
 );
 
-document.querySelectorAll(
+
+document
+.querySelectorAll(
 ".bike-callout"
 )
 .forEach(
 detail => {
 
-detail.classList.remove(
-"active"
-);
+detail
+.classList
+.remove("active");
 
 }
 );
 
-bikeConnectorPath.setAttribute(
+
+bikeConnectorPath
+.setAttribute(
 "d",
 ""
 );
@@ -4883,149 +6216,68 @@ bikeConnectorPath.setAttribute(
 }
 
 
+
 function closeBikesModal() {
 
 closeBikeDetail();
 
-bikesModal.classList.remove(
-"open"
-);
 
-document.body.classList.remove(
-"modal-open"
-);
+bikesModal
+.classList
+.remove("open");
+
+
+document
+.body
+.classList
+.remove("modal-open");
 
 }
 
 
 function isMobileBikesView() {
 
-return window.matchMedia(
+return window
+.matchMedia(
 "(max-width: 680px)"
-).matches;
+)
+.matches;
 
 }
 
 
-bikesButton.addEventListener(
-"click",
-() => {
+function toggleMobileBikesPanel() {
 
-if (isMobileBikesView()) {
-
-handleMobileInfoPanel(
+return handleMobileInfoPanel(
 mobileBikesPanel,
 bikesButton
 );
 
-return;
-
 }
 
-openBikesModal();
-
-}
-);
 
 
-bikesModalClose.addEventListener(
-"click",
-closeBikesModal
-);
-
-
-document.querySelectorAll(
-".bike-hotspot"
-)
-.forEach(
-hotspot => {
-
-hotspot.addEventListener(
-"click",
-event => {
-
-event.stopPropagation();
-
-const bike =
-hotspot.dataset.bike;
-
-showBikeDetail(
-bike,
-hotspot
-);
-
-}
-);
-
-}
-);
-
-
-document.querySelectorAll(
-"[data-bike-nav]"
-)
-.forEach(
-button => {
-
-button.addEventListener(
-"click",
-event => {
-
-event.stopPropagation();
-
-const direction =
-Number(
-button.dataset.bikeNav
-);
-
-changeBikeDetail(
-direction
-);
-
-}
-);
-
-}
-);
-
-
-document.querySelectorAll(
-"[data-close-bike-detail]"
-)
-.forEach(
-button => {
-
-button.addEventListener(
-"click",
-event => {
-
-event.stopPropagation();
-
-closeBikeDetail();
-
-}
-);
-
-}
-);
-
-
-/* MOBIL MOTOR KÉP NAGYÍTÁS */
+/* =====================================================
+MOBIL – MOTOR KÉP NAGYÍTÁS
+===================================================== */
 
 const mobileBikeImageModal =
 document.getElementById(
 "mobileBikeImageModal"
 );
 
+
 const mobileBikeImage =
 document.getElementById(
 "mobileBikeImage"
 );
 
+
 const mobileBikeImageTitle =
 document.getElementById(
 "mobileBikeImageTitle"
 );
+
 
 const mobileBikeImageClose =
 document.getElementById(
@@ -5033,38 +6285,59 @@ document.getElementById(
 );
 
 
-function openMobileBikeImage(
-trigger
-) {
+function openMobileBikeImage(trigger) {
 
 if (
 !isMobileBikesView() ||
-!trigger
-) return;
+!trigger ||
+!mobileBikeImageModal ||
+!mobileBikeImage
+) {
+
+return;
+
+}
+
 
 const source =
 trigger.dataset.mobileBikeImage;
+
 
 const title =
 trigger.dataset.mobileBikeTitle ||
 "Bérelhető motor";
 
-const thumbnail =
-trigger.querySelector(
-"img"
-);
 
-mobileBikeImage.src =
-source;
+const thumbnail =
+trigger.querySelector("img");
+
+
+if (!source) return;
+
+
+mobileBikeImage.src = source;
+
 
 mobileBikeImage.alt =
 thumbnail?.alt || title;
 
-mobileBikeImageTitle.textContent =
-title;
 
-mobileBikeImageModal.classList.add(
-"open"
+if (mobileBikeImageTitle) {
+
+mobileBikeImageTitle.textContent = title;
+
+}
+
+
+mobileBikeImageModal
+.classList
+.add("open");
+
+
+mobileBikeImageModal
+.setAttribute(
+"aria-hidden",
+"false"
 );
 
 }
@@ -5072,26 +6345,68 @@ mobileBikeImageModal.classList.add(
 
 function closeMobileBikeImage() {
 
-mobileBikeImageModal.classList.remove(
-"open"
+if (!mobileBikeImageModal) return;
+
+
+mobileBikeImageModal
+.classList
+.remove("open");
+
+
+mobileBikeImageModal
+.setAttribute(
+"aria-hidden",
+"true"
 );
 
 }
 
 
-document.querySelectorAll(
+document
+.querySelectorAll(
 "[data-mobile-bike-image]"
 )
 .forEach(
 trigger => {
 
+
 trigger.addEventListener(
 "click",
-() => {
+event => {
 
-openMobileBikeImage(
-trigger
+
+event.preventDefault();
+
+event.stopPropagation();
+
+
+openMobileBikeImage(trigger);
+
+}
 );
+
+
+trigger.addEventListener(
+"keydown",
+event => {
+
+
+if (
+event.key !== "Enter" &&
+event.key !== " "
+) {
+
+return;
+
+}
+
+
+event.preventDefault();
+
+event.stopPropagation();
+
+
+openMobileBikeImage(trigger);
 
 }
 );
@@ -5100,15 +6415,28 @@ trigger
 );
 
 
-mobileBikeImageClose.addEventListener(
-"click",
-closeMobileBikeImage
-);
-
-
-mobileBikeImageModal.addEventListener(
+mobileBikeImageClose
+?.addEventListener(
 "click",
 event => {
+
+
+event.preventDefault();
+
+event.stopPropagation();
+
+
+closeMobileBikeImage();
+
+}
+);
+
+
+mobileBikeImageModal
+?.addEventListener(
+"click",
+event => {
+
 
 if (
 event.target ===
@@ -5123,27 +6451,364 @@ closeMobileBikeImage();
 );
 
 
-/* KAPCSOLAT */
+
+bikesButton.addEventListener(
+"click",
+() => {
+
+
+if (isMobileBikesView()) {
+
+
+toggleMobileBikesPanel();
+
+
+return;
+
+}
+
+
+openBikesModal();
+
+}
+);
+
+
+
+window.addEventListener(
+"resize",
+() => {
+
+
+if (!isMobileBikesView()) {
+
+
+closeMobileInfoPanel(
+mobileBikesPanel,
+bikesButton,
+false
+);
+
+
+closeMobileInfoPanel(
+opportunitiesPanel,
+opportunitiesButton,
+false
+);
+
+
+closeMobileInfoPanel(
+pricePanel,
+priceToggle,
+false
+);
+
+
+mobileLastInfoPanelId = null;
+
+
+unlockMobileBackground();
+
+}
+
+
+updateMobileInfoHeaderState();
+
+updateMobileInfoPanelTop();
+
+}
+);
+
+
+
+bikesModalClose.addEventListener(
+"click",
+closeBikesModal
+);
+
+
+
+/* =====================================================
+MOTOR SZÁMOK
+===================================================== */
+
+document
+.querySelectorAll(
+".bike-hotspot"
+)
+.forEach(
+hotspot => {
+
+
+hotspot.addEventListener(
+"click",
+event => {
+
+
+event.stopPropagation();
+
+
+const bike =
+hotspot.dataset.bike;
+
+
+if (
+selectedHotspot === hotspot
+) {
+
+
+closeBikeDetail();
+
+
+return;
+
+}
+
+
+showBikeDetail(
+bike,
+hotspot
+);
+
+}
+);
+
+}
+);
+
+
+
+/* =====================================================
+MOTOR ADATLAP LAPOZÁS
+===================================================== */
+
+document
+.querySelectorAll(
+"[data-bike-nav]"
+)
+.forEach(
+button => {
+
+
+button.addEventListener(
+"click",
+event => {
+
+
+event.stopPropagation();
+
+
+const direction =
+Number(
+button.dataset.bikeNav
+);
+
+
+if (
+direction === -1 ||
+direction === 1
+) {
+
+
+changeBikeDetail(
+direction
+);
+
+}
+
+}
+);
+
+}
+);
+
+
+
+/* =====================================================
+ADATLAP BEZÁRÁSA
+===================================================== */
+
+document
+.querySelectorAll(
+"[data-close-bike-detail]"
+)
+.forEach(
+button => {
+
+
+button.addEventListener(
+"click",
+event => {
+
+
+event.stopPropagation();
+
+
+closeBikeDetail();
+
+}
+);
+
+}
+);
+
+
+
+bikeDiagram.addEventListener(
+"click",
+event => {
+
+
+if (!selectedBike) return;
+
+
+if (
+event.target.closest(
+".bike-callout"
+)
+) return;
+
+
+if (
+event.target.closest(
+".bike-hotspot"
+)
+) return;
+
+
+closeBikeDetail();
+
+}
+);
+
+
+
+/* =====================================================
+1-2-3-4 NARANCSSÁRGA VONAL
+===================================================== */
+
+function drawBikeGroupConnector() {
+
+return;
+
+
+const buttons =
+Array.from(
+document.querySelectorAll(
+'.bike-hotspot[data-group="1234"]'
+)
+);
+
+
+if (buttons.length !== 4) return;
+
+
+const parent =
+bikeDiagram
+.getBoundingClientRect();
+
+
+const points =
+buttons.map(
+button => {
+
+
+const rect =
+button.getBoundingClientRect();
+
+
+return {
+
+left: rect.left - parent.left,
+
+right: rect.right - parent.left,
+
+y: rect.top - parent.top + rect.height / 2
+
+};
+
+}
+);
+
+
+let path = "";
+
+
+for (let i = 0; i < points.length - 1; i++) {
+
+
+path +=
+"M " +
+points[i].right +
+" " +
+points[i].y +
+" L " +
+points[i + 1].left +
+" " +
+points[i + 1].y +
+" ";
+
+}
+
+
+bikeGroupConnectorPath
+.setAttribute(
+"d",
+path.trim()
+);
+
+}
+
+
+
+window.addEventListener(
+"resize",
+() => {
+
+
+if (
+bikesModal
+.classList
+.contains("open")
+) {
+
+
+drawBikeGroupConnector();
+
+}
+
+}
+);
+
+
+
+/* =====================================================
+KAPCSOLAT
+===================================================== */
 
 const contactModal =
 document.getElementById(
 "contactModal"
 );
 
+
 const modalClose =
 document.getElementById(
 "modalClose"
 );
+
 
 const modalTitle =
 document.getElementById(
 "modalTitle"
 );
 
+
 const modalText =
 document.getElementById(
 "modalText"
 );
+
 
 const emailOption =
 document.getElementById(
@@ -5151,69 +6816,89 @@ document.getElementById(
 );
 
 
-document.querySelectorAll(
+
+document
+.querySelectorAll(
 "[data-contact]"
 )
 .forEach(
 button => {
 
+
 button.addEventListener(
 "click",
 () => {
+
 
 if (
 button.dataset.contact ===
 "phone"
 ) {
 
+
 modalTitle.textContent =
 "Telefonos kapcsolatfelvétel";
+
 
 modalText.textContent =
 "Válaszd ki, hogy hívni vagy üzenetet írni szeretnél.";
 
+
 emailOption.hidden =
 true;
 
-} else {
+}
+
+else {
+
 
 modalTitle.textContent =
 "Hogyan lépnél kapcsolatba velünk?";
 
+
 modalText.textContent =
 "Válaszd ki a számodra megfelelő lehetőséget.";
+
 
 emailOption.hidden =
 false;
 
 }
 
-contactModal.classList.add(
-"open"
-);
 
-document.body.classList.add(
-"modal-open"
-);
+contactModal
+.classList
+.add("open");
+
+
+document
+.body
+.classList
+.add("modal-open");
 
 }
 );
 
 }
 );
+
 
 
 function closeContactModal() {
 
-contactModal.classList.remove(
-"open"
-);
 
-document.body.classList.remove(
-"modal-open"
-);
+contactModal
+.classList
+.remove("open");
+
+
+document
+.body
+.classList
+.remove("modal-open");
 
 }
+
 
 
 modalClose.addEventListener(
@@ -5222,14 +6907,16 @@ closeContactModal
 );
 
 
+
 contactModal.addEventListener(
 "click",
 event => {
 
+
 if (
-event.target ===
-contactModal
+event.target === contactModal
 ) {
+
 
 closeContactModal();
 
@@ -5239,52 +6926,117 @@ closeContactModal();
 );
 
 
-/* ESC */
+
+/* =====================================================
+ESC
+===================================================== */
 
 document.addEventListener(
 "keydown",
 event => {
 
+
 if (
-event.key === "Escape" &&
-mobileBikeImageModal.classList.contains(
-"open"
-)
+mobileBikeImageModal
+?.classList
+.contains("open") &&
+event.key === "Escape"
 ) {
+
 
 closeMobileBikeImage();
 
+
 return;
 
 }
 
+
 if (
-event.key === "Escape" &&
-bikesModal.classList.contains(
-"open"
-)
+bikesModal
+.classList
+.contains("open") &&
+selectedBike &&
+event.key === "ArrowLeft"
 ) {
 
-if (selectedBike) {
+
+event.preventDefault();
+
+
+changeBikeDetail(-1);
+
+
+return;
+
+}
+
+
+if (
+bikesModal
+.classList
+.contains("open") &&
+selectedBike &&
+event.key === "ArrowRight"
+) {
+
+
+event.preventDefault();
+
+
+changeBikeDetail(1);
+
+
+return;
+
+}
+
+
+if (event.key !== "Escape") {
+
+
+return;
+
+}
+
+
+if (
+bikesModal
+.classList
+.contains("open") &&
+selectedBike
+) {
+
 
 closeBikeDetail();
 
-} else {
-
-closeBikesModal();
-
-}
 
 return;
 
 }
 
+
 if (
-event.key === "Escape" &&
-contactModal.classList.contains(
-"open"
-)
+bikesModal
+.classList
+.contains("open")
 ) {
+
+
+closeBikesModal();
+
+
+return;
+
+}
+
+
+if (
+contactModal
+.classList
+.contains("open")
+) {
+
 
 closeContactModal();
 
@@ -5293,7 +7045,36 @@ closeContactModal();
 }
 );
 
+
+
+document.addEventListener(
+"keydown",
+event => {
+
+
+if (
+event.key === "Escape" &&
+isMobileBikesView() &&
+hasOpenMobileInfoPanel()
+) {
+
+
+closeOtherMobileInfoPanels(null);
+
+
+mobileLastInfoPanelId = null;
+
+
+syncMobileBackgroundLock();
+
+}
+
+}
+);
+
+
 </script>
+
 
 </body>
 </html>
